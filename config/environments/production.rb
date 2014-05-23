@@ -51,6 +51,9 @@ SkepticsSpaAngular::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  #added by tgd
+  config.assets.compile = true
+
   # Enable threaded mode
   # config.threadsafe!
 
