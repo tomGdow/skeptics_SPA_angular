@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f4c1f9f-a12b-4fd1-b016-8f28e4929633" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/angular.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/home/partial3.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/home/partial4.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/home/partial5.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/app.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/app.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/controllers.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial1.html" afterPath="$PROJECT_DIR$/app/views/home/partial1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial2.html" afterPath="$PROJECT_DIR$/app/views/home/partial2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="2f4c1f9f-a12b-4fd1-b016-8f28e4929633" name="Default" comment="" />
     <ignored path="skeptics_SPA_angular.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,8 +46,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5903399" vertical-offset="0" max-vertical-offset="559">
-              <caret line="22" column="21" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.053667262" vertical-offset="0" max-vertical-offset="559">
+              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -845,8 +830,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5903399" vertical-offset="0" max-vertical-offset="559">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.053667262" vertical-offset="0" max-vertical-offset="559">
+          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
           <folding />
         </state>
       </provider>
