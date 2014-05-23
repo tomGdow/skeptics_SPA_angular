@@ -2,6 +2,9 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/index"
   get "home/partial1"
   get "home/partial2"
+  get "home/partial3"
+  get "home/partial4"
+  get "home/partial5"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
