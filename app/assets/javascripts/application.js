@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular
-//= require_tree .
+//= require foundation
+//= require vendor/angular.js
+//= require_tree
+
+
+$(function(){ $(document).foundation(); });

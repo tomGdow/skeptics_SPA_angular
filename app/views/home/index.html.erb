@@ -8,41 +8,44 @@
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Skeptics with Angular</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <%= stylesheet_link_tag "angular", :media => "all" %>
+
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "main", :media => "all" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= csrf_meta_tags %>
 
 </head>
 <body>
 
-<div id="main" ng-app>
-  <nav class="{{active}}">
-    <a href="#/app/view1" ng-click="active='home'" class="home">Home</a>
-    <a href="#view2" ng-click="active='viewtwo'" class="viewtwo">NG Binding</a>
-    <a href="#view3" ng-click="active='viewthree'" class="viewthree">Adrian Example</a>
-    <a href="#view4" ng-click="active='viewfour'" class="viewfour">Bonnie</a>
-    <a href="#view5" ng-click="active='viewfive'" class="viewfive">Shopping Cart</a>
+<div id="main" >
+  <nav class="{{active}}" id ="myid" ng-app ng-controller="MyCtrlNav">
+
+    <a href="#view1" ng-click="navclick('home')" class="home" id ="home">Home</a>
+    <a href="#view2" ng-click="navclick('viewtwo')" class="viewtwo">NG Binding</a>
+    <a href="#view3" ng-click="navclick('viewthree')" class="viewthree">Adrian Example</a>
+    <a href="#view4" ng-click="navclick('viewfour')" class="viewfour">Bonnie</a>
+    <a href="#view5" ng-click= "navclick('viewfive')" class="viewfive">Shopping Cart</a>
+
   </nav>
 </div>
 
 <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+<p class="browsehappy">You are using an <strong>outdated</strong> browser.
+    Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-
-
 <div ng-view></div>
 
-
-
-
 <%= javascript_include_tag "application" %>
+
 </body>
 </html>
 

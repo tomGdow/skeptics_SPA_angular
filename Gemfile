@@ -2,6 +2,26 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.14'
 
+gem 'jquery-rails'
+
+gem 'angularjs-rails'
+
+gem 'annotate'
+gem 'will_paginate'
+gem 'foundation-rails'
+gem 'jquery-ui-rails'
+gem 'devise'
+gem "nokogiri", "~> 1.6.1"
+gem 'faker'
+gem "gravatar_image_tag"
+gem "paperclip", "~> 3.0"
+gem 'angularjs-rails'
+
+
+group :development do
+  gem 'rspec-rails'
+end
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -26,9 +46,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 
-gem 'angularjs-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
