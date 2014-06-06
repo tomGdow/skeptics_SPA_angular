@@ -24,22 +24,32 @@
 </head>
 <body>
 
-<div id="main" >
-  <nav class="{{active}}" id ="myid" ng-app ng-controller="MyCtrlNav">
 
-    <a href="#view1" ng-click="navclick('home')" class="home" id ="home">Home</a>
-    <a href="#view2" ng-click="navclick('viewtwo')" class="viewtwo">NG Binding</a>
-    <a href="#view3" ng-click="navclick('viewthree')" class="viewthree">Adrian Example</a>
-    <a href="#view4" ng-click="navclick('viewfour')" class="viewfour">Bonnie</a>
-    <a href="#view5" ng-click= "navclick('viewfive')" class="viewfive">Shopping Cart</a>
 
-  </nav>
+<div class="row">
+
+
+  <div class="small-12 columns">
+    <div id="main">
+      <nav class="{{active}} " id="myid" ng-app ng-controller="MyCtrlNav">
+
+        <a href="#view1" ng-click="navclick('home')" class="home" id="home">Home</a>
+        <a href="#view2" ng-click="navclick('viewtwo')" class="viewtwo">NG Binding</a>
+        <a href="#view3" ng-click="navclick('viewthree')" class="viewthree">Adrian Example</a>
+        <a href="#view4" ng-click="navclick('viewfour')" class="viewfour">Bonnie</a>
+        <a href="#view5" ng-click="navclick('viewfive')" class="viewfive">Shopping Cart</a>
+
+      </nav>
+    </div>
+  </div>
+
 </div>
+
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser.
     Please <a href="http://browsehappy.com/">upgrade
-    your browser</a> to improve your experience.</p>
+        your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <div ng-view></div>
