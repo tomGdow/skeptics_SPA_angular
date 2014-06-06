@@ -29,7 +29,7 @@ angular.module('myApp.controllers', [])
         $scope.navclick = function(arg) {
             $scope.active = arg;
 
-            var tgd = document.getElementById('home').getAttribute("class");
-            alert(tgd);
+            //var tgd = document.getElementById('home').getAttribute("class");
+            //alert(tgd);
         };
     }]);

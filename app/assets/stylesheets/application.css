@@ -59,7 +59,7 @@ nav{
 nav a{
     display:inline-block;
     padding: 12px 20px;
-    color:#fff !important;
+    color:#fff;
     font-weight:bold;
     font-size:16px;
     text-decoration:none !important;
@@ -80,6 +80,8 @@ nav a{
 
 
 
+
+
 nav.home .home,
 nav.viewtwo .viewtwo,
 nav.viewthree .viewthree,
@@ -88,9 +90,7 @@ nav.viewfive .viewfive{
     background-color:#5597b4;
 }
 
-a:hover{
-    color: red;
-}
+
 
 p{
     font-size:22px;
