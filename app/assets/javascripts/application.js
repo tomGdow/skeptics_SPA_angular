@@ -16,5 +16,3 @@
 //= require vendor/angular.js
 //= require_tree
 
-
-$(function(){ $(document).foundation(); });
