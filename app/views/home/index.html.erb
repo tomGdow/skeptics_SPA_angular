@@ -27,14 +27,10 @@
 </head>
 <body>
 
-
-
 <div class="row">
-
-
-  <div class="small-12 columns">
-    <div id="main">
-      <nav class="{{active}} " id="myid" ng-app ng-controller="MyCtrlNav">
+   <div class="small-12 columns">
+      <div id="main">
+      <nav class="{{active}} " id="myid" ng-app ng-controller="MyCtrlNav" my-draggable>
 
         <a href="#view1" ng-click="navclick('home')" class="home" id="home">Home</a>
         <a href="#view2" ng-click="navclick('viewtwo')" class="viewtwo">NG Binding</a>
@@ -45,21 +41,15 @@
       </nav>
     </div>
   </div>
-
 </div>
-
-
-
-
-
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser.
     Please <a href="http://browsehappy.com/">upgrade
         your browser</a> to improve your experience.</p>
 
-
 <![endif]-->
+
 
 <div ng-view></div>
 

@@ -1,33 +1,35 @@
 
 <div class="row">
-  <div class="small2 columns"></div>
 
-  <div class="small-10 columns"><h2>Natural Skeptics Association</h2></div>
+  <span my-draggable>Drag ME</span>
+
+  <div class="small-10 columns"><h3 id ="mainheading">Natural Skeptics Association</h3></div>
 
 </div>
-
-
-
-
-
 
 
 <div class="row">
 
-  <div class="small-10 columns"><figure id ="marieCurieImg">
+  <div class="small-10 columns">
 
-    <%=
-        link_to image_tag( "marie_curie_75.jpg", alt: "Image of Marie Curie"),
-                "http://www.nobelprize.org/nobel_prizes/physics/laureates/1903/",
-                target: "_blank"
-    %>
+    <div class="flexslider">
+      <ul class="slides">
+        <li>
+          <img src="../assets/Karl_Popper.jpg" />
+        </li>
+        <li>
+          <%=
+              link_to image_tag( "marie_curie_75.jpg", alt: "Image of Marie Curie"),
+                      "http://www.nobelprize.org/nobel_prizes/physics/laureates/1903/",
+                      target: "_blank"
+          %>
+        </li>
 
-    <figcaption>
-      Marie Curie
-    </figcaption>
+      </ul>
+
+    </div>
+  </div>
+    <div class="small-6 large-4 columns">&nbsp;</div>
+  </div>
 
 
-
-  </figure></div>
-  <div class="small-6 large-4 columns">&nbsp;</div>
-</div>
