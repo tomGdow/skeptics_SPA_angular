@@ -13,6 +13,6 @@
 //= require vendor/jquery.flexslider.js
 //= require jquery_ujs
 //= require foundation
-//= require vendor/angular.js
+//= require angular.js
 //= require_tree
 
