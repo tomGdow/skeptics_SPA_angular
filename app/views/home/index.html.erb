@@ -17,11 +17,18 @@
 
 
   <%#= stylesheet_link_tag "application", :media => "all" %>
-  <%= stylesheet_link_tag "foundation", :media => "all" %>
+  <%= stylesheet_link_tag "vendor/foundation.css", :media => "all" %>
   <%= stylesheet_link_tag "flexslider", :media => "screen" %>
+
+  <%= stylesheet_link_tag "vendor/jquery-ui", :media => "screen" %>
+
 
   <%= stylesheet_link_tag "main", :media => "all" %>
   <%= javascript_include_tag "vendor/modernizr" %>
+
+
+
+
   <%= csrf_meta_tags %>
 
 </head>
@@ -53,14 +60,21 @@
 
 <div ng-view></div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../javascripts/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+
+
+
 
 <%= javascript_include_tag "plugins" %>
 <%= javascript_include_tag "application" %>
-<%= javascript_include_tag "jquery.flexslider.js" %>
+<%= javascript_include_tag "vendor/jquery.flexslider" %>
 <%= javascript_include_tag "demo" %>
 <%= javascript_include_tag "main" %>
+
+<%= javascript_include_tag "jquery.js" %>
+<%= javascript_include_tag "vendor/jquery-ui" %>
+
+
+
 
 </body>
 </html>
