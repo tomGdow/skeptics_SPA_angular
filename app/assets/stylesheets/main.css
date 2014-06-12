@@ -175,7 +175,12 @@ p b{
 figcaption {padding-top: 10px;}
 
 
-#marieCurieImg, #mainheading {text-align: center;}
+#mainheading, #myslider {text-align: center;}
+
+.flexslider-container {
+    width: 30%;
+    margin: 10px auto;
+}
 
 #inputdiv {
     text-align: center;

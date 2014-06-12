@@ -3,10 +3,17 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
+angular.module('myApp.controllers', ['angular-flexslider'])
     .controller('MyCtrl1', ['$scope', function($scope) {
 
         $scope.message = 'Hello From Partial One';
+
+
+        $scope.slides = [
+            'assets/marie_curie.jpg',
+            'assets/Karl_Popper_exact.jpg',
+
+        ];
 
     }])
     .controller('MyCtrl2', ['$scope', function($scope) {
