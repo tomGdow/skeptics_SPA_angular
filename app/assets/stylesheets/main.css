@@ -172,15 +172,23 @@ p b{
     font-size:18px;
 }
 
-figcaption {padding-top: 10px;}
 
 
 #mainheading, #myslider {text-align: center;}
 
-.flexslider-container {
-    width: 30%;
-    margin: 10px auto;
-}
+
+.flexFigCaption{
+
+    transition: color 1s ease;
+    color: white;}
+
+.myclass {
+    transition: color 1s ease;
+
+    color:#0078A0;}
+
+.myclass2 { transition: color 5s ease;
+    color:white;}
 
 #inputdiv {
     text-align: center;
@@ -189,7 +197,7 @@ figcaption {padding-top: 10px;}
 #myinput {
 
     display: inline-block;
-    width: 50%;
+    width: 70%;
 }
 
 #scorewrapper {
@@ -209,13 +217,18 @@ figcaption {padding-top: 10px;}
     text-align: center;
 }
 
-ul {
-    list-style: none;
-}
 
-#shoppingcart{text-align: center;
+
+
+
+#shoppingcart{
+    text-align: center;
     display: inline-block;
     }
+
+
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

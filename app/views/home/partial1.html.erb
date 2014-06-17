@@ -1,31 +1,45 @@
-
 <div class="row">
 
-  <span my-draggable>Drag ME</span>
-
-  <div class="small-10 columns"><h3 id ="mainheading">Natural Skeptics Association</h3></div>
-
+  <div class="small-10 columns">
+    <h3 id ="mainheading">Natural Skeptics Association</h3>
+  </div>
 </div>
 
-
 <div class="row">
-
-
-
-
-    <div class="small-10 columns" >
-
-        <flex-slider id = "myslider" slide="s in slides" animation="slide" my-draggable>
+    <div class="small-10 columns">
+      <div>
+        <flex-slider id = "myslider"
+                     slideshow= "{{slideShowQ}}"
+                     slide= "s in slides"
+                     animation="slide"
+                     pause-on-hover ="{{pauseOnHover}}"
+                     pause-on-action ="{{pauseOnAction}}"
+                     my-draggable="true"
+                     direction-nav ="true"
+                     slideshow-speed="{{slideShowSpeed}}"
+                     animation-speed="{{animationSpeed}}"
+                     control-nav="{{controlNav}}"
+                     pause-text = "{{pauseText}}"
+                     play-text  = "{{playText}}"
+                     pause-play="true"
+                     before="before()"
+                     start="start()"
+                     after="after()"
+                     animation-loop="true"
+                     prev-text = ""
+                     next-text  = "" >
         <li>
-        <img ng-src="{{s}}" >
+          <figure>
+           <img ng-src="{{s[0]}}" >
+           <figcaption class ="{{myVar}} flexFigCaption">{{s[1]}}</figcaption>
+          </figure>
         </li>
-        </flex-slider>
+      </flex-slider>
     </div>
+  </div>
 
-
-
-
-    </div>
+  <div di-fade-in>hello</div>
+</div>
 
 
 

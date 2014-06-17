@@ -4,21 +4,31 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['angular-flexslider'])
-    .controller('MyCtrl1', ['$scope', function($scope) {
+    .controller('MyCtrl1', function($scope, $http) {
 
-        $scope.message = 'Hello From Partial One';
-
-
-        $scope.slides = [
-            'assets/marie_curie.jpg',
-            'assets/Karl_Popper_exact.jpg',
-
-        ];
-
-    }])
+ //Flexslider
+        $http.get('flexSlider.json').success(function(data) {
+            $scope.slides = data;
+            });
+        $scope.slideShowQ = true;
+        $scope.slideShowSpeed = 5000;
+        $scope.animationSpeed = 1000;
+        $scope.pauseOnHover = "true";
+        $scope.pauseOnAction = "true";
+        $scope.pauseText="";
+        $scope.playText="";
+        $scope.controlNav="true";
+        $scope.before = function(){
+            $scope.myVar ="myclass";
+            };
+        $scope.after = function(){
+            $scope.myVar ="myclass2"
+        };
+    })
     .controller('MyCtrl2', ['$scope', function($scope) {
 
         $scope.message = 'Hello From Partial Two';
+
 
     }]).controller('MyCtrl3', ['$scope', function($scope) {
         $scope.message = 'Hello From Partial Three';
@@ -98,6 +108,19 @@ angular.module('myApp.controllers', ['angular-flexslider'])
                     onSelect: function (date) {
                         scope.date = date;
                         scope.$apply();
+                    }
+                });
+            }
+        };
+    }).directive('diFadeIn', function () {
+        return {
+            restrict: 'A',
+            link: function (scope, element, attribs) {
+                scope.$watch(attribs.diFadeIn, function (value) {
+                    if (value) {
+                        element.fadeIn();
+                    } else {
+                        element.hide(); // hide immediately; don't fade out
                     }
                 });
             }
