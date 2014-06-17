@@ -27,17 +27,17 @@ angular.module('myApp.controllers', ['angular-flexslider'])
     })
     .controller('MyCtrl2', ['$scope', function($scope) {
 
-        $scope.message = 'Hello From Partial Two';
+        $scope.message = 'Heello From Partial Two';
 
 
     }]).controller('MyCtrl3', ['$scope', function($scope) {
-        $scope.message = 'Hello From Partial Three';
+        $scope.message = 'Heello From Partial Three';
 
     }]).controller('MyCtrl4', ['$scope', function($scope) {
-        $scope.message = 'Hello From Partial Four';
+        $scope.message = 'Heello From Partial Four';
 
     }]).controller('MyCtrl5', ['$scope', function($scope) {
-        $scope.message = 'Hello From Partial Five';
+        $scope.message = 'Heello From Partial Five';
 
     }]).controller('MyCtrlNav', ['$scope', function($scope) {
 
