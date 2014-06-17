@@ -112,17 +112,4 @@ angular.module('myApp.controllers', ['angular-flexslider'])
                 });
             }
         };
-    }).directive('diFadeIn', function () {
-        return {
-            restrict: 'A',
-            link: function (scope, element, attribs) {
-                scope.$watch(attribs.diFadeIn, function (value) {
-                    if (value) {
-                        element.fadeIn();
-                    } else {
-                        element.hide(); // hide immediately; don't fade out
-                    }
-                });
-            }
-        };
     });
