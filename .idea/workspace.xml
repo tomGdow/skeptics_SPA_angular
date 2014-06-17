@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4471305-a4fa-48d4-8502-c5ed6bd0ef61" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/assets/javascripts/vendor/jquery.flexslider.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/jquery.flexslider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial1.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial1.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="skeptics_SPA_angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +30,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1410">
+            <state vertical-scroll-proportion="3.75" vertical-offset="450" max-vertical-offset="1410">
               <caret line="24" column="77" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
               <folding>
                 <marker date="1403001616004" expanded="true" signature="1888:2049" placeholder="..." />
@@ -61,20 +60,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="flexslider.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="flexslider.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/flexslider.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1725">
-              <caret line="71" column="96" selection-start-line="71" selection-start-column="96" selection-end-line="71" selection-end-column="96" />
+            <state vertical-scroll-proportion="1.1844262" vertical-offset="607" max-vertical-offset="1725">
+              <caret line="79" column="71" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="partial1.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="partial1.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/partial1.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5283019" vertical-offset="318" max-vertical-offset="795">
+            <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="795">
               <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
               <folding />
             </state>
@@ -84,7 +83,7 @@
       <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2910" max-vertical-offset="6375">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3045" max-vertical-offset="6375">
               <caret line="194" column="35" selection-start-line="194" selection-start-column="1" selection-end-line="194" selection-end-column="1" />
               <folding />
             </state>
@@ -403,8 +402,8 @@
       <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts" />
+      <recent name="$PROJECT_DIR$/app/assets/stylesheets" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets/vendor" />
       <recent name="$PROJECT_DIR$/app/assets/javascripts/vendor" />
       <recent name="$PROJECT_DIR$/bower_components" />
@@ -545,14 +544,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="71" y="139" width="1093" height="623" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38013372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38013372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -895,21 +894,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1410">
-          <caret line="24" column="77" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
-          <folding>
-            <marker date="1403001616004" expanded="true" signature="1888:2049" placeholder="..." />
-            <marker date="1403001616004" expanded="true" signature="1985:2017" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/vendor/jquery.flexslider.js">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.flexslider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7245" max-vertical-offset="17460">
           <caret line="483" column="38" selection-start-line="483" selection-start-column="35" selection-end-line="483" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -925,14 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2710" max-vertical-offset="6375">
           <caret line="194" column="35" selection-start-line="194" selection-start-column="1" selection-end-line="194" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/flexslider.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1725">
-          <caret line="71" column="96" selection-start-line="71" selection-start-column="96" selection-end-line="71" selection-end-column="96" />
           <folding />
         </state>
       </provider>
@@ -955,8 +936,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/partial1.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5283019" vertical-offset="318" max-vertical-offset="795">
+        <state vertical-scroll-proportion="-23.75" vertical-offset="0" max-vertical-offset="795">
           <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.75" vertical-offset="450" max-vertical-offset="1410">
+          <caret line="24" column="77" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+          <folding>
+            <marker date="1403001616004" expanded="true" signature="1888:2049" placeholder="..." />
+            <marker date="1403001616004" expanded="true" signature="1985:2017" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/flexslider.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1844262" vertical-offset="607" max-vertical-offset="1725">
+          <caret line="79" column="71" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
