@@ -81,6 +81,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     multi_json (1.10.1)
+    ngannotate-rails (0.9.6.1)
+      rails (>= 3.1)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     orm_adapter (0.5.0)
@@ -171,6 +173,7 @@ DEPENDENCIES
   gravatar_image_tag
   jquery-rails
   jquery-ui-rails
+  ngannotate-rails
   nokogiri (~> 1.6.1)
   paperclip (~> 3.0)
   pg

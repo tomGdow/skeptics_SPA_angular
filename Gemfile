@@ -16,6 +16,8 @@ gem 'faker'
 gem "gravatar_image_tag"
 gem "paperclip", "~> 3.0"
 
+gem 'ngannotate-rails'
+
 
 group :development do
   gem 'rspec-rails'
