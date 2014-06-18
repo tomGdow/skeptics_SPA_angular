@@ -1,28 +1,6 @@
 /* Reset Styles
 ***********************/
- ul, figure{
-    margin-bottom: 0;
-     font: inherit;
 
-}
-
-figcaption{margin-top: 10px;}
-
-.flex-play, .flex-pause{  visibility:visible;
-    margin-left: 25px;
-
-    padding: 0;
-
-    font: inherit;}
-
-
- .flex-control-nav, .flex-pauseplay {opacity:0;
-     transition:opacity 1s linear;}
-
-
-
-.flexslider:hover .flex-control-nav,  .flexslider:hover .flex-pauseplay {
-    opacity:1;}
 
 
 
