@@ -15,33 +15,36 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
   <%#= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "foundation.css", :media => "all" %>
   <%= stylesheet_link_tag "jquery-ui", :media => "screen" %>
   <%= stylesheet_link_tag "flexslider", :media => "all" %>
   <%= stylesheet_link_tag "main", :media => "all" %>
 
-
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
 
   <%= csrf_meta_tags %>
 
 </head>
-<body>
+<body ng-controller="MyCtrlIndex">
 
-<div class="row">
-   <div class="small-12 columns">
-      <div id="main">
-      <nav class="{{active}} " id="myid" ng-app ng-controller="MyCtrlNav" my-draggable>
-
-        <a href="#view1" ng-click="navclick('home')" class="home fa fa-home" id="home">&nbsp;Home</a>
+<!--NavBar-->
+<div class="row" my-draggable>
+  <div class="small-12 columns">
+    <div id="main">
+      <nav class="hello {{active}} " id="myid">
+        <a href="#view1"
+           ng-click="navclick('home')"
+           class="home" id="home">
+          <span class="fa fa-home"></span>&nbsp;&nbsp;Home
+        </a>
         <a href="#view2" ng-click="navclick('viewtwo')" class="viewtwo">NG Binding</a>
         <a href="#view3" ng-click="navclick('viewthree')" class="viewthree">Partial 3</a>
         <a href="#view4" ng-click="navclick('viewfour')" class="viewfour">Login</a>
-        <a href="#view5" ng-click="navclick('viewfive')" class="viewfive">Shopping Cart</a>
-
+        <a href="#view5" ng-click="navclick('viewfive')" class="viewfive">
+          <span class="fa fa-shopping-cart"></span>&nbsp;
+          Shopping Cart</a>
       </nav>
     </div>
   </div>
@@ -54,28 +57,69 @@
 
 <![endif]-->
 
-
-
-<div ng-view></div>
+<!-- Icon Nav-bar-->
 
 <div class="row">
   <div class="small-12 columns">
 
-<dl class="sub-nav">
-  <dt>Filter:</dt>
-  <dd class="active"><a href="#">All</a></dd>
-  <dd><a href="#">Active</a></dd>
-  <dd><a href="#">Pending</a></dd>
-  <dd><a href="#">Suspended</a></dd>
-</dl>
+    <dl class="sub-nav">
 
-    </div>
+      <dd><a> <span
+      class="fa fa-clock-o"
+
+      ng-click="clockOnClick()"
+      ng-Mouseover="clockMouseOver('dynamic-Clock')"
+      ng-mouseleave="clockMouseLeave('dynamic-Clock')">
+        Time</span></a>
+
+
+
+      </dd>
+      <dd> <a><span ng-Mouseover="dateMouseOver('dynamic-Clock')"
+                    ng-mouseleave="dateMouseLeave('dynamic-Clock')"
+                    ng-click="dateOnClick()">
+          Date
+        </span>
+      </a></dd>
+      <dd></dd>
+      <dd>
+
+      </dd>
+    </dl>
   </div>
+</div>
 
+
+
+<!--NavBar2-->
+<div class="row" >
+  <div class="small-2 columns"></div>
+  <div class="small-10 columns">
+
+      <nav>
+        <a>
+          <span my-current-time="format"
+                id="{{dynamicClock}}"
+                ng-dblclick="clockMouseDoubleClick()"
+                my-draggable></span>
+        </a>
+
+        <a>
+          <span my-current-time="format"
+                id="{{dynamicDate}}"
+                ng-dblclick="dateMouseDoubleClick()"
+                my-draggable></span>
+        </a>
+      </nav>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="small-12" ng-view></div>
+</div>
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
-
-
 
 </body>
 </html>

@@ -14,20 +14,20 @@
                      animation="slide"
                      pause-on-hover ="{{pauseOnHover}}"
                      pause-on-action ="{{pauseOnAction}}"
-                     my-draggable="true"
-                     direction-nav ="true"
+                     my-draggable="{{mydraggable}}"
+                     direction-nav ="{{directionNav}}"
                      slideshow-speed="{{slideShowSpeed}}"
                      animation-speed="{{animationSpeed}}"
                      control-nav="{{controlNav}}"
                      pause-text = "{{pauseText}}"
                      play-text  = "{{playText}}"
-                     pause-play="true"
+                     pause-play="{{pausePlay}}"
                      before="before()"
                      start="start()"
                      after="after()"
-                     animation-loop="true"
-                     prev-text = ""
-                     next-text  = "" >
+                     animation-loop="{{animationLoop}}"
+                     prev-text = "{{prevText}}"
+                     next-text  = "{{nextText}}" >
         <li>
           <figure>
            <img ng-src="{{s[0]}}" >
@@ -37,6 +37,7 @@
       </flex-slider>
     </div>
   </div>
+
 </div>
 
 
