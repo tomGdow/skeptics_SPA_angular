@@ -11,25 +11,36 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Skeptics with Angular</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Skeptics with Angular</title>
 
   <%#= stylesheet_link_tag "application", :media => "all" %>
   <%= stylesheet_link_tag "foundation.css", :media => "all" %>
   <%= stylesheet_link_tag "jquery-ui", :media => "screen" %>
   <%= stylesheet_link_tag "flexslider", :media => "all" %>
   <%= stylesheet_link_tag "main", :media => "all" %>
+  <%= stylesheet_link_tag "bootxstrap.css" %>
 
-  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+
+  <%= javascript_include_tag "vendor/modernizr.js" %>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <%= csrf_meta_tags %>
 
 </head>
 <body ng-controller="MyCtrlIndex">
 
-<!--NavBar-->
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser.
+    Please <a href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+
+<![endif]-->
+
+<!--Main NavBar-->
 <div class="row" my-draggable>
   <div class="small-12 columns">
     <div id="main">
@@ -50,65 +61,69 @@
   </div>
 </div>
 
-<!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser.
-    Please <a href="http://browsehappy.com/">upgrade
-        your browser</a> to improve your experience.</p>
-
-<![endif]-->
-
 <!-- Icon Nav-bar-->
-
 <div class="row">
-  <div class="small-12 columns">
+  <div class="small-12 columns" >
+    <dl class="sub-nav" id ="undernav">
+      <dd>
+        <!--nav one clock icon-->
+        <a>
 
-    <dl class="sub-nav">
-
-      <dd><a> <span
-      class="fa fa-clock-o"
-
-      ng-click="clockOnClick()"
-      ng-Mouseover="clockMouseOver('dynamic-Clock')"
-      ng-mouseleave="clockMouseLeave('dynamic-Clock')">
-        Time</span></a>
-
-
-
+          <!--model 3 is now clock_image_model-->
+          <span
+              ng-class=" clock_image_model ?  ' fa fa-clock-o dynamic-clock-underline_color ': 'fa fa-clock-o'"
+              ng-mouseover="clockMouseOver()"
+              ng-mouseleave="clockMouseLeave()"
+              ng-click="clockOnClick()">
+               Time
+          </span>
+        </a>
       </dd>
-      <dd> <a><span ng-Mouseover="dateMouseOver('dynamic-Clock')"
-                    ng-mouseleave="dateMouseLeave('dynamic-Clock')"
-                    ng-click="dateOnClick()">
+      <dd>
+        <!--nav two calander icon-->
+        <a>
+          <span
+                ng-class=" date_image_model ?  ' fa fa-calendar dynamic-clock-underline_color ': 'fa fa-calendar'"
+                ng-click="dateOnClick()"
+                ng-mouseover="dateMouseOver()"
+                ng-mouseleave="dateMouseLeave()">
           Date
         </span>
-      </a></dd>
-      <dd></dd>
+        </a>
+      </dd>
       <dd>
-
+        <!--nav 3 show current time-->
+        <!--ng-click="setMyClass='dynamic-clock_two'"-->
+        <!--model is now current_time_model-->
+        <span my-current-time="format_one"
+                ng-class=" current_time_model ?  setMyClass : 'dynamic-clock-hidden'"
+                ng-click="timeViewOnClick()"
+                ng-mouseover="timeViewMouseOver()"
+                ng-mouseleave="timeViewMouseLeave()">
+                </span>
+      </dd>
+      <!--nav four show current date-->
+      <!--model2 is now current_date_model-->
+      <dd>
+        <a>
+          <span my-current-time="format_two"
+                ng-class=" current_date_model ?  setMyClass2 : 'dynamic-date-hidden'"
+                ng-click="dateViewOnClick()"
+                ng-mouseover="dateViewMouseOver()"
+                ng-mouseleave="dateViewMouseLeave()">
+                </span>
+        </a>
       </dd>
     </dl>
   </div>
 </div>
 
-
-
-<!--NavBar2-->
-<div class="row" >
+<!--Dynamic Time Date Nav Bar-->
+<div class="row" id ="dynamicTimeNav">
   <div class="small-2 columns"></div>
   <div class="small-10 columns">
-
       <nav>
         <a>
-          <span my-current-time="format"
-                id="{{dynamicClock}}"
-                ng-dblclick="clockMouseDoubleClick()"
-                my-draggable></span>
-        </a>
-
-        <a>
-          <span my-current-time="format"
-                id="{{dynamicDate}}"
-                ng-dblclick="dateMouseDoubleClick()"
-                my-draggable></span>
         </a>
       </nav>
   </div>
@@ -118,6 +133,10 @@
 
   <div class="small-12" ng-view></div>
 </div>
+
+
+
+
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
 
