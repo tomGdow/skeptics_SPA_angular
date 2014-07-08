@@ -177,9 +177,6 @@ angular.module('myApp.controllers', ['angular-flexslider'])
 
         };
 
-}]).controller('MyCtrl1', function($scope, $http) {
-
-        /*CONTROLLER FOR PARTIAL ONE*/
 
         function getTime(zone, success) {
             var url = 'http://json-time.appspot.com/time.json?tz=' + zone,
@@ -194,11 +191,18 @@ angular.module('myApp.controllers', ['angular-flexslider'])
                 return s;
             })());
         }
-
         getTime('GMT', function(time){
             // This is where you do whatever you want with the time:
             alert(time);
         });
+
+
+
+
+}]).controller('MyCtrl1', function($scope, $http) {
+
+        /*CONTROLLER FOR PARTIAL ONE*/
+
 
 
  //Flexslider

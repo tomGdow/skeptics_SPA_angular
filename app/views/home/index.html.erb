@@ -23,12 +23,18 @@
   <%= stylesheet_link_tag "main", :media => "all" %>
   <%= stylesheet_link_tag "bootxstrap.css" %>
 
+
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
 
   <%= javascript_include_tag "vendor/modernizr.js" %>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="jquery.zweatherfeed.min.js" type="text/javascript"></script>
 
   <%= csrf_meta_tags %>
+
+
+
+
 
 </head>
 <body ng-controller="MyCtrlIndex">
@@ -63,43 +69,57 @@
 
 <!-- Icon Nav-bar-->
 <div class="row">
-  <div class="small-12 columns" >
-    <dl class="sub-nav" id ="undernav">
+  <div class="small-12 columns">
+    <dl class="sub-nav" id="undernav">
       <dd>
-        <!--nav one clock icon-->
+        <!-- clock icon-->
         <a>
-
-          <!--model 3 is now clock_image_model-->
           <span
-              ng-class=" clock_image_model ?  ' fa fa-clock-o dynamic-clock-underline_color ': 'fa fa-clock-o'"
-              ng-mouseover="clockMouseOver()"
-              ng-mouseleave="clockMouseLeave()"
-              ng-click="clockOnClick()">
+          ng-class=" clock_image_model ?  ' fa fa-clock-o dynamic-clock-underline_color ': 'fa fa-clock-o'"
+          ng-mouseover="clockMouseOver()"
+          ng-mouseleave="clockMouseLeave()"
+          ng-click="clockOnClick()">
                Time
           </span>
         </a>
       </dd>
       <dd>
-        <!--nav two calander icon-->
+        <!--Date icon-->
         <a>
           <span
-                ng-class=" date_image_model ?  ' fa fa-calendar dynamic-clock-underline_color ': 'fa fa-calendar'"
-                ng-click="dateOnClick()"
-                ng-mouseover="dateMouseOver()"
-                ng-mouseleave="dateMouseLeave()">
+          ng-class=" date_image_model ?  ' fa fa-calendar dynamic-clock-underline_color ': 'fa fa-calendar'"
+          ng-click="dateOnClick()"
+          ng-mouseover="dateMouseOver()"
+          ng-mouseleave="dateMouseLeave()">
           Date
         </span>
         </a>
       </dd>
+
       <dd>
-        <!--nav 3 show current time-->
-        <!--ng-click="setMyClass='dynamic-clock_two'"-->
-        <!--model is now current_time_model-->
+       </dd>
+
+
+      <dd>
+        <!--GMT icon-->
+        <a>
+          <span
+          class='fa  fa-sun-o'
+          ng-click="jourz()"
+          ng-mouseover="jourz()">
+          GMT
+        </span>
+        </a>
+      </dd>
+
+
+      <dd>
+        <!--show current time-->
         <span my-current-time="format_one"
-                ng-class=" current_time_model ?  setMyClass : 'dynamic-clock-hidden'"
-                ng-click="timeViewOnClick()"
-                ng-mouseover="timeViewMouseOver()"
-                ng-mouseleave="timeViewMouseLeave()">
+              ng-class=" current_time_model ?  setMyClass : 'dynamic-clock-hidden'"
+              ng-click="timeViewOnClick()"
+              ng-mouseover="timeViewMouseOver()"
+              ng-mouseleave="timeViewMouseLeave()">
                 </span>
       </dd>
       <!--nav four show current date-->
@@ -119,13 +139,13 @@
 </div>
 
 <!--Dynamic Time Date Nav Bar-->
-<div class="row" id ="dynamicTimeNav">
+<div class="row" id="dynamicTimeNav">
   <div class="small-2 columns"></div>
   <div class="small-10 columns">
-      <nav>
-        <a>
-        </a>
-      </nav>
+    <nav>
+      <a>
+      </a>
+    </nav>
   </div>
 </div>
 
@@ -133,6 +153,13 @@
 
   <div class="small-12" ng-view></div>
 </div>
+
+
+
+<div id="test"></div>
+
+
+<div style="position:relative;width:200px;"><iframe src="https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=12&amp;textdate=15&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" style="border:none;overflow:hidden;" scrolling="no" height="90" width="200"></iframe><a href="http://www.thetimenow.com/gmt/greenwich_mean_time" style="position:absolute; top:0; left:0; display:inline-block; width:200px; height:170px; z-index:50;" target="_blank" rel="nofollow" title="Clock provided by thetimenow.com"></a></div>
 
 
 
