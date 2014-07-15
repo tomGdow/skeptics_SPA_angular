@@ -250,4 +250,6 @@ angular.module('myApp.controllers', ['angular-flexslider'])
         /*CONTROLLER FOR PARTIAL FIVE*/
         $scope.message = 'Heello From Partial Five';
 
+        $scope.code = 'nSFiQloC3yw';
+
     }]);

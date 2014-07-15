@@ -3,12 +3,12 @@
 /* Directives */
 
 angular.module('myApp.directives', []).
-  directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  }]).directive('myCurrentTime',['$interval', 'dateFilter',
-        function($interval, dateFilter) {
+    directive('appVersion', ['version', function (version) {
+        return function (scope, elm, attrs) {
+            elm.text(version);
+        };
+    }]).directive('myCurrentTime', ['$interval', 'dateFilter',
+        function ($interval, dateFilter) {
 
             function link(scope, element, attrs) {
 
@@ -56,14 +56,13 @@ angular.module('myApp.directives', []).
                 });
             }
         };
-    }).directive('myDraggable',['$document', function($document){
+    }).directive('myDraggable', ['$document', function ($document) {
 
-        return function(scope, element, attr) {
+        return function (scope, element, attr) {
 
-            var startX = 0, startY= 0, x= 0, y=0;
+            var startX = 0, startY = 0, x = 0, y = 0;
 
             element.css(
-
                 {
                     order: '1px solid red',
 
@@ -72,13 +71,13 @@ angular.module('myApp.directives', []).
                 }
             );
 
-            element.on('mousedown', function (event){
+            element.on('mousedown', function (event) {
 
                 //Prevent default dragging of selected content
 
                 event.preventDefault();
-                startX = event.pageX -x;
-                startY = event.pageY -y;
+                startX = event.pageX - x;
+                startY = event.pageY - y;
                 $document.on('mousemove', mousemove);
                 $document.on('mouseup', mouseup);
 
@@ -102,4 +101,19 @@ angular.module('myApp.directives', []).
             }
         };
 
-    }]);
+    }]).directive('myYoutube', function ($sce) {
+        return {
+            restrict: 'EA',
+            scope: { code: '=' },
+            replace: true,
+            template: '<div style="height:400px;"><iframe style="overflow:hidden;height:100%;width:50%" width="420" height="315" src="{{url}}" frameborder="0" allowfullscreen></iframe></div>',
+            link: function (scope) {
+                console.log('here');
+                scope.$watch('code', function (newVal) {
+                    if (newVal) {
+                        scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal);
+                    }
+                });
+            }
+        };
+    });
