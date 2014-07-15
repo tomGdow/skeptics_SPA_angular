@@ -5,7 +5,7 @@ gem 'rails', '3.2.14'
 gem 'jquery-rails'
 
 gem 'angularjs-rails'
-
+gem 'protractor-rails', '~> 0.0.4'
 gem 'annotate'
 gem 'will_paginate'
 gem 'foundation-rails'
@@ -15,7 +15,6 @@ gem "nokogiri", "~> 1.6.1"
 gem 'faker'
 gem "gravatar_image_tag"
 gem "paperclip", "~> 3.0"
-
 gem 'ngannotate-rails'
 
 
@@ -46,8 +45,6 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
