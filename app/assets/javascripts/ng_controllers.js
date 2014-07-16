@@ -236,6 +236,7 @@ angular.module('myApp.controllers', ['angular-flexslider'])
         /*CONTROLLER FOR PARTIAL TWO*/
 
         $scope.message = 'Hello From Partial Two';
+        $scope.code = 'nSFiQloC3yw';
 
     }]).controller('MyCtrl3', ['$scope', function($scope) {
         /*CONTROLLER FOR PARTIAL THREE*/
@@ -250,6 +251,6 @@ angular.module('myApp.controllers', ['angular-flexslider'])
         /*CONTROLLER FOR PARTIAL FIVE*/
         $scope.message = 'Heello From Partial Five';
 
-        $scope.code = 'nSFiQloC3yw';
+
 
     }]);
