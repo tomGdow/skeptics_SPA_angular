@@ -1,4 +1,7 @@
 SkepticsSpaAngular::Application.routes.draw do
+  resources :commodities
+
+
   get "home/index"
   get "home/partial1"
   get "home/partial2"

@@ -1,13 +1,14 @@
 <div class="row">
-
-  <div class="small-10 columns">
-    <h3 id ="mainheading">Natural Skeptics Association</h3>
-  </div>
-</div>
+    <div class="small-10 columns">
+    <h3 id ="mainheading"
+        data-fittext="2.5"
+        data-fittext-min="12"
+        data-fittext-max="40">Natural Skeptics</h3>
+    </div>  <!--small x-colums-->
+</div> <!--end row div-->
 
 <div class="row">
     <div class="small-10 columns">
-      <div>
         <flex-slider id = "myslider"
                      slideshow= "{{slideShowQ}}"
                      slide= "s in slides"
@@ -28,17 +29,16 @@
                      animation-loop="{{animationLoop}}"
                      prev-text = "{{prevText}}"
                      next-text  = "{{nextText}}" >
-        <li>
-          <figure>
-           <img ng-src="{{s[0]}}" >
-           <figcaption class ="{{myVar}} flexFigCaption">{{s[1]}}</figcaption>
-          </figure>
-        </li>
+          <li>
+            <figure>
+                <img ng-src="{{s[0]}}" >
+                <figcaption class ="{{myVar}} flexFigCaption">{{s[1]}}</figcaption>
+            </figure>
+          </li>
       </flex-slider>
-    </div>
-  </div>
+  </div>  <!--small x-colums-->
 
-</div>
+</div>  <!--row-->
 
 
 

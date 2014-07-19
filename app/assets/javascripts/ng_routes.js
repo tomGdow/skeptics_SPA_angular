@@ -16,5 +16,7 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view3', {templateUrl: 'home/partial3.html', controller: 'MyCtrl3'});
   $routeProvider.when('/view4', {templateUrl: 'home/partial4.html', controller: 'MyCtrl4'});
   $routeProvider.when('/view5', {templateUrl: 'home/partial5.html', controller: 'MyCtrl5'});
+  $routeProvider.when('/view6', {templateUrl: 'commodities', controller: 'MyCtrl6'});
+  $routeProvider.when('/view7', {templateUrl: 'commodities/new.html', controller: 'MyCtrl7'});
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);

@@ -2,11 +2,11 @@
 
 /* ANGULAR CONTROLLERS */
 
-angular.module('myApp.controllers', ['angular-flexslider'])
+angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
     .controller('MyCtrlIndex', ['$scope', function($scope) {
 
         /*INDEX PAGE CONTROLLER*/
-
+      $scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
     //NavBar
     $scope.$watch('$viewContentLoaded', function(){
         $scope.active='home';
@@ -23,6 +23,7 @@ angular.module('myApp.controllers', ['angular-flexslider'])
     $scope.format_two = "fullDate";
     $scope.setMyClass= 'dynamic-clock_one';
     $scope.setMyClass2= 'dynamic-date_one';
+    $scope.timezones_model= false;
 
         //clock
     $scope.clockMouseOver = function () {
@@ -72,6 +73,42 @@ angular.module('myApp.controllers', ['angular-flexslider'])
 
         this.setMyClass='dynamic-clock-hidden';
     };
+
+        $scope.jourz = function (){
+
+            this.timezones_model=true;
+            this.current_time_model = true;
+
+            //this.setMyClass -= ' dynamic-clock_hidden';
+            this.setMyClass += ' dynamic-clock_four';
+
+            this.format_one = "h:mm:ss a";
+
+            if(this.setMyClass === 'dynamic-clock-hidden dynamic-clock_four') {
+
+                this.setMyClass = ' dynamic-clock_three'
+                this.setMyClass += ' dynamic-clock_four'
+
+            }
+        };
+
+        $scope.jourzout = function (){
+
+            this.timezones_model=false;
+
+            if(this.setMyClass === 'dynamic-clock_three'
+                || this.setMyClass === 'dynamic-clock_three dynamic-clock_four'
+                ) {
+                this.setMyClass = 'dynamic-clock_three';
+                this.format_one = "h:mm a";
+            }
+
+            else {
+
+                this.current_time_model = false;
+            }
+
+        };
 
     $scope.timeViewMouseOver = function ()  {
 
@@ -178,32 +215,10 @@ angular.module('myApp.controllers', ['angular-flexslider'])
         };
 
 
-        function getTime(zone, success) {
-            var url = 'http://json-time.appspot.com/time.json?tz=' + zone,
-                ud = 'json' + (+new Date());
-            window[ud]= function(o){
-                success && success(new Date(o.datetime));
-            };
-            document.getElementsByTagName('head')[0].appendChild((function(){
-                var s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.src = url + '&callback=' + ud;
-                return s;
-            })());
-        }
-        getTime('GMT', function(time){
-            // This is where you do whatever you want with the time:
-            alert(time);
-        });
-
-
-
 
 }]).controller('MyCtrl1', function($scope, $http) {
 
         /*CONTROLLER FOR PARTIAL ONE*/
-
-
 
  //Flexslider
         $http.get('flexSlider.json').success(function(data) {
@@ -251,6 +266,14 @@ angular.module('myApp.controllers', ['angular-flexslider'])
         /*CONTROLLER FOR PARTIAL FIVE*/
         $scope.message = 'Heello From Partial Five';
 
+    }]).controller('MyCtrl6', ['$scope', function($scope) {
 
+        /*CONTROLLER FOR PARTIAL SIX */
+        $scope.message = 'Hello From Partial Six';
+
+    }]).controller('MyCtrl7', ['$scope', function($scope) {
+
+        /*CONTROLLER FOR PARTIAL SEVEN */
+        $scope.message = 'Hello From Partial Seven';
 
     }]);

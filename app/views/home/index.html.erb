@@ -22,11 +22,13 @@
   <%= stylesheet_link_tag "flexslider", :media => "all" %>
   <%= stylesheet_link_tag "main", :media => "all" %>
 
-
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
 
   <%= javascript_include_tag "vendor/modernizr.js" %>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  <script src="http://code.angularjs.org/1.2.2/angular-animate.min.js"></script>
 
   <%= csrf_meta_tags %>
 
@@ -40,11 +42,15 @@
 
 <![endif]-->
 
+
+<div class="row">
+
+  <div id="upperdiv" class="small-12 columns">
 <!--Main NavBar-->
 <div class="row" my-draggable>
   <div class="small-12 columns">
     <div id="main">
-      <nav class="hello {{active}} " id="myid">
+      <nav class="mainNav {{active}} " id="myid">
         <a href="#view1"
            ng-click="navclick('home')"
            class="home" id="home">
@@ -61,6 +67,8 @@
     </div>
   </div>
 </div>
+
+
 
 <!-- Icon Nav-bar-->
 <div class="row">
@@ -92,21 +100,19 @@
       </dd>
 
       <dd>
-       </dd>
-
+      </dd>
 
       <dd>
         <!--GMT icon-->
         <a>
           <span
           class='fa  fa-sun-o'
-          ng-click="jourz()"
-          ng-mouseover="jourz()">
+          ng-mouseover="jourz()"
+          ng-mouseleave="jourzout()">
           GMT
         </span>
         </a>
       </dd>
-
 
       <dd>
         <!--show current time-->
@@ -132,29 +138,101 @@
     </dl>
   </div>
 </div>
-
-<!--Dynamic Time Date Nav Bar-->
-<div class="row" id="dynamicTimeNav">
-  <div class="small-2 columns"></div>
-  <div class="small-10 columns">
-    <nav>
-      <a>
-      </a>
-    </nav>
+  </div></div>    <!--upperdiv-->
+<div ng-init="checked=true">
+  <label>
+    <input type="checkbox" ng-model="checked" style="float:left; margin-right:10px;"> Is Visible...
+  </label>
+  <div class="check-element sample-show-hide" ng-show="checked" style="clear:both;">
+    Visible...
   </div>
 </div>
 
-<div class="row">
+<!--products nav-bar-->
+<div class="row" id="productsnav">
+  <div class="small-12 columns">
+    <dl class="sub-nav">
+      <dt>F:</dt>
+      <dd><a href="#view6">Products</a></dd>
+      <dd><a href="#view7">Add Product</a></dd>
+      <dd><a href="#">Suspended</a></dd>
+    </dl>
+  </div>
+</div>
 
+<div id="cart"  my-draggable></div>
+
+<div class="row">
   <div class="small-12" ng-view></div>
 </div>
 
 
 
-<div id="test"></div>
+<ul class = "dynamic_timeZoneClocks_initial" ng-class= "timezones_model ?  ' dynamic_timeZoneClocks_show': 'dynamic_timeZoneClocks_noShow'">
+  <li>
+    <iframe src="https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n
+  &amp;embed=1
+  &amp;text=14
+  &amp;textdate=14
+  &amp;format=24
+  &amp;digitalclock=20
+  &amp;analogclock=60
+  &amp;letter_spacing=-2
+  &amp;bordersize=0
+  &amp;bordercolor=fff
+  &amp;bgcolor=rgb(0,0,0)
+  &amp;colorloc=fff
+  &amp;colordigital=FFA500
+  &amp;colordate=ffffff
+  &amp;styleloc=normal
+  &amp;styledigital=normal
+  &amp;styledate=normal
+  &amp;right=0" scrolling="no"></iframe>
+  </li>
 
+  <li>
+    <iframe src="https://www.thetimenow.com/clock/france?t=n
+      &amp;embed=1
+      &amp;text=14
+      &amp;textdate=15
+      &amp;format=24
+      &amp;digitalclock=20
+      &amp;analogclock=60
+      &amp;letter_spacing=-2
+      &amp;bordersize=1
+      &amp;bordercolor=blue
+      &amp;bgcolor=rgb(0,0,0)
+      &amp;colorloc=000000
+      &amp;colordigital=FFA500
+      &amp;colordate=fff
+      &amp;styleloc=normal
+      &amp;styledigital=normal
+      &amp;styledate=normal
+      &amp;right=0" scrolling="no"></iframe>
+  </li>
 
-<div style="position:relative;width:200px;"><iframe src="https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=12&amp;textdate=15&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" style="border:none;overflow:hidden;" scrolling="no" height="90" width="200"></iframe><a href="http://www.thetimenow.com/gmt/greenwich_mean_time" style="position:absolute; top:0; left:0; display:inline-block; width:200px; height:170px; z-index:50;" target="_blank" rel="nofollow" title="Clock provided by thetimenow.com"></a></div>
+  <li>
+    <iframe src="http://www.thetimenow.com/clock/united_states/new_york/new_york?t=n
+        &amp;embed=1
+        &amp;text=14
+        &amp;textdate=15
+        &amp;format=24
+        &amp;digitalclock=20
+        &amp;analogclock=60
+        &amp;letter_spacing=-2
+        &amp;bordersize=1
+        &amp;bordercolor=red
+        &amp;bgcolor=rgb(0,0,0)
+        &amp;colorloc=000000
+        &amp;colordigital=FFA500
+        &amp;colordate=fff
+        &amp;styleloc=normal
+        &amp;styledigital=normal
+        &amp;styledate=normal
+        &amp;right=0" scrolling="no"></iframe>
+  </li>
+</ul>
+
 
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>

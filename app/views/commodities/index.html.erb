@@ -1,0 +1,37 @@
+
+<h1>Listing commodities</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image url</th>
+    <th>Category</th>
+    <th>Year</th>
+    <th>Winner</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @commodities.each do |commodity| %>
+      <tr>
+        <td><%= image_tag(commodity.image_url,
+                          title: 'Add to Cart') %></td>
+        <td><%= commodity.name %></td>
+        <td><%= commodity.description %></td>
+        <td><%= commodity.price %></td>
+
+        <td><%= commodity.category %></td>
+        <td><%= commodity.year %></td>
+        <td><%= commodity.winner %></td>
+        <td><%= link_to 'Show', commodity %></td>
+        <td><%= link_to 'Edit', edit_commodity_path(commodity) %></td>
+        <td><%= button_to 'Destroy', commodity, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br/>
+
+<%= link_to 'New Commodity', new_commodity_path %>
