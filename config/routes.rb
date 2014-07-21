@@ -1,13 +1,19 @@
 SkepticsSpaAngular::Application.routes.draw do
   resources :commodities
 
-
   get "home/index"
   get "home/partial1"
   get "home/partial2"
   get "home/partial3"
   get "home/partial4"
   get "home/partial5"
+  get "home/footer"
+  get "home/timezones"
+  get "home/mainnav"
+
+  get "home/template1"
+  get "home/template2"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

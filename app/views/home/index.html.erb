@@ -28,7 +28,11 @@
   <%= javascript_include_tag "vendor/modernizr.js" %>
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
-  <script src="http://code.angularjs.org/1.2.2/angular-animate.min.js"></script>
+  <%= javascript_include_tag "angular-underscore-module.js" %>
+  <%= javascript_include_tag "underscore" %>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular-animate.js"></script>
 
   <%= csrf_meta_tags %>
 
@@ -45,30 +49,14 @@
 
 <div class="row">
 
-  <div id="upperdiv" class="small-12 columns">
+  <div class="small-12 columns">
 <!--Main NavBar-->
 <div class="row" my-draggable>
   <div class="small-12 columns">
-    <div id="main">
-      <nav class="mainNav {{active}} " id="myid">
-        <a href="#view1"
-           ng-click="navclick('home')"
-           class="home" id="home">
-          <span class="fa fa-home"></span>&nbsp;&nbsp;Home
-        </a>
-        <a href="#view2" ng-click="navclick('viewtwo')" class="viewtwo">
-          <span class="fa fa-film"></span>&nbsp;Videos</a>
-        <a href="#view3" ng-click="navclick('viewthree')" class="viewthree">Partial 3</a>
-        <a href="#view4" ng-click="navclick('viewfour')" class="viewfour">Login</a>
-        <a href="#view5" ng-click="navclick('viewfive')" class="viewfive">
-          <span class="fa fa-shopping-cart"></span>&nbsp;
-          Products</a>
-      </nav>
+    <div id="main" ng-include="'/home/mainnav.html'">
     </div>
   </div>
 </div>
-
-
 
 <!-- Icon Nav-bar-->
 <div class="row">
@@ -107,8 +95,8 @@
         <a>
           <span
           class='fa  fa-sun-o'
-          ng-mouseover="jourz()"
-          ng-mouseleave="jourzout()">
+          ng-mouseover="gmtMouseOver()"
+          ng-mouseleave="gmtMouseLeave()">
           GMT
         </span>
         </a>
@@ -139,14 +127,7 @@
   </div>
 </div>
   </div></div>    <!--upperdiv-->
-<div ng-init="checked=true">
-  <label>
-    <input type="checkbox" ng-model="checked" style="float:left; margin-right:10px;"> Is Visible...
-  </label>
-  <div class="check-element sample-show-hide" ng-show="checked" style="clear:both;">
-    Visible...
-  </div>
-</div>
+
 
 <!--products nav-bar-->
 <div class="row" id="productsnav">
@@ -167,75 +148,14 @@
 </div>
 
 
+<div  ng-include="'/home/timezones.html'"></div>
 
-<ul class = "dynamic_timeZoneClocks_initial" ng-class= "timezones_model ?  ' dynamic_timeZoneClocks_show': 'dynamic_timeZoneClocks_noShow'">
-  <li>
-    <iframe src="https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n
-  &amp;embed=1
-  &amp;text=14
-  &amp;textdate=14
-  &amp;format=24
-  &amp;digitalclock=20
-  &amp;analogclock=60
-  &amp;letter_spacing=-2
-  &amp;bordersize=0
-  &amp;bordercolor=fff
-  &amp;bgcolor=rgb(0,0,0)
-  &amp;colorloc=fff
-  &amp;colordigital=FFA500
-  &amp;colordate=ffffff
-  &amp;styleloc=normal
-  &amp;styledigital=normal
-  &amp;styledate=normal
-  &amp;right=0" scrolling="no"></iframe>
-  </li>
-
-  <li>
-    <iframe src="https://www.thetimenow.com/clock/france?t=n
-      &amp;embed=1
-      &amp;text=14
-      &amp;textdate=15
-      &amp;format=24
-      &amp;digitalclock=20
-      &amp;analogclock=60
-      &amp;letter_spacing=-2
-      &amp;bordersize=1
-      &amp;bordercolor=blue
-      &amp;bgcolor=rgb(0,0,0)
-      &amp;colorloc=000000
-      &amp;colordigital=FFA500
-      &amp;colordate=fff
-      &amp;styleloc=normal
-      &amp;styledigital=normal
-      &amp;styledate=normal
-      &amp;right=0" scrolling="no"></iframe>
-  </li>
-
-  <li>
-    <iframe src="http://www.thetimenow.com/clock/united_states/new_york/new_york?t=n
-        &amp;embed=1
-        &amp;text=14
-        &amp;textdate=15
-        &amp;format=24
-        &amp;digitalclock=20
-        &amp;analogclock=60
-        &amp;letter_spacing=-2
-        &amp;bordersize=1
-        &amp;bordercolor=red
-        &amp;bgcolor=rgb(0,0,0)
-        &amp;colorloc=000000
-        &amp;colordigital=FFA500
-        &amp;colordate=fff
-        &amp;styleloc=normal
-        &amp;styledigital=normal
-        &amp;styledate=normal
-        &amp;right=0" scrolling="no"></iframe>
-  </li>
-</ul>
 
 
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
+
+
 
 </body>
 </html>

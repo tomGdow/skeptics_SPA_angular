@@ -2,8 +2,23 @@
 
 /* ANGULAR CONTROLLERS */
 
-angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
-    .controller('MyCtrlIndex', ['$scope', function($scope) {
+angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnimate', 'underscore'])
+    .controller('MyCtrlIndex', function($scope, _) {
+
+        $scope.templates =
+            [ { name: 'template1.html', url: 'home/template1.html'},
+                { name: 'template2.html', url: 'home/template2.html'} ];
+        $scope.template = $scope.templates[0];
+
+
+
+        var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2}, {tweet: 'wow, this is nice', id: 3}];
+
+
+
+        $scope.ids = (_.pluck(data, 'tweet'))[0];
+
+
 
         /*INDEX PAGE CONTROLLER*/
       $scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
@@ -24,6 +39,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
     $scope.setMyClass= 'dynamic-clock_one';
     $scope.setMyClass2= 'dynamic-date_one';
     $scope.timezones_model= false;
+    $scope.footerModel= false;
 
         //clock
     $scope.clockMouseOver = function () {
@@ -74,7 +90,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
         this.setMyClass='dynamic-clock-hidden';
     };
 
-        $scope.jourz = function (){
+        $scope.gmtMouseOver = function (){
 
             this.timezones_model=true;
             this.current_time_model = true;
@@ -86,13 +102,13 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
 
             if(this.setMyClass === 'dynamic-clock-hidden dynamic-clock_four') {
 
-                this.setMyClass = ' dynamic-clock_three'
+                this.setMyClass = ' dynamic-clock_three';
                 this.setMyClass += ' dynamic-clock_four'
 
             }
         };
 
-        $scope.jourzout = function (){
+        $scope.gmtMouseLeave = function (){
 
             this.timezones_model=false;
 
@@ -132,15 +148,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
         }
 
         };
-/*
-    $scope.clockMouseDoubleClick  = function () {
-
-            if( $scope.format_one === "h:mm:ss a"){
-                $scope.format_one = "h:mm a ";
-            } else{
-                $scope.format_one = "h:mm:ss a";
-            }
-        };*/
 
             //date
         $scope.dateMouseOver = function () {
@@ -174,7 +181,10 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
             }
         };
 
-        $scope.dateOnClick = function () {
+        $scope.dateOnClick = function () {                                    $scope.templates =
+            [ { name: 'home/template1.html.erb', url: 'template1.html.erb'},
+                { name: 'template2.html', url: 'template2.html'} ];
+        $scope.template = $scope.templates[0]
 
             if(this.setMyClass2 === 'dynamic-date_three'|| this.setMyClass2 === 'dynamic-date_four') {
                 this.setMyClass2= 'dynamic-date-hidden';
@@ -214,11 +224,34 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
 
         };
 
+        //footer
 
+        $scope.toggleClassModel ="toggleOn";
 
-}]).controller('MyCtrl1', function($scope, $http) {
+        $scope.footerMouseOver = function () {
+
+            if (this.toggleClassModel === 'toggleOn') {
+                this.footerModel = true;
+                this.toggleClassModel = 'toggleOff';
+                return false;
+            }
+             };
+
+        $scope.footerOnClick= function () {
+
+            if (this.toggleClassModel === 'toggleOff') {
+                this.footerModel = false;
+            }
+        };
+
+        $scope.footerMouseAway= function () {
+            this.toggleClassModel = 'toggleOn';
+        };
+    }).controller('MyCtrl1', function($scope, $http) {
 
         /*CONTROLLER FOR PARTIAL ONE*/
+
+
 
  //Flexslider
         $http.get('flexSlider.json').success(function(data) {
@@ -241,6 +274,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText'])
         $scope.mydraggable="true";
         $scope.before = function(){
             $scope.myVar ="flexBeforeClass";
+
             };
         $scope.after = function(){
             $scope.myVar ="flexAfterClass"
