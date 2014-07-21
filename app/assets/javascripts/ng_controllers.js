@@ -252,7 +252,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         /*CONTROLLER FOR PARTIAL ONE*/
 
 
-
  //Flexslider
         $http.get('flexSlider.json').success(function(data) {
             $scope.slides = data;
@@ -309,5 +308,11 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
         /*CONTROLLER FOR PARTIAL SEVEN */
         $scope.message = 'Hello From Partial Seven';
+
+    }]).controller('MyCtrl8', ['$scope', function($scope) {
+
+        /*CONTROLLER FOR PARTIAL SEVEN */
+        /*Blog*/
+        $scope.message = 'Hello From Partial Eight';
 
     }]);

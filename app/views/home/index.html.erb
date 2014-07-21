@@ -123,6 +123,8 @@
                 </span>
         </a>
       </dd>
+      <dd ng-include="'/home/gmtTime.html'">h3llo</dd>
+      <!--<dd>paddyLast</dd>-->
     </dl>
   </div>
 </div>
@@ -147,15 +149,10 @@
   <div class="small-12" ng-view></div>
 </div>
 
-
-<div  ng-include="'/home/timezones.html'"></div>
-
-
+<div  ng-include="'/home/footer.html'"></div>
 
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
-
-
 
 </body>
 </html>

@@ -7,9 +7,12 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/partial3"
   get "home/partial4"
   get "home/partial5"
+  get "home/partial8"
   get "home/footer"
   get "home/timezones"
+  get "home/gmtTime"
   get "home/mainnav"
+  get "home/curieFlexslider"
 
   get "home/template1"
   get "home/template2"
