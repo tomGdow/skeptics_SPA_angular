@@ -294,12 +294,87 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         /*CONTROLLER FOR PARTIAL FOUR*/
         $scope.message = 'Heello From Partial Four';
 
-    }]).controller('MyCtrl5', ['$scope', function($scope) {
+    }]).controller('MyCtrl5', function($scope, $window, $timeout) {
+
+        $scope.items = [];
+
+
+        $scope.push = function() {
+            $scope.items.push(+new $window.Date);
+        };
+
+        $scope.pop = function() {
+            $scope.items.pop();
+        };
+
+
+        $scope.items = [];
+
+        $scope.push = function() {
+            $scope.items.push(+new $window.Date);
+        };
+
+        $scope.pop = function() {
+            $scope.items.pop();
+        };
 
         /*CONTROLLER FOR PARTIAL FIVE*/
         $scope.message = 'Heello From Partial Five';
 
-    }]).controller('MyCtrl6', ['$scope', function($scope) {
+        $scope.names = [
+            {
+
+                name: 'Mohit'
+
+            },
+            {
+
+                name: 'Anubhav'
+
+            }
+        ];
+         $scope.toggle = true;
+
+
+        $scope.tomm =false;
+        $scope.exptfn = function () {
+            $scope.tomm = true;};
+
+
+
+
+        $scope.insert = function () {
+
+            $scope.names.push({
+
+                name: 'Anubhav'
+
+            });
+
+        };
+
+        $scope.remove = function () {
+
+            $scope.names.pop();
+
+        };
+
+
+
+        $scope.pleaseWork = function () {
+
+            $scope.hello =true;
+        };
+
+        $scope.showthefuckingtime = function (){
+            $scope.showtime =true;
+        };
+
+        $scope.noshowtime = function (){
+            $scope.showtime =false;
+        }
+
+    }).controller('MyCtrl6', ['$scope', function($scope) {
 
         /*CONTROLLER FOR PARTIAL SIX */
         $scope.message = 'Hello From Partial Six';
@@ -315,4 +390,49 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         /*Blog*/
         $scope.message = 'Hello From Partial Eight';
 
-    }]);
+    }]).animation('.show-hide-animation', function() {
+        /*
+         * the reason why we're using beforeAddClass and removeClass is because we're working
+         * around the .ng-hide class (which is added when ng-show evaluates to false). The
+         * .ng-hide class sets display:none!important and we want to apply the animation only
+         * when the class is removed (removeClass) or before it's added (beforeAddClass).
+         */
+        return {
+
+            /*
+             * make sure to call the done() function when your animation is complete.
+             */
+            beforeAddClass : function(element, className, done) {
+                if(className == 'ng-hide') {
+                    TweenMax.to(element, 1, { height: 0, onComplete: done });
+
+                    //this function is called when the animation ends or is cancelled
+                    return function() {
+                        element[0].style.height = '';
+                    }
+                } else {
+                    done();
+                }
+            },
+
+            /*
+             * make sure to call the done() function when your animation is complete.
+             */
+            removeClass : function(element, className, done) {
+                if(className == 'ng-hide') {
+                    //set the height back to zero to make the animation work properly
+                    var height = element.height();
+                    element.css('height', 0);
+
+                    TweenMax.to(element, 1, { height: height, onComplete: done });
+
+                    //this function is called when the animation ends or is cancelled
+                    return function() {
+                        element[0].style.height = '';
+                    }
+                } else {
+                    done();
+                }
+            }
+        }
+    });
