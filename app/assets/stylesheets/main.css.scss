@@ -80,6 +80,11 @@ html {
 
 body {
   font-family: 'Open Sans', sans-serif;
+  -webkit-perspective: 800px;
+  -moz-perspective: 800px;
+  perspective: 800px;
+
+  -webkit-perspective-origin: 50% 50%;
 }
 
 h3 {
@@ -329,35 +334,39 @@ dynamic-clock-two now dynamic-clock-hidden*/
   color: #FFA500;
 }
 
-.dynamic_timeZoneClocks_initial {
+.dynamic_timeZoneClocks {
 
-  //display: none;
-  background: white;
-  padding: 0;
-  margin: 0;
-  opacity:0;
-  border: 0;
-  border-radius: 10px;
-
-}
-
-.dynamic_timeZoneClocks_initial li {
-  display: inline-block;
-  list-style-type: none;
-}
-
-.dynamic_timeZoneClocks_show {
   position: absolute;
   right: 50px;
   display: inline-block;
-    opacity: 1;
-  background:white;
-
-
+  opacity: 1;
+  background: white;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 10px;
 }
 
-.dynamic_timeZoneClocks_noShow {
-  display: none;
+.dynamic_timeZoneClocks li {
+  display: inline-block;
+  list-style-type: none;
+}
+.dynamic_timeZoneClocks.ng-hide {
+  line-height:0;
+  opacity:0;
+  //padding:0 10px;
+}
+
+.dynamic_timeZoneClocks.ng-hide-add.ng-hide-add-active,
+.dynamic_timeZoneClocks.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition:opacity ease-in-out 1s;
+  transition:opacity ease-in-out 1s;
+}
+
+.dynamic_timeZoneClocks.ng-hide {
+  line-height:0;
+  opacity:0;
+  //padding:0 10px;
 }
 
 iframe.noScrolling {
@@ -432,11 +441,6 @@ iframe {
  }
 .fa-sun-o:hover {
   color: #FFA500;
-  background:red;
-}
-.fa-sun-o:hover{
-  color: #FFA500;
-  background:black;
 }
 
 //gmt icon
@@ -534,257 +538,151 @@ h1 {
   color: tomato;
 }
 
-/*.box {
-	border: 1px solid;
-	padding: 10px;
-}*/
 
-.box::before,
-.box::after {
-  content: "";
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  background: royalblue;
-  border-radius: 50%;
-  margin: 15px 15px 0 15px;
-}
+//tgd
+
 
 /*
-.boxx {margin:auto;
-width: 300px;
-height: 300px;
-border-radius: 15px;
-background:steelblue;
-transition-duration: 1s;}
-
-.boxx:hover {background: lightcoral;
-transition-propterty: background, border-radiius;
-transition-duration: 1s;
-border-radius: 50%;}*/
-
- .wrapp {margin: 0 auto;
- padding: 15px;
- width: 850px;
- height: 300px;
- box-shadow: 0 0 20px rgba(0,0,0, 0.5);}
-
-.boxx {
-
-  width: 25%;
-  height: 200px;
-  border-radius: 8px;
-  color: #468294;
-  transition-duration: 1s;
-  transition-timing-function:cubic-bezier(0.5,-0.5, 0.3, 1.3)
-
-}
-
-.wrapp:hover .boxx {
-  background: #F08080;
-  margin-left: 75%;
-}
-
-
-.ng-show
-
-{     background: pink;
-
-  -webkit-transition: 1s;
-
-  transition: 3s;
-
-  opacity:0;
-
-}
-
-.ng-show-active
-
-{    opacity:1;
-
-}
-
-.ng-enter
-
-{
-
-  -webkit-transition: 1s;
-
-  transition: 3s;
-
-  opacity:0;
-
-}
-
-.ng-enter-active
-
-{
-
-  opacity:1;
-
-}
-
-
-
-
-
-.ng-leave
-
-{
-
-  -webkit-transition: 5s;
-  transition: 5s;
-
-}
-
-.ng-leave-active
-
-{
-
-  opacity:0;
-
-}
-
-
-
-.sample-show-hide {
-  padding:10px;
-  border:1px solid black;
-  background:white;
-}
-
-.sample-show-hide {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
-}
-
-.sample-show-hide.ng-hide {
-  opacity:0;
-}
-
-.wwrap {margin: 0 auto;
-  padding: 15px;
-  width: 85%;
-  background: #F0FcFF;
-  box-shadow: 0 0 20px rgba(0,0,0, 0.5);}
-
-.bbox {
-  margin: auto;
-  width: 150px;
-  height: 200px;
-  background: url ('')
-
-}
-
-.mike {display: block;
-width: 100%;
- transition: 1s ease-in-out;
-
-}
-
-.wwrap:hover .mike {
-  transform: translateX(200px);
-}
-
-.box { color: white; text-align: center; height: 100px; font-size: 86px; }
-.on  { background-color: green; }
-.off { background-color: red; }
-
-
-.box-show-setup, .box-hide-setup {
-  -webkit-transition:all linear 0.3s;
-  -moz-transition:all linear 6.3s;
-  -ms-transition:all linear 0.3s;
-  -o-transition:all linear 0.3s;
-  transition:all linear 6.3s;
-}
-
-.box-show-setup { opacity:0; height: 0; }
-.box-show-setup.box-show-start { opacity:1; height: 100px; }
-
-.box-hide-setup { opacity:1; height: 0; }
-.box-hide-setup.box-hide-start { opacity:0; height: 100px; }
-
-
-//goodie 5pm
-
-.animation.ng-enter,
-.animation.ng-leave{
-  -webkit-transition: 5s;
-  transition: 5s;
-}
-
-.animation.ng-enter {
-  opacity: 0;
-}
-
-.animation.ng-leave {
-  opacity: 1;
-}
-
-.animation.ng-enter.ng-enter-active {
-  opacity: 1;
-}
-
-.animation.ng-leave.ng-leave-active {
-  opacity: 0;
-}
-
-.big-box {
-  height:500px;
-  width:500px;
-  background:red;
-  box-sizing:border-box;
-  color:white;
-  line-height:500px;
-  text-align:center;
-  font-size:50px;
-  border:2px solid black;
-}
-
-//angular-show-egg     dynamic_timeZoneClocks_initial
-
-
-
-.animate-show {
-  line-height:20px;
-  opacity:1;
-  padding:10px;
-  border:1px solid black;
-  background:white;
-}
-
-.animate-show.ng-hide-add.ng-hide-add-active,
-.animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition:all linear 5s;
-  transition:all linear 5s;
-}
-
-.animate-show.ng-hide {
-  line-height:0;
-  opacity:0;
-  padding:0 10px;
-}
-
-.check-element {
-  padding:10px;
-  border:1px solid black;
-  background:white;
-}
-
-               //tgd
-
 .timetgd.ng-hide-add.ng-hide-add-active,
 .timetgd.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition:all linear 1s;
-  transition:all linear 1s;
+  -webkit-transition:opacity ease-in-out 1s;
+  transition:opacity ease-in-out 1s;
 }
 
 .timetgd.ng-hide {
   line-height:0;
   opacity:0;
-  padding:0 10px;
+  //padding:0 10px;
 }
 
 
-.timetgd {opacity: 1}
+
+
+.timetgd {
+  position: absolute;
+  right: 50px;
+  display: inline-block;
+  opacity: 1;
+  background: white;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 10px;
+}
+
+
+
+
+
+.timetgd li {
+  display: inline-block;
+  list-style-type: none;
+}*/
+
+
+
+
+
+.small-image-figure {
+  position: absolute;
+  top: 0px;
+  left:0px;
+  margin:0;
+  padding:0;
+  padding-right: 1px;
+  background:white;
+  transition: -webkit-transform 1s ease-in;
+  transition: -moz-transform 1s ease-in;
+  transition: transform 1s ease-in;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+      //.tomm becomes small-image-wrap
+.small-image-wrap{
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  margin-right:1em;
+  padding:0;
+  float:left;
+
+
+}
+
+.small-images-caption{
+    visibility: hidden;
+    margin:0;
+    padding: 0;
+    font-size: 0.5em;}
+
+
+.small-image-figure span {
+
+ -webkit-backface-visibility: hidden;
+}
+
+.small-image-figure:hover {
+  -webkit-transform: scale(2) translate3d(10px, 10px, 10px);
+  -moz-transform: scale(2) translate3d(10px, 10px, 10px);
+  transform: scale(2) translate3d(10px, 10px, 10px);
+
+}
+
+.small-image-figure:hover > .small-images-caption {
+  visibility: visible;
+}
+
+.wrap {
+  transition: -webkit-transform 1s ease-in;
+  transition: transform 1s ease-in;
+  -webkit-transform-style: preserve-3d;
+}
+
+.wrap div {
+  position: absolute;
+ -webkit-backface-visibility: hidden;
+}
+
+.side-a {
+  z-index: 100;
+}
+
+/*.side-b {
+  -webkit-transform: rotateY(-180deg);
+}
+*/
+.wrap:hover {
+  -webkit-transform: rotateX(1turn);
+  -moz-transform: rotate(1turn);
+  transform: rotateX(1turn);
+}
+
+.wrap {
+  position: relative;
+  margin: 0 auto;
+  width: 250px;
+  height: 350px;
+  cursor: pointer;
+}
+.wrap div {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-position: 50% 50%;
+  background-size: 150px;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+  color: #FFF;
+  text-align: center;
+  text-shadow: 0 1px rgba(0,0,0,.3);
+  font: bold 3em sans-serif;
+  line-height: 350px;
+}
+.side-a {
+  background: #498FBC url('mike.png');
+}
+.side-b {
+  background: #33363B url('logo.png');
+}

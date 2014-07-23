@@ -9,19 +9,24 @@
       Praesent id mollis neque. Phasellus rutrum iaculis ante,
       id tincidunt tellus pulvinar vitae. Maecenas sodales mollis nisi sit amet congue.
     </p>
-    <p>
 
-      <%= image_tag "001_banks.jpg",
+      <div class="small-image-wrap">
+        <!--imageWrap becomes small-image-figure-->
+       <figure class="small-image-figure">
+            <%= image_tag "001_banks.jpg",
                     alt: "Picture of Gordon Banks",
-                    id: "banksImage" %>
-
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Aliquam aperiam assumenda dignissimos eum expedita incidunt molestiae neque nesciunt optio,
-      pariatur perferendis placeat quibusdam quos, ratione rem repellat reprehenderit tempora veniam.</p>
+                    id: "banksImage"%>
+            <figcaption class = small-images-caption>&nbsp;Gordon Banks</figcaption>
+       </figure>
+      </div>
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Aliquam aperiam assumenda dignissimos
+       eum expedita incidunt molestiae neque nesciunt optio,
+      pariatur perferendis placeat quibusdam quos, ratione rem repellat
+       reprehenderit tempora veniam.</p>
   </div>
   <div class="col-partial8-b col-partial8">
     <h2>Column B</h2>
-
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Praesent id mollis neque. Phasellus rutrum iaculis ante,
@@ -34,11 +39,15 @@
   <div class="col-partial8-c col-partial8">
     <h2>Column C</h2>
 
+    <div class="small-image-wrap">
+      <figure class="small-image-figure">
+        <%= image_tag "103_pele.jpg",
+                      alt: "Picture of Pele",
+                      id: "peleImage" %>
+        <figcaption class = small-images-caption>&nbsp;Pele</figcaption>
+      </figure>
+    </div>
     <p>
-
-      <%= image_tag "103_pele.jpg",
-                    alt: "Picture of Pele",
-                    id: "peleImage" %>
       Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu, vitae lobortis ipsum nibh sed dolor. Vestibulum
       sodales pulvinar risus vel fermentum.
       Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci
@@ -53,10 +62,16 @@
       unde!
     </p>
 
+    <div class="small-image-wrap">
+      <figure class="small-image-figure">
+        <%= image_tag "109_schillaci.jpg",
+                      alt: "Picture of Salvadore Schillachi",
+                      id: "schillachiImage" %>
+        <figcaption class = small-images-caption>&nbsp;Schillachi</figcaption>
+      </figure>
+    </div>
+
     <p>
-      <%= image_tag "109_schillaci.jpg",
-                    alt: "Picture of Salvadore Schillachi",
-                    id: "schillachiImage" %>
       Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu, vitae lobortis ipsum nibh sed dolor. Vestibulum
       sodales pulvinar risus vel fermentum.
       Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci

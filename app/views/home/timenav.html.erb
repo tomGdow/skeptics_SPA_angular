@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="small-12 columns">
+    <dl class="sub-nav" id="undernav">
+      <dd>
+        <!-- clock icon-->
+        <a>
+          <span
+          ng-class=" clock_image_model ?  ' fa fa-clock-o dynamic-clock-underline_color ': 'fa fa-clock-o'"
+          ng-mouseover="clockMouseOver()"
+          ng-mouseleave="clockMouseLeave()"
+          ng-click="clockOnClick()">
+               Time
+          </span>
+        </a>
+      </dd>
+      <dd>
+        <!--Date icon-->
+        <a>
+          <span
+          ng-class=" date_image_model ?  ' fa fa-calendar dynamic-clock-underline_color ': 'fa fa-calendar'"
+          ng-click="dateOnClick()"
+          ng-mouseover="dateMouseOver()"
+          ng-mouseleave="dateMouseLeave()">
+          Date
+        </span>
+        </a>
+      </dd>
+
+      <dd>
+      </dd>
+
+      <dd>
+        <!--GMT icon-->
+        <a>
+          <span
+          class='fa  fa-sun-o'
+          ng-mouseover="gmtMouseOver()"
+          ng-mouseleave="gmtMouseLeave()">
+          GMT
+        </span>
+        </a>
+      </dd>
+
+      <dd>
+        <!--show current time-->
+        <span my-current-time="format_one"
+              ng-class=" current_time_model ?  setMyClass : 'dynamic-clock-hidden'"
+              ng-click="timeViewOnClick()"
+              ng-mouseover="timeViewMouseOver()"
+              ng-mouseleave="timeViewMouseLeave()">
+                </span>
+      </dd>
+      <!--nav four show current date-->
+      <!--model2 is now current_date_model-->
+      <dd>
+        <a>
+          <span my-current-time="format_two"
+                ng-class=" current_date_model ?  setMyClass2 : 'dynamic-date-hidden'"
+                ng-click="dateViewOnClick()"
+                ng-mouseover="dateViewMouseOver()"
+                ng-mouseleave="dateViewMouseLeave()">
+                </span>
+        </a>
+      </dd>
+      <dd ng-include="'/home/gmtTime.html'">h3llo</dd>
+      <!--<dd>paddyLast</dd>-->
+    </dl>
+  </div>
+</div>

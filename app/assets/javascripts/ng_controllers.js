@@ -5,7 +5,7 @@
 angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnimate', 'underscore'])
     .controller('MyCtrlIndex', function($scope, _) {
 
-        $scope.templates =
+/*        $scope.templates =
             [ { name: 'template1.html', url: 'home/template1.html'},
                 { name: 'template2.html', url: 'home/template2.html'} ];
         $scope.template = $scope.templates[0];
@@ -16,9 +16,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
 
 
-        $scope.ids = (_.pluck(data, 'tweet'))[0];
-
-
+        $scope.ids = (_.pluck(data, 'tweet'))[0];*/
 
         /*INDEX PAGE CONTROLLER*/
       $scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
@@ -91,8 +89,8 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
     };
 
         $scope.gmtMouseOver = function (){
+            $scope.showtime =true;
 
-            this.timezones_model=true;
             this.current_time_model = true;
 
             //this.setMyClass -= ' dynamic-clock_hidden';
@@ -109,8 +107,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         };
 
         $scope.gmtMouseLeave = function (){
-
-            this.timezones_model=false;
+            $scope.showtime =false;
 
             if(this.setMyClass === 'dynamic-clock_three'
                 || this.setMyClass === 'dynamic-clock_three dynamic-clock_four'
@@ -123,7 +120,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
                 this.current_time_model = false;
             }
-
         };
 
     $scope.timeViewMouseOver = function ()  {
@@ -181,10 +177,12 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             }
         };
 
-        $scope.dateOnClick = function () {                                    $scope.templates =
+        $scope.dateOnClick = function () {
+
+       /*     $scope.templates =
             [ { name: 'home/template1.html.erb', url: 'template1.html.erb'},
                 { name: 'template2.html', url: 'template2.html'} ];
-        $scope.template = $scope.templates[0]
+        $scope.template = $scope.templates[0];*/
 
             if(this.setMyClass2 === 'dynamic-date_three'|| this.setMyClass2 === 'dynamic-date_four') {
                 this.setMyClass2= 'dynamic-date-hidden';
@@ -286,93 +284,31 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         $scope.message = 'Hello From Partial Two';
         $scope.code = 'nSFiQloC3yw';
 
-    }]).controller('MyCtrl3', ['$scope', function($scope) {
+    }]).controller('MyCtrl3', function($scope,  $http) {
         /*CONTROLLER FOR PARTIAL THREE*/
         $scope.message = 'Heello From Partial Three';
 
-    }]).controller('MyCtrl4', ['$scope', function($scope) {
+        var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D'http%3A%2F%2Fdailyjs.com%2Fatom.xml'%20and%20itemPath%3D'feed.entry'&format=json&diagnostics=true&callback=JSON_CALLBACK";
+
+        $http.jsonp(url).
+            success(function(data, status, headers, config) {
+                $scope.feed = {
+                    title: 'DailyJS',
+                    items: data.query.results.entry
+                };
+            }).
+            error(function(data, status, headers, config) {
+                console.error('Error fetching feed:', data);
+            });
+
+    }).controller('MyCtrl4', ['$scope', function($scope) {
         /*CONTROLLER FOR PARTIAL FOUR*/
         $scope.message = 'Heello From Partial Four';
 
-    }]).controller('MyCtrl5', function($scope, $window, $timeout) {
-
-        $scope.items = [];
+    }]).controller('MyCtrl5', function($scope) {
 
 
-        $scope.push = function() {
-            $scope.items.push(+new $window.Date);
-        };
-
-        $scope.pop = function() {
-            $scope.items.pop();
-        };
-
-
-        $scope.items = [];
-
-        $scope.push = function() {
-            $scope.items.push(+new $window.Date);
-        };
-
-        $scope.pop = function() {
-            $scope.items.pop();
-        };
-
-        /*CONTROLLER FOR PARTIAL FIVE*/
-        $scope.message = 'Heello From Partial Five';
-
-        $scope.names = [
-            {
-
-                name: 'Mohit'
-
-            },
-            {
-
-                name: 'Anubhav'
-
-            }
-        ];
-         $scope.toggle = true;
-
-
-        $scope.tomm =false;
-        $scope.exptfn = function () {
-            $scope.tomm = true;};
-
-
-
-
-        $scope.insert = function () {
-
-            $scope.names.push({
-
-                name: 'Anubhav'
-
-            });
-
-        };
-
-        $scope.remove = function () {
-
-            $scope.names.pop();
-
-        };
-
-
-
-        $scope.pleaseWork = function () {
-
-            $scope.hello =true;
-        };
-
-        $scope.showthefuckingtime = function (){
-            $scope.showtime =true;
-        };
-
-        $scope.noshowtime = function (){
-            $scope.showtime =false;
-        }
+          //five
 
     }).controller('MyCtrl6', ['$scope', function($scope) {
 
@@ -390,49 +326,4 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         /*Blog*/
         $scope.message = 'Hello From Partial Eight';
 
-    }]).animation('.show-hide-animation', function() {
-        /*
-         * the reason why we're using beforeAddClass and removeClass is because we're working
-         * around the .ng-hide class (which is added when ng-show evaluates to false). The
-         * .ng-hide class sets display:none!important and we want to apply the animation only
-         * when the class is removed (removeClass) or before it's added (beforeAddClass).
-         */
-        return {
-
-            /*
-             * make sure to call the done() function when your animation is complete.
-             */
-            beforeAddClass : function(element, className, done) {
-                if(className == 'ng-hide') {
-                    TweenMax.to(element, 1, { height: 0, onComplete: done });
-
-                    //this function is called when the animation ends or is cancelled
-                    return function() {
-                        element[0].style.height = '';
-                    }
-                } else {
-                    done();
-                }
-            },
-
-            /*
-             * make sure to call the done() function when your animation is complete.
-             */
-            removeClass : function(element, className, done) {
-                if(className == 'ng-hide') {
-                    //set the height back to zero to make the animation work properly
-                    var height = element.height();
-                    element.css('height', 0);
-
-                    TweenMax.to(element, 1, { height: height, onComplete: done });
-
-                    //this function is called when the animation ends or is cancelled
-                    return function() {
-                        element[0].style.height = '';
-                    }
-                } else {
-                    done();
-                }
-            }
-        }
-    });
+    }]);

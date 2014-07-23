@@ -12,6 +12,7 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/timezones"
   get "home/gmtTime"
   get "home/mainnav"
+  get "home/timenav"
   get "home/curieFlexslider"
 
   get "home/template1"
