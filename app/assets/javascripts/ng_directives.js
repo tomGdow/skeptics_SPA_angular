@@ -116,4 +116,55 @@ angular.module('myApp.directives', []).
                 });
             }
         };
+    }).directive('bars', function ($parse) {
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div id="chart"></div>',
+            link: function (scope, element, attrs) {
+                var data = attrs.data.split(','),
+                    chart = d3.select('#chart')
+                        .append("div").attr("class", "chart")
+                        .selectAll('div')
+                        .data(data).enter()
+                        .append("div")
+                        .transition().ease("elastic")
+                        .style("width", function(d) { return d + "%"; })
+                        .text(function(d) { return d + "%"; });
+            }
+        };
+    }).directive('bars2', function ($parse) {
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div id="chart2"></div>',
+            link: function (scope, element, attrs) {
+                var data2 = attrs.data2.split(','),
+                    chart = d3.select('#chart2')
+                        .append("div").attr("class", "chart2")
+                        .selectAll('div')
+                        .data(data2).enter()
+                        .append("div")
+                        .transition().ease("elastic")
+                        .style("width", function(d) { return d + "%"; })
+                        .text(function(d) { return d + "%"; });
+            }
+        };
+    }).directive('bars3', function ($parse) {
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div id="chart3"></div>',
+            link: function (scope, element, attrs) {
+                var data3 = attrs.data3.split(','),
+                    chart = d3.select('#chart3')
+                        .append("div").attr("class", "chart3")
+                        .selectAll('div')
+                        .data(data3).enter()
+                        .append("div")
+                        .transition().ease("elastic")
+                        .style("width", function(d) { return d + "%"; })
+                        .text(function(d) { return d + "%"; });
+            }
+        };
     });

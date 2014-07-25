@@ -14,9 +14,8 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/mainnav"
   get "home/timenav"
   get "home/curieFlexslider"
-
-  get "home/template1"
-  get "home/template2"
+  get "home/charts"
+  get "home/celciusNav"
 
 
   # The priority is based upon order of creation:

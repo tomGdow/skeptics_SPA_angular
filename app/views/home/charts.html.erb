@@ -1,0 +1,15 @@
+<div ng-show="data1model">
+  <bars data="{{mydata}}"></bars>
+</div>
+<div  ng-show="data2model">
+  <bars2 data2="{{mydata2}}"></bars2>
+</div>
+<div ng-show="data3model">
+  <bars3 data3="{{mydata3}}"></bars3>
+</div>
+
+<p class ="chart-button-list">
+  <button class="button alert tiny"  ng-click="toggleDataOne()">2012</button>
+  <button class="button alert tiny" ng-click="toggleDataTwo()">2013</button>
+  <button class="button alert tiny" ng-click="toggleDataThree()">2014</button>
+</p>

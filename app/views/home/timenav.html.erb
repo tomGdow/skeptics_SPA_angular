@@ -1,6 +1,6 @@
 <div class="row">
   <div class="small-12 columns">
-    <dl class="sub-nav" id="undernav">
+    <dl class="sub-nav" id="time-nav">
       <dd>
         <!-- clock icon-->
         <a>
@@ -40,7 +40,16 @@
         </span>
         </a>
       </dd>
-
+         <dd>
+           <a>
+          <span
+          class='fa  fa-umbrella'
+          ng-click="toggleCelciusNav()"
+          >
+          &deg;C/&deg;F
+        </span>
+           </a>
+           </dd>
       <dd>
         <!--show current time-->
         <span my-current-time="format_one"
@@ -52,6 +61,8 @@
       </dd>
       <!--nav four show current date-->
       <!--model2 is now current_date_model-->
+
+
       <dd>
         <a>
           <span my-current-time="format_two"
@@ -62,7 +73,7 @@
                 </span>
         </a>
       </dd>
-      <dd ng-include="'/home/gmtTime.html'">h3llo</dd>
+      <dd ng-include="'/home/gmtTime.html'"></dd>
       <!--<dd>paddyLast</dd>-->
     </dl>
   </div>

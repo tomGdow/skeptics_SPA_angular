@@ -1,4 +1,4 @@
-//fonts
+//====fonts====
 
 //Google fonts
 @font-face {
@@ -72,7 +72,7 @@
   font-size: 2em;
 }
 
-// ====End fonts ====
+//====General ====
 
 html {
   height: 100%;
@@ -83,8 +83,7 @@ body {
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   perspective: 800px;
-
-  -webkit-perspective-origin: 50% 50%;
+ // -webkit-transform-style: preserve-3d;
 }
 
 h3 {
@@ -92,7 +91,35 @@ h3 {
   letter-spacing: 1px;
 }
 
-//==== navbar ====
+/*Remove Dotted line from Buttons in Mozilla */
+:focus {
+  outline: none;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+.italic {
+  font-style: italic;
+  color: black;
+}
+
+iframe {
+  border: none;
+  overflow: hidden;
+  scroll: none;
+  height: 90px;
+  width: 200px;
+}
+
+/*
+.red {
+  background-color: red;
+}
+*/
+
+//==== navbar (main) ====
 
 nav.mainNav {
   //display: inline-block;
@@ -177,11 +204,103 @@ nav li {
   -webkit-flex-grow: 1;
 }
 
-/*====footer===*/
+//==== navbar (time) ====
+
+#time-nav {
+  position: relative;
+  padding-bottom: 18px; //Careful! used to be undernav
+  margin: auto;
+}
+
+.dynamic-clock_one, .dynamic-date_one {
+  position: relative;
+  visibility: visible;
+  border-radius: 11px;
+  color: #FFA500;
+}
+
+.dynamic-clock-hidden, .dynamic-date-hidden {
+  visibility: hidden;
+}
+
+.dynamic-clock-hidden {
+  position: absolute;
+}
+
+.dynamic-clock_three, .dynamic-date_three {
+  visibility: visible;
+  background-color: #fff
+}
+
+.dynamic-clock_four, .dynamic-date_four {
+  color: #FFA500;
+}
+
+.dynamic-clock_underline {
+  text-decoration: underline;
+}
+
+.dynamic-clock-underline_color {
+  text-decoration: underline;
+  color: #FFA500;
+}
+
+.dynamic_timeZoneClocks {
+
+  position: absolute;
+  right: 50px;
+  display: inline-block;
+  opacity: 1;
+  background: white;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 10px;
+}
+
+.dynamic_timeZoneClocks li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+.dynamic_timeZoneClocks.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  //padding:0 10px;
+}
+
+.dynamic_timeZoneClocks.ng-hide-add.ng-hide-add-active,
+.dynamic_timeZoneClocks.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: opacity ease-in-out 1s;
+  transition: opacity ease-in-out 1s;
+}
+
+.dynamic_timeZoneClocks.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  //padding:0 10px;
+}
+
+.fa-sun-o {
+  background: white;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+}
+
+.fa-sun-o:hover {
+  color: #FFA500;
+}
+
+//==== nav-bar (products)====
+
+#productsnav {
+  display: none;
+}
+
+//=====footer====
 
 footer {
   visibility: visible;
-
 }
 
 footer li {
@@ -223,19 +342,19 @@ footer li {
 
 .footerList li a {
   color: #000;
-  transition-duration: 2s;
-  transition-timing-function:ease-out;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 
 .footerList li a span {
   display: block;
-  opacity:0;
+  opacity: 0;
   margin-left: -20px;
   margin-top: 5px;
   padding: 5px;
-  transition-property:all;
-  transition-duration: 2s;
-  transition-timing-function:ease-out;
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
 
 .footerList li a:hover {
@@ -245,7 +364,7 @@ footer li {
 .footerList li a:hover > span {
   background-color: white;
   border-radius: 5em;
-  opacity:1;
+  opacity: 1;
 }
 
 .fa-times-circle {
@@ -257,18 +376,18 @@ footer li {
   margin-left: initial;
 }
 
-/*Remove Dotted line from Buttons in Mozilla */
-:focus {
-  outline: none;
+//==== flexslider ====
+
+#curie-slider {
+  width: 20em;
 }
 
-::-moz-focus-inner {
-  border: 0;
-}
-
-#mainheading, #myslider {
+#main-curieSlider, #curie-slider {
   text-align: center;
 }
+
+.curie-flex-render {max-width: 50%;
+  margin: 2em;} //Careful
 
 .flexFigCaption {
 
@@ -287,87 +406,16 @@ footer li {
   color: white;
 }
 
-#inputdiv {
+/*#inputdiv {
   text-align: center;
 }
 
 #myinput {
   display: inline-block;
   width: 70%;
-}
+}*/
 
-.dynamic-clock_one, .dynamic-date_one {
-  position: relative;
-  visibility: visible;
-  border-radius: 11px;
-  color: #FFA500;
-}
-
-/*
-dynamic-clock-two now dynamic-clock-hidden*/
-
-.dynamic-clock-hidden, .dynamic-date-hidden {
-  visibility: hidden;
-}
-
-.dynamic-clock-hidden {
-  position: absolute;
-}
-
-.dynamic-clock_three, .dynamic-date_three {
-  visibility: visible;
-  background-color: #fff
-}
-
-.dynamic-clock_four, .dynamic-date_four {
-  color: #FFA500;
-}
-
-.dynamic-clock_underline {
-  text-decoration: underline;
-}
-
-/*tgdexpt is dynamic-clock-underline_color*/
-
-.dynamic-clock-underline_color {
-  text-decoration: underline;
-  color: #FFA500;
-}
-
-.dynamic_timeZoneClocks {
-
-  position: absolute;
-  right: 50px;
-  display: inline-block;
-  opacity: 1;
-  background: white;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  border-radius: 10px;
-}
-
-.dynamic_timeZoneClocks li {
-  display: inline-block;
-  list-style-type: none;
-}
-.dynamic_timeZoneClocks.ng-hide {
-  line-height:0;
-  opacity:0;
-  //padding:0 10px;
-}
-
-.dynamic_timeZoneClocks.ng-hide-add.ng-hide-add-active,
-.dynamic_timeZoneClocks.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition:opacity ease-in-out 1s;
-  transition:opacity ease-in-out 1s;
-}
-
-.dynamic_timeZoneClocks.ng-hide {
-  line-height:0;
-  opacity:0;
-  //padding:0 10px;
-}
+ //==what are these
 
 iframe.noScrolling {
   background: red;
@@ -378,35 +426,72 @@ dt a {
   display: inline-block;
 }
 
-#undernav {
+//==== Images ====
+
+.small-image-figure {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0;
+  padding: 0;
+  padding-right: 1px;
+  background: white;
+  transition: -webkit-transform 1s ease-in;
+  transition: -moz-transform 1s ease-in;
+  transition: transform 1s ease-in;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-backface-visibility: hidden;
+}
+
+//.tomm becomes small-image-wrap
+.small-image-wrap {
   position: relative;
-  padding-bottom: 18px; //Careful!
-  margin: auto;
+  width: 4em;
+  height: 4em;
+  margin: 0;
+  margin-right: 1em;
+  padding: 0;
+  float: left;
+}
+
+.small-images-caption {
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+  font-size: 0.5em;
+}
+
+.small-image-figure{
+
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+}
+
+#gordon-banks:hover, #pele-image:hover , #schillachi-italy:hover{
+  -webkit-transform: scale(2) translate3d(10px, 10px, 10px);
+  -moz-transform: scale(2) translate3d(10px, 10px, 10px);
+  transform: scale(2) translate3d(10px, 10px, 10px);
+  -webkit-backface-visibility: hidden;
 
 }
 
-/*
-.red {
-  background-color: red;
-}
-*/
-
-.italic {
-  font-style: italic;
-  color: black;
+.small-image-figure:hover > .small-images-caption {
+  visibility: visible;
+  -webkit-backface-visibility: hidden;
 }
 
-iframe {
-  border: none;
-  overflow: hidden;
-  scroll: none;
-  height: 90px;
-  width: 200px;
+#watsonImage {
+  display: block;
+  margin: 1.5em 0;
+  max-width: 100%;
 }
 
-//Shopping Cart
+//====Shopping Cart ====
+
 #cart {
-
   position: absolute;
   top: -10%;
   left: 90%;
@@ -425,92 +510,199 @@ iframe {
   -webkit-font-smoothing: antialiased;
 }
 
-/*#upperdiv {
-
-  background: -moz-radial-gradient(1px 10px, ellipse , #FFA500 2%, transparent 30%);
-  background: -webkit-radial-gradient(1px 10px, ellipse , #FFA500 2%, transparent 30%);
-  background: -o-radial-gradient(1px 10px, ellipse , #FFA500 2%, transparent 30%);
-  border-radius: 15px;
-}*/
-
 //containing div for main nav-bar
- .fa-sun-o{
-     background:white;
-   transition-duration: 2s;
-   transition-timing-function:ease;
- }
-.fa-sun-o:hover {
-  color: #FFA500;
-}
-
 //gmt icon
 
-#productsnav {
-  display: none;
-}
-
-#watsonImage {
-  display: block;
-  margin: 1.5em 0;
-  max-width: 100%;
-  }
-
-#myslider{
-           width: 20em;
-}
-
-.col-partial8 {
-  margin: 10px;
-  padding: 25px;
-  border: 2px solid rgba(45,74,95,.9);
-  border-radius: inherit;
-  background: rgba(255,255,255,.8);
-}
+//==== Partials Text ====
 
 h1 {
- -webkit-column-span: all;
- -moz-column-span: all;
+  -webkit-column-span: all;
+  -moz-column-span: all;
   column-span: all;
 }
+
+.col-partial1, .col-partial8  {
+  margin: 10px;
+  padding: 25px;
+  border: 2px solid rgba(45, 74, 95, .9);
+  border-radius: inherit;
+  background: rgba(255, 255, 255, .8);
+} //Keep this for debugging
+
+.main-partial1 {
+  //display: -webkit-flex;
+  //display: flex;
+  -webkit-columns:  250px 2;
+  -moz-columns:  15em 2;
+  columns: 15em 2;
+  -webkit-column-gap: 2em;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
+  //-webkit-column-rule: 2px dotted red;
+  // -webkit-column-width: 250px;
+}
+
+.col-partial1 {
+  border: none;
+  -webkit-flex: 3;
+  flex: 3;
+}
+
+.col-partial1-b {
+  -webkit-flex: 3;
+  -webkit-order: 1;
+  flex: 3;
+  order: 1;
+}
+
+.col-partial1-c {
+  -webkit-flex: 1;
+  -webkit-order: 1;
+  flex: 1;
+  order: 1;
+}
+
+
+ //de de dee
+
+/*.col-partial8 {
+  margin: 10px;
+  padding: 25px;
+  border: 2px solid rgba(45, 74, 95, .9);
+  border-radius: inherit;
+  background: rgba(255, 255, 255, .8);
+}*/
+
+
 
 .main-partial8 {
   //display: -webkit-flex;
   //display: flex;
   -webkit-columns: 250px 3;
   -moz-columns: 250px 3;
-   columns: 250px 3;
+  columns: 250px 3;
   -webkit-column-gap: 3em;
-  -moz-column-gap:3em;
-   column-gap: 3em;
-   //-webkit-column-rule: 2px dotted red;
+  -moz-column-gap: 3em;
+  column-gap: 3em;
+  //-webkit-column-rule: 2px dotted red;
   // -webkit-column-width: 250px;
 }
 
-
-.col-partial8 {border:none;
+.col-partial8 {
+  border: none;
   -webkit-flex: 1;
-  flex:1;
+  flex: 1;
 }
 
 .col-partial8-c {
   -webkit-flex: 2;
   -webkit-order: -1;
-  flex:2;
-  order:-1;
+  flex: 2;
+  order: -1;
 }
 
+//====Chart====
+
+//modified from http://codepen.io/danielemoraschi/pen/qFmol
+//see also http://techslides.com/angular-js-demos-examples-and-resources/
+
+.chart,.chart2, .chart3 {
+  background: #eee;
+  padding: 3px;
+}
+
+.chart div, .chart2 div,.chart3 div  {
+  width: 0;
+  transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.chart div, .chart2 div, .chart3 div {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 5px;
+  color: white;
+  box-shadow: 2px 2px 2px #666;
+}
+
+.chart-button-list {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 25px auto;
+  margin-top:0;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+.chart-dynamic-header {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 25px auto;
+  margin-bottom:0;
+  margin-top:0;
+  padding: 10px 20px;
+  width: 100%;
+}
+
+ //==toggle Fahrenheit to Celcius
+
+
+
+.dynamic_temp.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  //padding:0 10px;
+}
+
+.dynamic_temp.ng-hide-add.ng-hide-add-active,
+.dynamic_temp.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: opacity ease-in-out 1s;
+  transition: opacity ease-in-out 1s;
+}
+
+.dynamic_temp.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  //padding:0 10px;
+}
+
+.fa-umbrella {
+  background: white;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.fa-umbrella:hover {
+  color: #FFA500;
+}
+
+
+//==== Media ====
 @media screen and (max-width: 999px) {
   .main {
     -webkit-flex-direction: column;
     -moz-flex-direction: column;
-    flex-direction:column;
+    flex-direction: column;
   }
 }
 
-
-
-
-
+//=== Experimental === ==================================================
 /*#tom {
  height: 100px;
  width: 100px;
@@ -538,9 +730,7 @@ h1 {
   color: tomato;
 }
 
-
 //tgd
-
 
 /*
 .timetgd.ng-hide-add.ng-hide-add-active,
@@ -579,61 +769,6 @@ h1 {
   list-style-type: none;
 }*/
 
-
-
-
-
-.small-image-figure {
-  position: absolute;
-  top: 0px;
-  left:0px;
-  margin:0;
-  padding:0;
-  padding-right: 1px;
-  background:white;
-  transition: -webkit-transform 1s ease-in;
-  transition: -moz-transform 1s ease-in;
-  transition: transform 1s ease-in;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-      //.tomm becomes small-image-wrap
-.small-image-wrap{
-  position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0;
-  margin-right:1em;
-  padding:0;
-  float:left;
-
-
-}
-
-.small-images-caption{
-    visibility: hidden;
-    margin:0;
-    padding: 0;
-    font-size: 0.5em;}
-
-
-.small-image-figure span {
-
- -webkit-backface-visibility: hidden;
-}
-
-.small-image-figure:hover {
-  -webkit-transform: scale(2) translate3d(10px, 10px, 10px);
-  -moz-transform: scale(2) translate3d(10px, 10px, 10px);
-  transform: scale(2) translate3d(10px, 10px, 10px);
-
-}
-
-.small-image-figure:hover > .small-images-caption {
-  visibility: visible;
-}
-
 .wrap {
   transition: -webkit-transform 1s ease-in;
   transition: transform 1s ease-in;
@@ -642,7 +777,7 @@ h1 {
 
 .wrap div {
   position: absolute;
- -webkit-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .side-a {
@@ -666,6 +801,7 @@ h1 {
   height: 350px;
   cursor: pointer;
 }
+
 .wrap div {
   width: 100%;
   height: 100%;
@@ -673,16 +809,23 @@ h1 {
   background-position: 50% 50%;
   background-size: 150px;
   background-repeat: no-repeat;
-  box-shadow: inset 0 0 45px rgba(255,255,255,.3), 0 12px 20px -10px rgba(0,0,0,.4);
+  box-shadow: inset 0 0 45px rgba(255, 255, 255, .3), 0 12px 20px -10px rgba(0, 0, 0, .4);
   color: #FFF;
   text-align: center;
-  text-shadow: 0 1px rgba(0,0,0,.3);
+  text-shadow: 0 1px rgba(0, 0, 0, .3);
   font: bold 3em sans-serif;
   line-height: 350px;
 }
+
 .side-a {
   background: #498FBC url('mike.png');
 }
+
 .side-b {
   background: #33363B url('logo.png');
 }
+
+
+
+
+

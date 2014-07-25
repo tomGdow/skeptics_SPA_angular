@@ -36,7 +36,7 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.2/TweenMax.min.js"></script>
   <%= csrf_meta_tags %>
 
-  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
 </head>
 <body ng-controller="MyCtrlIndex">
@@ -45,29 +45,40 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser.
     Please <a href="http://browsehappy.com/">upgrade
         your browser</a> to improve your experience.</p>
-
 <![endif]-->
 
 
 <div class="row">
   <div class="small-12 columns">
-
     <!--Main NavBar-->
-<div class="row" my-draggable>
-  <div class="small-12 columns">
+        <div class="row" my-draggable>
+            <div class="small-12 columns">
+                <div id="main" ng-include="'/home/mainnav.html'"></div>
+            </div>
+        </div>
+        <!-- Time  Nav-bar-->
+        <div  ng-include="'/home/timenav.html'"> </div>
+  </div>
+</div><!--upperdiv-->
 
-    <div id="main" ng-include="'/home/mainnav.html'">
+<div class="row">
+  <div class="small-12 columns dynamic_temp" id="celcius-to-fahrenheit" ng-show ="cfConvModel">
 
-    </div>
+
+    <dl class="sub-nav" id="temp-nav">
+      <dd></dd>
+      <dd><input type="number" ng-model="fahrenheit" ng-change="markEdited('F')"/> Fahrenheit</dd>
+
+      <dd><input type="number" ng-model="celsius" ng-change="markEdited('C')" /> Celsius</dd>
+      <dd>4</dd>
+      <dd>5</dd>
+      <dd>6</dd>
+      <dd>7</dd>
+      <dd>8</dd>
+      <!--<dd>paddyLast</dd>-->
+    </dl>
   </div>
 </div>
-
-<!-- Time  Nav-bar-->
-    <div  ng-include="'/home/timenav.html'"> </div>
-
-  </div>
-</div>    <!--upperdiv-->
-
 
 <!--products nav-bar-->
 <div class="row" id="productsnav">

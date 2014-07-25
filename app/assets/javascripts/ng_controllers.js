@@ -5,6 +5,8 @@
 angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnimate', 'underscore'])
     .controller('MyCtrlIndex', function($scope, _) {
 
+
+
 /*        $scope.templates =
             [ { name: 'template1.html', url: 'home/template1.html'},
                 { name: 'template2.html', url: 'home/template2.html'} ];
@@ -37,7 +39,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
     $scope.setMyClass= 'dynamic-clock_one';
     $scope.setMyClass2= 'dynamic-date_one';
     $scope.timezones_model= false;
-    $scope.footerModel= false;
+    $scope.footerModel= true;
 
         //clock
     $scope.clockMouseOver = function () {
@@ -84,27 +86,21 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
     };
 
     $scope.timeViewOnClick = function ()  {
-
         this.setMyClass='dynamic-clock-hidden';
-    };
+        };
 
         $scope.gmtMouseOver = function (){
+
             $scope.showtime =true;
-
             this.current_time_model = true;
-
-            //this.setMyClass -= ' dynamic-clock_hidden';
             this.setMyClass += ' dynamic-clock_four';
-
             this.format_one = "h:mm:ss a";
 
             if(this.setMyClass === 'dynamic-clock-hidden dynamic-clock_four') {
-
                 this.setMyClass = ' dynamic-clock_three';
                 this.setMyClass += ' dynamic-clock_four'
-
-            }
-        };
+                }
+            };
 
         $scope.gmtMouseLeave = function (){
             $scope.showtime =false;
@@ -117,7 +113,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             }
 
             else {
-
                 this.current_time_model = false;
             }
         };
@@ -245,12 +240,47 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         $scope.footerMouseAway= function () {
             this.toggleClassModel = 'toggleOn';
         };
+
+      //====Farentheit to Celcius
+          //modified from  OverZealous at StackOverflow
+          //see:
+            // http://plnkr.co/edit/0n0golhEzU7dokMOkHN6?p=preview
+            //http://stackoverflow.com/a/17626761
+
+        $scope.edited = null;
+        $scope.markEdited = function(which) {
+            $scope.edited = which;
+        };
+
+        $scope.$watch('fahrenheit', function(value) {
+            if($scope.edited == 'F') {
+                //console.log(value+'C -> F');
+                $scope.celsius = (value - 32) * 5.0/9.0;
+            }
+        });
+        $scope.$watch('celsius', function(value) {
+            if($scope.edited == 'C') {
+                //console.log(value+'F -> C');
+                $scope.fahrenheit = value * 9.0 / 5.0 + 32;
+            }
+        });
+
+        //====Toggle Celcius to Fahrenheit Button
+        $scope.cfConvModel=false;
+        $scope.toggleCelciusNav = function () {
+            if (this.cfConvModel) {
+                return  $scope.cfConvModel = false;
+            }
+            return  $scope.cfConvModel = true;
+        }
     }).controller('MyCtrl1', function($scope, $http) {
 
         /*CONTROLLER FOR PARTIAL ONE*/
 
+    //====Flexslider
 
- //Flexslider
+        //modified from: https://github.com/thenikso/angular-flexslider
+
         $http.get('flexSlider.json').success(function(data) {
             $scope.slides = data;
             });
@@ -269,13 +299,59 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         $scope.pausePlay="true";
         $scope.directionNav="true";
         $scope.mydraggable="true";
-        $scope.before = function(){
-            $scope.myVar ="flexBeforeClass";
 
+        $scope.before = function(){
+               $scope.myVar ="flexBeforeClass";
             };
+
         $scope.after = function(){
             $scope.myVar ="flexAfterClass"
         };
+
+    //====Chart
+        //modified from http://codepen.io/danielemoraschi/pen/qFmol
+        //see also http://techslides.com/angular-js-demos-examples-and-resources/
+
+        $http.get('charts.json').success(function(data) {
+            $scope.chartdata = data;
+            $scope.mydata = ($scope.chartdata)[0].toString();
+            $scope.mydata2 = ($scope.chartdata)[1].toString();
+            $scope.mydata3 = ($scope.chartdata)[2].toString();
+            $scope.renderYear =($scope.chartdata)[3][0].toString();
+            //$scope.renderYear =2012;
+        });
+
+
+
+/*
+        $scope.mydata2 = "65,22,33,70,16,43,80,61";
+        $scope.mydata3 = "90,4,40,60,13,33,2,20";*/
+
+        $scope.data1model=true;
+
+        $scope.toggleDataOne = function (){
+           this.data1model =true;
+           this.data2model =false;
+           this.data3model =false;
+            $scope.renderYear =($scope.chartdata)[3][0]
+        };
+
+        $scope.toggleDataTwo = function (){
+           this.data2model =true;
+           this.data1model =false;
+           this.data3model =false;
+            $scope.renderYear =($scope.chartdata)[3][1];
+        };
+        $scope.toggleDataThree = function () {
+            this.data3model = true;
+            this.data1model = false;
+            this.data2model = false;
+            //$scope.renderYear= 2014;
+            $scope.renderYear =($scope.chartdata)[3][2];
+        };
+
+
+
     })
     .controller('MyCtrl2', ['$scope', function($scope) {
 
