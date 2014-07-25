@@ -312,28 +312,30 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         //modified from http://codepen.io/danielemoraschi/pen/qFmol
         //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
-        $http.get('charts.json').success(function(data) {
-            $scope.chartdata = data;
-            $scope.mydata = ($scope.chartdata)[0].toString();
-            $scope.mydata2 = ($scope.chartdata)[1].toString();
-            $scope.mydata3 = ($scope.chartdata)[2].toString();
-            $scope.renderYear =($scope.chartdata)[3][0].toString();
-            //$scope.renderYear =2012;
+        $scope.data1model=true;
+
+       $http.get('charts.json').success(
+           function(data) {
+           $scope.chartdata = data;
+           //$scope.mydata = (($scope.chartdata)[0]).toString();
+           // $scope.mydata2 = ($scope.chartdata)[1].toString();
+           //$scope.mydata3 = ($scope.chartdata)[2].toString();
+           $scope.renderYear =($scope.chartdata)[3][0];
+
+               //Uncommenting above 3 while commenting-out corresponding 3 below works initially
+               //but fails on partial reload (but not on full refresh)
         });
 
-
-
-/*
+        //$scope.renderYear = 2012;
+        $scope.mydata =  "40,4,50,15,16,33,52,20";
         $scope.mydata2 = "65,22,33,70,16,43,80,61";
-        $scope.mydata3 = "90,4,40,60,13,33,2,20";*/
-
-        $scope.data1model=true;
+        $scope.mydata3 = "90,4,40,60,13,33,2,20";
 
         $scope.toggleDataOne = function (){
            this.data1model =true;
            this.data2model =false;
            this.data3model =false;
-            $scope.renderYear =($scope.chartdata)[3][0]
+           $scope.renderYear =($scope.chartdata)[3][0]
         };
 
         $scope.toggleDataTwo = function (){
