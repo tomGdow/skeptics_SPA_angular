@@ -35,21 +35,30 @@
           <span
           class='fa  fa-sun-o'
           ng-mouseover="gmtMouseOver()"
-          ng-mouseleave="gmtMouseLeave()">
+          ng-mouseleave="gmtMouseLeave()" >
           GMT
         </span>
         </a>
       </dd>
-         <dd>
-           <a>
+         <dd >
+           <a title =" Click ">
           <span
           class='fa  fa-umbrella'
           ng-click="toggleCelciusNav()"
           >
-          &deg;C/&deg;F
-        </span>
+         &deg;C/&deg;F</span> <br/>
+
            </a>
            </dd>
+      <dd>
+        <a title =" Click ">
+          <span
+          class='fa  fa-bullseye'
+          ng-click="toggleLatLong()" >
+          lat/long
+        </span>
+        </a>
+      </dd>
       <dd>
         <!--show current time-->
         <span my-current-time="format_one"
@@ -61,8 +70,6 @@
       </dd>
       <!--nav four show current date-->
       <!--model2 is now current_date_model-->
-
-
       <dd>
         <a>
           <span my-current-time="format_two"

@@ -5,24 +5,25 @@
 angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnimate', 'underscore'])
     .controller('MyCtrlIndex', function($scope, _) {
 
-
-
-/*        $scope.templates =
-            [ { name: 'template1.html', url: 'home/template1.html'},
-                { name: 'template2.html', url: 'home/template2.html'} ];
-        $scope.template = $scope.templates[0];
-
-
-
-        var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2}, {tweet: 'wow, this is nice', id: 3}];
-
-
-
-        $scope.ids = (_.pluck(data, 'tweet'))[0];*/
-
         /*INDEX PAGE CONTROLLER*/
-      $scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
-    //NavBar
+
+        /*
+                var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2}, {tweet: 'wow, this is nice', id: 3}];
+                $scope.ids = (_.pluck(data, 'tweet'))[0];*/
+
+        $scope.format_one = "h:mm:ss a";
+        $scope.format_two = "fullDate";
+        $scope.setMyClass= 'dynamic-clock_one';
+        $scope.setMyClass2= 'dynamic-date_one';
+        $scope.timezones_model= false;
+        $scope.footerModel= true;
+        $scope.toggleLocation=true;
+        $scope.cfConvModel=false;
+        $scope.longlat=false;
+        $scope.toggleLatLongCaption=false;
+        $scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
+
+    //====NavBar====
     $scope.$watch('$viewContentLoaded', function(){
         $scope.active='home';
         //$scope.active='viewfour';
@@ -30,16 +31,9 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
     $scope.navclick = function(arg) {
         $scope.active = arg;
 
-    //var tgd = document.getElementById('home').getAttribute("class");
     };
 
-    //Time and Date
-    $scope.format_one = "h:mm:ss a";
-    $scope.format_two = "fullDate";
-    $scope.setMyClass= 'dynamic-clock_one';
-    $scope.setMyClass2= 'dynamic-date_one';
-    $scope.timezones_model= false;
-    $scope.footerModel= true;
+    //====Time and Date====
 
         //clock
     $scope.clockMouseOver = function () {
@@ -92,6 +86,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         $scope.gmtMouseOver = function (){
 
             $scope.showtime =true;
+            $scope.toggleLocation=false;
             this.current_time_model = true;
             this.setMyClass += ' dynamic-clock_four';
             this.format_one = "h:mm:ss a";
@@ -104,6 +99,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
         $scope.gmtMouseLeave = function (){
             $scope.showtime =false;
+            $scope.toggleLocation=true;
 
             if(this.setMyClass === 'dynamic-clock_three'
                 || this.setMyClass === 'dynamic-clock_three dynamic-clock_four'
@@ -174,11 +170,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
         $scope.dateOnClick = function () {
 
-       /*     $scope.templates =
-            [ { name: 'home/template1.html.erb', url: 'template1.html.erb'},
-                { name: 'template2.html', url: 'template2.html'} ];
-        $scope.template = $scope.templates[0];*/
-
             if(this.setMyClass2 === 'dynamic-date_three'|| this.setMyClass2 === 'dynamic-date_four') {
                 this.setMyClass2= 'dynamic-date-hidden';
             }
@@ -217,7 +208,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
         };
 
-        //footer
+    //====footer====
 
         $scope.toggleClassModel ="toggleOn";
 
@@ -242,10 +233,11 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         };
 
       //====Farentheit to Celcius
+
           //modified from  OverZealous at StackOverflow
-          //see:
-            // http://plnkr.co/edit/0n0golhEzU7dokMOkHN6?p=preview
-            //http://stackoverflow.com/a/17626761
+          // see:
+          // http://plnkr.co/edit/0n0golhEzU7dokMOkHN6?p=preview
+          // http://stackoverflow.com/a/17626761
 
         $scope.edited = null;
         $scope.markEdited = function(which) {
@@ -265,19 +257,53 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             }
         });
 
-        //====Toggle Celcius to Fahrenheit Button
-        $scope.cfConvModel=false;
+      //==== Celcius to Fahrenheit Button
+
         $scope.toggleCelciusNav = function () {
             if (this.cfConvModel) {
                 return  $scope.cfConvModel = false;
             }
             return  $scope.cfConvModel = true;
-        }
+        };
+
+       //==== Latitude and Longitude
+
+        //modified from; http://jsfiddle.net/mrajcok/pEq6X/
+          //see also http://techslides.com/angular-js-demos-examples-and-resources/
+
+        $scope.location = '';
+
+        $scope.doSearch = function(){
+            if($scope.location === ''){
+                alert('Directive did not update the location property in parent controller.');
+            } else {
+                $scope.mylocation  = $scope.location;
+                $scope.toggleLatLongCaption=true;
+
+            }
+        };
+
+        $scope.stringFirst = function(string) {
+            return  string.split(',')[0]
+        };
+
+        $scope.stringLast = function(string) {
+            return  string.split(',')[1]
+        };
+
+        $scope.toggleLatLong = function () {
+            if (this.longlat) {
+                return  $scope.longlat = false;
+            }
+            return  $scope.longlat = true;
+        };
+
+
     }).controller('MyCtrl1', function($scope, $http) {
 
         /*CONTROLLER FOR PARTIAL ONE*/
 
-    //====Flexslider
+    //====Flexslider====
 
         //modified from: https://github.com/thenikso/angular-flexslider
 
@@ -308,7 +334,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             $scope.myVar ="flexAfterClass"
         };
 
-    //====Chart
+    //====Chart====
         //modified from http://codepen.io/danielemoraschi/pen/qFmol
         //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
@@ -383,6 +409,8 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         /*CONTROLLER FOR PARTIAL FOUR*/
         $scope.message = 'Heello From Partial Four';
 
+
+
     }]).controller('MyCtrl5', function($scope) {
 
 
@@ -404,4 +432,4 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         /*Blog*/
         $scope.message = 'Hello From Partial Eight';
 
-    }]);
+    }])

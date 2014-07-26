@@ -59,43 +59,34 @@ angular.module('myApp.directives', []).
     }).directive('myDraggable', ['$document', function ($document) {
 
         return function (scope, element, attr) {
-
             var startX = 0, startY = 0, x = 0, y = 0;
-
             element.css(
                 {
                     order: '1px solid red',
-
                     position: 'relative'
-
                 }
             );
 
             element.on('mousedown', function (event) {
 
                 //Prevent default dragging of selected content
-
                 event.preventDefault();
                 startX = event.pageX - x;
                 startY = event.pageY - y;
                 $document.on('mousemove', mousemove);
                 $document.on('mouseup', mouseup);
-
             });
 
             function mousemove(event) {
-
                 y = event.pageY - startY;
                 x = event.pageX - startX;
                 element.css({
-
                     top: y + 'px',
                     left: x + 'px'
                 });
             }
 
             function mouseup() {
-
                 $document.off('mousemove', mousemove);
                 $document.off('mouseup', mouseup);
             }
@@ -167,4 +158,20 @@ angular.module('myApp.directives', []).
                         .text(function(d) { return d + "%"; });
             }
         };
+    }).directive('googlePlaces',function(){
+        return {
+            restrict:'E',
+            replace:true,
+            // transclude:true,
+            scope: {location:'='},
+            template: '<input id="google_places_ac" name="google_places_ac" type="text" class="input-block-level"/>',
+            link: function($scope, elm, attrs){
+                var autocomplete = new google.maps.places.Autocomplete($("#google_places_ac")[0], {});
+                google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    var place = autocomplete.getPlace();
+                    $scope.location = place.geometry.location.lat() + ',' + place.geometry.location.lng();
+                    $scope.$apply();
+                });
+            }
+        }
     });

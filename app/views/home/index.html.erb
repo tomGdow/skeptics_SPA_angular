@@ -31,9 +31,12 @@
   <%= javascript_include_tag "angular-underscore-module.js" %>
   <%= javascript_include_tag "underscore" %>
 
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular.min.js"></script>
+  <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+  <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular.min.js"></script>-->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular-animate.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.2/TweenMax.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=places&language=en-US"></script>
+
   <%= csrf_meta_tags %>
 
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -61,20 +64,35 @@
   </div>
 </div><!--upperdiv-->
 
+
+<!--Get Longitude/Latitude -->
+<div class="row">
+  <div class="small-12 columns dynamic_latlong" id="lat-to-long" ng-show ="longlat">
+
+    <dl class="sub-nav" id="temp-nav">
+      <dd></dd>
+
+      <dd><button ng-click="doSearch()" class="button  tiny">Search</button></dd>
+      <dd> <google-places location=location></google-places></dd>
+      <dd ng-show="toggleLatLongCaption">Latitude:</dd>
+      <dd ng-bind ="stringFirst(mylocation)"></dd>
+      <dd ng-show="toggleLatLongCaption">Longitude:</dd>
+      <dd ng-bind ="stringLast(mylocation)"></dd>
+      <dd></dd>
+      <!--<dd>paddyLast</dd>-->
+    </dl>
+  </div>
+</div>
+
+
+      <!--Fahrenheit to Celcius Converter-->
 <div class="row">
   <div class="small-12 columns dynamic_temp" id="celcius-to-fahrenheit" ng-show ="cfConvModel">
-
 
     <dl class="sub-nav" id="temp-nav">
       <dd></dd>
       <dd><input type="number" ng-model="fahrenheit" ng-change="markEdited('F')"/> Fahrenheit</dd>
-
       <dd><input type="number" ng-model="celsius" ng-change="markEdited('C')" /> Celsius</dd>
-      <dd>4</dd>
-      <dd>5</dd>
-      <dd>6</dd>
-      <dd>7</dd>
-      <dd>8</dd>
       <!--<dd>paddyLast</dd>-->
     </dl>
   </div>

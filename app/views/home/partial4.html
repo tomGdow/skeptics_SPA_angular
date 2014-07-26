@@ -1,2 +1,28 @@
 {{message}}
 
+<div class="small-9 columns"
+
+    <hr/>
+    Color (null not allowed):
+    <select ng-model="myColor" ng-options="color.name for color in colors"></select><br>
+
+    <div style="border:solid 1px black; height:20px"
+         ng-style="{'background-color':myColor.name}">
+    </div>
+
+
+<div class="row">
+    <div class="large-12 columns">
+        <label>Input Label
+            <input type="text" placeholder="large-12.columns" />
+        </label>
+    </div>
+</div>
+
+<div class="small-9 columns">
+    <select ng-model="myColor" ng-options="color.name for color in colors"></select><br>
+
+</div>
+<div class="small-3 columns">
+    <span class="postfix">.com</span>
+</div>
