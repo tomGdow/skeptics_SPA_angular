@@ -66,7 +66,7 @@
 
 
 <!--Get Longitude/Latitude -->
-<div class="row">
+<div class="row" ng-cloak>
   <div class="small-12 columns dynamic_latlong" id="lat-to-long" ng-show ="longlat">
 
     <dl class="sub-nav" id="temp-nav">
@@ -75,9 +75,9 @@
       <dd><button ng-click="doSearch()" class="button  tiny">Search</button></dd>
       <dd> <google-places location=location></google-places></dd>
       <dd ng-show="toggleLatLongCaption">Latitude:</dd>
-      <dd ng-bind ="stringFirst(mylocation)"></dd>
+      <dd ng-bind ="mylatitude"></dd>
       <dd ng-show="toggleLatLongCaption">Longitude:</dd>
-      <dd ng-bind ="stringLast(mylocation)"></dd>
+      <dd ng-bind ="mylongitude"></dd>
       <dd></dd>
       <!--<dd>paddyLast</dd>-->
     </dl>
@@ -86,7 +86,7 @@
 
 
       <!--Fahrenheit to Celcius Converter-->
-<div class="row">
+<div class="row" ng-cloak>
   <div class="small-12 columns dynamic_temp" id="celcius-to-fahrenheit" ng-show ="cfConvModel">
 
     <dl class="sub-nav" id="temp-nav">
@@ -110,7 +110,7 @@
   </div>
 </div>
 
-<div id="cart"  my-draggable></div>
+<!--<div id="cart"  my-draggable></div>-->
 
 <div class="row">
   <div class="small-12" ng-view></div>
@@ -120,6 +120,7 @@
 
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
+<%= javascript_include_tag "angular-touch.js" %>
 
 </body>
 </html>

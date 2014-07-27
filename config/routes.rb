@@ -16,6 +16,8 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/curieFlexslider"
   get "home/charts"
   get "home/celciusNav"
+  get "home/dublinslider"
+
 
 
   # The priority is based upon order of creation:

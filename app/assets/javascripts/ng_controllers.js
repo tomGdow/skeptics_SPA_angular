@@ -87,6 +87,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
             $scope.showtime =true;
             $scope.toggleLocation=false;
+
             this.current_time_model = true;
             this.setMyClass += ' dynamic-clock_four';
             this.format_one = "h:mm:ss a";
@@ -277,19 +278,16 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             if($scope.location === ''){
                 alert('Directive did not update the location property in parent controller.');
             } else {
-                $scope.mylocation  = $scope.location;
+                var mylocation  = $scope.location;
+
+                $scope.mylatitude = mylocation.split(',')[0];
+                $scope.mylongitude = mylocation.split(',')[1];
                 $scope.toggleLatLongCaption=true;
 
             }
         };
 
-        $scope.stringFirst = function(string) {
-            return  string.split(',')[0]
-        };
 
-        $scope.stringLast = function(string) {
-            return  string.split(',')[1]
-        };
 
         $scope.toggleLatLong = function () {
             if (this.longlat) {
@@ -405,13 +403,62 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
                 console.error('Error fetching feed:', data);
             });
 
-    }).controller('MyCtrl4', ['$scope', function($scope) {
+    }).controller('MyCtrl4',  function($scope, $http) {
+
         /*CONTROLLER FOR PARTIAL FOUR*/
-        $scope.message = 'Heello From Partial Four';
+
+        //====Angular Slider ====
+          // Called here dublinslider
+          // Modified from:  http://www.script-tutorials.com/photo-gallery-with-angularjs-and-css3/
+          // See also: http://www.script-tutorials.com/demos/366/index.html#
+
+        $scope.showHideCaptions=false;
+        $scope.showHideArrows=false;
+
+        $http.get('dublinSlider.json').success(function(data) {
+            $scope.photos = data;
+        });
+
+        // initial image index
+        $scope._Index = 0;
+
+        // if a current image is the same as requested image
+        $scope.isActive = function (index) {
+            return $scope._Index === index;
+        };
+
+        // show prev image
+        $scope.showPrev = function () {
+            $scope._Index = ($scope._Index > 0) ? --$scope._Index : $scope.photos.length - 1;
+        };
+
+        // show next image
+        $scope.showNext = function () {
+            $scope._Index = ($scope._Index < $scope.photos.length - 1) ? ++$scope._Index : 0;
+        };
+
+        // show a certain image
+        $scope.showPhoto = function (index) {
+            $scope._Index = index;
+        };
+
+        $scope.mouseOverDubImg = function () {
+            $scope.showHideCaptions=true;
+            $scope.showHideArrows=true;
+        };
+
+        $scope.mouseLeaveDubSlider = function () {
+            $scope.showHideCaptions=false;
+            $scope.showHideArrows=false;
+        };
+
+        $scope.mouseOverSliderNav = function(){
+            $scope.showHideArrows=false;
+            $scope.showHideCaptions=true;
+        }
 
 
-
-    }]).controller('MyCtrl5', function($scope) {
+    }).controller('MyCtrl5', function($scope) {
 
 
           //five
