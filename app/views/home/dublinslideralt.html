@@ -1,0 +1,24 @@
+<!-- slider container -->
+<div class="row">
+    <div class="small-12 columns" >
+
+        <div class="container slider">
+
+    <div class="row">
+            <div class="-5u 4u">
+                <div id="map" style="height: 300px; width: 400px;"></div>
+            </div>
+        </div>
+            <ul class="nav">
+                <li ng-repeat="photo in photos"
+                    ng-class="{'active':isActive($index)}">
+                    <a  ng-click="jourz($index)" >
+                    <img src="{{photo.src}}" alt="{{photo.desc}}"
+                         title="{{photo.desc}}"
+                         ng-click="showPhoto($index);" />
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -65,6 +65,16 @@
       non ipsum vestibulum non eleifend.
     </p>
   </div>
+  <div class="tabs">
+    <div ng-click="selected = 'first'" ng-class="{'selected': selected == 'first'}" class="tab">first</div>
+    <div ng-click="selected = 'second'" ng-class="{'selected': selected == 'second'}" class="tab">second</div>
+  </div>
 
+  <div ng-show="selected == 'first'" class="tab_content">
+    <p>some content here...</p>
+  </div>
+  <div ng-show="selected == 'second'" class="tab_content">
+    <map id="map_canvas"></map>
+  </div>
 
 </div>

@@ -287,8 +287,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             }
         };
 
-
-
         $scope.toggleLatLong = function () {
             if (this.longlat) {
                 return  $scope.longlat = false;
@@ -412,12 +410,12 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
           // Modified from:  http://www.script-tutorials.com/photo-gallery-with-angularjs-and-css3/
           // See also: http://www.script-tutorials.com/demos/366/index.html#
 
-        $scope.showHideCaptions=false;
-        $scope.showHideArrows=false;
-
         $http.get('dublinSlider.json').success(function(data) {
             $scope.photos = data;
         });
+
+        $scope.showHideCaptions=false;
+        $scope.showHideArrows=false;
 
         // initial image index
         $scope._Index = 0;
@@ -445,6 +443,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         $scope.mouseOverDubImg = function () {
             $scope.showHideCaptions=true;
             $scope.showHideArrows=true;
+            $scope.togglebuttonlist=true;//show the button
         };
 
         $scope.mouseLeaveDubSlider = function () {
@@ -455,13 +454,125 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         $scope.mouseOverSliderNav = function(){
             $scope.showHideArrows=false;
             $scope.showHideCaptions=true;
+            $scope.togglebuttonlist=true;//show the button
+        };
+
+        //====Google Maps====
+
+        $http.get('googleMaps.json').success(function(data) {
+            $scope.googleAddress = data;
+        });
+
+        $scope.toggleslideshow=true;
+        $scope.togglegmap=false;
+        $scope.toggleslideshowButton=true;
+        $scope.togglegmapButton=false;
+        $scope.togglebuttonlist=false;
+        var address = "College Green, Dublin, Ireland";
+
+        function FindLocation(address) {
+
+            // Modified from original code written by John Fitzpatrick (M.Sc, NCI)
+
+          var  geocoder = new google.maps.Geocoder();
+            InitializeMap();
+            geocoder.geocode({ 'address': address }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                }
+                else {
+                    alert("Not successful: " + status);
+                }
+            });
         }
 
+ /*       $scope.updateGoogle = function(myid) {
+            if(myid==0) {
+              address = $scope.googleAddress[0].addressOne;
+            }
+            if(myid==1) {
+                 address= $scope.googleAddress[0].addressTwo;
+            }
+            if(myid==2) {
+                //address= "Parliament Street, Dublin, Ireland";
+                address= $scope.googleAddress[0].addressThree;
+            }
+            if(myid==3) {
+                //address= "O'Connell Street Lower, Dublin, Ireland";
+                address= $scope.googleAddress[0].addressFour;
+            }
+            if(myid==4) {
+                address= $scope.googleAddress[0].addressFive;
+            }
+            FindLocation(address);
+        };*/
+
+        $scope.updateGoogle = function(id) {
+
+            switch(id){
+
+                case 0: address = $scope.googleAddress[0].addressOne;
+                    break;
+                case 1: address = $scope.googleAddress[0].addressTwo;
+                    break;
+                case 2: address = $scope.googleAddress[0].addressThree;
+                    break;
+                case 3: address = $scope.googleAddress[0].addressFour;
+                    break;
+                case 4: address = $scope.googleAddress[0].addressFive;
+                    break;
+            }
+
+            FindLocation(address);
+        };
+
+        $scope.toggleSliderGmap = function () {
+            $scope.toggleslideshow=false;
+            $scope.togglegmap=true;
+            $scope.toggleslideshowButton=false;
+            $scope.togglegmapButton=true;
+            //$scope.buttonToggleSliderGoogle=false;
+        };
+
+        $scope.toggleSliderGmap2 = function () {
+            $scope.toggleslideshow=true;
+            $scope.togglegmap=false;
+            $scope.toggleslideshowButton=true;
+            $scope.togglegmapButton=false;
+            //$scope.buttonToggleSliderGoogle=true;
+        };
+
+        $scope.mouseOverGoogleMap =function () {
+            $scope.togglebuttonlist=true;//show the button
+        };
+
+        $scope.mapAndSlide =function() {
+            $scope.togglebuttonlist=false;
+        };
+
+        //===tab view
+
+        $scope.selected = 'first';
+        $scope.toggleOnTab =true;
+
+       $scope.tabbedImgMouseover= function ( ) {
+
+           $scope.toggleOnTab=false;
+           document.getElementById('myfooter').style.visibility ="hidden";
+       };
+
+        $scope.tabbedImgMouseleave = function () {
+
+            $scope.toggleOnTab=true;
+        }
 
     }).controller('MyCtrl5', function($scope) {
 
-
-          //five
+        /*CONTROLLER FOR PARTIAL FIVE */
 
     }).controller('MyCtrl6', ['$scope', function($scope) {
 
@@ -479,4 +590,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         /*Blog*/
         $scope.message = 'Hello From Partial Eight';
 
-    }])
+        $scope.selected = 'first'; // try to put 'second' here
+
+    }]);

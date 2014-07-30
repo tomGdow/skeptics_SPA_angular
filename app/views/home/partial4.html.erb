@@ -1,15 +1,14 @@
-<div class="main-partial4">
-
-  <div class="col-partial4-a col-partial4">
+<div class="col-partial4-a col-partial4">
     <h2>Sixties Dublin</h2>
     <div class="small-image-wrap">
-      <figure class="small-image-figure" id ="gordon-banks">
-        <%= image_tag "001_banks.jpg",
-                      alt: "Picture of Gordon Banks",
-                      id: "banksImage"%>
-        <figcaption class = small-images-caption>
-          &nbsp;Gordon Banks</figcaption>
-      </figure>
+           <figure class="small-image-figure" id ="gordon-banks">
+                <%= image_tag "001_banks.jpg",
+                              alt: "Picture of Gordon Banks",
+                              id: "banksImage"%>
+                <figcaption class = small-images-caption>
+              &nbsp;Gordon Banks
+                </figcaption>
+          </figure>
     </div>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -18,68 +17,213 @@
       pariatur perferendis placeat quibusdam quos, ratione rem repellat
       reprehenderit tempora veniam.
     </p>
-  </div>
-
-
-  <span ng-include="'./home/dublinslider.html'" id ="dublinshow"></span>
-
-
-  <div class="col-partial4-b col-partial4">
-    <h2>Column B</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Praesent id mollis neque. Phasellus rutrum iaculis ante,
-      id tincidunt tellus pulvinar vitae.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      At aut deleniti facere fuga laudantium magni minus, modi molestias
-      viet nam non officiis perspiciatis quibusdam
-      ratione reprehenderit sit unde, vitae. Accusantium, nesciunt.
-    </p>
-  </div>
-
-  <div class="col-partial4-c col-partial4">
-    <h2>Column C</h2>
-    <p>
-      Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,
-      vitae lobortis ipsum nibh sed dolor. Vestibulum
-      sodales pulvinar risus vel fermentum.
-      Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci
-      non ipsum vestibulum non eleifend.
-    </p>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis
-      libero molestias nobis soluta sunt ullam.
-      Blanditiis corporis eos ex expedita inventore nemo,
-      nulla officiis ullam! Fuga mollitia numquam vel.
-    </p>
-    <p class ="chart-dynamic-header">  Data for {{renderYear}} </p>
-
-
-    <p>
-      Laura Ipsen Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      A blanditiis cumque ex fuga impedit inventore labore laborum non perspiciatis quis repellendus sequi,
-      similique sunt? Eum fugit quos sequi tempore vitae!
-    </p>
-
-    <p>
-      Laura and Molly ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto aut delectus distinctio eum fuga, libero maiores modi nobis odio quaerat recusandae sunt.
-      A, dolor doloribus nam pariatur possimus saepe.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque excepturi facere quod. Aliquid architecto assumenda aut blanditiis esse ex expedita laudantium odit, officiis quos rem,
-      soluta, vel veniam voluptas voluptatem.
-    </p>
-  </div>
 </div>
 
+<div class="main-partial4">
+</div>
 
+<div class ="mapSlideContainer" ng-mouseleave="mapAndSlide()">
+   <div ng-show="toggleslideshow">
+        <span ng-include="'./home/dublinslider.html'" id ="dublinshow"></span>
+   </div>
+   <div class="row" ng-show="togglegmap"
+            ng-init ="updateGoogle($index)"
+            ng-mouseover="mouseOverGoogleMap()">
+        <div class="small-12 columns" >
+            <div class="container googleSlider">
+                <div class="row">
+                    <div id="googleMap" class ="googleSlide"></div>
+                </div>
+              <ul class="nav">
+                <li ng-repeat="photo in photos"
+                    ng-class="{'active':isActive($index)}">
+                      <span ng-click="updateGoogle($index)" >
+                        <img src="{{photo.src}}"
+                             alt="{{photo.desc}}"
+                             title="{{photo.desc}}"
+                             ng-click="showPhoto($index);" />
+                      </span>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+                             <!--you are here-->
+    <div  ng-class="{vishidden :togglebuttonlist==false}"  class = "sliderBtnsContainer">
+        <p class ="googleSlider-button-list" >
+            <span ng-show ="toggleslideshowButton" class ="toggleslideshowButton">
+                <span ng-click = updateGoogle($index)>
+                    <button class="button tiny"
+                        ng-click="toggleSliderGmap()" >
+                        Show Google Map
+                    </button>
+                </span>
+            </span>
 
+            <span ng-show="togglegmapButton"  class = "togglegmapButton">
+                <button  class="button tiny"
+                    ng-click="toggleSliderGmap2()">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Show Gallery&nbsp;&nbsp;&nbsp;
+                </button>
+            </span>
+        </p>
+    </div>
+</div>
 
+<div class="col-partial4" >
+  <h2 class = "makeVisible"
+      ng-class="{vishidden :toggleOnTab==false}">The Man on the Bridge</h2>
+  <p class ="makeVisible"
+     ng-class="{vishidden :toggleOnTab==false}">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Aliquam aperiam assumenda dignissimos
+    eum expedita incidunt molestiae neque nesciunt optio,
+    pariatur perferendis placeat quibusdam quos, ratione rem repellat
+    reprehenderit tempora veniam.
+  </p>
 
+    <div class="tabs" ng-class="{vishidden :toggleOnTab==false}">
+        <div ng-click="selected = 'first'"
+            ng-class="{'selected': selected == 'first'}"
+            class="tab">Arthur
+        </div>
+        <div ng-click="selected = 'second'"
+            ng-class="{'selected': selected == 'second'}" class="tab">second
+        </div>
+        <div ng-click="selected = 'third'"
+            ng-class="{'selected': selected == 'third'}" class="tab">third
+        </div>
+        <div ng-click="selected = 'fourth'"
+            ng-class="{'selected': selected == 'fourth'}" class="tab">fourth
+        </div>
+        <div ng-click="selected = 'fifth'"
+            ng-class="{'selected': selected == 'fifth'}" class="tab">fifth
+        </div>
+    </div>
 
+    <div ng-show="selected == 'first'" class="tab_content">
+      <p class = "tabscaption"
+         ng-class="{vishidden :toggleOnTab==false}">
+        Arthur Fields (1901-1994)</p>
+        <div>
+            <figure class="medium-image-figure"
+                    ng-mouseover= tabbedImgMouseover()
+                    ng-mouseleave= tabbedImgMouseleave()
+                    id ="arthur-fields">
+                  <%= image_tag "manOnBridge2.jpg",
+                                alt: "Picture of Man on the Bridge (Arthur Fields)"%>
+                  <figcaption class = medium-images-caption>
+                    &nbsp;Arthur Fields (1901-1994)
+                  </figcaption>
+            </figure>
+        </div>
+    </div>
 
+    <div ng-show="selected == 'second'" class="tab_content">
+      <p class = "tabscaption"
+         ng-class="{vishidden :toggleOnTab==false}">A Young Arthur Fields</p>
+      <div>
+        <figure class="medium-image-figure cl2"
+                ng-mouseover= tabbedImgMouseover()
+                ng-mouseleave= tabbedImgMouseleave()
+                id ="arthur-fields-young">
+          <%= image_tag "young_arthur_fields.jpg",
+                        alt: "Picture of young Arthur Fields"%>
+          <figcaption class = medium-images-caption>
+            &nbsp;A Young Arthur Fields
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div ng-show="selected == 'third'" class="tab_content">
+      <p class = "tabscaption"
+         ng-class="{vishidden :toggleOnTab==false}">
+        Arthur Fields with Maragaret Rutherford (Miss Marple)</p>
+      <div>
+        <figure class="medium-image-figure cl2"
+                id ="arthur-fields-marple"
+                ng-mouseover= tabbedImgMouseover()
+                ng-mouseleave= tabbedImgMouseleave()>
+          <%= image_tag "miss_marple2.jpg",
+                        alt: "Arthur Fields with Margaret Rutherford"%>
+          <figcaption class = medium-images-caption>
+            &nbsp;Arthur Fields with Maragaret Rutherford (Miss Marple)
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div ng-show="selected == 'fourth'" class="tab_content">
+        <p class = "tabscaption"
+           ng-class="{vishidden :toggleOnTab==false}">
+          Arthur Fields taking photograph on O' Connell Bridge</p>
+      <div>
+        <figure class="medium-image-figure cl2"
+                id ="arthur-fields-inaction"
+                ng-mouseover= tabbedImgMouseover()
+                ng-mouseleave= tabbedImgMouseleave()>
+          <%= image_tag "arthur-taking-photo90.jpg",
+                        alt: "Arthur Fields taking photograph"
+          %>
+          <figcaption class = medium-images-caption>
+            &nbsp;Arthur Fields taking photograph on O' Connell Bridge
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div ng-show="selected == 'fifth'" class="tab_content">
+      <p class = "tabscaption"
+         ng-class="{vishidden :toggleOnTab==false}">
+        Brendan Behan on O'Connell Bridge (Arthur Fields Photograph)</p>
+      <div>
+        <figure class="medium-image-figure cl3"
+                id ="arthur-fields-behan"
+                ng-mouseover= tabbedImgMouseover()
+                ng-mouseleave= tabbedImgMouseleave()>
+          <%= image_tag "brendanBehan2.jpg",
+                        alt: "Brendan Behan photograph"%>
+          <figcaption class = medium-images-caption>
+            &nbsp;Brendan Behan on O'Connell Bridge (Arthur Fields Photograph)
+          </figcaption>
+        </figure>
+      </div>
+    </div><!--end tabs-->
+
+    <div class=" col-partial4" ng-class="{vishidden :toggleOnTab==false}">
+        <h2>Column C</h2>
+        <p>
+          Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,
+          vitae lobortis ipsum nibh sed dolor. Vestibulum
+          sodales pulvinar risus vel fermentum.
+          Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci
+          non ipsum vestibulum non eleifend.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis
+          libero molestias nobis soluta sunt ullam.
+          Blanditiis corporis eos ex expedita inventore nemo,
+          nulla officiis ullam! Fuga mollitia numquam vel.
+        </p>
+        <p>
+          Laura Ipsen Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          A blanditiis cumque ex fuga impedit inventore labore laborum non perspiciatis
+          quis repellendus sequi,
+          similique sunt? Eum fugit quos sequi tempore vitae!
+        </p>
+        <p>
+          Laura and Molly ipsum Lorem ipsum dolor sit amet,
+          consectetur adipisicing elit. Aliquid architecto aut delectus distinctio eum fuga,
+          libero maiores modi nobis odio quaerat recusandae sunt.
+          A, dolor doloribus nam pariatur possimus saepe.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque excepturi facere quod.
+          Aliquid architecto assumenda aut blanditiis esse ex expedita laudantium odit, officiis quos rem,
+          soluta, vel veniam voluptas voluptatem.
+        </p>
+    </div>
+</div>
 
 

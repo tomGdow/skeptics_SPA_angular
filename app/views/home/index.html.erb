@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
 
   <%= javascript_include_tag "vendor/modernizr.js" %>
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script  src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
   <%= javascript_include_tag "angular-underscore-module.js" %>
   <%= javascript_include_tag "underscore" %>
@@ -43,6 +43,7 @@
 
 </head>
 <body ng-controller="MyCtrlIndex">
+
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser.
@@ -67,7 +68,9 @@
 
 <!--Get Longitude/Latitude -->
 <div class="row" ng-cloak>
-  <div class="small-12 columns dynamic_latlong" id="lat-to-long" ng-show ="longlat">
+  <div class="small-12 columns dynamic_latlong"
+       id="lat-to-long"
+       ng-show ="longlat">
 
     <dl class="sub-nav" id="temp-nav">
       <dd></dd>
@@ -83,7 +86,6 @@
     </dl>
   </div>
 </div>
-
 
       <!--Fahrenheit to Celcius Converter-->
 <div class="row" ng-cloak>
@@ -121,6 +123,8 @@
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
 <%= javascript_include_tag "angular-touch.js" %>
+
+
 
 </body>
 </html>

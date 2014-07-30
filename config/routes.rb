@@ -18,6 +18,9 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/celciusNav"
   get "home/dublinslider"
 
+  #get "home/tabViewPartialFour"
+  #get "home/dublinslideralt"
+
 
 
   # The priority is based upon order of creation:
