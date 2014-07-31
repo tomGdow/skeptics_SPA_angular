@@ -586,10 +586,34 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
     }]).controller('MyCtrl8', ['$scope', function($scope) {
 
-        /*CONTROLLER FOR PARTIAL SEVEN */
-        /*Blog*/
+        //====CONTROLLER FOR PARTIAL EIGHT====
+
+            /*Blog*/
         $scope.message = 'Hello From Partial Eight';
 
-        $scope.selected = 'first'; // try to put 'second' here
+        $scope.selected = 'first'; // tab view
 
+         //====Flip picture 180 degrees ====
+
+        $scope.pictureFlipper = false;
+        $scope.toggleFlipLegend=true;
+        $scope.toggleFlipLegendWrapper="true";
+        $scope.obj = { "nameone": "James Watson",
+                       "nametwo": "Marie Curie"};
+
+        $scope.flipPicture = function () {
+            if (this.pictureFlipper) {
+                this.toggleFlipLegend=true;
+                return  this.pictureFlipper = false;
+            }
+            this.toggleFlipLegend=false; //here
+            return  this.pictureFlipper = true;
+        };
+
+        $scope.flipPictMouseover = function () {
+            this.toggleFlipLegendWrapper=false;
+        };
+        $scope.flipPictMouseleave = function () {
+            this.toggleFlipLegendWrapper=true;
+        }
     }]);

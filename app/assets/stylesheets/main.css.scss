@@ -1,3 +1,8 @@
+//Color Definition
+$skeptics-blue: #0078A0;
+$skeptics-orange:#FFA500;
+
+
 //====fonts====
 
 //Google fonts
@@ -83,7 +88,7 @@ body {
   -webkit-perspective: 800px;
   -moz-perspective: 800px;
   perspective: 800px;
- // -webkit-transform-style: preserve-3d;
+  //-webkit-transform-style: preserve-3d;
 }
 
 h3 {
@@ -112,12 +117,6 @@ iframe {
   height: 90px;
   width: 200px;
 }
-
-/*
-.red {
-  background-color: red;
-}
-*/
 
 //==== navbar (main) ====
 
@@ -164,7 +163,7 @@ nav.viewtwo a:hover,
 nav.viewthree a:hover,
 nav.viewfour a:hover,
 nav.viewfive a:hover {
-  color: #FFA500;
+  color: $skeptics-orange;
 }
 
 nav.home a:focus,
@@ -208,18 +207,20 @@ nav li {
 
 #time-nav {
   position: relative;
-  padding-bottom: 18px; //Careful! used to be undernav
+  padding-bottom: 18px; //Careful! (used to be undernav)
   margin: auto;
 }
 
-.dynamic-clock_one, .dynamic-date_one {
+.dynamic-clock_one,
+.dynamic-date_one {
   position: relative;
   visibility: visible;
   border-radius: 11px;
-  color: #FFA500;
+  color: $skeptics-orange;
 }
 
-.dynamic-clock-hidden, .dynamic-date-hidden {
+.dynamic-clock-hidden,
+.dynamic-date-hidden {
   visibility: hidden;
 }
 
@@ -227,13 +228,15 @@ nav li {
   position: absolute;
 }
 
-.dynamic-clock_three, .dynamic-date_three {
+.dynamic-clock_three,
+.dynamic-date_three {
   visibility: visible;
   background-color: #fff
 }
 
-.dynamic-clock_four, .dynamic-date_four {
-  color: #FFA500;
+.dynamic-clock_four,
+.dynamic-date_four {
+  color: $skeptics-orange;
 }
 
 .dynamic-clock_underline {
@@ -242,7 +245,7 @@ nav li {
 
 .dynamic-clock-underline_color {
   text-decoration: underline;
-  color: #FFA500;
+  color: $skeptics-orange;
 }
 
 .dynamic_timeZoneClocks {
@@ -278,7 +281,6 @@ nav li {
 .dynamic_timeZoneClocks.ng-hide {
   line-height: 0;
   opacity: 0;
-  //padding:0 10px;
 }
 
 .fa-sun-o {
@@ -288,7 +290,7 @@ nav li {
 }
 
 .fa-sun-o:hover {
-  color: #FFA500;
+  color: $skeptics-orange;
 }
 
 //==== nav-bar (products)====
@@ -358,7 +360,7 @@ footer li {
 }
 
 .footerList li a:hover {
-  color: #0078A0;
+  color: $skeptics-blue;
 }
 
 .footerList li a:hover > span {
@@ -386,8 +388,12 @@ footer li {
   text-align: center;
 }
 
-.curie-flex-render {max-width: 50%;
-  margin: 2em;} //Careful
+.curie-flex-render {
+  max-width: 50%;
+  margin: 2em;
+}
+
+//Careful
 
 .flexFigCaption {
 
@@ -398,7 +404,7 @@ footer li {
 .flexBeforeClass {
   transition: color 1s ease;
 
-  color: #0078A0;
+  color: $skeptics-blue;
 }
 
 .flexAfterClass {
@@ -406,16 +412,7 @@ footer li {
   color: white;
 }
 
-/*#inputdiv {
-  text-align: center;
-}
-
-#myinput {
-  display: inline-block;
-  width: 70%;
-}*/
-
- //==what are these
+//==what are these
 
 iframe.noScrolling {
   background: red;
@@ -442,11 +439,9 @@ dt a {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-
   -webkit-backface-visibility: hidden;
 }
 
-//.tomm becomes small-image-wrap
 .small-image-wrap {
   position: relative;
   width: 4em;
@@ -464,9 +459,9 @@ dt a {
   font-size: 0.5em;
 }
 
-.small-image-figure{
+.small-image-figure {
 
-  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
 }
 
@@ -516,9 +511,9 @@ dt a {
   font-size: 0.5em;
 }
 
-.medium-image-figure{
+.medium-image-figure {
 
-  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
 }
 
@@ -529,7 +524,7 @@ dt a {
 #arthur-fields-marple:hover,
 #arthur-fields-inaction:hover,
 #arthur-fields-behan:hover,
-#schillachi-italy:hover{
+#schillachi-italy:hover {
   -webkit-transform: scale(2) translate3d(10px, 10px, 10px);
   -moz-transform: scale(2) translate3d(10px, 10px, 10px);
   transform: scale(2) translate3d(10px, 10px, 10px);
@@ -545,6 +540,7 @@ dt a {
   visibility: visible;
   -webkit-backface-visibility: hidden;
 }
+
 #watsonImage {
   display: block;
   margin: 1.5em 0;
@@ -566,37 +562,34 @@ dt a {
   z-index: 100;
   padding: .4em;
   border-radius: 20%;
-  background: #0078A0;
+  background: $skeptics-blue;
   color: #FFF;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
 
-//containing div for main nav-bar
-//gmt icon
-
 //==== Partials Text ====
 
-//partial1
+//==partial1
 h1 {
   -webkit-column-span: all;
   -moz-column-span: all;
   column-span: all;
 }
 
-.col-partial1, .col-partial4,.col-partial8  {
+.col-partial1, .col-partial4, .col-partial8 {
   margin: 10px;
   padding: 25px;
   border: 2px solid rgba(45, 74, 95, .9);
   border-radius: inherit;
   background: rgba(255, 255, 255, .8);
-} //Keep this for debugging
+}//Keep this for debugging
 
 .main-partial1 {
   //display: -webkit-flex;
   //display: flex;
-  -webkit-columns:  250px 2;
-  -moz-columns:  15em 2;
+  -webkit-columns: 250px 2;
+  -moz-columns: 15em 2;
   columns: 15em 2;
   -webkit-column-gap: 2em;
   -moz-column-gap: 2em;
@@ -625,8 +618,7 @@ h1 {
   order: 1;
 }
 
-
- //de de dee
+//de de dee
 
 /*.col-partial8 {
   margin: 10px;
@@ -636,13 +628,13 @@ h1 {
   background: rgba(255, 255, 255, .8);
 }*/
 
-//partial 4
+//====partial 4
 
 .main-partial4 {
   //display: -webkit-flex;
   //display: flex;
-  -webkit-columns:  250px 1;
-  -moz-columns:  15em 1;
+  -webkit-columns: 250px 1;
+  -moz-columns: 15em 1;
   columns: 15em 1;
   -webkit-column-gap: 2em;
   -moz-column-gap: 2em;
@@ -708,15 +700,15 @@ h1 {
 
 //====Chart====
 
-//modified from http://codepen.io/danielemoraschi/pen/qFmol
-//see also http://techslides.com/angular-js-demos-examples-and-resources/
+  //modified from http://codepen.io/danielemoraschi/pen/qFmol
+  //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
-.chart,.chart2, .chart3 {
+.chart, .chart2, .chart3 {
   background: #eee;
   padding: 3px;
 }
 
-.chart div, .chart2 div,.chart3 div  {
+.chart div, .chart2 div, .chart3 div {
   width: 0;
   transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
@@ -743,7 +735,7 @@ h1 {
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 25px auto;
-  margin-top:0;
+  margin-top: 0;
   padding: 10px 20px;
   width: 100%;
 }
@@ -758,13 +750,14 @@ h1 {
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 25px auto;
-  margin-bottom:0;
-  margin-top:0;
+  margin-bottom: 0;
+  margin-top: 0;
   padding: 10px 20px;
   width: 100%;
-}*
+}
 
- //==toggle Fahrenheit to Celcius
+//====toggle Fahrenheit to Celcius====
+
 .dynamic_temp.ng-hide, .dynamic_latlong.ng-hide {
   line-height: 0;
   opacity: 0;
@@ -775,12 +768,12 @@ h1 {
 .dynamic_temp.ng-hide-add.ng-hide-add-active,
 .dynamic_temp.ng-hide-remove.ng-hide-remove-active,
 .dynamic_latlong.ng-hide-add.ng-hide-add-active,
-.dynamic_latlong.ng-hide-remove.ng-hide-remove-active{
+.dynamic_latlong.ng-hide-remove.ng-hide-remove-active {
   -webkit-transition: opacity ease-in-out 1s;
   transition: opacity ease-in-out 1s;
 }
 
-.dynamic_temp.ng-hide,.dynamic_latlong.ng-hide {
+.dynamic_temp.ng-hide, .dynamic_latlong.ng-hide {
   line-height: 0;
   opacity: 0;
   //padding:0 10px;
@@ -793,28 +786,20 @@ h1 {
 }
 
 .fa-umbrella:hover {
-  color: #FFA500;
-} //Celcius to Fahrenheit
-
-.fa-bullseye:hover {
-  color: #FFA500;
-}  //latitude to longitude
-
-
-//==== Media ====
-@media screen and (max-width: 999px) {
-  .main {
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-  }
+  color: $skeptics-orange;
 }
 
-//Angullar Slider
+  //Celcius to Fahrenheit
 
+.fa-bullseye:hover {
+  color: $skeptics-orange;
+}
+
+  //latitude to longitude
+
+//====Angullar Slider====
 
 .arrow {
-
   cursor: pointer;
   display: block;
   height: 64px;
@@ -825,6 +810,7 @@ h1 {
   width: 64px;
   z-index: 15;
 }
+
 .arrow.prev {
   background: url("prev.png") no-repeat;
   margin-left: 2em;
@@ -832,21 +818,21 @@ h1 {
   opacity: 0.2;
   transition: all 0.2s linear 0s;
 }
+
 .arrow.next {
   background: url("next.png") no-repeat;
   opacity: 0.2;
   right: 20px;
   transition: all 0.2s linear 0s;
 }
-.arrow.prev:hover{
-;
-  opacity:1;
-}
-.arrow.next:hover{
-  opacity:1;
+
+.arrow.prev:hover {;
+  opacity: 1;
 }
 
-
+.arrow.next:hover {
+  opacity: 1;
+}
 
 .nav {
   bottom: -4px;
@@ -861,6 +847,7 @@ h1 {
   width: 100%;
   z-index: 5;
 }
+
 .nav li {
   border: 5px solid #AAAAAA;
   border-radius: 5px;
@@ -871,14 +858,17 @@ h1 {
   position: relative;
   width: 50px;
 }
+
 .nav li.active {
   border: 5px solid #FFFFFF;
 }
+
 .nav li img {
   width: 100%;
 }
 
-.slider { background:none;
+.slider {
+  background: none;
   border: 15px solid #FFFFFF;
   border-radius: 5px;
   height: 400px;
@@ -898,18 +888,20 @@ h1 {
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
+
 .slide {
   position: absolute;
   top: 0;
   left: 15%;
 }
-.slide.ng-hide-add, .googleSlide.ng-hide-add {
-  opacity:1;
 
-  -webkit-transition:1s linear all;
-  -moz-transition:1s linear all;
-  -o-transition:1s linear all;
-  transition:1s linear all;
+.slide.ng-hide-add, .googleSlide.ng-hide-add {
+  opacity: 1;
+
+  -webkit-transition: 1s linear all;
+  -moz-transition: 1s linear all;
+  -o-transition: 1s linear all;
+  transition: 1s linear all;
 
   -webkit-transform: rotateX(50deg) rotateY(30deg);
   -moz-transform: rotateX(50deg) rotateY(30deg);
@@ -923,26 +915,29 @@ h1 {
   -o-transform-origin: right top 0;
   transform-origin: right top 0;
 }
-.slide.ng-hide-add.ng-hide-add-active,.googleSlide.ng-hide-add.ng-hide-add-active {
-  opacity:0;
-}
-.slide.ng-hide-remove, .googleSlide.ng-hide-remove {
-  -webkit-transition:1s linear all;
-  -moz-transition:1s linear all;
-  -o-transition:1s linear all;
-  transition:1s linear all;
 
-  display:block!important;
-  opacity:0;
+.slide.ng-hide-add.ng-hide-add-active,
+.googleSlide.ng-hide-add.ng-hide-add-active {
+  opacity: 0;
 }
+
+.slide.ng-hide-remove,
+.googleSlide.ng-hide-remove {
+  -webkit-transition: 1s linear all;
+  -moz-transition: 1s linear all;
+  -o-transition: 1s linear all;
+  transition: 1s linear all;
+
+  display: block !important;
+  opacity: 0;
+}
+
 .slide,
 .slide.ng-hide-remove.ng-hide-remove-active,
 .googleSlide,
-.googleSlide.ng-hide-remove.ng-hide-remove-active{
-  opacity:1;
-
+.googleSlide.ng-hide-remove.ng-hide-remove-active {
+  opacity: 1;
 }
-
 
 .dubList {
   display: -webkit-flex;
@@ -958,14 +953,15 @@ h1 {
   width: 100%;
 }
 
-.dubList li { list-style-type:none;
+.dubList li {
+  list-style-type: none;
   -webkit-flex-grow: 1;
 }
 
 .arrow.prev.ng-hide,
 .arrow.next.ng-hide,
 .dublinCaption.ng-hide,
-.dubfigcaption.ng-hide{
+.dubfigcaption.ng-hide {
   opacity: 0;
 }
 
@@ -976,7 +972,7 @@ h1 {
 .dublinCaption.ng-hide-add.ng-hide-add-active,
 .dublinCaption.ng-hide-remove.ng-hide-remove-active,
 .dubfigcaption.ng-hide-add.ng-hide-add-active,
-.dubfigcaption.ng-hide-remove.ng-hide-remove-active{
+.dubfigcaption.ng-hide-remove.ng-hide-remove-active {
   -webkit-transition: opacity ease-in-out 2s;
   transition: opacity ease-in-out 2s;
 }
@@ -984,29 +980,38 @@ h1 {
 .arrow.prev.ng-hide,
 .arrow.prev.ng-hide,
 .dublinCaption.ng-hide,
-.dubfigcaption.ng-hide{
+.dubfigcaption.ng-hide {
   opacity: 0;
 }
 
-.dubfigcaption,.small-images-caption, .medium-images-caption  {
+.dubfigcaption,
+.small-images-caption,
+.medium-images-caption {
+  font-family: Arial, sans-serif;
+  font-size: 0.8em;
+}
 
-  font-family: Arial,sans-serif;
-  font-size: 0.8em;}
-
-.small-images-caption  {
+.small-images-caption {
   padding-left: 0em;
-  font-size: 0.5em;}
+  font-size: 0.5em;
+}
 
-.medium-images-caption  {
+.medium-images-caption {
   padding-left: 0em;
-  font-size: 0.8em;}
+  font-size: 0.8em;
+}
+
 //end Angular Slider
 
 //====Google Map ====
 
-#googleMap{height: 300px; width: 467px;}
+#googleMap {
+  height: 300px;
+  width: 467px;
+}
 
-.googleSlider { background:none;
+.googleSlider {
+  background: none;
   border: 15px solid #FFFFFF;
   border-radius: 5px;
   height: 400px;
@@ -1014,13 +1019,11 @@ h1 {
   margin-bottom: 20px;
   position: relative;
   width: 800px;
-
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   -ms-perspective: 1000px;
   -o-perspective: 1000px;
   perspective: 1000px;
-
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -1044,29 +1047,12 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   margin: 25px auto;
-  margin-top:0;
+  margin-top: 0;
   padding: 10px 20px;
   width: 100%;
 }
 
-/*.sliderBtnsContainer.ng-hide{
-  opacity: 0;
-}
-
-.sliderBtnsContainer.ng-hide-add.ng-hide-add-active,
-.sliderBtnsContainer.ng-hide-remove.ng-hide-remove-active
-{
-  -webkit-transition: opacity ease-in-out 1s;
-  transition: opacity ease-in-out 1s;
-}
-
-.sliderBtnsContainer.ng-hide
-{
-  opacity: 0;
-}*/
-
-.sliderBtnsContainer
-{
+.sliderBtnsContainer {
   visibility: visible;
   opacity: 1;
   -webkit-transition: all 1s ease;
@@ -1075,15 +1061,14 @@ h1 {
   transition: all 1s;
 }
 
+//====  Tab Views====
 
-//====  Tab Views
-
-//==tab views partial 4 ====
+  //tab views partial 4 ====
 .tabs {
   height: 35px;
   margin: 0;
   width: 100%;
-   visibility: visible;
+  visibility: visible;
   opacity: 1;
   -webkit-transition: all 2s ease;
   -moz-transition: all 2s ease;
@@ -1092,8 +1077,8 @@ h1 {
 }
 
 .tab {
-  background-color:black;
-  color:white;
+  background-color: black;
+  color: white;
   font-weight: bold;
   cursor: pointer;
   float: left;
@@ -1101,30 +1086,27 @@ h1 {
   margin-right: 10px;
   padding: 10px 0 10px;
   text-align: center;
-  width: 85px;
+  width: 10em; //85px 100px
   line-height: 15px;
-  border-radius: 10%;
+  border-radius: 10px;
 }
 
 .selected {
-  background-color: #0078A0;
+  background-color: $skeptics-blue;
 }
 
 .tab_content {
-  position:relative;
+  position: relative;
   background-color: none;
   height: 400px;
 }
 
-
 .tabscaption {
-
   font-family: Arial, sans-serif;
   font-size: 1em;
   color: #453922;
   margin-top: 0.5em;
   margin-left: 3em;
-
   visibility: visible;
   opacity: 1;
   -webkit-transition: all 2s ease;
@@ -1138,13 +1120,13 @@ h1 {
 .col-partial4.vishidden,
 .makeVisible.vishidden,
 .makeVisible.vishidden,
-.sliderBtnsContainer.vishidden{
+.sliderBtnsContainer.vishidden,
+.flipLegendWrapper.vishidden{
   visibility: hidden;
-  opacity:0;
+  opacity: 0;
 }
 
-
-.makeVisible  {
+.makeVisible {
   visibility: visible;
   opacity: 1;
   -webkit-transition: all 2s ease;
@@ -1152,7 +1134,110 @@ h1 {
   -o-transition: all 2s ease;
   transition: all 2s;
 }
- //eg  ...
+
+//===  Flip Images
+//acknowledge sources
+
+.wrap {
+  position: relative;
+  margin: 0;
+  width: 301px;
+  height: 425px;
+  cursor: pointer;
+  padding:0;
+}
+.wrap div {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-size: 301px 425px;
+  background-repeat: no-repeat;
+  text-align: center;
+  text-shadow: 0 1px rgba(0,0,0,.3);
+  font: bold 3em sans-serif;
+  line-height: 425px;
+}
+.side-a {
+  background: $skeptics-blue  url('watson_golden_ratio.jpg');
+}
+.side-b {
+  background: $skeptics-orange url('marie_curie.jpg');
+}
+
+.wrap { display:inline-block;
+  transition: -webkit-transform 1s ease-in;
+  transition: -moz-transform 1s ease-in;
+  transition: transform 1s ease-in;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.wrap div {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.side-a {
+  z-index: 100;
+}
+
+.side-b {
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.wrapFlip{
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  transform: rotateY(-deg);
+}
+
+.wrapLegend {
+  display: inline-block;
+}
+
+.flipLegendWrapper{ background:none;
+  visibility: visible;
+  opacity:1;
+  -webkit-transition: all ease-in-out 2s;
+  -moz-transition:  all ease-in-out 2s;
+  transition: all ease-in-out 2s;
+}
+
+.legendWatson,
+.legendCurie{
+  display: inline-block;
+  visibility: visible;
+  opacity:1;
+  -webkit-transition: all ease-in-out 2s;
+  -moz-transition:  all ease-in-out 2s;
+  transition: all ease-in-out 2s;
+}
+
+.vishidden-alt {
+  position: absolute;
+  top:0;
+  left: -5000px;
+  visibility: visible;
+  opacity: 0;
+}
+
+//==== Media ====
+@media screen and (max-width: 999px) {
+  .main {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+//=== Experimental === ==================================================
+//eg  ...
+/*
 .intro-text{
   height:auto;
   -webkit-transition: height 200ms ease-out;
@@ -1163,7 +1248,8 @@ h1 {
 .intro-text.hide{
   height:0;
 }
-//=== Experimental === ==================================================
+*/
+
 /*#tom {
  height: 100px;
  width: 100px;
@@ -1174,114 +1260,6 @@ h1 {
 /*#productsnav {
   display: none;
 }*/
-
-.phone::before {
-  content: "\2706";
-}
-
-.dload::before {
-  margin: 0 8px;
-  content: url(http://treehouse-code-samples.s3.amazonaws.com/CSS-DD/codepen/stage-3/pdf-lg.png);
-}
-
-.dload::after {
-  content: attr(title);
-  padding-left: 10px;
-  font-size: .75em;
-  color: tomato;
-}
-
-//tgd
-
-/*
-.timetgd.ng-hide-add.ng-hide-add-active,
-.timetgd.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition:opacity ease-in-out 1s;
-  transition:opacity ease-in-out 1s;
-}
-
-.timetgd.ng-hide {
-  line-height:0;
-  opacity:0;
-  //padding:0 10px;
-}
-
-
-
-
-.timetgd {
-  position: absolute;
-  right: 50px;
-  display: inline-block;
-  opacity: 1;
-  background: white;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  border-radius: 10px;
-}
-
-
-
-
-
-.timetgd li {
-  display: inline-block;
-  list-style-type: none;
-}*/
-
-.wrap {
-  transition: -webkit-transform 1s ease-in;
-  transition: transform 1s ease-in;
-  -webkit-transform-style: preserve-3d;
-}
-
-.wrap div {
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-}
-
-.side-a {
-  z-index: 100;
-}
-
-/*.side-b {
-  -webkit-transform: rotateY(-180deg);
-}
-*/
-.wrap:hover {
-  -webkit-transform: rotateX(1turn);
-  -moz-transform: rotate(1turn);
-  transform: rotateX(1turn);
-}
-
-.wrap {
-  position: relative;
-  margin: 0 auto;
-  width: 250px;
-  height: 350px;
-  cursor: pointer;
-}
-
-.wrap div {
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  background-position: 50% 50%;
-  background-size: 150px;
-  background-repeat: no-repeat;
-  box-shadow: inset 0 0 45px rgba(255, 255, 255, .3), 0 12px 20px -10px rgba(0, 0, 0, .4);
-  color: #FFF;
-  text-align: center;
-  text-shadow: 0 1px rgba(0, 0, 0, .3);
-  font: bold 3em sans-serif;
-  line-height: 350px;
-}
-
-
-
-
-
 
 
 
