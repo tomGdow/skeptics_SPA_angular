@@ -46,7 +46,7 @@ angular.module('myApp.services', []).
         return {
             flexdata:[
 
-            ["assets/marie_curie.jpg", "Marie Curie"],
+                ["assets/marie_curie.jpg", "Marie Curie"],
                 ["assets/watson_golden_ratio.jpg", "James Watson"],
                 ["assets/popper_golden_ratio.jpg", "Karl Popper"],
                 ["assets/rutherford_golden_ratio.jpg", "Ernst Rutherford"],

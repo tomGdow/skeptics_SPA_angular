@@ -2,17 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a4471305-a4fa-48d4-8502-c5ed6bd0ef61" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/home/peleImage.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/home/schillachiImage.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/banksImage.html.erb" afterPath="$PROJECT_DIR$/app/views/home/banksImage.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/ng_services.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/ng_services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial1.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial1.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial5.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial5.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial4.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial4.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial8.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial8.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/schillachiImage.html.erb" afterPath="$PROJECT_DIR$/app/views/home/schillachiImage.html.erb" />
     </list>
     <ignored path="skeptics_SPA_angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="banksImage.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/banksImage.html.erb">
+      <file leaf-file-name="partial4.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/home/partial4.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="345">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.5927835" vertical-offset="0" max-vertical-offset="3375">
+              <caret line="23" column="114" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -58,31 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="partial1.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/partial1.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.9310346" vertical-offset="359" max-vertical-offset="885">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ng_services.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_services.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="945">
-              <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="partial8.html.erb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/home/partial8.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81182796" vertical-offset="777" max-vertical-offset="1380">
-              <caret line="82" column="68" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+              <caret line="57" column="41" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -91,7 +68,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0" vertical-offset="180" max-vertical-offset="1920">
+            <state vertical-scroll-proportion="-22.5" vertical-offset="0" max-vertical-offset="1920">
               <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
               <folding>
                 <marker date="1407172324943" expanded="true" signature="2059:2220" placeholder="..." />
@@ -101,21 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="partial5.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/partial5.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
-              <caret line="3" column="118" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="schillachiImage.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/schillachiImage.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
-              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+            <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="375">
+              <caret line="19" column="46" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,8 +91,8 @@
       <file leaf-file-name="main.css.scss" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3375" vertical-offset="1213" max-vertical-offset="20235">
-              <caret line="104" column="113" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
+            <state vertical-scroll-proportion="-4.95" vertical-offset="7074" max-vertical-offset="20235">
+              <caret line="498" column="22" selection-start-line="498" selection-start-column="8" selection-end-line="498" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -134,8 +101,8 @@
       <file leaf-file-name="ng_controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.764706" vertical-offset="6536" max-vertical-offset="10545">
-              <caret line="442" column="0" selection-start-line="442" selection-start-column="0" selection-end-line="442" selection-end-column="0" />
+            <state vertical-scroll-proportion="-12.794118" vertical-offset="315" max-vertical-offset="10350">
+              <caret line="50" column="115" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -192,19 +159,19 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/ng_directives.js" />
         <option value="$PROJECT_DIR$/public/imageDate.json" />
         <option value="$PROJECT_DIR$/public/imageData.json" />
-        <option value="$PROJECT_DIR$/app/views/home/partial4.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/ng_services.js" />
-        <option value="$PROJECT_DIR$/app/views/home/banksImage.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/peleImage.html.erb" />
         <option value="$PROJECT_DIR$/app/views/schillachi-Image.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/schillachiImage.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/home/partial1.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" />
         <option value="$PROJECT_DIR$/app/views/home/partial5.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/ng_services.js" />
         <option value="$PROJECT_DIR$/app/views/home/partial8.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/partial1.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/home/schillachiImage.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/banksImage.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/home/partial4.html.erb" />
       </list>
     </option>
   </component>
@@ -954,14 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/partial4.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="24.375" vertical-offset="585" max-vertical-offset="3735">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/curieFlexslider.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40336135" vertical-offset="45" max-vertical-offset="720">
@@ -1002,25 +961,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_services.js">
+    <entry file="file://$PROJECT_DIR$/app/views/home/partial5.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="945">
-          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/banksImage.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.625" vertical-offset="0" max-vertical-offset="345">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.08256881" vertical-offset="0" max-vertical-offset="545">
+          <caret line="3" column="118" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0" vertical-offset="180" max-vertical-offset="1920">
+        <state vertical-scroll-proportion="-22.5" vertical-offset="0" max-vertical-offset="1920">
           <caret line="36" column="70" selection-start-line="36" selection-start-column="70" selection-end-line="36" selection-end-column="70" />
           <folding>
             <marker date="1407172324943" expanded="true" signature="2059:2220" placeholder="..." />
@@ -1029,18 +980,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js">
+    <entry file="file://$PROJECT_DIR$/app/views/home/partial8.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.764706" vertical-offset="6536" max-vertical-offset="10545">
-          <caret line="442" column="0" selection-start-line="442" selection-start-column="0" selection-end-line="442" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.077319585" vertical-offset="0" max-vertical-offset="1275">
+          <caret line="3" column="79" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/schillachiImage.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="315">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="387" max-vertical-offset="945">
+          <caret line="57" column="41" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/partial1.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18041237" vertical-offset="0" max-vertical-offset="885">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1053,34 +1012,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.794118" vertical-offset="315" max-vertical-offset="10350">
+          <caret line="50" column="115" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3375" vertical-offset="1213" max-vertical-offset="20235">
-          <caret line="104" column="113" selection-start-line="104" selection-start-column="20" selection-end-line="104" selection-end-column="20" />
+        <state vertical-scroll-proportion="-4.95" vertical-offset="7074" max-vertical-offset="20235">
+          <caret line="498" column="22" selection-start-line="498" selection-start-column="8" selection-end-line="498" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/partial5.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/banksImage.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="135">
-          <caret line="3" column="118" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.43814433" vertical-offset="0" max-vertical-offset="582">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/partial1.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/schillachiImage.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.9310346" vertical-offset="359" max-vertical-offset="885">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="375">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/partial8.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/partial4.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81182796" vertical-offset="777" max-vertical-offset="1380">
-          <caret line="82" column="68" selection-start-line="82" selection-start-column="10" selection-end-line="82" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.5927835" vertical-offset="0" max-vertical-offset="3375">
+          <caret line="23" column="114" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
           <folding />
         </state>
       </provider>

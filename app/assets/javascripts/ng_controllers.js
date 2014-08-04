@@ -46,7 +46,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
                 $rootScope.toggleCaption2 =true;
             }
 
-            //partial8: arg2=3
+            //partial4: arg2=3
             if(arg1 == false && arg2 ==3)  {
                 $rootScope.toggleShowPara3 =false;
                 $rootScope.toggleCaption3= false;
@@ -357,7 +357,6 @@ angular.module('myApp.controllers', ['angular-flexslider',
         //====CONTROLLER FOR PARTIAL ONE ====
 
         $scope.mydraggable      =   "true";
-        //$scope.toggleOnTab      =   true;//fade paragraph
 
         //====Flexslider
          //modified from: https://github.com/thenikso/angular-flexslider
@@ -434,7 +433,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
         //but fails on partial reload (but not on full refresh)
         // });
 
-    //==== Image Transition (banks)
+    //==== Image Transition
 
         $scope.imageSource  =   imgService.imgBanks.imageSource;
         $scope.imageAltDesc =   imgService.imgBanks.imageAltDesc;
@@ -468,7 +467,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
                 console.error('Error fetching feed:', data);
             });
 
-    }).controller('MyCtrl4',  function($scope, $http) {
+    }).controller('MyCtrl4',  function($scope, $http,imgService) {
 
 
 
@@ -617,7 +616,12 @@ angular.module('myApp.controllers', ['angular-flexslider',
             $scope.toggleOnTab=true;
         };
 
+       //===Small Image
 
+         $scope.imageSource3  =   imgService.imgSchillachi.imageSource;
+         $scope.imageAltDesc3 =   imgService.imgSchillachi.imageAltDesc;
+         $scope.captionText3  =   imgService.imgSchillachi.captionText;
+         $scope.imageId3      =   imgService.imgSchillachi.imageId;
 
     }).controller('MyCtrl5', function($scope) {
 
@@ -639,15 +643,11 @@ angular.module('myApp.controllers', ['angular-flexslider',
         //====CONTROLLER FOR PARTIAL EIGHT====
            //(Blog Menu Item)
 
-
             $scope.callFoo = function() {
                 myService.foo();
             };
 
-
-
-
-          $scope.selected = 'first'; // tab view
+        $scope.selected = 'first'; // tab view
 
          //====Flip picture 180 degrees ====
 
@@ -679,19 +679,6 @@ angular.module('myApp.controllers', ['angular-flexslider',
             $scope.imageAltDesc2 =   imgService.imgPele.imageAltDesc;
             $scope.captionText2  =   imgService.imgPele.captionText;
             $scope.imageId2      =   imgService.imgPele.imageId;
-
-            $scope.imageSource3  =   imgService.imgSchillachi.imageSource;
-            $scope.imageAltDesc3 =   imgService.imgSchillachi.imageAltDesc;
-            $scope.captionText3  =   imgService.imgSchillachi.captionText;
-            $scope.imageId3      =   imgService.imgSchillachi.imageId;
-
-
-
-            $scope.toggleShow3=true;
-            $scope.toggleFlipLegendWrapper3=true;
-            $scope.toggleShow4=true; //toggleOnTab,used to be
-            $scope.toggleFlipLegendWrapper4=true;
-
 
 
 
