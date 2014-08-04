@@ -90,10 +90,12 @@ body {
   //-webkit-transform-style: preserve-3d;
 }
 
+/*
 h3 {
   font-family: "DroidSerifBold", Georgia, serif;
   letter-spacing: 1px;
 }
+*/
 
 /*Remove Dotted line from Buttons in Mozilla */
 :focus {
@@ -461,6 +463,24 @@ dt a {
   -webkit-backface-visibility: hidden;
 }
 
+.small-image-figure-alt {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0;
+  padding: 0;
+  padding-right: 1px;
+  background: white;
+  transition: -webkit-transform 1s ease-in;
+  transition: -moz-transform 1s ease-in;
+  transition: transform 1s ease-in;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+
 .small-image-wrap {
   position: relative;
   width: 8em;
@@ -469,6 +489,20 @@ dt a {
   margin-right: 1em;
   padding: 0;
 } //keep
+
+
+.small-image-wrap-alt {
+  position: relative;
+  width: 8em;
+  height:5em;
+
+} //keep
+
+#schillachi-italy {
+  display: block;
+  margin: 1.5em 0;
+  min-width: 100%;
+}
 
 .small-images-caption {
   visibility: visible;
@@ -607,6 +641,16 @@ h1 {
   border-radius: inherit;
   background: rgba(255, 255, 255, .8);
 }//Keep this for debugging
+
+
+.col-partial8-tab{
+  margin: 10px;
+  padding: 25px;
+ // border: 2px solid rgba(45, 74, 95, .9);
+ // border-radius: inherit;
+}//Keep this for debugging
+
+
 
 .main-partial1 {
   //display: -webkit-flex;
@@ -1124,7 +1168,7 @@ h1 {
 .tab_content8 { margin-top: 10px;
   border-radius: 10px;
   position: relative;
-  background-color: green;
+  background-color: #EEEEEE;
   height: 400px;
 }
 

@@ -2,36 +2,23 @@
 <!-- Blog-->
 
 <div class="main-partial8">
-  <h1>Title One</h1>
-
+  <h1>Blog Page</h1>
 
   <div class="col-partial8-a col-partial8">
-    <div class="small-image-container"><!--flexbox Banks-->
-      <div class="small-image-wrap">
-        <figure class="small-image-figure"
-                id ="{{imagezId}}">
-          <img alt="{{imageAltDesc}}"
-               ng-src="/assets/{{imageSource}}">
-          <figcaption>
-            &nbsp;{{captionText}}</figcaption>
-        </figure>
-      </div>
-      <p  ng-class= "toggleShow ? 'loremParagraph lorem':'loremParagraph lorem vishidden '">
-        Lorem ipsum dolor sit amet, lorem lattinus
-      </p>
-    </div> <!-- end flexbox -->
-    <ipsum></ipsum>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Aliquam aperiam assumenda dignissimos eum expedita incidunt molestiae neque nesciunt optio,
-      pariatur perferendis placeat quibusdam quos, ratione rem repellat reprehenderit tempora veniam.
-    </p>
 
+      <span ng-include="'/home/peleImage.html'"></span>
+
+      <p ng-class= "toggleShowPara2 ? 'loremParagraph ':'loremParagraph vishidden '">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Adipisci aliquam assumenda commodi cum, dicta doloremque dolorum esse itaque
+        iure laboriosam libero maiores natus nemo non officiis quae quo recusandae voluptate.
+      </p>
   </div>
   <div class="col-partial8-b col-partial8">
     <h2>Column B</h2>
-
     <ipsum></ipsum>
+   <ipsumshort></ipsumshort>
+
   </div>
 
   <!--Flip Picture -->
@@ -59,79 +46,41 @@
   <div class="col-partial8-c col-partial8">
     <h2>Column C</h2>
 
-    <div class="small-image-container"><!--flexbox (Pele Imge)-->
-      <div class="small-image-wrap">
-        <figure class="small-image-figure"
-                id ="{{imageId2}}"
-                >
-          <img alt="{{imageAltDesc2}}"
-               src="/assets/{{imageSource2}}">
-          <figcaption>
-            &nbsp;{{captionText2}}</figcaption>
-        </figure>
-      </div>
-
-    </div> <!-- end flexbox -->
-
-    <p>
-      Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu, vitae lobortis ipsum nibh sed dolor. Vestibulum
-      sodales pulvinar risus vel fermentum.
-      Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci
-      non ipsum vestibulum non eleifend.
-    </p>
-
-       <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id mollis neque.
-      Phasellus rutrum iaculis ante, id tincidunt tellus pulvinar vitae.
-      Maecenas sodales mollis nisi sit amet congue.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Architecto, consequatur corporis in modi nam nihil
-      numquam quisquam rerum ut voluptatem? Asperiores consequatur corporis dolore eveniet facilis maxime ratione sunt
-      unde!
-    </p>
-
-    <div class="small-image-container"><!--flexbox Schillachi -->
-      <div class="small-image-wrap">
-        <figure class="small-image-figure"
-                id ="{{imageId3}}"
-               >
-          <img alt="{{imageAltDesc3}}"
-               ng-src="/assets/{{imageSource3}}">
-          <figcaption>
-            &nbsp;{{captionText3}}</figcaption>
-        </figure>
-      </div>
-      <p>
-        Lorem ipsum dolor sit amet, lorem lattinus
-      </p>
-    </div> <!-- end flexbox -->
+      <ipsum></ipsum>
+     <ipsumlong></ipsumlong>
+    <ipsum></ipsum>
+    <ipsum></ipsum>
 
   </div>
+
+  <!--tab viewer-->
   <div class="tabs">
     <div ng-click="selected = 'first'" ng-class="{'selected': selected == 'first'}" class="tab">first</div>
     <div ng-click="selected = 'second'" ng-class="{'selected': selected == 'second'}" class="tab">second</div>
   </div>
 
   <div ng-show="selected == 'first'" class="tab_content8">
-    <p>some content here...</p>
+
+      <div class="col-partial8-tab">
+        <h2>Heading</h2>
+        <ipsum></ipsum>
+            <a href="https://github.com/tomGdow/skeptics_SPA_angular"
+               class = "button small"
+               target ="_blank">Github
+            </a>
+      </div>
+
   </div>
   <div ng-show="selected == 'second'" class="tab_content8">
-    <div class="small-image-container"><!--flexbox -->
-      <div class="small-image-wrap">
-        <figure class="small-image-figure"
-                id ="{{imagefId}}"
-        >
-          <img alt="{{imageAltDesc}}"
-               ng-src="/assets/{{imageSource}}">
-          <figcaption
-          ng-class= "toggleFlipLegendWrapper2 ? 'small-images-caption  vishidden  ': 'small-images-caption '">
-            &nbsp;{{captionText}}</figcaption>
-        </figure>
-      </div>
-      <p  ng-class= "toggleShow ? 'loremParagraph ':'loremParagraph vishidden '">
-        Lorem ipsum dolor sit amet, lorem lattinus <br/>Accusantium ad alias amet architecto consequatur
-      </p>
-    </div> <!-- end flexbox -->
+
+    <div class="col-partial8-tab">
+      <h2>Heading 2</h2>
+      <ipsum></ipsum>
+      <a href="http://mathematica.stackexchange.com/users/106/tomd"
+         class = "button alert small "
+         target ="_blank">Stack Overflow
+      </a>
+    </div>
 
   </div>
 

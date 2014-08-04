@@ -18,6 +18,8 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/celciusNav"
   get "home/dublinslider"
   get "home/banksImage"
+  get "home/peleImage"
+  get "home/schillachiImage"
 
   #get "home/tabViewPartialFour"
   #get "home/dublinslideralt"

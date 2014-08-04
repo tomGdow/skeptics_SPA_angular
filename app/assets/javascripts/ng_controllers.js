@@ -15,6 +15,49 @@ angular.module('myApp.controllers', ['angular-flexslider',
 
         // $rootScope.toggleShow=true;
 
+        $rootScope.toggleShowPara=true;
+        $rootScope.toggleCaption=true;
+        $rootScope.toggleShowPara2=true;
+        $rootScope.toggleCaption2=true;
+        $rootScope.toggleShowPara3=true;
+        $rootScope.toggleCaption3=true;
+
+        $rootScope.mouseOverLeave = function (arg1, arg2) {
+
+            //home page: arg2=1
+            if(arg1 == false && arg2 ==1)  {
+                $rootScope.toggleShowPara =false;
+                $rootScope.toggleCaption= false;
+            }
+
+            if(arg1 == true && arg2 ==1)  {
+                $rootScope.toggleShowPara =true;
+                $rootScope.toggleCaption =true;
+            }
+
+            //partial8: arg2=2
+            if(arg1 == false && arg2 ==2)  {
+                $rootScope.toggleShowPara2 =false;
+                $rootScope.toggleCaption2= false;
+            }
+
+            if(arg1 == true && arg2 ==2)  {
+                $rootScope.toggleShowPara2 =true;
+                $rootScope.toggleCaption2 =true;
+            }
+
+            //partial8: arg2=3
+            if(arg1 == false && arg2 ==3)  {
+                $rootScope.toggleShowPara3 =false;
+                $rootScope.toggleCaption3= false;
+            }
+
+            if(arg1 == true && arg2 ==3)  {
+                $rootScope.toggleShowPara3 =true;
+                $rootScope.toggleCaption3 =true;
+            }
+        };
+
         $rootScope.globalFoo = function() {
             alert("I'm global foo!");
         };
@@ -391,29 +434,14 @@ angular.module('myApp.controllers', ['angular-flexslider',
         //but fails on partial reload (but not on full refresh)
         // });
 
-    //==== Image Transition
+    //==== Image Transition (banks)
 
         $scope.imageSource  =   imgService.imgBanks.imageSource;
         $scope.imageAltDesc =   imgService.imgBanks.imageAltDesc;
         $scope.captionText  =   imgService.imgBanks.captionText;
         $scope.imageId      =   imgService.imgBanks.imageId;
 
-        $scope.toggleShowPara=true;
-        $scope.toggleCaption=true;
 
-        $scope.MouseOverLeave = function (arg1, arg2) {
-
-
-            if(arg1 == false && arg2 ==1)  {
-                $scope.toggleShowPara =false;
-                $scope.toggleCaption= false;
-            }
-
-            if(arg1 == true && arg2 ==1)  {
-                $scope.toggleShowPara =true;
-                $scope.toggleCaption =true;
-            }
-        }
     })
     .controller('MyCtrl2', ['$scope', function($scope) {
 
