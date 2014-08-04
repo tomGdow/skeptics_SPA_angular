@@ -174,4 +174,37 @@ angular.module('myApp.directives', []).
                 });
             }
         }
+    }).directive('ipsum', function() {
+        return {
+            restrict: 'E',
+            scope: { obj: '=' },
+            template: '<p>' +
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit'+
+            'Praesent id mollis neque. Phasellus rutrum iaculis ante,'+
+            'id tincidunt tellus pulvinar vitae. Maecenas sodales mollis nisi sit amet congue.' +
+            '</p>'
+        };
+    }).directive('ipsumlong', function() {
+        return {
+            restrict: 'E',
+            scope: { obj: '=' },
+            template: '<p>' +
+            'Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,'+
+            'vitae lobortis ipsum nibh sed dolor. Vestibulum'+
+            'sodales pulvinar risus vel fermentum.'+
+            'Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci'+
+            'non ipsum vestibulum non eleifend.'+
+             '</p>'
+        };
+    }).directive('ipsumshort', function() {
+        return {
+            restrict: 'E',
+            scope: { obj: '=' },
+            template: '<p>' +
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'+
+            'Lorem ipsum dolor sit amet'+
+             '</p>'
+        };
     });
+
+

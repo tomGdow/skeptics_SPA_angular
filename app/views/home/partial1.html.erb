@@ -1,79 +1,46 @@
+<!-- Partial One-->
+<!-- Home Page-->
+
 <div class="main-partial1">
-    <h1>Title One</h1>
+  <h1>Natural Skeptics</h1>
+  <div class="col-partial1-c col-partial1">
+    <h2  ng-class= "toggleShowPara ? 'loremParagraph ':'loremParagraph vishidden '">Welcome</h2>
+    <span ng-include="'/home/banksImage.html'"></span>
 
-  <div class="col-partial1-a col-partial1">
-     <h2>Column A</h2>
-     <div class="small-image-wrap">
-        <figure class="small-image-figure" id ="gordon-banks">
-            <%= image_tag "001_banks.jpg",
-                alt: "Picture of Gordon Banks",
-                id: "banksImage"%>
-          <figcaption class = small-images-caption>
-            &nbsp;Gordon Banks</figcaption>
-        </figure>
-     </div>
-        <p>
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Aliquam aperiam assumenda dignissimos
-          eum expedita incidunt molestiae neque nesciunt optio,
-          pariatur perferendis placeat quibusdam quos, ratione rem repellat
-          reprehenderit tempora veniam.
-        </p>
+    <p ng-class= "toggleShowPara ? 'loremParagraph ':'loremParagraph vishidden '">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Adipisci aliquam assumenda commodi cum, dicta doloremque dolorum esse itaque
+      iure laboriosam libero maiores natus nemo non officiis quae quo recusandae voluptate.</p>
+    <div>
+        <ipsum></ipsum>
+    </div>
   </div>
 
+  <!--flexslider-->
   <span ng-include="'/home/curieFlexslider.html'" class = "curie-flex-render"></span>
 
   <div class="col-partial1-b col-partial1">
-     <h2>Column B</h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Praesent id mollis neque. Phasellus rutrum iaculis ante,
-      id tincidunt tellus pulvinar vitae.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      At aut deleniti facere fuga laudantium magni minus, modi molestias
-      viet nam non officiis perspiciatis quibusdam
-      ratione reprehenderit sit unde, vitae. Accusantium, nesciunt.
-    </p>
+        <h2>Column B</h2>
+        <ipsum></ipsum>
+        <ipsum></ipsum>
   </div>
 
+  <!--charts-->
   <div class="col-partial1-c col-partial1">
-    <h2>Column C</h2>
-    <p>
-      Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,
-      vitae lobortis ipsum nibh sed dolor. Vestibulum
-      sodales pulvinar risus vel fermentum.
-      Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci
-      non ipsum vestibulum non eleifend.
-    </p>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi corporis
-      libero molestias nobis soluta sunt ullam.
-      Blanditiis corporis eos ex expedita inventore nemo,
-      nulla officiis ullam! Fuga mollitia numquam vel.
-    </p>
-          <p class ="chart-dynamic-header">  Data for {{renderYear}} </p>
-    <span ng-include="'/home/charts.html'" ></span>
-
-    <p>
-      Laura Ipsen Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      A blanditiis cumque ex fuga impedit inventore labore laborum non perspiciatis quis repellendus sequi,
-      similique sunt? Eum fugit quos sequi tempore vitae!
-    </p>
-
-    <p>
-      Laura and Molly ipsum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid architecto aut delectus distinctio eum fuga, libero maiores modi nobis odio quaerat recusandae sunt.
-      A, dolor doloribus nam pariatur possimus saepe.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque excepturi facere quod. Aliquid architecto assumenda aut blanditiis esse ex expedita laudantium odit, officiis quos rem,
-      soluta, vel veniam voluptas voluptatem.
-    </p>
+        <h2>Charts</h2>
+        <ipsumlong></ipsumlong>
+        <ipsum></ipsum>
+              <p class ="chart-dynamic-header">
+                Data for {{renderYear}}
+              </p>
+        <span ng-include="'/home/charts.html'" ></span>
+        <ipsum></ipsum>
+        <ipsum></ipsum>
+        <ipsumlong></ipsumlong>
   </div>
 </div>
+
+
 
 
 

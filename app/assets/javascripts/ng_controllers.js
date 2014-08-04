@@ -2,28 +2,45 @@
 
 /* ANGULAR CONTROLLERS */
 
-angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnimate', 'underscore'])
-    .controller('MyCtrlIndex', function($scope, _) {
+angular.module('myApp.controllers', ['angular-flexslider',
+                                     'ngFitText',
+                                     'ngAnimate',
+                                     'underscore'])
+    .run(function($rootScope) {
 
-        /*INDEX PAGE CONTROLLER*/
+         //$rootScope.imageSource  =   imgService.imgBanks.imageSource;
+        // $rootScope.imageAltDesc =   imgService.imgBanks.imageAltDesc;
+        // $rootScope.captionText  =   imgService.imgBanks.captionText;
+        // $rootScope.imageId      =   imgService.imgBanks.imageId;
+
+        // $rootScope.toggleShow=true;
+
+        $rootScope.globalFoo = function() {
+            alert("I'm global foo!");
+        };
+
+}).controller('MyCtrlIndex', function($scope, _) {
+
+        //====INDEX PAGE CONTROLLER====
 
         /*
                 var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2}, {tweet: 'wow, this is nice', id: 3}];
                 $scope.ids = (_.pluck(data, 'tweet'))[0];*/
 
-        $scope.format_one = "h:mm:ss a";
-        $scope.format_two = "fullDate";
-        $scope.setMyClass= 'dynamic-clock_one';
-        $scope.setMyClass2= 'dynamic-date_one';
-        $scope.timezones_model= false;
-        $scope.footerModel= true;
-        $scope.toggleLocation=true;
-        $scope.cfConvModel=false;
-        $scope.longlat=false;
-        $scope.toggleLatLongCaption=false;
+        $scope.format_one       =   "h:mm:ss a";
+        $scope.format_two       =   "fullDate";
+        $scope.setMyClass       =   'dynamic-clock_one';
+        $scope.setMyClass2      =   'dynamic-date_one';
+        $scope.timezones_model  =   false;
+        $scope.footerModel      =   true;
+        $scope.toggleLocation   =   true;
+        $scope.cfConvModel      =   false;
+        $scope.longlat          =   false;
+        $scope.toggleLatLongCaption = false;
         $scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
 
-    //====NavBar====
+
+    //====NavBar
     $scope.$watch('$viewContentLoaded', function(){
         $scope.active='home';
         //$scope.active='viewfour';
@@ -33,7 +50,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
     };
 
-    //====Time and Date====
+    //====Time and Date
 
         //clock
     $scope.clockMouseOver = function () {
@@ -52,7 +69,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
     $scope.clockMouseLeave = function ()  {
 
-        this.clock_image_model =false;
+        this.clock_image_model = false;
 
         if(this.setMyClass === 'dynamic-clock_three') {
            this.current_time_model=true;
@@ -74,7 +91,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
          }
          else {
             this.format_one = "h:mm a";
-            this.setMyClass= 'dynamic-clock_three';
+            this.setMyClass = 'dynamic-clock_three';
             this.current_time_model=true;
          }
     };
@@ -126,7 +143,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             }
     };
 
-    $scope.timeViewMouseLeave = function () {
+        $scope.timeViewMouseLeave = function () {
 
         this.format_one = "h:mm a";
 
@@ -206,20 +223,17 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
                 this.setMyClass2 = 'dynamic-date_three';
             }
-
         };
 
-    //====footer====
-
+    //====Footer
         $scope.toggleClassModel ="toggleOn";
-
         $scope.footerMouseOver = function () {
 
             if (this.toggleClassModel === 'toggleOn') {
                 this.footerModel = true;
                 this.toggleClassModel = 'toggleOff';
                 return false;
-            }
+                 }
              };
 
         $scope.footerOnClick= function () {
@@ -236,9 +250,9 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
       //====Farentheit to Celcius
 
           //modified from  OverZealous at StackOverflow
-          // see:
-          // http://plnkr.co/edit/0n0golhEzU7dokMOkHN6?p=preview
-          // http://stackoverflow.com/a/17626761
+            // see:
+            // http://plnkr.co/edit/0n0golhEzU7dokMOkHN6?p=preview
+            // http://stackoverflow.com/a/17626761
 
         $scope.edited = null;
         $scope.markEdited = function(which) {
@@ -269,7 +283,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
        //==== Latitude and Longitude
 
-        //modified from; http://jsfiddle.net/mrajcok/pEq6X/
+          //modified from; http://jsfiddle.net/mrajcok/pEq6X/
           //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
         $scope.location = '';
@@ -295,97 +309,122 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         };
 
 
-    }).controller('MyCtrl1', function($scope, $http) {
+    }).controller('MyCtrl1', function($scope, $http,chartsService, imgService, flexsliderService) {
 
-        /*CONTROLLER FOR PARTIAL ONE*/
+        //====CONTROLLER FOR PARTIAL ONE ====
 
-    //====Flexslider====
+        $scope.mydraggable      =   "true";
+        //$scope.toggleOnTab      =   true;//fade paragraph
 
-        //modified from: https://github.com/thenikso/angular-flexslider
+        //====Flexslider
+         //modified from: https://github.com/thenikso/angular-flexslider
 
-        $http.get('flexSlider.json').success(function(data) {
-            $scope.slides = data;
-            });
+            //old way of getting data
+            //$http.get('flexSlider.json').success(function (data) {
+             //   $scope.slides = data;
+            //});
 
-        $scope.slideShowQ = false;
-        $scope.slideShowSpeed = 5000;
-        $scope.animationSpeed = 1000;
-        $scope.pauseOnHover = "true";
-        $scope.pauseOnAction = "true";
-        $scope.pauseText="";
-        $scope.playText="";
-        $scope.controlNav="true";
-        $scope.animationLoop="true";
-        $scope.prevText="";
-        $scope.nextText="";
-        $scope.pausePlay="true";
-        $scope.directionNav="true";
-        $scope.mydraggable="true";
+        $scope.slides = flexsliderService.flexdata;
 
-        $scope.before = function(){
-               $scope.myVar ="flexBeforeClass";
-            };
+        $scope.slideShowQ       =   false;
+        $scope.slideShowSpeed   =   5000;
+        $scope.animationSpeed   =   1000;
+        $scope.pauseOnHover     =   "true";
+        $scope.pauseOnAction    =   "true";
+        $scope.pauseText        =   "";
+        $scope.playText         =   "";
+        $scope.controlNav       =   "true";
+        $scope.animationLoop    =   "true";
+        $scope.prevText         =   "";
+        $scope.nextText         =   "";
+        $scope.pausePlay        =   "true";
+        $scope.directionNav     =   "true";
 
-        $scope.after = function(){
-            $scope.myVar ="flexAfterClass"
+        $scope.before = function () {
+            $scope.myVar = "flexBeforeClass";
+        };
+        $scope.after = function () {
+            $scope.myVar = "flexAfterClass"
         };
 
-    //====Chart====
-        //modified from http://codepen.io/danielemoraschi/pen/qFmol
-        //see also http://techslides.com/angular-js-demos-examples-and-resources/
+      //====Chart
+          //modified from http://codepen.io/danielemoraschi/pen/qFmol
+          //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
-        $scope.data1model=true;
+        $scope.renderYear = (chartsService.dataYears)[0];
+        $scope.mydata = (chartsService.dataOne).toString();
+        $scope.mydata2 = (chartsService.dataTwo).toString();
+        $scope.mydata3 = (chartsService.dataThree).toString();
 
-       $http.get('charts.json').success(
-           function(data) {
-           $scope.chartdata = data;
-           //$scope.mydata = (($scope.chartdata)[0]).toString();
-           // $scope.mydata2 = ($scope.chartdata)[1].toString();
-           //$scope.mydata3 = ($scope.chartdata)[2].toString();
-           $scope.renderYear =($scope.chartdata)[3][0];
-
-               //Uncommenting above 3 while commenting-out corresponding 3 below works initially
-               //but fails on partial reload (but not on full refresh)
-        });
-
-        //$scope.renderYear = 2012;
-        $scope.mydata =  "40,4,50,15,16,33,52,20";
-        $scope.mydata2 = "65,22,33,70,16,43,80,61";
-        $scope.mydata3 = "90,4,40,60,13,33,2,20";
-
-        $scope.toggleDataOne = function (){
-           this.data1model =true;
-           this.data2model =false;
-           this.data3model =false;
-           $scope.renderYear =($scope.chartdata)[3][0]
+        $scope.data1model = true;
+        $scope.toggleDataOne = function () {
+            this.data1model = true;
+            this.data2model = false;
+            this.data3model = false;
+            $scope.renderYear =  (chartsService.dataYears)[0];
         };
 
-        $scope.toggleDataTwo = function (){
-           this.data2model =true;
-           this.data1model =false;
-           this.data3model =false;
-            $scope.renderYear =($scope.chartdata)[3][1];
+        $scope.toggleDataTwo = function () {
+            this.data2model = true;
+            this.data1model = false;
+            this.data3model = false;
+            $scope.renderYear = $scope.renderYear = (chartsService.dataYears)[1];
         };
         $scope.toggleDataThree = function () {
             this.data3model = true;
             this.data1model = false;
             this.data2model = false;
             //$scope.renderYear= 2014;
-            $scope.renderYear =($scope.chartdata)[3][2];
+            $scope.renderYear = $scope.renderYear = (chartsService.dataYears)[2];
         };
 
+        //=== original chart code
+        //$http.get('charts.json').success(
+        // function (data) {
+        //  $scope.chartdata = data;
+        //$scope.mydata = (($scope.chartdata)[0]).toString();
+        // $scope.mydata2 = ($scope.chartdata)[1].toString();
+        //$scope.mydata3 = ($scope.chartdata)[2].toString();
 
 
+        //Uncommenting above 3 while commenting-out corresponding 3 below works initially
+        //but fails on partial reload (but not on full refresh)
+        // });
+
+    //==== Image Transition
+
+        $scope.imageSource  =   imgService.imgBanks.imageSource;
+        $scope.imageAltDesc =   imgService.imgBanks.imageAltDesc;
+        $scope.captionText  =   imgService.imgBanks.captionText;
+        $scope.imageId      =   imgService.imgBanks.imageId;
+
+        $scope.toggleShowPara=true;
+        $scope.toggleCaption=true;
+
+        $scope.MouseOverLeave = function (arg1, arg2) {
+
+
+            if(arg1 == false && arg2 ==1)  {
+                $scope.toggleShowPara =false;
+                $scope.toggleCaption= false;
+            }
+
+            if(arg1 == true && arg2 ==1)  {
+                $scope.toggleShowPara =true;
+                $scope.toggleCaption =true;
+            }
+        }
     })
     .controller('MyCtrl2', ['$scope', function($scope) {
 
-        /*CONTROLLER FOR PARTIAL TWO*/
+        //====CONTROLLER FOR PARTIAL TWO====
 
         $scope.message = 'Hello From Partial Two';
         $scope.code = 'nSFiQloC3yw';
 
     }]).controller('MyCtrl3', function($scope,  $http) {
-        /*CONTROLLER FOR PARTIAL THREE*/
+
+        //====CONTROLLER FOR PARTIAL THREE====
         $scope.message = 'Heello From Partial Three';
 
         var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D'http%3A%2F%2Fdailyjs.com%2Fatom.xml'%20and%20itemPath%3D'feed.entry'&format=json&diagnostics=true&callback=JSON_CALLBACK";
@@ -403,7 +442,10 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
 
     }).controller('MyCtrl4',  function($scope, $http) {
 
-        /*CONTROLLER FOR PARTIAL FOUR*/
+
+
+        //====CONTROLLER FOR PARTIAL FOUR====
+            //(Sixties Dublin)
 
         //====Angular Slider ====
           // Called here dublinslider
@@ -457,7 +499,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             $scope.togglebuttonlist=true;//show the button
         };
 
-        //====Google Maps====
+    //====Google Maps
 
         $http.get('googleMaps.json').success(function(data) {
             $scope.googleAddress = data;
@@ -489,27 +531,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
                 }
             });
         }
-
- /*       $scope.updateGoogle = function(myid) {
-            if(myid==0) {
-              address = $scope.googleAddress[0].addressOne;
-            }
-            if(myid==1) {
-                 address= $scope.googleAddress[0].addressTwo;
-            }
-            if(myid==2) {
-                //address= "Parliament Street, Dublin, Ireland";
-                address= $scope.googleAddress[0].addressThree;
-            }
-            if(myid==3) {
-                //address= "O'Connell Street Lower, Dublin, Ireland";
-                address= $scope.googleAddress[0].addressFour;
-            }
-            if(myid==4) {
-                address= $scope.googleAddress[0].addressFive;
-            }
-            FindLocation(address);
-        };*/
 
         $scope.updateGoogle = function(id) {
 
@@ -543,7 +564,6 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             $scope.togglegmap=false;
             $scope.toggleslideshowButton=true;
             $scope.togglegmapButton=false;
-            //$scope.buttonToggleSliderGoogle=true;
         };
 
         $scope.mouseOverGoogleMap =function () {
@@ -554,44 +574,52 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
             $scope.togglebuttonlist=false;
         };
 
-        //===tab view
+        //====tab view
 
         $scope.selected = 'first';
-        $scope.toggleOnTab =true;
+        $scope.toggleOnTabc =true;
 
        $scope.tabbedImgMouseover= function ( ) {
 
            $scope.toggleOnTab=false;
-           document.getElementById('myfooter').style.visibility ="hidden";
        };
 
         $scope.tabbedImgMouseleave = function () {
 
             $scope.toggleOnTab=true;
-        }
+        };
+
+
 
     }).controller('MyCtrl5', function($scope) {
 
-        /*CONTROLLER FOR PARTIAL FIVE */
+        //====CONTROLLER FOR PARTIAL FIVE ====
 
     }).controller('MyCtrl6', ['$scope', function($scope) {
 
-        /*CONTROLLER FOR PARTIAL SIX */
+        //====CONTROLLER FOR PARTIAL Six ====
         $scope.message = 'Hello From Partial Six';
 
     }]).controller('MyCtrl7', ['$scope', function($scope) {
 
-        /*CONTROLLER FOR PARTIAL SEVEN */
+        //====CONTROLLER FOR PARTIAL Seven ====
         $scope.message = 'Hello From Partial Seven';
 
-    }]).controller('MyCtrl8', ['$scope', function($scope) {
+    }]).controller('MyCtrl8', ['$scope', 'myService','imgService',
+        function($scope, myService, imgService) {
 
         //====CONTROLLER FOR PARTIAL EIGHT====
+           //(Blog Menu Item)
 
-            /*Blog*/
-        $scope.message = 'Hello From Partial Eight';
 
-        $scope.selected = 'first'; // tab view
+            $scope.callFoo = function() {
+                myService.foo();
+            };
+
+
+
+
+          $scope.selected = 'first'; // tab view
 
          //====Flip picture 180 degrees ====
 
@@ -606,7 +634,7 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
                 this.toggleFlipLegend=true;
                 return  this.pictureFlipper = false;
             }
-            this.toggleFlipLegend=false; //here
+            this.toggleFlipLegend=false;
             return  this.pictureFlipper = true;
         };
 
@@ -615,5 +643,28 @@ angular.module('myApp.controllers', ['angular-flexslider', 'ngFitText', 'ngAnima
         };
         $scope.flipPictMouseleave = function () {
             this.toggleFlipLegendWrapper=true;
-        }
+        };
+
+        //====Small Image Transitions ====
+
+            $scope.imageSource2  =   imgService.imgPele.imageSource;
+            $scope.imageAltDesc2 =   imgService.imgPele.imageAltDesc;
+            $scope.captionText2  =   imgService.imgPele.captionText;
+            $scope.imageId2      =   imgService.imgPele.imageId;
+
+            $scope.imageSource3  =   imgService.imgSchillachi.imageSource;
+            $scope.imageAltDesc3 =   imgService.imgSchillachi.imageAltDesc;
+            $scope.captionText3  =   imgService.imgSchillachi.captionText;
+            $scope.imageId3      =   imgService.imgSchillachi.imageId;
+
+
+
+            $scope.toggleShow3=true;
+            $scope.toggleFlipLegendWrapper3=true;
+            $scope.toggleShow4=true; //toggleOnTab,used to be
+            $scope.toggleFlipLegendWrapper4=true;
+
+
+
+
     }]);

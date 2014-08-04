@@ -27,23 +27,18 @@
 
   <%= javascript_include_tag "vendor/modernizr.js" %>
   <script  src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
   <%= javascript_include_tag "angular-underscore-module.js" %>
   <%= javascript_include_tag "underscore" %>
-
   <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
   <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular.min.js"></script>-->
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular-animate.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.2/TweenMax.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=places&language=en-US"></script>
-
-  <%= csrf_meta_tags %>
-
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
+  <%= csrf_meta_tags %>
 </head>
 <body ng-controller="MyCtrlIndex">
-
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser.
@@ -54,17 +49,18 @@
 
 <div class="row">
   <div class="small-12 columns">
+
     <!--Main NavBar-->
         <div class="row" my-draggable>
             <div class="small-12 columns">
                 <div id="main" ng-include="'/home/mainnav.html'"></div>
             </div>
         </div>
-        <!-- Time  Nav-bar-->
-        <div  ng-include="'/home/timenav.html'"> </div>
-  </div>
-</div><!--upperdiv-->
 
+    <!-- Time  Nav-bar-->
+        <div  ng-include="'/home/timenav.html'"></div>
+  </div>
+</div>
 
 <!--Get Longitude/Latitude -->
 <div class="row" ng-cloak>
@@ -74,7 +70,6 @@
 
     <dl class="sub-nav" id="temp-nav">
       <dd></dd>
-
       <dd><button ng-click="doSearch()" class="button  tiny">Search</button></dd>
       <dd> <google-places location=location></google-places></dd>
       <dd ng-show="toggleLatLongCaption">Latitude:</dd>
@@ -82,20 +77,17 @@
       <dd ng-show="toggleLatLongCaption">Longitude:</dd>
       <dd ng-bind ="mylongitude"></dd>
       <dd></dd>
-      <!--<dd>paddyLast</dd>-->
     </dl>
   </div>
 </div>
 
-      <!--Fahrenheit to Celcius Converter-->
+<!--Fahrenheit to Celcius Converter-->
 <div class="row" ng-cloak>
   <div class="small-12 columns dynamic_temp" id="celcius-to-fahrenheit" ng-show ="cfConvModel">
-
     <dl class="sub-nav" id="temp-nav">
       <dd></dd>
       <dd><input type="number" ng-model="fahrenheit" ng-change="markEdited('F')"/> Fahrenheit</dd>
       <dd><input type="number" ng-model="celsius" ng-change="markEdited('C')" /> Celsius</dd>
-      <!--<dd>paddyLast</dd>-->
     </dl>
   </div>
 </div>
@@ -115,16 +107,15 @@
 <!--<div id="cart"  my-draggable></div>-->
 
 <div class="row">
-  <div class="small-12" ng-view></div>
+  <div class="small-12" ng-view></div> <!--ng-view-->
 </div>
 
+<!--footer-->
 <div  ng-include="'/home/footer.html'"></div>
 
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
 <%= javascript_include_tag "angular-touch.js" %>
-
-
 
 </body>
 </html>

@@ -1,32 +1,37 @@
+<!-- Partial Eight-->
+<!-- Blog-->
+
 <div class="main-partial8">
   <h1>Title One</h1>
 
+
   <div class="col-partial8-a col-partial8">
-    <h2>Column A</h2>
-
+    <div class="small-image-container"><!--flexbox Banks-->
+      <div class="small-image-wrap">
+        <figure class="small-image-figure"
+                id ="{{imagezId}}">
+          <img alt="{{imageAltDesc}}"
+               ng-src="/assets/{{imageSource}}">
+          <figcaption>
+            &nbsp;{{captionText}}</figcaption>
+        </figure>
+      </div>
+      <p  ng-class= "toggleShow ? 'loremParagraph lorem':'loremParagraph lorem vishidden '">
+        Lorem ipsum dolor sit amet, lorem lattinus
+      </p>
+    </div> <!-- end flexbox -->
+    <ipsum></ipsum>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Praesent id mollis neque. Phasellus rutrum iaculis ante,
-      id tincidunt tellus pulvinar vitae. Maecenas sodales mollis nisi sit amet congue.
-    </p>
-    <p>
-
-      <%= image_tag "001_banks.jpg",
-                    alt: "Picture of Gordon Banks",
-                    id: "banksImage" %>
-
       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
       Aliquam aperiam assumenda dignissimos eum expedita incidunt molestiae neque nesciunt optio,
-      pariatur perferendis placeat quibusdam quos, ratione rem repellat reprehenderit tempora veniam.</p>
+      pariatur perferendis placeat quibusdam quos, ratione rem repellat reprehenderit tempora veniam.
+    </p>
+
   </div>
   <div class="col-partial8-b col-partial8">
     <h2>Column B</h2>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Praesent id mollis neque. Phasellus rutrum iaculis ante,
-      id tincidunt tellus pulvinar vitae.
-    </p>
+    <ipsum></ipsum>
   </div>
 
   <!--Flip Picture -->
@@ -36,7 +41,7 @@
                  ng-click ="flipPicture()"
                  ng-mouseover="flipPictMouseover()"
                  ng-mouseleave="flipPictMouseleave()">
-            <div class="side-a"><span id ="zara"></span></div>
+            <div class="side-a"></div>
             <div class="side-b"></div>
         </div>
         <div ng-class= "toggleFlipLegendWrapper ? 'flipLegendWrapper  vishidden  ': 'flipLegendWrapper '">
@@ -54,11 +59,21 @@
   <div class="col-partial8-c col-partial8">
     <h2>Column C</h2>
 
-    <p>
+    <div class="small-image-container"><!--flexbox (Pele Imge)-->
+      <div class="small-image-wrap">
+        <figure class="small-image-figure"
+                id ="{{imageId2}}"
+                >
+          <img alt="{{imageAltDesc2}}"
+               src="/assets/{{imageSource2}}">
+          <figcaption>
+            &nbsp;{{captionText2}}</figcaption>
+        </figure>
+      </div>
 
-      <%= image_tag "103_pele.jpg",
-                    alt: "Picture of Pele",
-                    id: "peleImage" %>
+    </div> <!-- end flexbox -->
+
+    <p>
       Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu, vitae lobortis ipsum nibh sed dolor. Vestibulum
       sodales pulvinar risus vel fermentum.
       Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci
@@ -75,26 +90,49 @@
       unde!
     </p>
 
-    <p>
-      <%= image_tag "109_schillaci.jpg",
-      alt: "Picture of Salvadore Schillachi",
-      id: "schillachiImage" %>
-      Duis pharetra, sem in dictum posuere, justo scorum goalum Irlandiubus odearibus vestibulum arcu, vitae lobortis ipsum nibh sed dolor. Vestibulum
-      sodales pulvinar risus vel fermentum.
-      Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci
-      non ipsum vestibulum non eleifend.
-    </p>
+    <div class="small-image-container"><!--flexbox Schillachi -->
+      <div class="small-image-wrap">
+        <figure class="small-image-figure"
+                id ="{{imageId3}}"
+               >
+          <img alt="{{imageAltDesc3}}"
+               ng-src="/assets/{{imageSource3}}">
+          <figcaption>
+            &nbsp;{{captionText3}}</figcaption>
+        </figure>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet, lorem lattinus
+      </p>
+    </div> <!-- end flexbox -->
+
   </div>
   <div class="tabs">
     <div ng-click="selected = 'first'" ng-class="{'selected': selected == 'first'}" class="tab">first</div>
     <div ng-click="selected = 'second'" ng-class="{'selected': selected == 'second'}" class="tab">second</div>
   </div>
 
-  <div ng-show="selected == 'first'" class="tab_content">
+  <div ng-show="selected == 'first'" class="tab_content8">
     <p>some content here...</p>
   </div>
-  <div ng-show="selected == 'second'" class="tab_content">
-    <map id="map_canvas"></map>
+  <div ng-show="selected == 'second'" class="tab_content8">
+    <div class="small-image-container"><!--flexbox -->
+      <div class="small-image-wrap">
+        <figure class="small-image-figure"
+                id ="{{imagefId}}"
+        >
+          <img alt="{{imageAltDesc}}"
+               ng-src="/assets/{{imageSource}}">
+          <figcaption
+          ng-class= "toggleFlipLegendWrapper2 ? 'small-images-caption  vishidden  ': 'small-images-caption '">
+            &nbsp;{{captionText}}</figcaption>
+        </figure>
+      </div>
+      <p  ng-class= "toggleShow ? 'loremParagraph ':'loremParagraph vishidden '">
+        Lorem ipsum dolor sit amet, lorem lattinus <br/>Accusantium ad alias amet architecto consequatur
+      </p>
+    </div> <!-- end flexbox -->
+
   </div>
 
 </div>

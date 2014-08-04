@@ -1,17 +1,26 @@
+<!-- Partial Four-->
+<!-- Sixties Dublin-->
+
 <div class="col-partial4-a col-partial4">
     <h2>Sixties Dublin</h2>
+  <div class="small-image-container"><!--flexbox Banks-->
     <div class="small-image-wrap">
-           <figure class="small-image-figure" id ="gordon-banks">
-                <%= image_tag "001_banks.jpg",
-                              alt: "Picture of Gordon Banks",
-                              id: "banksImage"%>
-                <figcaption class = small-images-caption>
-              &nbsp;Gordon Banks
-                </figcaption>
-          </figure>
+      <figure class="small-image-figure"
+              id ="{{imageId}}"
+              >
+        <img alt="{{imageAltDesc}}"
+             ng-src="/assets/{{imageSource}}">
+        <figcaption ng-class= "toggleFlipLegendWrapper2 ? 'small-images-caption  vishidden  ': 'small-images-caption '">
+          {{captionText}}</figcaption>
+      </figure>
     </div>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Lorem ipsum dolor sit amet, lorem lattinus Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ispum est Laura.  Accusantium ad alias amet architecto consequatur
+    </p>
+  </div> <!-- end flexbox -->
+
+    <p ng-class= "toggleShow ? 'loremParagraph ':'loremParagraph vishidden '">
+      Ldorem ipsum dolor sit amet, consectetur adipisicing elit.
       Aliquam aperiam assumenda dignissimos
       eum expedita incidunt molestiae neque nesciunt optio,
       pariatur perferendis placeat quibusdam quos, ratione rem repellat
@@ -48,7 +57,7 @@
             </div>
         </div>
     </div>
-                             <!--you are here-->
+
     <div  ng-class="{vishidden :togglebuttonlist==false}"  class = "sliderBtnsContainer">
         <p class ="googleSlider-button-list" >
             <span ng-show ="toggleslideshowButton" class ="toggleslideshowButton">
@@ -75,11 +84,13 @@
       ng-class="{vishidden :toggleOnTab==false}">The Man on the Bridge</h2>
   <p class ="makeVisible"
      ng-class="{vishidden :toggleOnTab==false}">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Lorem ipsome dolor sit amet, consectetur adipisicing elit.
     Aliquam aperiam assumenda dignissimos
     eum expedita incidunt molestiae neque nesciunt optio,
     pariatur perferendis placeat quibusdam quos, ratione rem repellat
     reprehenderit tempora veniam.
+
+    <button ng-click="globalFoo()">Call global foo</button>
   </p>
 
     <div class="tabs" ng-class="{vishidden :toggleOnTab==false}">
@@ -101,7 +112,10 @@
         </div>
     </div>
 
-    <div ng-show="selected == 'first'" class="tab_content">
+  <!--Tab Views modified from  http://jsfiddle.net/doktormolle/aAeZw/
+  See also http://techslides.com/angular-js-demos-examples-and-resources/ -->
+
+  <div ng-show="selected == 'first'" class="tab_content">
       <p class = "tabscaption"
          ng-class="{vishidden :toggleOnTab==false}">
         Arthur Fields (1901-1994)</p>
@@ -225,5 +239,5 @@
         </p>
     </div>
 </div>
-
+<!--Sixties Dublin (partial 4)-->
 
