@@ -21,9 +21,6 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/peleImage"
   get "home/schillachiImage"
 
-  #get "home/tabViewPartialFour"
-  #get "home/dublinslideralt"
-
 
 
   # The priority is based upon order of creation:

@@ -71,12 +71,15 @@
     <dl class="sub-nav" id="temp-nav">
       <dd></dd>
       <dd><button ng-click="doSearch()" class="button  tiny">Search</button></dd>
-      <dd> <google-places location=location></google-places></dd>
+      <dd> <google-places location=location ng-focus="onFocus()"></google-places></dd>
       <dd ng-show="toggleLatLongCaption">Latitude:</dd>
       <dd ng-bind ="mylatitude"></dd>
       <dd ng-show="toggleLatLongCaption">Longitude:</dd>
       <dd ng-bind ="mylongitude"></dd>
-      <dd></dd>
+      <dd><button ng-click="toggleView()" ng-show="showToggleButton"
+      class ="button tiny"><span ng-show="minimizeExpand">Expand</span><span ng-hide="minimizeExpand">Minimize</span></button>
+
+      </dd>
     </dl>
   </div>
 </div>
@@ -110,12 +113,16 @@
   <div class="small-12" ng-view></div> <!--ng-view-->
 </div>
 
+
 <!--footer-->
 <div  ng-include="'/home/footer.html'"></div>
 
 <%= javascript_include_tag "application" %>
 <%= javascript_include_tag "jquery-ui" %>
 <%= javascript_include_tag "angular-touch.js" %>
+
+
+
 
 </body>
 </html>

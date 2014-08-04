@@ -8,13 +8,6 @@ angular.module('myApp.controllers', ['angular-flexslider',
                                      'underscore'])
     .run(function($rootScope) {
 
-         //$rootScope.imageSource  =   imgService.imgBanks.imageSource;
-        // $rootScope.imageAltDesc =   imgService.imgBanks.imageAltDesc;
-        // $rootScope.captionText  =   imgService.imgBanks.captionText;
-        // $rootScope.imageId      =   imgService.imgBanks.imageId;
-
-        // $rootScope.toggleShow=true;
-
         $rootScope.toggleShowPara=true;
         $rootScope.toggleCaption=true;
         $rootScope.toggleShowPara2=true;
@@ -58,17 +51,18 @@ angular.module('myApp.controllers', ['angular-flexslider',
             }
         };
 
-        $rootScope.globalFoo = function() {
+       /* $rootScope.globalFoo = function() {
             alert("I'm global foo!");
-        };
+        };*/
 
 }).controller('MyCtrlIndex', function($scope, _) {
+
 
         //====INDEX PAGE CONTROLLER====
 
         /*
-                var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2}, {tweet: 'wow, this is nice', id: 3}];
-                $scope.ids = (_.pluck(data, 'tweet'))[0];*/
+        var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2}, {tweet: 'wow, this is nice', id: 3}];
+        $scope.ids = (_.pluck(data, 'tweet'))[0];*/
 
         $scope.format_one       =   "h:mm:ss a";
         $scope.format_two       =   "fullDate";
@@ -86,11 +80,9 @@ angular.module('myApp.controllers', ['angular-flexslider',
     //====NavBar
     $scope.$watch('$viewContentLoaded', function(){
         $scope.active='home';
-        //$scope.active='viewfour';
     });
     $scope.navclick = function(arg) {
         $scope.active = arg;
-
     };
 
     //====Time and Date
@@ -193,8 +185,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
         if (this.setMyClass === 'dynamic-clock_four dynamic-clock-underline_color') {
 
             this.setMyClass = 'dynamic-clock_three';
-        }
-
+           }
         };
 
             //date
@@ -330,6 +321,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
           //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
         $scope.location = '';
+        $scope.showToggleButton=false;
 
         $scope.doSearch = function(){
             if($scope.location === ''){
@@ -340,7 +332,8 @@ angular.module('myApp.controllers', ['angular-flexslider',
                 $scope.mylatitude = mylocation.split(',')[0];
                 $scope.mylongitude = mylocation.split(',')[1];
                 $scope.toggleLatLongCaption=true;
-
+                $scope.showToggleButton=true;
+                $scope.minimizeExpand=false;
             }
         };
 
@@ -351,12 +344,39 @@ angular.module('myApp.controllers', ['angular-flexslider',
             return  $scope.longlat = true;
         };
 
+        $scope.toggleView = function () {
+
+           if($scope.toggleLatLongCaption)  {
+
+               this.minimizeExpand=true;
+
+             return  this.toggleLatLongCaption=false;
+           }
+
+            if($scope.toggleLatLongCaption==false)  {
+
+                this.minimizeExpand=false;
+
+                return   this.toggleLatLongCaption=true;
+            }
+
+        };
+
+        $scope.onFocus = function () {
+
+           this.showToggleButton=false;
+
+            this.toggleLatLongCaption=false;
+
+
+        };
+
 
     }).controller('MyCtrl1', function($scope, $http,chartsService, imgService, flexsliderService) {
 
         //====CONTROLLER FOR PARTIAL ONE ====
 
-        $scope.mydraggable      =   "true";
+        $scope.mydraggable  =   "true";
 
         //====Flexslider
          //modified from: https://github.com/thenikso/angular-flexslider
@@ -420,19 +440,6 @@ angular.module('myApp.controllers', ['angular-flexslider',
             $scope.renderYear = $scope.renderYear = (chartsService.dataYears)[2];
         };
 
-        //=== original chart code
-        //$http.get('charts.json').success(
-        // function (data) {
-        //  $scope.chartdata = data;
-        //$scope.mydata = (($scope.chartdata)[0]).toString();
-        // $scope.mydata2 = ($scope.chartdata)[1].toString();
-        //$scope.mydata3 = ($scope.chartdata)[2].toString();
-
-
-        //Uncommenting above 3 while commenting-out corresponding 3 below works initially
-        //but fails on partial reload (but not on full refresh)
-        // });
-
     //==== Image Transition
 
         $scope.imageSource  =   imgService.imgBanks.imageSource;
@@ -467,9 +474,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
                 console.error('Error fetching feed:', data);
             });
 
-    }).controller('MyCtrl4',  function($scope, $http,imgService) {
-
-
+    }).controller('MyCtrl4',  function($scope, $http, imgService, dublinSliderService) {
 
         //====CONTROLLER FOR PARTIAL FOUR====
             //(Sixties Dublin)
@@ -479,9 +484,11 @@ angular.module('myApp.controllers', ['angular-flexslider',
           // Modified from:  http://www.script-tutorials.com/photo-gallery-with-angularjs-and-css3/
           // See also: http://www.script-tutorials.com/demos/366/index.html#
 
-        $http.get('dublinSlider.json').success(function(data) {
+        /*$http.get('dublinSlider.json').success(function(data) {
             $scope.photos = data;
         });
+*/
+        $scope.photos= dublinSliderService.dublinSliderData;
 
         $scope.showHideCaptions=false;
         $scope.showHideArrows=false;
@@ -562,7 +569,6 @@ angular.module('myApp.controllers', ['angular-flexslider',
         $scope.updateGoogle = function(id) {
 
             switch(id){
-
                 case 0: address = $scope.googleAddress[0].addressOne;
                     break;
                 case 1: address = $scope.googleAddress[0].addressTwo;
@@ -602,30 +608,31 @@ angular.module('myApp.controllers', ['angular-flexslider',
         };
 
         //====tab view
-
         $scope.selected = 'first';
         $scope.toggleOnTabc =true;
 
        $scope.tabbedImgMouseover= function ( ) {
-
            $scope.toggleOnTab=false;
        };
 
         $scope.tabbedImgMouseleave = function () {
-
-            $scope.toggleOnTab=true;
+         $scope.toggleOnTab=true;
         };
 
-       //===Small Image
-
+       //===Small Images
          $scope.imageSource3  =   imgService.imgSchillachi.imageSource;
          $scope.imageAltDesc3 =   imgService.imgSchillachi.imageAltDesc;
          $scope.captionText3  =   imgService.imgSchillachi.captionText;
          $scope.imageId3      =   imgService.imgSchillachi.imageId;
 
+
+
+
     }).controller('MyCtrl5', function($scope) {
 
         //====CONTROLLER FOR PARTIAL FIVE ====
+
+
 
     }).controller('MyCtrl6', ['$scope', function($scope) {
 
@@ -643,14 +650,13 @@ angular.module('myApp.controllers', ['angular-flexslider',
         //====CONTROLLER FOR PARTIAL EIGHT====
            //(Blog Menu Item)
 
-            $scope.callFoo = function() {
+           /* $scope.callFoo = function() {
                 myService.foo();
-            };
+            };*/
 
         $scope.selected = 'first'; // tab view
 
          //====Flip picture 180 degrees ====
-
         $scope.pictureFlipper = false;
         $scope.toggleFlipLegend=true;
         $scope.toggleFlipLegendWrapper="true";
@@ -674,7 +680,6 @@ angular.module('myApp.controllers', ['angular-flexslider',
         };
 
         //====Small Image Transitions ====
-
             $scope.imageSource2  =   imgService.imgPele.imageSource;
             $scope.imageAltDesc2 =   imgService.imgPele.imageAltDesc;
             $scope.captionText2  =   imgService.imgPele.captionText;
