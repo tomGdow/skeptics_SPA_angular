@@ -5,7 +5,13 @@
 angular.module('myApp.controllers', ['angular-flexslider',
                                      'ngFitText',
                                      'ngAnimate',
-                                     'underscore'])
+                                     'underscore',
+    'ngSanitize',
+    "com.2fdevs.videogular",
+    "com.2fdevs.videogular.plugins.controls",
+    "com.2fdevs.videogular.plugins.buffering",
+    "com.2fdevs.videogular.plugins.overlayplay",
+    "com.2fdevs.videogular.plugins.poster"])
     .run(function($rootScope) {
 
         $rootScope.toggleShowPara=true;
@@ -74,6 +80,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
         $scope.cfConvModel      =   false;
         $scope.longlat          =   false;
         $scope.toggleLatLongCaption = false;
+
         $scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
 
 
@@ -449,14 +456,107 @@ angular.module('myApp.controllers', ['angular-flexslider',
 
 
     })
-    .controller('MyCtrl2', ['$scope', function($scope) {
+    .controller('MyCtrl2', function($scope, videoService, $sce) {
 
         //====CONTROLLER FOR PARTIAL TWO====
 
-        $scope.message = 'Hello From Partial Two';
-        $scope.code = 'nSFiQloC3yw';
+        $scope.mytoggle=true;
+        $scope.makeSmall= false;
+        $scope.makeLarge=true;
+        $scope.setvideogularClass=true;
+        $scope.videoregularFalse = "videoregular-video-two";
+        $scope.setVgBingingClass= true;
 
-    }]).controller('MyCtrl3', function($scope,  $http) {
+        $scope.tomfn = function () {
+
+            if($scope.mytoggle==true) {
+                $scope.config.width= 720;
+                $scope.config.height= 360;
+                $scope.makeSmall= true;
+                $scope.makeLarge=false;
+                $scope.setvideogularClass=false;
+                $scope.videoregularFalse = "videoregular-video-two";
+                return  this.mytoggle= false
+            }
+
+            $scope.config.width=444;
+            $scope.config.height=228;
+            $scope.makeSmall= false;
+            $scope.makeLarge=true;
+            $scope.setvideogularClass=true;
+            return   this.mytoggle=true;
+        };
+
+        $scope.value1 =true;
+
+        $scope.today = function (){
+            $scope.setvideogularClass=false;
+            $scope.videoregularFalse = "videoregular-video-three";
+            $scope.toggleOverLayPlay=false;
+            $scope.config.width= 1000;
+            $scope.config.height= 500;
+        };
+
+        $scope.vgMouseOver = function () {
+
+            $scope.setVgBingingClass=false;
+        };
+
+        $scope.vgMouseLeave = function () {
+
+            $scope.setVgBingingClass=true;
+        };
+
+        $scope.style = function () {
+
+            return {
+                'height': $scope.config.height + 'px'
+            };
+        };
+
+
+
+        $scope.stretchModes = [
+            {label: "None", value: "none"},
+            {label: "Fit", value: "fit"},
+            {label: "Fill", value: "fill"}
+        ];
+
+        $scope.config = {
+            width: 444,
+            height: 228,
+            autoHide: true,
+            autoPlay: false,
+            responsive: true,
+            stretch: $scope.stretchModes[2],
+
+            sources: [
+                {src: $sce.trustAsResourceUrl(videoService.oceanVideo[0].mp4), type: "video/mp4"},
+                {src: $sce.trustAsResourceUrl(videoService.oceanVideo[0].webm), type: "video/webm"},
+                {src: $sce.trustAsResourceUrl(videoService.oceanVideo[0].ogg), type: "video/ogg"}
+            ],
+
+            theme: {
+                url: "../assets/videogular.css",
+                playIcon: "&#xe000;",
+                pauseIcon: "&#xe001;",
+                volumeLevel3Icon: "&#xe002;",
+                volumeLevel2Icon: "&#xe003;",
+                volumeLevel1Icon: "&#xe004;",
+                volumeLevel0Icon: "&#xe005;",
+                muteIcon: "&#xe006;",
+                enterFullScreenIcon: "&#xe007;",
+                exitFullScreenIcon: "&#xe008;"
+            },
+            plugins: {
+                poster: {
+                    url: "../assets/oceans-clip.png"
+                }
+            }
+        };
+
+
+    }).controller('MyCtrl3', function($scope,  $http) {
 
         //====CONTROLLER FOR PARTIAL THREE====
         $scope.message = 'Heello From Partial Three';

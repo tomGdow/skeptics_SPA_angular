@@ -20,6 +20,7 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/banksImage"
   get "home/peleImage"
   get "home/schillachiImage"
+  get "home/oceanVideo"
 
 
 

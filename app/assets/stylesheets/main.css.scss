@@ -2,30 +2,30 @@
 $skeptics-blue: #0078A0;
 $skeptics-orange:#FFA500;
 
-//====fonts====
+//====fonts2====
 
-//Google fonts
+//Google fonts2
 @font-face {
 
   font-family: 'DroidSerifBold';
-  src: url('fonts/DroidSerif-Bold-webfont.eot');
-  src: url('fonts/DroidSerif-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-  url('fonts/DroidSerif-Bold-webfont.woff') format('woff'),
-  url('fonts/DroidSerif-Bold-webfont.ttf') format('truetype'),
-  url('fonts/DroidSerif-Bold-webfont.svg#DroidSerifBold') format('svg');
+  src: url('fonts2/DroidSerif-Bold-webfont.eot');
+  src: url('fonts2/DroidSerif-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts2/DroidSerif-Bold-webfont.woff') format('woff'),
+  url('fonts2/DroidSerif-Bold-webfont.ttf') format('truetype'),
+  url('fonts2/DroidSerif-Bold-webfont.svg#DroidSerifBold') format('svg');
   font-weight: bold;
   font-style: normal;
 }
 
-//icomoon fonts
+//icomoon fonts2
 
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?6a1x8p');
-  src: url('fonts/icomoon.eot?#iefix6a1x8p') format('embedded-opentype'),
-  url('fonts/icomoon.woff?6a1x8p') format('woff'),
-  url('fonts/icomoon.ttf?6a1x8p') format('truetype'),
-  url('fonts/icomoon.svg?6a1x8p#icomoon') format('svg');
+  src: url('fonts2/icomoon.eot?6a1x8p');
+  src: url('fonts2/icomoon.eot?#iefix6a1x8p') format('embedded-opentype'),
+  url('fonts2/icomoon.woff?6a1x8p') format('woff'),
+  url('fonts2/icomoon.ttf?6a1x8p') format('truetype'),
+  url('fonts2/icomoon.svg?6a1x8p#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -1194,7 +1194,8 @@ h1 {
 .sliderBtnsContainer.vishidden,
 .flipLegendWrapper.vishidden,
 .loremParagraph.vishidden,
-.small-images-caption.vishidden{
+.small-images-caption.vishidden,
+.vgControlsTwo.vishidden{
   visibility: hidden;
   opacity: 0;
 }
@@ -1384,10 +1385,53 @@ h1 {
   font-weight: 300;
 }
 
-
  #target {
    width: 345px;
  }
 
 
+ ////===
 
+
+.videogular-container{position:relative;}
+
+.videoregular-video-one  {
+
+  position: absolute;
+  top: 0;
+  left: 25%;
+}
+
+.videoregular-video-two  {
+
+  position: absolute;
+  top: 0;
+  left: 5%;
+}
+
+.videoregular-video-three  {
+  margin-left: 15%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vgControlsTwo {
+  visibility:visible;
+  margin-left: 15%;
+  padding-top: 3em;
+  opacity: 1;
+  -webkit-transition: opacity 2s, visibility 2s ;
+  -moz-transition: opacity 2s,visibility 2s ;
+  -o-transition: opacity 2s,visibility 2s ;
+  transition: opacity 2s,visibility 2s ;
+
+}
+
+.vgControlsTwo.vgControlsHidden {
+
+  opacity: 0;
+  visibility:hidden;
+
+
+}

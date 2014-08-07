@@ -66,4 +66,12 @@ angular.module('myApp.services', []).
 
             ]
         };
+    }).factory('videoService', function() {
+        return {
+            oceanVideo:[
+                {"mp4":"http://video-js.zencoder.com/oceans-clip.mp4"},
+                {"webm": "http://video-js.zencoder.com/oceans-clip.webm"},
+                {"ogg": "http://video-js.zencoder.com/oceans-clip.ogv"}
+            ]
+        };
     });
