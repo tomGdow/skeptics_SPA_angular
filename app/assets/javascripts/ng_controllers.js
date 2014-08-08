@@ -460,67 +460,96 @@ angular.module('myApp.controllers', ['angular-flexslider',
 
         //====CONTROLLER FOR PARTIAL TWO====
 
-        $scope.mytoggle=true;
-        $scope.makeSmall= false;
-        $scope.makeLarge=true;
-        $scope.setvideogularClass=true;
-        $scope.videoregularFalse = "videoregular-video-two";
-        $scope.setVgBingingClass= true;
+        //==== Videogular ====
 
-        $scope.tomfn = function () {
+        $scope.showLargeSmall = function (arg) {
 
-            if($scope.mytoggle==true) {
-                $scope.config.width= 720;
-                $scope.config.height= 360;
-                $scope.makeSmall= true;
-                $scope.makeLarge=false;
-                $scope.setvideogularClass=false;
-                $scope.videoregularFalse = "videoregular-video-two";
-                return  this.mytoggle= false
+            if(arg===1) {
+                if ($scope.vgToggle == true) {
+
+                    $scope.config.width = 720;
+                    $scope.config.height = 360;
+                    $scope.makeVideoSmall = true;
+                    $scope.makeVideoLarge = false;
+                    $scope.setVgClass = false;
+                    $scope.vgFalse = "vg-video-two";
+                    return  this.vgToggle = false
+                }
+                $scope.config.width = 444;
+                $scope.config.height = 228;
+                $scope.makeVideoSmall = false;
+                $scope.makeVideoLarge = true;
+                $scope.setVgClass = true;
+                return   this.vgToggle = true;
             }
 
-            $scope.config.width=444;
-            $scope.config.height=228;
-            $scope.makeSmall= false;
-            $scope.makeLarge=true;
-            $scope.setvideogularClass=true;
-            return   this.mytoggle=true;
+            if(arg===2) {
+                if ($scope.vgToggle2 == true) {
+
+                    $scope.config2.width = 720;
+                    $scope.config2.height = 360;
+                    $scope.makeVideoSmall2 = true;
+                    $scope.makeVideoLarge2 = false;
+                    $scope.setVgClass2 = false;
+                    $scope.vgFalse2 = "vg-video-two";
+                    return  this.vgToggle2 = false
+                }
+
+                $scope.config2.width = 444;
+                $scope.config2.height = 228;
+                $scope.makeVideoSmall2 = false;
+                $scope.makeVideoLarge2 = true;
+                $scope.setVgClass2 = true;
+                return   this.vgToggle2 = true;
+            }
         };
 
-        $scope.value1 =true;
-
-        $scope.today = function (){
-            $scope.setvideogularClass=false;
-            $scope.videoregularFalse = "videoregular-video-three";
-            $scope.toggleOverLayPlay=false;
-            $scope.config.width= 1000;
-            $scope.config.height= 500;
+        $scope.onFullScreen = function (arg){
+            if(arg ==1) {
+                $scope.setVgClass = false;
+                $scope.vgFalse = "vg-video-three";
+                //$scope.toggleOverLayPlay=false;
+            }
+            if(arg==2) {
+                $scope.setVgClass2 = false;
+                $scope.vgFalse2 = "vg-video-three";
+            }
         };
 
-        $scope.vgMouseOver = function () {
-
-            $scope.setVgBingingClass=false;
+        $scope.style = function (arg) {
+            if(arg ===1) {
+                return {
+                    'height': $scope.config.height + 'px'
+                };
+            }
+            if(arg ==2)  {
+                return {
+                    'height': $scope.config2.height + 'px'
+                };
+            }
         };
-
-        $scope.vgMouseLeave = function () {
-
-            $scope.setVgBingingClass=true;
-        };
-
-        $scope.style = function () {
-
-            return {
-                'height': $scope.config.height + 'px'
-            };
-        };
-
-
 
         $scope.stretchModes = [
             {label: "None", value: "none"},
             {label: "Fit", value: "fit"},
             {label: "Fill", value: "fill"}
         ];
+
+        //====Ocean View Video
+        $scope.vgToggle=true;
+        $scope.makeVideoSmall= false;
+        $scope.makeVideoLarge=true;
+        $scope.setVgClass=true;
+        $scope.vgFalse = "vg-video-two";
+        $scope.setVgControls2Class= true;
+
+        $scope.vgMouseOver = function () {
+            $scope.setVgControlsTwoClass=false;
+            };
+
+        $scope.vgMouseLeave = function () {
+            $scope.setVgControlsTwoClass=true;
+            };
 
         $scope.config = {
             width: 444,
@@ -555,6 +584,55 @@ angular.module('myApp.controllers', ['angular-flexslider',
             }
         };
 
+        $scope.vgMouseOver2 = function () {
+            $scope.setVgControlsTwoClass2=false;
+        };
+
+        $scope.vgMouseLeave2 = function () {
+            $scope.setVgControlsTwoClass2=true;
+        };
+
+        //=== EarthAsDot video
+        $scope.vgToggle2=false;
+        $scope.makeVideoSmall2= true;
+        $scope.makeVideoLarge2=false;
+        $scope.setVgClass2=false;
+        $scope.vgFalse2 = "vg-video-two";
+        $scope.setVgControlsTwoClass2= true;
+
+        $scope.config2 = {
+            width: 720,
+            height: 360,
+            autoHide: true,
+            autoPlay: false,
+            responsive: true,
+            stretch: $scope.stretchModes[2],
+
+            sources: [
+                {src: $sce.trustAsResourceUrl(videoService.earthAsDotVideo[0].mp4), type: "video/mp4"},
+                {src: $sce.trustAsResourceUrl(videoService.earthAsDotVideo[0].webm), type: "video/webm"},
+                {src: $sce.trustAsResourceUrl(videoService.earthAsDotVideo[0].ogg), type: "video/ogg"}
+            ],
+
+            theme: {
+                url: "../assets/videogular.css",
+                playIcon: "&#xe000;",
+                pauseIcon: "&#xe001;",
+                volumeLevel3Icon: "&#xe002;",
+                volumeLevel2Icon: "&#xe003;",
+                volumeLevel1Icon: "&#xe004;",
+                volumeLevel0Icon: "&#xe005;",
+                muteIcon: "&#xe006;",
+                enterFullScreenIcon: "&#xe007;",
+                exitFullScreenIcon: "&#xe008;"
+            },
+            plugins: {
+                poster: {
+                    url: "../assets/videogular.png"
+                }
+            }
+        };
+        //====End Videogular
 
     }).controller('MyCtrl3', function($scope,  $http) {
 

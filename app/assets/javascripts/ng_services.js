@@ -72,6 +72,13 @@ angular.module('myApp.services', []).
                 {"mp4":"http://video-js.zencoder.com/oceans-clip.mp4"},
                 {"webm": "http://video-js.zencoder.com/oceans-clip.webm"},
                 {"ogg": "http://video-js.zencoder.com/oceans-clip.ogv"}
-            ]
+            ],
+
+            earthAsDotVideo:[
+                {"mp4":"http://www.videogular.com/assets/videos/videogular.mp4"},
+                {"webm": "http://www.videogular.com/assets/videos/videogular.webm"},
+                {"ogg": "http://www.videogular.com/assets/videos/videogular.ogg"}
+        ]
         };
     });
+

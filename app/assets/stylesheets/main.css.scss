@@ -634,7 +634,7 @@ h1 {
   column-span: all;
 }
 
-.col-partial1, .col-partial4, .col-partial8 {
+.col-partial1, .col-partial2, .col-partial4, .col-partial8 {
   margin: 10px;
   padding: 25px;
   border: 2px solid rgba(45, 74, 95, .9);
@@ -713,7 +713,7 @@ h1 {
   // -webkit-column-width: 250px;
 }
 
-.col-partial4 {
+.col-partial2,.col-partial4 {
   border: none;
   -webkit-flex: 3;
   flex: 3;
@@ -1189,6 +1189,7 @@ h1 {
 .tabs.vishidden,
 .tabscaption.vishidden,
 .col-partial4.vishidden,
+.col-partial2.vishidden,
 .makeVisible.vishidden,
 .makeVisible.vishidden,
 .sliderBtnsContainer.vishidden,
@@ -1301,6 +1302,53 @@ h1 {
   opacity: 0;
 }
 
+//==== Videogular
+
+.vg-container{position:relative;}
+
+.vg-video-one  {
+  position: absolute;
+  top: 0;
+  left: 25%;
+}
+
+.vg-video-two  {
+  position: absolute;
+  top: 0;
+  left: 10%;
+}
+
+.vg-video-three  {
+  margin-left: 15%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.vgControlsTwo {
+  visibility:visible;
+  margin-left: 15%;
+  padding-top: 3em;
+  opacity: 1;
+  -webkit-transition: opacity 2s, visibility 2s ;
+  -moz-transition: opacity 2s,visibility 2s ;
+  -o-transition: opacity 2s,visibility 2s ;
+  transition: opacity 2s,visibility 2s ;
+}
+
+.vgControlsTwo.vgControlsHidden {
+  opacity: 0;
+  visibility:hidden;
+}
+
+.vgOuterContainer {
+  margin-top: 4em;
+}
+
+.vgOuterContainer2 {
+  margin-top:6em;
+}
+
 //==== Media ====
 @media screen and (max-width: 999px) {
   .main {
@@ -1341,6 +1389,9 @@ h1 {
 
 
 
+//What is this?  Careful?
+
+/*
 .controls {
   margin-top: 16px;
   border: 1px solid transparent;
@@ -1365,7 +1416,9 @@ h1 {
 #pac-input:focus {
   border-color: #4d90fe;
   margin-left: -1px;
-  padding-left: 14px;  /* Regular padding-left + 1. */
+  padding-left: 14px;  */
+/* Regular padding-left + 1. *//*
+
   width: 401px;
 }
 
@@ -1388,50 +1441,6 @@ h1 {
  #target {
    width: 345px;
  }
+*/
 
 
- ////===
-
-
-.videogular-container{position:relative;}
-
-.videoregular-video-one  {
-
-  position: absolute;
-  top: 0;
-  left: 25%;
-}
-
-.videoregular-video-two  {
-
-  position: absolute;
-  top: 0;
-  left: 5%;
-}
-
-.videoregular-video-three  {
-  margin-left: 15%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.vgControlsTwo {
-  visibility:visible;
-  margin-left: 15%;
-  padding-top: 3em;
-  opacity: 1;
-  -webkit-transition: opacity 2s, visibility 2s ;
-  -moz-transition: opacity 2s,visibility 2s ;
-  -o-transition: opacity 2s,visibility 2s ;
-  transition: opacity 2s,visibility 2s ;
-
-}
-
-.vgControlsTwo.vgControlsHidden {
-
-  opacity: 0;
-  visibility:hidden;
-
-
-}
