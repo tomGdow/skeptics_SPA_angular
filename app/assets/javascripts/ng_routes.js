@@ -19,6 +19,11 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view6', {templateUrl: 'commodities', controller: 'MyCtrl6'});
   $routeProvider.when('/view7', {templateUrl: 'commodities/new.html', controller: 'MyCtrl7'});
   $routeProvider.when('/view8', {templateUrl: 'home/partial8.html', controller: 'MyCtrl8'});
+  $routeProvider.when('/view9', {templateUrl: 'home/partial9.html', controller: 'MyCtrl9'});//dynamic searching
 
+  $routeProvider.when('/view102', {templateUrl: 'commodities/2', controller: 'MyCtrl10'});
+  $routeProvider.when('/view502', {templateUrl: 'commodities/2/edit', controller: 'MyCtrl10'});
+  $routeProvider.when('/view105', {templateUrl: 'commodities/5', controller: 'MyCtrl9'});
+  $routeProvider.when('/view10', {templateUrl: 'commodities/edit/', controller: 'MyCtrl10'});
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);

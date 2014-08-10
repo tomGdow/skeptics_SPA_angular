@@ -22,11 +22,9 @@
         <td><%= commodity.description %></td>
         <td><%= commodity.price %></td>
 
-        <td><%= commodity.category %></td>
-        <td><%= commodity.year %></td>
-        <td><%= commodity.winner %></td>
-        <td><%= link_to 'Show', commodity %></td>
-        <td><%= link_to 'Edit', edit_commodity_path(commodity) %></td>
+
+        <td><a href=<%= "#view#{commodity.id + 100}" %>>show</a></td>
+        <td><a href=<%= "#view#{commodity.id + 500}" %>>edit</a></td>
         <td><%= button_to 'Destroy', commodity, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
@@ -34,4 +32,4 @@
 
 <br/>
 
-<%= link_to 'New Commodity', new_commodity_path %>
+<%= render partial: 'commodities/search_and_paginate' %>

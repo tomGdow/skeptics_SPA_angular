@@ -20,8 +20,6 @@
   <%= stylesheet_link_tag "foundation.css", :media => "all" %>
   <%= stylesheet_link_tag "jquery-ui", :media => "screen" %>
   <%= stylesheet_link_tag "flexslider", :media => "all" %>
-
-
   <%= stylesheet_link_tag "videogular", :media => "all" %>
   <%= stylesheet_link_tag "main", :media => "all" %>
 
@@ -39,6 +37,8 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.2/TweenMax.min.js"></script>
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=places&language=en-US"></script>
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
 
   <%= csrf_meta_tags %>
 </head>
@@ -100,15 +100,18 @@
 </div>
 
 <!--products nav-bar-->
+<div class="productsNavWrapper"
+ng-show ="toggleProductsNav">
 <div class="row" id="productsnav">
   <div class="small-12 columns">
     <dl class="sub-nav">
       <dt>F:</dt>
       <dd><a href="#view6">Products</a></dd>
       <dd><a href="#view7">Add Product</a></dd>
-      <dd><a href="#">Suspended</a></dd>
+      <dd><a href="#view9">Dynamic Searching</a></dd>
     </dl>
   </div>
+</div>
 </div>
 
 <!--<div id="cart"  my-draggable></div>-->

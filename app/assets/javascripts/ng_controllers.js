@@ -2,11 +2,13 @@
 
 /* ANGULAR CONTROLLERS */
 
-angular.module('myApp.controllers', ['angular-flexslider',
-                                     'ngFitText',
-                                     'ngAnimate',
-                                     'underscore',
+angular.module('myApp.controllers', [
+    'angular-flexslider',
+    'ngFitText',
+    'ngAnimate',
+    'underscore',
     'ngSanitize',
+    'ngResource',
     "com.2fdevs.videogular",
     "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.buffering",
@@ -88,8 +90,13 @@ angular.module('myApp.controllers', ['angular-flexslider',
     $scope.$watch('$viewContentLoaded', function(){
         $scope.active='home';
     });
+        $scope.toggleProductsNav=false;
     $scope.navclick = function(arg) {
         $scope.active = arg;
+        if(arg =='viewfive') {
+            return $scope.toggleProductsNav=true;
+            }
+        $scope.toggleProductsNav=false;
     };
 
     //====Time and Date
@@ -372,9 +379,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
         $scope.onFocus = function () {
 
            this.showToggleButton=false;
-
-            this.toggleLatLongCaption=false;
-
+           this.toggleLatLongCaption=false;
 
         };
 
@@ -384,6 +389,7 @@ angular.module('myApp.controllers', ['angular-flexslider',
         //====CONTROLLER FOR PARTIAL ONE ====
 
         $scope.mydraggable  =   "true";
+
 
         //====Flexslider
          //modified from: https://github.com/thenikso/angular-flexslider
@@ -634,23 +640,22 @@ angular.module('myApp.controllers', ['angular-flexslider',
         };
         //====End Videogular
 
-    }).controller('MyCtrl3', function($scope,  $http) {
+    }).controller('MyCtrl3', function($scope,  $http, instagram) {
 
         //====CONTROLLER FOR PARTIAL THREE====
-        $scope.message = 'Heello From Partial Three';
+        //===Instagram Feeds
+        //Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
+        //See also http://techslides.com/angular-js-demos-examples-and-resources/
 
-        var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D'http%3A%2F%2Fdailyjs.com%2Fatom.xml'%20and%20itemPath%3D'feed.entry'&format=json&diagnostics=true&callback=JSON_CALLBACK";
+        $scope.layout = 'grid';
 
-        $http.jsonp(url).
-            success(function(data, status, headers, config) {
-                $scope.feed = {
-                    title: 'DailyJS',
-                    items: data.query.results.entry
-                };
-            }).
-            error(function(data, status, headers, config) {
-                console.error('Error fetching feed:', data);
-            });
+        $scope.pics = [];
+
+        // Use the instagram service and fetch a list of the popular pics
+        instagram.fetchPopular(function(data){
+            $scope.pics = data;
+        });
+
 
     }).controller('MyCtrl4',  function($scope, $http, imgService, dublinSliderService) {
 
@@ -804,11 +809,12 @@ angular.module('myApp.controllers', ['angular-flexslider',
          $scope.imageId3      =   imgService.imgSchillachi.imageId;
 
 
-
-
     }).controller('MyCtrl5', function($scope) {
 
+        $scope.toggleProductsNav=true;
+
         //====CONTROLLER FOR PARTIAL FIVE ====
+        //Products Display page
 
 
 
@@ -865,4 +871,40 @@ angular.module('myApp.controllers', ['angular-flexslider',
 
 
 
-    }]);
+    }]).controller('MyCtrl9',
+        function($scope, $http) {
+
+            //====CONTROLLER FOR PARTIAL Nine====
+
+            //Dynamic Searching
+
+            $scope.message = "Hello from partial 9.  Dynamic Search";
+
+            $http.get('./skepticsCommodities.json').success(function(data) {
+                $scope.coachList = data;
+            });
+
+            $scope.orderProp = 'name';
+
+            $scope.HTMLalpha="Alphabetical";
+            $scope.HTMLlowestPrice="Lowest Price";
+            $scope.HTMLhighestPrice="Highest Price";
+            $scope.HTMLCategory="Category";
+            $scope.HTMLemail="Email";
+            $scope.HTMLcreated_at="Created At";
+            $scope.HTMLupdatedAt="Updated At";
+            $scope.HTMLid="Id";
+
+            //$scope.orderPropAlt = 'email';
+            $scope.myFirstName = function(string) {
+                return  string.split(' ')[0]
+            }
+
+        }).controller('MyCtrl10', ['$scope',
+        function($scope) {
+
+            //====CONTROLLER FOR PARTIAL Nine====
+
+
+
+        }]);

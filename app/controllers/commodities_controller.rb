@@ -1,8 +1,17 @@
 class CommoditiesController < ApplicationController
   # GET /commodities
   # GET /commodities.json
+
+  require 'writeJSON'
+
   def index
-    @commodities = Commodity.all
+    #@commodities = Commodity.all
+
+    @commodities = Commodity.paginate(:per_page => 5,
+                                      :page => params[:page],
+                                      :order => "created_at DESC")
+    .search(params[:search_query], params[:search])
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +23,8 @@ class CommoditiesController < ApplicationController
   # GET /commodities/1.json
   def show
     @commodity = Commodity.find(params[:id])
+
+
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,6 +61,11 @@ class CommoditiesController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @commodity.errors, status: :unprocessable_entity }
       end
+
+      if @commodity.save
+        SKEPTICS.write_commodities_to_json
+      end
+
     end
   end
 

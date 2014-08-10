@@ -1,6 +1,7 @@
 SkepticsSpaAngular::Application.routes.draw do
   resources :commodities
 
+  get 'thomas', to: 'commodities#index'
   get "home/index"
   get "home/partial1"
   get "home/partial2"
@@ -8,6 +9,7 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/partial4"
   get "home/partial5"
   get "home/partial8"
+  get "home/partial9"
   get "home/footer"
   get "home/timezones"
   get "home/gmtTime"
@@ -21,6 +23,8 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/peleImage"
   get "home/schillachiImage"
 
+
+ # match "#view9", :to => redirect("home")
 
   #get "home/oceanVideo"
 
