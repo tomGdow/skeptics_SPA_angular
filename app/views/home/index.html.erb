@@ -55,14 +55,14 @@
   <div class="small-12 columns">
 
     <!--Main NavBar-->
-    <div class="row" my-draggable>
-      <div class="small-12 columns">
-        <div id="main" ng-include="'/home/mainnav.html'"></div>
-      </div>
-    </div>
+        <div class="row" my-draggable>
+            <div class="small-12 columns">
+                <div id="main" ng-include="'/home/mainnav.html'"></div>
+            </div>
+        </div>
 
     <!-- Time  Nav-bar-->
-    <div  ng-include="'/home/timenav.html'"></div>
+        <div  ng-include="'/home/timenav.html'"></div>
   </div>
 </div>
 
@@ -81,7 +81,7 @@
       <dd ng-show="toggleLatLongCaption">Longitude:</dd>
       <dd ng-bind ="mylongitude"></dd>
       <dd><button ng-click="toggleView()" ng-show="showToggleButton"
-                  class ="button tiny"><span ng-show="minimizeExpand">Expand</span><span ng-hide="minimizeExpand">Minimize</span></button>
+      class ="button tiny"><span ng-show="minimizeExpand">Expand</span><span ng-hide="minimizeExpand">Minimize</span></button>
 
       </dd>
     </dl>
@@ -101,16 +101,16 @@
 
 <!--products nav-bar-->
 <div class="row productsNavWrapper"
-     ng-show ="toggleProductsNav">
-  <div class="row" id="productsnav">
-    <div class="small-12 columns">
-      <dl class="sub-nav">
-        <dd><a href="#view6">Products</a></dd>
-        <dd><a href="#view7">Add Product</a></dd>
-        <dd><a href="#view9">Dynamic Searching</a></dd>
-      </dl>
-    </div>
+ng-show ="toggleProductsNav">
+<div class="row" id="productsnav">
+  <div class="small-12 columns">
+    <dl class="sub-nav">
+      <dd><a href="#view6">Products</a></dd>
+      <dd><a href="#view7">Add Product</a></dd>
+      <dd><a href="#view9">Dynamic Searching</a></dd>
+    </dl>
   </div>
+</div>
 </div>
 
 <!--<div id="cart"  my-draggable></div>-->

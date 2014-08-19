@@ -613,13 +613,13 @@ dt a {
 //====Shopping Cart ====
 
 a.button.tiny.thomas {
-  width:100px;
-  height:initial;
-  text-decoration:none;
-  margin-top: 2px;
-  margin-right:0px;
-  background: $skeptics-blue;
-  display:inline-block;}
+    width:100px;
+    height:initial;
+    text-decoration:none;
+   margin-top: 2px;
+    margin-right:0px;
+    background: $skeptics-blue;
+    display:inline-block;}
 
 input.button.tiny.tomd {
   margin-top: 15px;
@@ -632,7 +632,7 @@ input.button.tiny.tomd {
   z-index: 20;
 
   #emptyCartButton {
-  }
+   }
 
 }
 
@@ -821,8 +821,8 @@ h1 {
 
 //====Chart====
 
-//modified from http://codepen.io/danielemoraschi/pen/qFmol
-//see also http://techslides.com/angular-js-demos-examples-and-resources/
+  //modified from http://codepen.io/danielemoraschi/pen/qFmol
+  //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
 .chart, .chart2, .chart3 {
   background: #eee;
@@ -910,13 +910,13 @@ h1 {
   color: $skeptics-orange;
 }
 
-//Celcius to Fahrenheit
+  //Celcius to Fahrenheit
 
 .fa-bullseye:hover {
   color: $skeptics-orange;
 }
 
-//latitude to longitude
+  //latitude to longitude
 
 //====Angullar Slider====
 
@@ -1183,10 +1183,10 @@ h1 {
 }
 
 //====  Tab Views====
-//Tab Views modified from  http://jsfiddle.net/doktormolle/aAeZw/
-//See also http://techslides.com/angular-js-demos-examples-and-resources/
+ //Tab Views modified from  http://jsfiddle.net/doktormolle/aAeZw/
+ //See also http://techslides.com/angular-js-demos-examples-and-resources/
 
-//tab views partial 4 ====
+  //tab views partial 4 ====
 .tabs {
   height: 35px;
   margin: 0;
@@ -1270,8 +1270,8 @@ h1 {
 }
 
 //===  Flip Images====
-//3D-transition CSS modified from Team Treehouse
-//See here;http://teamtreehouse.com/library/css-foundations
+  //3D-transition CSS modified from Team Treehouse
+  //See here;http://teamtreehouse.com/library/css-foundations
 
 .wrap {
   position: relative;
@@ -1410,8 +1410,8 @@ h1 {
 
 //====Instagram ====
 
-//Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
-//See also http://techslides.com/angular-js-demos-examples-and-resources/
+  //Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
+  //See also http://techslides.com/angular-js-demos-examples-and-resources/
 
 .bar{
   display: -webkit-flex;
