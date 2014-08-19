@@ -3,7 +3,7 @@
 /* Services */
 
 angular.module('myApp.services', []).
-  value('version', '0.1').factory('myService', function() {
+    value('version', '0.1').factory('myService', function() {
 
         return {
             foo: function() {
@@ -78,9 +78,11 @@ angular.module('myApp.services', []).
                 {"mp4":"http://www.videogular.com/assets/videos/videogular.mp4"},
                 {"webm": "http://www.videogular.com/assets/videos/videogular.webm"},
                 {"ogg": "http://www.videogular.com/assets/videos/videogular.ogg"}
-        ]
+            ]
         };
     }).factory('instagram', function($resource){
+
+        //Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
 
         return {
             fetchPopular: function(callback){
