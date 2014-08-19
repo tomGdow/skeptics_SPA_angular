@@ -1,7 +1,10 @@
 SkepticsSpaAngular::Application.routes.draw do
+  resources :line_items
+  resources :carts
   resources :commodities
 
-  get 'thomas', to: 'commodities#index'
+
+
   get "home/index"
   get "home/partial1"
   get "home/partial2"
@@ -10,6 +13,7 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/partial5"
   get "home/partial8"
   get "home/partial9"
+  get "home/partial12"
   get "home/footer"
   get "home/timezones"
   get "home/gmtTime"
@@ -24,7 +28,13 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/schillachiImage"
 
 
- # match "#view9", :to => redirect("home")
+  match '/your_cart' => "carts#your_cart", :as => "your_cart"
+  match '/carts/:id' => "carts#show" , :as => "your_cartshow"
+  match '/carts/remove/:id' => 'line_items#destroy'
+
+
+
+  # match "#view9", :to => redirect("home")
 
   #get "home/oceanVideo"
 
