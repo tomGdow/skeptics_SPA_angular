@@ -6,49 +6,48 @@
 
   <div class="col-partial8-a col-partial8">
 
-      <span ng-include="'/home/peleImage.html'"></span>
+    <span ng-include="'/home/peleImage.html'"></span>
 
-      <p ng-class= "toggleShowPara2 ? 'loremParagraph ':'loremParagraph vishidden '">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Adipisci aliquam assumenda commodi cum, dicta doloremque dolorum esse itaque
-        iure laboriosam libero maiores natus nemo non officiis quae quo recusandae voluptate.
-      </p>
+    <p ng-class= "toggleShowPara2 ? 'loremParagraph ':'loremParagraph vishidden '">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Adipisci aliquam assumenda commodi cum, dicta doloremque dolorum esse itaque
+      iure laboriosam libero maiores natus nemo non officiis quae quo recusandae voluptate.
+    </p>
   </div>
   <div class="col-partial8-b col-partial8">
     <h2>Column B</h2>
     <ipsum></ipsum>
-   <ipsumshort></ipsumshort>
-
+    <ipsumshort></ipsumshort>
   </div>
 
   <!--Flip Picture -->
-     <div class="wrapLegend">
-        <div class="wrap"  title ="Click Me"
-                 ng-class=" pictureFlipper ?  'wrap wrapFlip ': 'wrap'"
-                 ng-click ="flipPicture()"
-                 ng-mouseover="flipPictMouseover()"
-                 ng-mouseleave="flipPictMouseleave()">
-            <div class="side-a"></div>
-            <div class="side-b"></div>
-        </div>
-        <div ng-class= "toggleFlipLegendWrapper ? 'flipLegendWrapper  vishidden  ': 'flipLegendWrapper '">
-            <div
-                ng-bind ="obj.nameone"
-                ng-class= "toggleFlipLegend ? ' legendWatson': 'legendWatson vishidden-alt'">
-             </div>
-          <div
-                ng-bind ="obj.nametwo"
-                ng-class= "toggleFlipLegend ? ' legendCurie vishidden-alt': 'legendCurie '">
-            </div>
-       </div>
-     </div> <!-- EndFlip Picture -->
+  <div class="wrapLegend">
+    <div class="wrap"  title ="Click Me"
+         ng-class=" pictureFlipper ?  'wrap wrapFlip ': 'wrap'"
+         ng-click ="flipPicture()"
+         ng-mouseover="flipPictMouseover()"
+         ng-mouseleave="flipPictMouseleave()">
+      <div class="side-a"></div>
+      <div class="side-b"></div>
+    </div>
+    <div ng-class= "toggleFlipLegendWrapper ? 'flipLegendWrapper  vishidden  ': 'flipLegendWrapper '">
+      <div
+      ng-bind ="obj.nameone"
+      ng-class= "toggleFlipLegend ? ' legendWatson': 'legendWatson vishidden-alt'">
+      </div>
+      <div
+      ng-bind ="obj.nametwo"
+      ng-class= "toggleFlipLegend ? ' legendCurie vishidden-alt': 'legendCurie '">
+      </div>
+    </div>
+  </div> <!-- EndFlip Picture -->
 
   <div class="col-partial8-c col-partial8">
     <h2>Column C</h2>
-     <ipsum></ipsum>
-     <ipsumlong></ipsumlong>
-     <ipsum></ipsum>
-     <ipsum></ipsum>
+    <ipsum></ipsum>
+    <ipsumlong></ipsumlong>
+    <ipsum></ipsum>
+    <ipsum></ipsum>
   </div>
 
   <!--tab viewer-->
@@ -58,14 +57,14 @@
   </div>
 
   <div ng-show="selected == 'first'" class="tab_content8">
-      <div class="col-partial8-tab">
-        <h2>Heading</h2>
-        <ipsum></ipsum>
-            <a href="https://github.com/tomGdow/skeptics_SPA_angular"
-               class = "button small"
-               target ="_blank">Github
-            </a>
-      </div>
+    <div class="col-partial8-tab">
+      <h2>Heading</h2>
+      <ipsum></ipsum>
+      <a href="https://github.com/tomGdow/skeptics_SPA_angular"
+         class = "button small"
+         target ="_blank">Github
+      </a>
+    </div>
   </div>
   <div ng-show="selected == 'second'" class="tab_content8">
     <div class="col-partial8-tab">

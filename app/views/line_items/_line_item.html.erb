@@ -1,0 +1,20 @@
+<% if line_item == @current_item %>
+    <tr id="current_item">
+<% else %>
+    <tr class ="cartItem">
+<% end %>
+
+    <td class ="cartItem">
+          <%= truncate(line_item.commodity.name, length: 15) %>
+    <td>
+    <td class="cartItem">
+      <%= line_item.quantity %>
+    </td>
+    <td class="cartItem">
+      <%= number_to_currency(line_item.total_price_lineItem,
+                            :unit => '&euro;', precision: 0) %>
+    </td>
+</tr>
+
+<%#= number_to_currency(line_item.sales_price.to_f,
+                       :unit => '&euro;', precision: 0)%>

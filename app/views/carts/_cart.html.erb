@@ -1,0 +1,35 @@
+ <div>
+<table>
+  <thead>
+        <tr>
+            <th colspan ="4">Your Cart1</th>
+        </tr>
+  </thead>
+  <tbody>
+        <tr class ="cartItem">
+            <td class ="cartItem" ><%= render(cart.line_items) %></td>
+        </tr>
+        <tr>
+            <td>Total Price{{tomcart}}</td>
+            <td colspan="2">
+              <%= number_to_currency(cart.total_price,
+                                            :unit => '&euro;',
+                                            precision: 0) %>
+            </td>
+        </tr>
+  </tbody>
+
+ <tr>
+ <td><%= button_to 'Empty cart', @cart,
+               :method => :delete,
+
+               :confirm => 'Are you sure?',
+               :class => "button tiny tomd" %></td>
+
+   <td colspan ="4"><a href="#view12" class ="button tiny thomas">My Link</a></td>
+
+ </tr>
+
+</table>
+
+ </div>

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+<p id="notice"><%= notice %></p>
+=======
 
+>>>>>>> e989dd23d3e2c03f744977a54226fb625e167c8c
 <h1>Listing commodities</h1>
 <table>
   <tr>
@@ -20,12 +24,28 @@
                           title: 'Add to Cart') %></td>
         <td><%= commodity.name %></td>
         <td><%= commodity.description %></td>
+<<<<<<< HEAD
+        <td><%= number_to_currency(commodity.price, :unit => '&euro;') %></td>
+
+        <td><%= link_to 'Show', commodity, remote: true,:class => "button alert tiny 5 radius" %></td>
+        <td><%= link_to 'Edit', edit_commodity_path(commodity), remote: true, :class => "button alert tiny 5 radius" %></td>
+
+        <td><%= button_to 'Destroy', commodity, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <td><%= button_to 'Add to Cart-no', line_items_path(:commodity_id => commodity) %></td>
+        <td><%= button_to 'Add to Cart-aj',
+                          line_items_path(:commodity_id => commodity),
+                          remote: true,
+                          :class => "button alert tiny 5 radius " %>
+        </td>
+
+=======
         <td><%= commodity.price %></td>
 
 
         <td><a href=<%= "#view#{commodity.id + 100}" %>>show</a></td>
         <td><a href=<%= "#view#{commodity.id + 500}" %>>edit</a></td>
         <td><%= button_to 'Destroy', commodity, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+>>>>>>> e989dd23d3e2c03f744977a54226fb625e167c8c
       </tr>
   <% end %>
 </table>

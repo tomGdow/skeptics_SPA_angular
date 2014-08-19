@@ -1,0 +1,13 @@
+$("#notice").hide();
+
+
+
+$('.cart').html("<%=j render @cart %>");
+
+
+
+/*$('#noCart').css('display', 'none');*/
+
+$('#current_item')
+        .css({'background-color': 'aqua'})
+        .animate({'background-color': '#F9F9F9'}, 1000);

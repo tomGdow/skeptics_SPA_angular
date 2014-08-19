@@ -1,0 +1,36 @@
+<!-- ng-Controller Eleven-->
+<!-- Detailed Cart-->
+<p id="notice"><%= notice %></p>
+<h2>Detailed Cart</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image url</th>
+    <th>Category</th>
+    <th>Year</th>
+    <th>Winner</th>
+  </tr>
+
+
+        <% for item in @cart.line_items %>
+      <tr>
+        <td><%= image_tag(item.commodity.image_url) %></td>
+        <td><%= item.commodity.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.commodity.price %></td>
+        <td><%= item.total_price_lineItem %></td>
+        <td><a  data-remote="true" class ="button tiny" href="/carts/remove/<%= item.id%>" >Remove</a></td>
+       </tr>
+  <% end %>
+       <tr>
+        <td>Total Price: <%= number_to_currency(@cart.total_price, :unit => '&euro;') %>
+        </td>
+       </tr>
+</table>
+
+<%#= render @cart %>
+
+<%#= render partial: 'carts/cartSmall' %>
+

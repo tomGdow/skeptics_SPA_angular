@@ -1,0 +1,45 @@
+<div>
+  <table>
+    <thead>
+    <tr>
+      <th colspan ="4">Your Cart1</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class ="cartItem">
+      <td class ="cartItem" ><%= render(@cart.line_items) %></td>
+    </tr>
+    <tr>
+      </tr></tbody></table>
+</div>
+
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image url</th>
+    <th>Category</th>
+    <th>Year</th>
+    <th>Winner</th>
+  </tr>
+
+  <tr>
+    <% for item in @cart.line_items %>
+
+        <td><%= image_tag(item.commodity.image_url) %></td>
+        <td><%= item.commodity.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.commodity.price %></td>
+        <td><%= item.total_price_lineItem %></td>
+        <td><a  class ="button" href="/carts/remove/<%= item.id%>" >rev</a></td>
+        </tr>
+    <% end %>
+    <tr>
+
+      <td>   Total Price: <%= number_to_currency(@cart.total_price, :unit => '&euro;') %>
+      </td>
+    </tr>
+    </table>
