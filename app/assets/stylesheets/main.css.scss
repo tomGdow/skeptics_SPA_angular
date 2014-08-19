@@ -127,6 +127,9 @@ iframe {
   clear: both;
 }
 
+
+li {list-style-type: none;}
+
 //==== navbar (main) ====
 
 nav.mainNav {
@@ -609,24 +612,72 @@ dt a {
 
 //====Shopping Cart ====
 
-#cart {
-  position: absolute;
-  top: -10%;
-  left: 90%;
+a.button.tiny.thomas {
+  width:100px;
+  height:initial;
+  text-decoration:none;
+  margin-top: 2px;
+  margin-right:0px;
+  background: $skeptics-blue;
+  display:inline-block;}
+
+input.button.tiny.tomd {
+  margin-top: 15px;
 }
 
-#cart:before {
+
+#cart {
+  float: left;
+  background-color: #F5F5F5;
+  z-index: 20;
+
+  #emptyCartButton {
+  }
+
+}
+
+.tomNoShow {display: none;}
+.tomNoShow2 {display: inline-block;}
+
+#noCart {
+  float: left;
+  background-color: #9CD2EA;
+  /*position:absolute;
+  top: 0px;
+  left: -10px;**/
+  z-index: 10;
+  width: 285px;
+  height: 70px;
+  padding-top: 10px;
+  margin-top: 50px;
+  margin-left: 10px;
+
+}
+
+
+
+#cadrt:before {
   content: "\e601";
   font-family: "icomoon";
   font-size: 1em;
   z-index: 100;
   padding: .4em;
   border-radius: 20%;
-  background: $skeptics-blue;
+  background: green;
   color: #FFF;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
+
+.cartItem   {font-weight: normal;
+  color: #000;
+
+  padding:2 5px;
+  margin-top: 0;
+  font-size: 0.875rem;
+  font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;}
+
+//.hellothere{visibility:visible;}
 
 //==== Partials Text ====
 
@@ -770,8 +821,8 @@ h1 {
 
 //====Chart====
 
-  //modified from http://codepen.io/danielemoraschi/pen/qFmol
-  //see also http://techslides.com/angular-js-demos-examples-and-resources/
+//modified from http://codepen.io/danielemoraschi/pen/qFmol
+//see also http://techslides.com/angular-js-demos-examples-and-resources/
 
 .chart, .chart2, .chart3 {
   background: #eee;
@@ -859,13 +910,13 @@ h1 {
   color: $skeptics-orange;
 }
 
-  //Celcius to Fahrenheit
+//Celcius to Fahrenheit
 
 .fa-bullseye:hover {
   color: $skeptics-orange;
 }
 
-  //latitude to longitude
+//latitude to longitude
 
 //====Angullar Slider====
 
@@ -1132,10 +1183,10 @@ h1 {
 }
 
 //====  Tab Views====
- //Tab Views modified from  http://jsfiddle.net/doktormolle/aAeZw/
- //See also http://techslides.com/angular-js-demos-examples-and-resources/
+//Tab Views modified from  http://jsfiddle.net/doktormolle/aAeZw/
+//See also http://techslides.com/angular-js-demos-examples-and-resources/
 
-  //tab views partial 4 ====
+//tab views partial 4 ====
 .tabs {
   height: 35px;
   margin: 0;
@@ -1219,8 +1270,8 @@ h1 {
 }
 
 //===  Flip Images====
-  //3D-transition CSS modified from Team Treehouse
-  //See here;http://teamtreehouse.com/library/css-foundations
+//3D-transition CSS modified from Team Treehouse
+//See here;http://teamtreehouse.com/library/css-foundations
 
 .wrap {
   position: relative;
@@ -1359,8 +1410,8 @@ h1 {
 
 //====Instagram ====
 
-  //Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
-  //See also http://techslides.com/angular-js-demos-examples-and-resources/
+//Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
+//See also http://techslides.com/angular-js-demos-examples-and-resources/
 
 .bar{
   display: -webkit-flex;
@@ -1461,27 +1512,106 @@ ul.list li p{
 	Grid layout
 --------------------------*/
 
-ul.grid{
+ul.grid,
+ul.grid2{
   list-style: none;
   width: 770px;
   margin: 0 auto;
   text-align: left;
 }
 
-ul.grid li{
+ul.grid2{
+  width: 320px;
+}
+
+ul.grid li,
+ul.grid2 li{
   padding: 2px;
   float:left;
 }
 
-ul.grid li img{
+ul.grid li img,
+ul.grid2 li img{
   width:180px;
   height:180px;
   display:block;
   border:none;
 }
 
-h2#instagrams{display:inline-block}
 
+ul.grid2 li img{
+  width:60px;
+  height:60px;
+}
+
+h2#instagrams, .h3.dynamicProducts {display:inline-block}
+
+//==== Dynamic Searching
+
+.animate-show {
+  line-height:20px;
+  opacity:1;
+  padding:10px;
+  //border:1px solid black;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height:0;
+  opacity:0;
+  padding:0 10px;
+}
+
+.check-element {margin: 1em 2em;
+  width: 77%;
+  padding:1em;
+  //border: 1px solid $skeptics-blue;
+  background: #EEEEEE;
+  border-radius: 5px;
+}
+
+.moreProductInfo{background: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: space-around;
+  -webkit-flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: auto;
+  padding: 0px;
+  margin-top: 20px;
+  position:relative;
+  text-align:left;
+  line-height: 1;
+}
+
+.fa.fa-times-circle.producthide  {
+  background: #EEEEEE;
+  color:#B9B9B9  ;
+
+}
+
+.fa.fa-times-circle.producthide:hover  {
+  color:#000;
+  //background:#B9B9B9;
+}
+
+.tgdflex {background: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;}
 //==== Media ====
 @media screen and (max-width: 999px) {
   .main {
@@ -1576,5 +1706,6 @@ h2#instagrams{display:inline-block}
    width: 345px;
  }
 */
+
 
 
