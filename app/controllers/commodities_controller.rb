@@ -28,6 +28,7 @@ class CommoditiesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.json { render json: @commodity }
     end
   end
@@ -46,6 +47,12 @@ class CommoditiesController < ApplicationController
   # GET /commodities/1/edit
   def edit
     @commodity = Commodity.find(params[:id])
+
+    respond_to do |format|
+      format.js
+      format.json { render json: @commodity }
+    end
+
   end
 
   # POST /commodities
