@@ -92,6 +92,7 @@ GEM
       mime-types
     pg (0.17.1)
     polyglot (0.3.5)
+    priceMarkup (0.0.4)
     protractor-rails (0.0.4)
       colorize
       railties
@@ -182,6 +183,7 @@ DEPENDENCIES
   nokogiri (~> 1.6.1)
   paperclip (~> 3.0)
   pg
+  priceMarkup (~> 0.0.4)
   protractor-rails (~> 0.0.4)
   rails (= 3.2.14)
   rspec-rails
