@@ -1,3 +1,118 @@
 {{message}}
 
 
+<div>
+  <div class="bar2"><!-- Begin Flexbox -->
+
+          <span><!--flexitem 3 -->
+                <a class="list-icon"
+                   ng-class="{active: layout == 'list2'}" ng-click="layout = 'list2'"></a>
+                <a class="grid-icon"
+                   ng-class="{active: layout == 'grid2'}" ng-click="layout = 'grid2'"></a>
+          </span>
+
+    <dl class="sub-nav">  <!--flexitem 2-->
+      <dd>
+        <input ng-model="query"
+               placeholder="Search"
+               id="ngsearch" type="text">
+        Search
+      </dd>
+      <dd>
+        <select
+        ng-model="orderProp"
+        id = "sortBy"
+        class ="dropdown">
+          <option value="name" ng-bind-html="alpha"></option>
+          <option value="price" ng-bind-html="lowestPrice"></option>
+          <option value="-price" ng-bind-html="highestPrice"></option>
+          <option value="category" ng-bind-html="productCategory"></option>
+          <option value="-created_at" ng-bind-html="productCreated_at"></option>
+          <option value="-updated_at" ng-bind-html="productUpdatedAt"></option>
+          <option value="-id" ng-bind-html="productid"></option>
+        </select>
+        Sort By
+      </dd>
+    </dl>
+
+    <div class = "cartwrapper"><!--flexitem 1-->
+      <div>Thomas</div>
+      <div class="cart"  ></div>
+    </div>
+
+
+
+  </div><!-- end Flexbox -->
+
+  <div class ="clearfix"><!--grid vs column layout -->
+
+    <!--grid-->
+    <ul ng-show="layout == 'grid2'" class="grid2">
+      <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
+                    <span class ="myspan2">
+                      <a href="/commodities/{{product.id}}"
+                         data-remote ="true"><img ng-src="./assets/{{product.image_url}} "></a>
+
+                    </span>
+      </li>
+    </ul>
+
+    <!--column-->
+    <ul ng-show="layout == 'list2'" class="list2 clearfix" >
+      <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
+            <span class="tgdflex">
+            <span class ="myspan2"><img ng-src="./assets/{{product.image_url}} "></span>
+            <span class ="myspan">{{product.name}}</span>
+            <span class ="myspan"> {{product.category}}</span>
+
+
+            <!--<span class ="myspan"> {{product.id}}</span>
+            <span class ="myspan"> {{product.image_url}}</span>
+            <span class ="myspan"> {{product.created_at}}</span>
+            <span class ="myspan"> {{product.year}}</span>
+            <span class ="myspan"> {{product.winner}}</span>-->
+
+            <span><input type="checkbox" ng-model="checked" title = "More&hellip;"></span></span>
+        <div class="check-element animate-show" ng-show="checked">
+          <div class="productDescription">{{product.description}}</div>
+
+          <div class="moreProductInfo"> <!--flexbox-->
+            <a class="button secondary tiny 5 radius "
+               rel="nofollow"
+               data-remote="true"
+               data-method="post"
+               href="/line_items?commodity_id={{product.id}}"> <!--flexitem 1-->
+              Add to Cart</a>
+
+            <a href="/commodities/{{product.id}}"
+               class="button secondary tiny 5 radius"
+               data-remote="true"><!--flexitem 2-->
+              Show
+            </a>
+
+
+            <a href="/commodities//{{product.id}}/edit"
+               data-remote="true"
+               class="button secondary tiny 5 radius"><!--flexitem 3-->
+              Edit
+            </a>
+
+            <div ng-click="moreAboutProductOnClick()"><!--flexitem 4-->
+              <a class = "fa  fa-times-circle producthide"
+              >
+
+              </a>
+            </div>
+          </div> <!--end flexbox-->
+        </div>
+
+      </li>
+    </ul>
+  </div>
+
+  {{yourCart3}}    <div ng-bind-html="yourCart3"></div>
+  <%#= render partial: 'carts/cart' %>
+
+</div>
+
+

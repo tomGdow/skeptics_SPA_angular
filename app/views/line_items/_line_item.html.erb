@@ -4,8 +4,8 @@
     <tr class ="cartItem">
 <% end %>
 
-    <td class ="cartItem">
-          <%= truncate(line_item.commodity.name, length: 15) %>
+    <td class ="cartItem" colspan ="2">
+          <%= truncate(line_item.commodity.name, length:25) %>
     <td>
     <td class="cartItem">
       <%= line_item.quantity %>

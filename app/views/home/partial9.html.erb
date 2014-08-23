@@ -2,7 +2,7 @@
 <!-- Dynamic Searching-->
 
 <div>
-  <div class="bar"><!-- Begin Flexbox -->
+  <div class="bar2"><!-- Begin Flexbox -->
 
           <span><!--flexitem 3 -->
                 <a class="list-icon"
@@ -35,15 +35,16 @@
               </dd>
         </dl>
 
-    <div><!--flexitem 1-->
-      <div class="cart" my-draggable ></div>
+    <div class = "cartwrapper"><!--flexitem 1-->
+      <div>Thomas</div>
+      <div class="cart"  ></div>
     </div>
 
 
 
   </div><!-- end Flexbox -->
 
-  <div><!--grid vs column layout -->
+  <div class ="clearfix"><!--grid vs column layout -->
 
         <!--grid-->
         <ul ng-show="layout == 'grid2'" class="grid2">
@@ -57,7 +58,7 @@
         </ul>
 
     <!--column-->
-        <ul ng-show="layout == 'list2'" class="list">
+        <ul ng-show="layout == 'list2'" class="list2 clearfix" >
           <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
             <span class="tgdflex">
             <span class ="myspan2"><img ng-src="./assets/{{product.image_url}} "></span>
@@ -108,4 +109,6 @@
           </li>
         </ul>
   </div>
+
+  {{yourCart3}}    <div ng-bind-html="yourCart3"></div>
 </div>

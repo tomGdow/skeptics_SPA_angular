@@ -65,7 +65,71 @@ angular.module('myApp.controllers', [
             alert("I'm global foo!");
         };*/
 
-}).controller('MyCtrlIndex', function($scope, _) {
+}).controller('MyCtrlIndex', function($scope, $http, _) {
+
+        $scope.layout = 'grid2';
+        $scope.message = "Dynamic Search";
+
+        $http.get('./skepticsCommodities.json').success(function(data) {
+            $scope.productList = data;
+        });
+
+        $scope.orderProp = 'name';
+        $scope.alpha="Alphabetical";
+        $scope.lowestPrice="Lowest Price";
+        $scope.highestPrice="Highest Price";
+        $scope.productCategory="Category";
+        $scope.productCreated_at="Created At";
+        $scope.productUpdatedAt="Updated At";
+        $scope.productid="Id";
+
+        //$scope.orderPropAlt = 'email';
+        $scope.myFirstName = function(string) {
+            return  string.split(' ')[0]
+        };
+
+        $scope.checked =false;
+
+        $scope.moreAboutProductOnClick= function () {
+
+            this.checked =false;
+
+        };
+
+        $scope.load2 = function (){
+
+            $(function () {
+                var top = 10;
+                //this should be the offset of the top of your div
+                //which can be found by doing the following line
+
+                // var top = $("#cart").offset().top;
+
+                $(window).on('scroll', function () {
+                    if (top <= $(window).scrollTop()) {
+                        // if so, add the fixed class
+                        $('.cart').addClass('fixed');
+                    } else {
+                        // otherwise remove it
+                        $('.cart').removeClass('fixed');
+                    }
+                })
+            });
+        };
+
+        $scope.load = function() {
+            jQuery('.cart').html("<%= j render(:partial => '/line_items/create.js') %>");
+        };
+
+        //don't forget to call the load function
+        $scope.load();
+        //$scope.load2();
+
+        $http.get('carts/_cart').success(function(data3) {
+            $scope.yourCart3 = data3;
+
+        });
+
 
 
         //====INDEX PAGE CONTROLLER====
@@ -807,12 +871,85 @@ angular.module('myApp.controllers', [
          $scope.imageId3      =   imgService.imgSchillachi.imageId;
 
 
-    }).controller('MyCtrl5', function($scope) {
+    }).controller('MyCtrl5', function($scope,$http) {
 
         $scope.toggleProductsNav=true;
 
         //====CONTROLLER FOR PARTIAL FIVE ====
         //Products Display page
+
+        //Dynamic Searching
+
+
+        /* $scope.cartflipper = true;
+
+         $scope.tomoover = function (){
+         $scope.cartflipper=false;
+         };*/
+
+
+        $scope.layout = 'grid2';
+        $scope.message = "Dynamic Search";
+
+        $http.get('./skepticsCommodities.json').success(function(data) {
+            $scope.productList = data;
+        });
+
+        $scope.orderProp = 'name';
+        $scope.alpha="Alphabetical";
+        $scope.lowestPrice="Lowest Price";
+        $scope.highestPrice="Highest Price";
+        $scope.productCategory="Category";
+        $scope.productCreated_at="Created At";
+        $scope.productUpdatedAt="Updated At";
+        $scope.productid="Id";
+
+        //$scope.orderPropAlt = 'email';
+        $scope.myFirstName = function(string) {
+            return  string.split(' ')[0]
+        };
+
+        $scope.checked =false;
+
+        $scope.moreAboutProductOnClick= function () {
+
+            this.checked =false;
+
+        };
+
+        $scope.load2 = function (){
+
+            $(function () {
+                var top = 10;
+                //this should be the offset of the top of your div
+                //which can be found by doing the following line
+
+                // var top = $("#cart").offset().top;
+
+                $(window).on('scroll', function () {
+                    if (top <= $(window).scrollTop()) {
+                        // if so, add the fixed class
+                        $('.cart').addClass('fixed');
+                    } else {
+                        // otherwise remove it
+                        $('.cart').removeClass('fixed');
+                    }
+                })
+            });
+        };
+
+        $scope.load = function() {
+            jQuery('.cart').html("<%= j render(:partial => '/line_items/create.js') %>");
+        };
+
+        //don't forget to call the load function
+       // $scope.load();
+        //$scope.load2();
+
+        $http.get('carts/_cart').success(function(data3) {
+            $scope.yourCart3 = data3;
+
+        });
 
     }).controller('MyCtrl6', ['$scope', function($scope) {
 
@@ -908,7 +1045,19 @@ angular.module('myApp.controllers', [
 
                 this.checked =false;
 
-            }
+            };
+
+            $scope.load = function() {
+                jQuery('.cart').html("Hello There Julai");
+            };
+
+            //don't forget to call the load function
+            $scope.load();
+
+            $http.get('current_cart').success(function(data3) {
+                $scope.yourCart3 = data3;
+
+            });
 
         }).controller('MyCtrl10', ['$scope',
         function($scope) {

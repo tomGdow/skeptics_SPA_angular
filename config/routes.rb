@@ -27,9 +27,12 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/peleImage"
   get "home/schillachiImage"
 
+  get "carts/cart"
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
-  match '/carts/:id' => "carts#show" , :as => "your_cartshow"
+  match '/your_cart1' => "carts#your_cart", :as => "your_cart1"
+
+ # match '/carts/:id' => "carts#show" , :as => "your_cartshow"
   match '/carts/remove/:id' => 'line_items#destroy'
 
 
