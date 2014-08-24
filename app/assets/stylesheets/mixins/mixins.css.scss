@@ -1,0 +1,27 @@
+@mixin myflex ($webkit-flex: -webkit-flex,
+               $display: flex,
+               $flex-direction: row,
+               $flex-wrap: wrap,
+               $flexdirection: roW,
+               $justify-content: space-between) {
+  display: $webkit-flex;
+  display: $display;
+  -webkit-flex-direction: $flex-direction;
+  -webkit-justify-content: $justify-content;
+  -webkit-flex-wrap: $flex-wrap;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin transition_one () {
+
+  transition: -webkit-transform 1s ease-in;
+  transition: -moz-transform 1s ease-in;
+  transition: transform 1s ease-in;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+
+}

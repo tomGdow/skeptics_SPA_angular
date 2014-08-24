@@ -28,6 +28,8 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/schillachiImage"
 
   get "carts/cart"
+  get "carts/cartSmall"
+  get "layouts/hiddenDivs"
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/your_cart1' => "carts#your_cart", :as => "your_cart1"

@@ -25,16 +25,16 @@ angular.module('myApp.controllers', [
         if(arg1 == false && arg2 ==1) {
             $rootScope.toggleShowPara =false;
             $rootScope.toggleCaption= false;
-            }
+        }
         if(arg1 == true && arg2 ==1) {
             $rootScope.toggleShowPara =true;
             $rootScope.toggleCaption =true;
-            }
+        }
         //partial8: arg2=2
         if(arg1 == false && arg2 ==2) {
             $rootScope.toggleShowPara2 =false;
             $rootScope.toggleCaption2= false;
-            }
+        }
         if(arg1 == true && arg2 ==2) {
             $rootScope.toggleShowPara2 =true;
             $rootScope.toggleCaption2 =true;
@@ -43,37 +43,22 @@ angular.module('myApp.controllers', [
         if(arg1 == false && arg2 ==3) {
             $rootScope.toggleShowPara3 =false;
             $rootScope.toggleCaption3= false;
-            }
+        }
         if(arg1 == true && arg2 ==3) {
             $rootScope.toggleShowPara3 =true;
             $rootScope.toggleCaption3 =true;
-            }
-        };
+        }
+    };
+    //$rootScope.littleCart =true;
 
 })
     .controller('MyCtrlIndex', function($scope, $http, theTimeNowService, _) {
     //====INDEX PAGE CONTROLLER====
-    $scope.layout = 'grid2';
-    $scope.message = "Dynamic Search";
 
     $http.get('./skepticsCommodities.json').success(function(data) {
         $scope.productList = data;
     });
-    $scope.orderProp = 'name';
-    $scope.alpha="Alphabetical";
-    $scope.lowestPrice="Lowest Price";
-    $scope.highestPrice="Highest Price";
-    $scope.productCategory="Category";
-    $scope.productCreated_at="Created At";
-    $scope.productUpdatedAt="Updated At";
-    $scope.productid="Id";
-    $scope.myFirstName = function(string) {
-            return  string.split(' ')[0]
-        };
-    $scope.checked =false;
-    $scope.moreAboutProductOnClick= function () {
-        this.checked =false;
-    };
+
     /*var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2},
     {tweet: 'wow, this is nice', id: 3}];
     $scope.ids = (_.pluck(data, 'tweet'))[0];*/
@@ -95,6 +80,7 @@ angular.module('myApp.controllers', [
     });
     $scope.toggleProductsNav=false;
     $scope.navclick = function(arg) {
+        $scope.littleCart=true;
         $scope.active = arg;
         if(arg =='viewfive') {
             return $scope.toggleProductsNav=true;
@@ -318,6 +304,11 @@ angular.module('myApp.controllers', [
         this.showToggleButton=false;
         this.toggleLatLongCaption=false;
     };
+  $scope.littleCart=true;
+  $scope.littleCartFn = function () {
+
+      $scope.littleCart = false;
+  }
 
 })
     .controller('MyCtrl1', function($scope, $http,chartsService, imgService, flexsliderService) {
@@ -755,11 +746,12 @@ angular.module('myApp.controllers', [
 }])
     .controller('MyCtrl11', ['$scope',
         function($scope) {
-    //====CONTROLLER FOR your_cart ===
+    //====CONTROLLER FOR 'your_cart' ===
 }])
     .controller('MyCtrl12',
-        function($scope,$http) {
+        function($scope,$http,$rootScope) {
     //====CONTROLLER FOR PARTIAL TWELVE====
+    //====Detailed Cart
     $scope.message ="hello from partial 12";
     $http.get('your_cart').success(function(data2) {
         $scope.yourCart = data2;

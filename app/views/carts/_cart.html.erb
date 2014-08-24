@@ -6,15 +6,16 @@
             </tr>
         </thead>
         <tbody>
-
                 <%= render(cart.line_items) %>
-
             <tr>
                 <td colspan ="2">Total Price</td>
                 <td >
-                    <%= number_to_currency(cart.total_price,
-                                            :unit => '&euro;',
-                                            precision: 0) %>
+                    <%= number_to_currency(
+                                cart.total_price,
+                                unit:   '&euro;',
+                                precision: 0
+                        )
+                    %>
                 </td>
             </tr>
             <tr>
@@ -24,8 +25,10 @@
                         :class => "button tiny" %>
                 </td>
                 <td>
-                  <a href="#view12" class ="button tiny thomas">My Link</a>
+                  <a href="#view12" class ="button tiny">Detailed Cart</a>
                 </td>
+
+
              </tr>
         </tbody>
     </table>
