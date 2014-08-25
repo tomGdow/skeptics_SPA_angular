@@ -370,54 +370,6 @@ angular.module('myApp.controllers', [
     $scope.captionText  =   imgService.imgBanks.captionText;
     $scope.imageId      =   imgService.imgBanks.imageId;
 
-
-    //http://canvasjs.com/editor/?id=http://canvasjs.com/example/gallery/dynamic/realtime_line/
-        var dps = []; // dataPoints
-
-        var chart = new CanvasJS.Chart("chartContainer",{
-            title :{
-                text: "Live Random Data"
-            },
-            data: [{
-                type: "line",
-                dataPoints: dps
-            }]
-        });
-
-        var xVal = 0;
-        var yVal = 100;
-        var updateInterval = 20;
-        var dataLength = 500; // number of dataPoints visible at any point
-
-        var updateChart = function (count) {
-            count = count || 1;
-            // count is number of times loop runs to generate random dataPoints.
-
-            for (var j = 0; j < count; j++) {
-                yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
-                dps.push({
-                    x: xVal,
-                    y: yVal
-                });
-                xVal++;
-            }
-            if (dps.length > dataLength)
-            {
-                dps.shift();
-            }
-
-            chart.render();
-
-        };
-
-        // generates first set of dataPoints
-        updateChart(dataLength);
-
-        // update chart after specified time.
-        setInterval(function(){updateChart()}, updateInterval);
-
-
-
 })
     .controller('MyCtrl2', function($scope, videoService, $sce) {
     //====CONTROLLER FOR PARTIAL TWO====
@@ -702,6 +654,54 @@ angular.module('myApp.controllers', [
     $scope.captionText3  =   imgService.imgSchillachi.captionText;
     $scope.imageId3      =   imgService.imgSchillachi.imageId;
 
+    //====CanvasJS Live Random Data Chart
+    //Modified from: http://canvasjs.com/editor/?id=http://canvasjs.com/example/gallery/dynamic/realtime_line/
+    $scope.theme = "theme2";
+    var dps = []; // dataPoints
+    var chart = new CanvasJS.Chart("chartContainer",{
+        theme: $scope.theme,
+        backgroundColor: "#eee",
+        title :{
+            text: "Live Random Data",
+            fontColor: "#000",
+            fontSize: 30,
+            fontFamily: 'arial',
+            padding: 0
+        },
+        data: [{
+            type: "line",
+            dataPoints: dps,
+            color: "green"
+        }]
+    });
+    var xVal = 0;
+    var yVal = 100;
+    var updateInterval = 20;
+    var dataLength = 500; // number of dataPoints visible at any point
+    var updateChart = function (count) {
+        count = count || 1;
+        // count is number of times loop runs to generate random dataPoints.
+        for (var j = 0; j < count; j++) {
+            yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+            dps.push({
+                x: xVal,
+                y: yVal
+            });
+            xVal++;
+        }
+        if (dps.length > dataLength)
+        {
+            dps.shift();
+        }
+        chart.render();
+    };
+
+    // generates first set of dataPoints
+    updateChart(dataLength);
+
+    // update chart after specified time.
+    setInterval(function(){updateChart()}, updateInterval);
+
 })
     .controller('MyCtrl5', function($scope,$http) {
     //====CONTROLLER FOR PARTIAL FIVE ====
@@ -784,8 +784,11 @@ angular.module('myApp.controllers', [
     $scope.captionText2  =   imgService.imgPele.captionText;
     $scope.imageId2      =   imgService.imgPele.imageId;
 
-     var gaaColor = allIrelandDataService.countycolours;
 
+    //====CanvasJS Doughnut Chart
+    //Modified from: http://canvasjs.com/html5-javascript-doughnut-chart/
+
+    var gaaColor = allIrelandDataService.countycolours;
     CanvasJS.addColorSet('customColorSet1',
     [
         gaaColor.kerry,gaaColor.dublin,gaaColor.galway,gaaColor.cork,
@@ -793,14 +796,12 @@ angular.module('myApp.controllers', [
         gaaColor.kildare,gaaColor.tipperary,gaaColor.mayo,gaaColor.offaly,
         gaaColor.louth,gaaColor.tyrone,gaaColor.others
     ]);
-
     CanvasJS.addColorSet('customColorSet2',
         [
             gaaColor.kilkenny,gaaColor.cork,gaaColor.tipperary,
             gaaColor.limerick,gaaColor.dublin,gaaColor.wexford,
             gaaColor.galway,gaaColor.offaly,gaaColor.clare,
             gaaColor.waterford,gaaColor.others
-
         ]);
 
     function AllIrelandWinners($id, $data, $text, $customColorSet) {
@@ -836,7 +837,8 @@ angular.module('myApp.controllers', [
         "chartContainer_2",
         allIrelandDataService.hurlers,
         "Hurling All Ireland Winners",
-        "customColorSet2");
+        "customColorSet2"
+    );
 
 }])
     .controller('MyCtrl9',
