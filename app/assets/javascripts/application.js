@@ -37,6 +37,7 @@
 //= require vendor/fastclick
 //= require vendor/placeholder
 //= require videogular
+//= require canvasjs.min
 
 
 

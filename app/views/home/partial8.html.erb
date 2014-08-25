@@ -52,28 +52,17 @@
 
   <!--tab viewer-->
   <div class="tabs">
-    <div ng-click="selected = 'first'" ng-class="{'selected': selected == 'first'}" class="tab">first</div>
-    <div ng-click="selected = 'second'" ng-class="{'selected': selected == 'second'}" class="tab">second</div>
+    <div ng-click="selected = 'first'" ng-class="{'selected': selected == 'first'}" class="tab">Football</div>
+    <div ng-click="selected = 'second'" ng-class="{'selected': selected == 'second'}" class="tab">Hurling</div>
   </div>
 
   <div ng-show="selected == 'first'" class="tab_content8">
-      <div class="col-partial8-tab">
-        <h2>Heading</h2>
-        <ipsum></ipsum>
-            <a href="https://github.com/tomGdow/skeptics_SPA_angular"
-               class = "button small"
-               target ="_blank">Github
-            </a>
-      </div>
+    <div id="chartContainer_1"></div>
   </div>
   <div ng-show="selected == 'second'" class="tab_content8">
-    <div class="col-partial8-tab">
-      <h2>Heading 2</h2>
-      <ipsum></ipsum>
-      <a href="http://mathematica.stackexchange.com/users/106/tomd"
-         class = "button alert small "
-         target ="_blank">Stack Overflow
-      </a>
-    </div>
+    <!--<div class="col-partial8-tab">-->
+      <div id="chartContainer_2"></div>
   </div>
+
+  <div>{{tgdd}}</div>
 </div>
