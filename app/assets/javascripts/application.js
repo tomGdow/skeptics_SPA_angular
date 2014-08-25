@@ -13,6 +13,55 @@
 //= require jquery.flexslider.js
 //= require jquery_ujs
 //= require foundation
-//= require angular.js
-//= require_tree
+//= require angular-flexslider
+//= require angular-route
+//= require angular-sanitize
+//= require angular-touch
+//= require angular-underscore-module
+//= require buffering
+//= require controls
+//= require demo.js
+//= require googlemap
+//= require jquery-ui
+//= require main
+//= require ng-FitText
+//= require ng_controllers
+//= require ng_directives
+//= require ng_filters
+//= require ng_routes
+//= require ng_services
+//= require overlay-play
+//= require plugins
+//= require poster
+//= require underscore
+//= require vendor/fastclick
+//= require vendor/placeholder
+//= require videogular
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
