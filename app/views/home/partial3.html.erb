@@ -2,9 +2,11 @@
 <!-- Instagram-->
 
 <div class="col-partial3" ng-cloak>
+  <a href="#view13" class = "fa  fa-dribbble smallIcon" title ="Dribbble feed">&nbsp;Dribbble</a>
     <div>
         <div class="bar"><!-- Begin Flexbox -->
-          <h2 id ="instagrams">Instagram</h2>
+          <h2 id ="instagrams">{{viewThreeMessage}}</h2>
+
           <span>
             <a class="list-icon" ng-class="{active: layout == 'list'}" ng-click="layout = 'list'"></a>
             <a class="grid-icon" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"></a>

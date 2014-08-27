@@ -3,8 +3,6 @@ SkepticsSpaAngular::Application.routes.draw do
   resources :carts
   resources :commodities
 
-
-
   get "home/index"
   get "home/partial1"
   get "home/partial2"
@@ -14,6 +12,8 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/partial8"
   get "home/partial9"
   get "home/partial12"
+  get "home/partial13"
+  get "home/partial14"
   get "home/footer"
   get "home/timezones"
   get "home/gmtTime"
@@ -33,16 +33,7 @@ SkepticsSpaAngular::Application.routes.draw do
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/your_cart1' => "carts#your_cart", :as => "your_cart1"
-
- # match '/carts/:id' => "carts#show" , :as => "your_cartshow"
   match '/carts/remove/:id' => 'line_items#destroy'
-
-
-
-  # match "#view9", :to => redirect("home")
-
-  #get "home/oceanVideo"
-
 
 
   # The priority is based upon order of creation:
@@ -97,7 +88,6 @@ SkepticsSpaAngular::Application.routes.draw do
   root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
-
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'

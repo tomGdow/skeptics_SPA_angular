@@ -1,0 +1,46 @@
+<!-- Controller Thirteen-->
+<!-- Dribbble-->
+
+<div class="col-partial13" ng-cloak>
+  <a href="#view3"
+     class = "fa  fa-instagram smallIcon"
+     title ="Instagram Feed">
+    &nbsp;Instagram
+  </a>
+  <div>
+    <div class="bar"><!-- Begin Flexbox -->
+      <h2 id ="dribbbles">{{viewMessageThirteen}}</h2>
+          <span>
+            <a class="list-icon" ng-class="{active: layout == 'list'}" ng-click="layout = 'list'"></a>
+            <a class="grid-icon" ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"></a>
+          </span>
+    </div> <!-- end Flexbox -->
+
+    <ul ng-show="layout == 'grid'" class="grid">
+      <li ng-repeat="shot in list.shots">
+        <a href="{{shot.url}}" target="_blank">
+          <img ng-src ={{shot.image_url}} />
+        </a>
+      </li>
+    </ul>
+
+    <ul ng-show="layout == 'list'" class="list">
+      <li ng-repeat="shot in list.shots">
+        <a href="{{shot.url}}" target="_blank">
+          <img ng-src ={{shot.image_url}} />
+        </a>
+        <p><a href="{{shot.url}}" target="_blank">{{shot.title}}</a></p>
+        <p><a href="{{shot.player.url}}" target="_blank">{{shot.player.name}}</a></p>
+        <div class="dribbleFlex">
+            <span>Created on {{shot.created_at | dabbbleDate}}</span>
+            <span>Views: {{shot.views_count}}</span>
+        </div>
+        <div class="dribbleFlex">
+          <span>&nbsp;</span>
+            <span class ="fa  fa-heart-o">&nbsp;Likes: {{shot.likes_count}}</span>
+            <span>Comments: {{shot.comments_count}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

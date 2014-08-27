@@ -95,7 +95,9 @@ dd.little_cart {margin-right: 1em;
   float:right;
 }
 
-dd.little_cart  .fa-shopping-cart   {color:$skeptics-blue;
+dd.little_cart  .fa-shopping-cart   {
+  color:$skeptics-blue;
   size: 3em;}
 
-dd.little_cart  .fa-shopping-cart:hover  {color: $skeptics-orange;}
+dd.little_cart  .fa-shopping-cart:hover  {
+  color: $skeptics-orange;}

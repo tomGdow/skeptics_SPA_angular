@@ -1,19 +1,16 @@
 <!-- ng-Controller Eleven-->
 <!-- Detailed Cart-->
 <p id="notice"><%= notice %></p>
-<h2>Detailed Cart</h2>
 <table>
   <tr>
     <th>Name</th>
-    <th>Description</th>
+    <th>{{viewMessageEleven}}</th>
     <th>Price</th>
     <th>Image url</th>
     <th>Category</th>
     <th>Year</th>
     <th>Winner</th>
   </tr>
-
-
         <% for item in @cart.line_items %>
       <tr>
         <td><%= image_tag(item.commodity.image_url) %></td>
@@ -30,7 +27,4 @@
        </tr>
 </table>
 
-<%#= render @cart %>
-
-<%#= render partial: 'carts/cartSmall' %>
 
