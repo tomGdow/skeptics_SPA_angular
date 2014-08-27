@@ -1310,3 +1310,12 @@ h3.dynamicProducts {
 .dribbleFlex > span:nth-child(1) {
   margin-left: 1em;
 }
+
+//Rotating snakes
+
+#rotating_snake {width: 600px;
+height: 600px;
+margin-bottom: 50px;
+}
+
+.rotating_snake {@include myflex($justify-content:center);}
