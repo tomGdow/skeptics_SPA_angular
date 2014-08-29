@@ -1,3 +1,6 @@
+<!-- Controller Five-->
+<!-- Dynamic Search-->
+
 <div class="col-partial4-a col-partial4" >
 <h2>{{viewFiveMessage}}</h2>
 </div>
@@ -63,15 +66,9 @@
       <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
             <span class="tgdflex">
             <span class ="myspan2"><img ng-src="./assets/{{product.image_url}} "></span>
-            <span class ="myspan">{{product.name}}</span>
+            <span class ="myspan" id ={{myFirstName(product.name)}}_{{myLastName(product.name)}}>{{product.name}}</span>
             <span class ="myspan"> {{product.category}}</span>
 
-
-            <!--<span class ="myspan"> {{product.id}}</span>
-            <span class ="myspan"> {{product.image_url}}</span>
-            <span class ="myspan"> {{product.created_at}}</span>
-            <span class ="myspan"> {{product.year}}</span>
-            <span class ="myspan"> {{product.winner}}</span>-->
 
             <span><input type="checkbox" ng-model="checked" title = "More&hellip;"></span></span>
         <div class="check-element animate-show" ng-show="checked">
@@ -110,9 +107,9 @@
       </li>
     </ul>
   </div>
-
-  {{yourCart3}}    <div ng-bind-html="yourCart3"></div>
-  <%#= render partial: 'carts/cart' %>
+  <div class ="httpStatus {{CommoditiesStatus}}" ng-show="false" ></div>
+  <div class ="httpStatus {{CommoditiesStatus}}" ng-show="false" ></div>
+  <div>hello{{statuss}}</div>
 
 </div>
 

@@ -278,5 +278,10 @@ angular.module('myApp.services', []).
             }
         };
 
+    }).factory('dribbleService', function () {
+        return {
+            "url": 'http://api.dribbble.com/shots/popular?callback=JSON_CALLBACK'
+        }
+
     });
 

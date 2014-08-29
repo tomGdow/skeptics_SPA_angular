@@ -1,7 +1,14 @@
 //====General ====
-
+/*
 html {
   height: 100%;
+}*/
+
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
 body {
@@ -1298,7 +1305,7 @@ h3.dynamicProducts {
   color: $skeptics-orange
 }
 
-.dribbleFlex {
+.dribbleFlex{
   @include myflex();
 }
 
@@ -1311,11 +1318,50 @@ h3.dynamicProducts {
   margin-left: 1em;
 }
 
-//Rotating snakes
-
-#rotating_snake {width: 600px;
-height: 600px;
-margin-bottom: 50px;
+.instagramPics > p.igram_info{
+  @include myflex();
+  color: gray;
+  margin-bottom: 1em;
+  padding-left: 1em;
+  font-weight: normal;
 }
 
-.rotating_snake {@include myflex($justify-content:center);}
+.instagramPics > p.igram_full_name {
+  color: $skeptics-blue;
+  font-weight: bold;
+  padding-left: 1em;
+}
+//Rotating snakes
+
+#rotating_snake {
+  width: 600px;
+  height: 600px;
+  margin-bottom: 50px;
+}
+
+.rotating_snake {
+  @include myflex($justify-content: center);
+}
+
+//see here;http://davidwalsh.name/css-selection
+/* webkit, opera, IE9 */
+::selection {
+  background: lightblue;
+}
+
+/* mozilla firefox */
+::-moz-selection {
+  background: lightblue;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+

@@ -55,14 +55,11 @@ angular.module('myApp.controllers', [
     .controller('MyCtrlIndex', function($scope, $http, theTimeNowService, _) {
         //====INDEX PAGE CONTROLLER====
 
-        $http.get('./skepticsCommodities.json').success(function(data) {
+      /*  $http.get('./skepticsCommodities.json').success(function(data, status) {
             $scope.productList = data;
+            $scope.CommoditiesStatus = status;
+        });*/
 
-        });
-
-        /*var data = [{tweet:"hello world", id:1}, {tweet:"this is awesome", id: 2},
-         {tweet: 'wow, this is nice', id: 3}];
-         $scope.ids = (_.pluck(data, 'tweet'))[0];*/
         $scope.format_one       =       "h:mm:ss a";
         $scope.format_two       =       "fullDate";
         $scope.setMyClass       =       'dynamic-clock_one';
@@ -74,7 +71,7 @@ angular.module('myApp.controllers', [
         $scope.longlat          =       false;
         $scope.toggleLatLongCaption =   false;
         $scope.textdate =               theTimeNowService.url;
-        //$scope.textdate = "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0" ;
+
         //====NavBar
         $scope.$watch('$viewContentLoaded', function(){
             $scope.active='home';
@@ -147,7 +144,6 @@ angular.module('myApp.controllers', [
                 this.setMyClass = 'dynamic-clock_three';
                 this.format_one = "h:mm a";
             }
-
             else {
                 this.current_time_model = false;
             }
@@ -526,7 +522,7 @@ angular.module('myApp.controllers', [
                     url: "../assets/videogular.png"
                 }
             }
-        };//====End Videogular
+        };//End Videogular
     })
     .controller('MyCtrl3', function($scope,  $http, instagram) {
         //====CONTROLLER FOR PARTIAL THREE====
@@ -538,13 +534,20 @@ angular.module('myApp.controllers', [
         $scope.pics = [];
         instagram.fetchPopular(function(data){
             $scope.pics = data;
+            $scope.instagramArrayLength= function () {
+
+                if (_.size(data)>0){
+                    return true
+                }
+                return false;
+            };
         });
     })
     .controller('MyCtrl4',  function($scope, $http, imgService, dublinSliderService) {
         //====CONTROLLER FOR PARTIAL FOUR====
-        $scope.viewFourMessage = "Sixties Dublin";
         //(Sixties Dublin)
 
+        $scope.viewFourMessage = "Sixties Dublin";
         //====Angular Slider ====
         // Called here dublinslider
         // Modified from:  http://www.script-tutorials.com/photo-gallery-with-angularjs-and-css3/
@@ -583,8 +586,9 @@ angular.module('myApp.controllers', [
             $scope.togglebuttonlist=true;//show the button
         };
         //====Google Maps
-        $http.get('googleMaps.json').success(function(data) {
+        $http.get('googleMaps.json').success(function(data, status) {
             $scope.googleAddress = data;
+            $scope.GoogleMapsStatus = status
         });
 
         $scope.toggleslideshow=true;
@@ -701,26 +705,24 @@ angular.module('myApp.controllers', [
             }
             chart.render();
         };
-
-        // generates first set of dataPoints
         updateChart(dataLength);
-
-        // update chart after specified time.
         setInterval(function(){updateChart()}, updateInterval);
 
     })
     .controller('MyCtrl5', function($scope, $http) {
         //====CONTROLLER FOR PARTIAL FIVE ====
-        $scope.toggleProductsNav=true;
+
         //Products Display page
         //Dynamic Searching
+        $scope.toggleProductsNav=true;
         $scope.viewFiveMessage= "Dynamic Searching";
 
         $scope.layout = 'grid2';
         $scope.message = "Dynamic Search";
         $http.get('./skepticsCommodities.json').success(
-            function(data) {
+            function(data, status) {
                 $scope.productList = data;
+                $scope.CommoditiesStatus = status
             }
         );
         $scope.orderProp = 'name';
@@ -736,13 +738,31 @@ angular.module('myApp.controllers', [
             return  string.split(' ')[0]
         };
         $scope.checked =false;
-        $scope.moreAboutProductOnClick= function () {
+
+        $scope.myFirstName = function(string) {
+            var mystring = string.split(' ');
+            if(mystring.length > 1) {
+                return  mystring[0]
+            }
+            return string;
+       };
+        $scope.myLastName = function(string) {
+            var mystring = string.split(' ');
+            if (mystring.length > 1) {
+                return  mystring[1]
+            }
+            return string;
+        };
+            $scope.moreAboutProductOnClick= function () {
             this.checked =false;
         };
-        $http.get('carts/_cart').success(
-            function(data3) {
+        /*$http.get('carts/_cart').success(
+            function(data3, status) {
                 $scope.yourCart3 = data3;
-            });
+                alert('$scope.statuss');
+                $scope.statuss = status;
+
+            });*/
     })
     .controller('MyCtrl6', ['$scope', function($scope) {
         //====CONTROLLER FOR Commodities ====
@@ -755,11 +775,8 @@ angular.module('myApp.controllers', [
     .controller('MyCtrl8', ['$scope', 'myService','imgService','$http','allIrelandDataService',
         function($scope, myService, imgService,$http,allIrelandDataService) {
             //====CONTROLLER FOR PARTIAL EIGHT====
-            $scope.viewEightMessage="Blog Page";
             //(Blog Menu Item)
-            /* $scope.callFoo = function() {
-             myService.foo();
-             };*/
+            $scope.viewEightMessage="Blog Page";
             $scope.selected = 'first'; // tab view
             //====Flip picture 180 degrees ====
             $scope.pictureFlipper = false;
@@ -787,7 +804,6 @@ angular.module('myApp.controllers', [
             $scope.imageAltDesc2 =   imgService.imgPele.imageAltDesc;
             $scope.captionText2  =   imgService.imgPele.captionText;
             $scope.imageId2      =   imgService.imgPele.imageId;
-
 
             //====CanvasJS Doughnut Chart
             //Modified from: http://canvasjs.com/html5-javascript-doughnut-chart/
@@ -843,7 +859,6 @@ angular.module('myApp.controllers', [
                 "Hurling All Ireland Winners",
                 "customColorSet2"
             );
-
         }])
     .controller('MyCtrl9',
     function($scope) {
@@ -867,23 +882,23 @@ angular.module('myApp.controllers', [
         //====CONTROLLER FOR PARTIAL TWELVE====
         //====Detailed Cart
         $scope.viewMessageTwelve ="Detailed Cart";
-        $http.get('your_cart').success(function(data2) {
+        $http.get('your_cart').success(function(data2,status) {
             $scope.yourCart = data2;
+            $scope.yourCartStatus =status;
         });
     }).controller('MyCtrl13',
-    function($scope, $http) {
+    function($scope, $http, dribbleService) {
         //====CONTROLLER FOR PARTIAL THIRTEEN====
         //====Dribble
         $scope.viewMessageThirteen ="Dribbble";
         $scope.layout = 'grid';
-        $http.jsonp( 'http://api.dribbble.com/shots/popular?callback=JSON_CALLBACK').then(function (data) {
+        $http.jsonp(dribbleService.url).then(function (data) {
         $scope.list = data.data;
+        $scope.dribbbleStatus=data.status;
         });
-
     }).controller('MyCtrl14',
     function($scope) {
         //====CONTROLLER FOR PARTIAL FOURTEEN====
         //====
         $scope.viewMessageFourteen ="Hello from partial 14";
-
     });
