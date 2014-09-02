@@ -1,0 +1,44 @@
+//====toggle Fahrenheit to Celcius====
+
+.dynamic_temp.ng-hide, .dynamic_latlong.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  //padding:0 10px;
+}
+
+@include addHideRemove(1s,dynamic_temp, dynamic_latlong);
+
+.dynamic_temp.ng-hide, .dynamic_latlong.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  //padding:0 10px;
+}
+
+.fa-umbrella {
+  background: white;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.fa-umbrella:hover {
+  color: $skeptics-orange;
+}
+
+//Celcius to Fahrenheit
+
+.fa-bullseye:hover {
+  color: $skeptics-orange;
+}
+
+//latitude to longitude
+
+
+
+/*.dynamic_temp.ng-hide-add.ng-hide-add-active,
+.dynamic_temp.ng-hide-remove.ng-hide-remove-active,
+.dynamic_latlong.ng-hide-add.ng-hide-add-active,
+.dynamic_latlong.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: opacity ease-in-out 1s;
+  transition: opacity ease-in-out 1s;
+}*/

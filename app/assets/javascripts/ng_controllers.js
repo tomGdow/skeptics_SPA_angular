@@ -60,6 +60,9 @@ angular.module('myApp.controllers', [
             $scope.CommoditiesStatus = status;
         });*/
 
+
+
+
         $scope.format_one       =       "h:mm:ss a";
         $scope.format_two       =       "fullDate";
         $scope.setMyClass       =       'dynamic-clock_one';
@@ -334,7 +337,7 @@ angular.module('myApp.controllers', [
         $scope.after = function () {
             $scope.myVar = "flexAfterClass"
         };
-        //====Chart
+        //====Chart (d3js)
         //modified from http://codepen.io/danielemoraschi/pen/qFmol
         //see also http://techslides.com/angular-js-demos-examples-and-resources/
 
@@ -372,8 +375,10 @@ angular.module('myApp.controllers', [
     })
     .controller('MyCtrl2', function($scope, videoService, $sce) {
         //====CONTROLLER FOR PARTIAL TWO====
-        $scope.viewTwoMessage = "Videos with Videogular";
         //==== Videogular ====
+
+        $scope.viewTwoMessage = "Videos with Videogular";
+
         $scope.showLargeSmall = function (arg) {
             if(arg===1) {
                 if ($scope.vgToggle == true) {
@@ -707,6 +712,142 @@ angular.module('myApp.controllers', [
         };
         updateChart(dataLength);
         setInterval(function(){updateChart()}, updateInterval);
+
+        //====d3js animated bar-chart
+        //see  http://jsfiddle.net/cuckovic/3NqL4/
+        //Modified from: http://blog.visual.ly/creating-animations-and-transitions-with-d3-js/
+
+        var svg = d3.select("svg");
+        d3.select("#title").html("Show Data");
+
+        // vertical lines
+        svg.selectAll(".vline").data(d3.range(26)).enter()
+            .append("line").attr("x1", function (d) {
+                return d * 20;
+            }).attr("x2", function (d) {
+                return d * 20;
+            }).attr("y1", function (d) {
+                return 40;
+            }).attr("y2", function (d) {
+                return 250;
+            }).style("stroke", "#eee");
+
+        // horizontal lines
+        svg.selectAll(".vline").data(d3.range(2, 13)).enter()
+            .append("line")
+            .attr("y1", function (d) {
+                return d * 20;
+            }).attr("y2", function (d) {
+                return d * 20;
+            }).attr("x1", function (d) {
+                return 0;
+            }).attr("x2", function (d) {
+                return 500;
+            }).style("stroke", "#eee");
+
+        // button
+        var button = d3.select("#button");
+        var mode = 0;
+        var modes = [{
+            state: "init",
+            title: "Transition"
+        }, {
+            state: "transition",
+            title: "Reset"
+        }];
+        button.on("click", function () {
+            mode = 1 - mode;
+            button.html(modes[mode].title);
+            if (mode === 1) {
+                drawChart();
+            } else {
+                clearChart();
+            }
+        });
+        // functions
+        var drawChart = function () {
+            var mySquare1 = svg.append("rect")
+                .attr({
+                    x: 50,
+                    y: 250,
+                    width: 80,
+                    height: 0
+                }).style({
+                    stroke: "none",
+                    fill: "steelblue"
+                }).transition()
+                .attr({
+                    y: 150,
+                    height: 150
+                }).duration(500);
+
+            var mySquare2 = svg.append("rect")
+                .attr({
+                    x: 150,
+                    y: 250,
+                    width: 80,
+                    height: 0
+                }).style({
+                    stroke: "none",
+                    fill: "steelblue"
+                }).transition()
+                .attr({
+                    y: 100,
+                    height: 150
+                })
+                .duration(500)
+                .delay(100);
+
+            var mySquare3 = svg.append("rect")
+                .attr({
+                    x: 250,
+                    y: 250,
+                    width: 80,
+                    height: 0
+                })
+                .style({
+                    stroke: "none",
+                    fill: "steelblue"
+                })
+                .transition()
+                .attr({
+                    y: 120,
+                    height: 130
+                })
+                .duration(500)
+                .delay(200);
+
+            var mySquare4 = svg.append("rect")
+                .attr({
+                    x: 450,
+                    y: 250,
+                    width: 80,
+                    height: 0
+                })
+                .style({
+                    stroke: "none",
+                    fill: "steelblue"
+                })
+                .transition()
+                .attr({
+                    y: 80,
+                    height: 170
+                })
+                .duration(500)
+                .delay(300)
+                .transition()
+                .style("fill", "darkred")
+                .duration(500);
+
+        };
+        var clearChart = function () {
+            svg.selectAll("rect").transition()
+                .style("fill", "steelblue")
+                .attr({
+                    y: 250,
+                    height: 0
+                }).duration(1000);
+        };
 
     })
     .controller('MyCtrl5', function($scope, $http) {

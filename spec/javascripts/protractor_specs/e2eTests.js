@@ -190,70 +190,7 @@ describe('my app', function () {
         });
     });
 
-    describe('nav bar functionality', function () {
-        beforeEach(function () {
-            browser.get('#view1');
-        });
 
-        describe('Click on menu links', function () {
-
-            it('should visit the correct page and have the correct title', function () {
-
-                var ptor = protractor.getInstance();
-
-                //This will not get the option required
-
-                ptor.findElement(protractor.By.css('.home')).click();
-                expect(browser.getLocationAbsUrl()).toMatch('view1');
-                expect(browser.getLocationAbsUrl()).not.toMatch('view2');
-                expect(element.all(by.css('.home')).get(1).getText()).
-                    toMatch(/HOME/);
-                expect(element.all(by.css('.home')).get(1).getText()).
-                    not.toMatch(/Home/);
-
-                ptor.findElement(protractor.By.css('.vieweight')).click();
-                expect(browser.getLocationAbsUrl()).toMatch('view8');
-                expect(browser.getLocationAbsUrl()).not.toMatch('view1');
-                expect(element.all(by.css('.vieweight')).get(1).getText()).
-                    toMatch(/BLOG/);
-                expect(element.all(by.css('.vieweight')).get(1).getText()).
-                    not.toMatch(/Blog/);
-
-                ptor.findElement(protractor.By.css('.viewtwo')).click();
-                expect(browser.getLocationAbsUrl()).toMatch('view2');
-                expect(browser.getLocationAbsUrl()).not.toMatch('view8');
-                expect(element.all(by.css('.viewtwo')).get(1).getText()).
-                    toMatch(/VIDEOS/);
-                expect(element.all(by.css('.viewtwo')).get(1).getText()).
-                    not.toMatch(/Videos/);
-
-                ptor.findElement(protractor.By.css('.viewthree')).click();
-                expect(browser.getLocationAbsUrl()).toMatch('view3');
-                expect(browser.getLocationAbsUrl()).not.toMatch('view2');
-                expect(element.all(by.css('.viewthree')).get(1).getText()).
-                    toMatch(/API FEEDS/);
-                expect(element.all(by.css('.viewthree')).get(1).getText()).
-                    not.toMatch(/Api FEEDS/);
-
-                ptor.findElement(protractor.By.css('.viewfour')).click();
-                expect(browser.getLocationAbsUrl()).toMatch('view4');
-                expect(browser.getLocationAbsUrl()).not.toMatch('view3');
-                expect(element.all(by.css('.viewfour')).get(1).getText()).
-                    toMatch(/DUBLIN GALLERY/);
-                expect(element.all(by.css('.viewfour')).get(1).getText()).
-                    not.toMatch(/Dublin Gallery/);
-
-                ptor.findElement(protractor.By.css('.viewfive')).click();
-                expect(browser.getLocationAbsUrl()).toMatch('view5');
-                expect(browser.getLocationAbsUrl()).not.toMatch('view4');
-                expect(element.all(by.css('.viewfive')).get(1).getText()).
-                    toMatch(/PRODUCTS/);
-                expect(element.all(by.css('.viewfive')).get(1).getText()).
-                    not.toMatch(/Products/);
-
-            });
-        });
-    });
 
     describe('Search Functionality', function () {
 
@@ -600,5 +537,205 @@ describe('my app', function () {
         });
 
     });
+
+    describe('Charts functionality (d3js charts)', function () {
+
+        beforeEach(function () {
+            browser.get('#view1');
+        });
+
+        it('should dynamically render the correct date', function () {
+
+            var ptor = protractor.getInstance();
+
+            element(By.css('#toggleDataTwo')).click();
+            expect(element(By.binding('renderYear')).getText()).toMatch('2013');
+            expect(element(By.binding('renderYear')).getText()).not.toMatch('2012');
+
+            element(By.css('#toggleDataThree')).click();
+            expect(element(By.binding('renderYear')).getText()).toMatch('2014');
+            expect(element(By.binding('renderYear')).getText()).not.toMatch('2012');
+
+            element(By.css('#toggleDataOne')).click();
+            expect(element(By.binding('renderYear')).getText()).toMatch('2012');
+            expect(element(By.binding('renderYear')).getText()).not.toMatch('2013');
+
+        });
+    });
+
+    describe('Flexslider Functionality', function () {
+        beforeEach(function () {
+            browser.get('#view1');
+        });
+
+        it('should render the correct title for each image', function () {
+
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide')).getText()).toMatch('James Watson');
+            element(By.css('.flex-next')).click();
+            //expect(element(By.css('.flex-active-slide')).getText()).toMatch('Karl Popper');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide')).getText()).toMatch('Ernst Rutherford');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide')).getText()).toMatch('Lise Meitner');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide')).getText()).toMatch('Dorothy Hodgkin');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide')).getText()).toMatch('Marie Curie');
+        });
+
+        it('should render the correct image', function () {
+
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide figure img')).getAttribute('src')).toMatch('watson_golden_ratio.jpg');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide figure img')).getAttribute('src')).toMatch('popper_golden_ratio.jpg');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide figure img')).getAttribute('src')).toMatch('rutherford_golden_ratio.jpg');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide figure img')).getAttribute('src')).toMatch('lise_meitner_golden_ratio.jpg');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide figure img')).getAttribute('src')).toMatch('dorothy_hodgkin_golden_ratio.jpg');
+            element(By.css('.flex-next')).click();
+            expect(element(By.css('.flex-active-slide figure img')).getAttribute('src')).toMatch('marie_curie.jpg');
+
+        });
+
+
+    });
+
+
+    describe('Image mouseovers', function () {
+
+        var hiddenPara = element(by.css('.loremParagraph'));
+
+        describe('Home Page image-mouseovers', function () {
+
+            beforeEach(function () {
+                browser.get('#view1');
+            });
+
+
+            var gbanks = element(By.css('#gordon-banks'));
+            var gbanks_image = element(By.css('#gordon-banks img'));
+
+            it('should render the correct image', function () {
+
+                expect(gbanks_image.getAttribute('src')).toMatch('001_banks.jpg');
+                expect(gbanks_image.getAttribute('src')).toMatch('01_banks.jpg');
+
+            });
+
+            it('should render the correct image title and make-hidden class when clicked', function () {
+
+                expect(gbanks.getText()).not.toMatch('Gordon Banks');
+                expect(hiddenPara.getAttribute('class')).not.toMatch('vishidden');
+                gbanks.click();
+                expect(gbanks.getText()).toMatch('Gordon Banks');
+                expect(hiddenPara.getAttribute('class')).toMatch('vishidden');
+
+            });
+
+        });
+
+        describe('Blog page image-mouseovers', function () {
+
+            beforeEach(function () {
+                browser.get('#view8');
+            });
+
+
+            var pele = element(By.css('#pele-image'));
+            var pele_image = element(By.css('#pele-image img'));
+
+            it('should render the correct image', function () {
+
+                expect(pele_image.getAttribute('src')).toMatch('103_pele.jpg');
+                expect(pele_image.getAttribute('src')).not.toMatch('02_pele.jpg');
+
+            });
+
+            it('should render the correct image title and make-hidden class when clicked', function () {
+
+                expect(pele.getText()).not.toMatch('Pele');
+                expect(hiddenPara.getAttribute('class')).not.toMatch('vishidden');
+                pele.click();
+                expect(pele.getText()).toMatch('Pele');
+                expect(hiddenPara.getAttribute('class')).toMatch('vishidden');
+
+            });
+
+        });
+
+        describe('Dublin Gallery image-mouseovers', function () {
+
+            beforeEach(function () {
+                browser.get('#view4');
+            });
+
+            var hiddenPara = element(by.css('.loremParagraph'));
+            var schillachi = element(by.css('#schillachi-italy'));
+            var schillachi_image = element(By.css('#schillachi-italy img'));
+
+            it('should render the correct image', function () {
+
+                expect(schillachi_image.getAttribute('src')).toMatch('109_schillaci.jpg');
+                expect(schillachi_image.getAttribute('src')).not.toMatch('1009_schillaci.jpg');
+
+            });
+
+
+
+        });
+    });
+
+
+    describe(' Image Flipper', function () {
+
+        beforeEach(function () {
+            browser.get('#view8');
+        });
+
+        var jamesWatson = element(by.css('.side-a'));
+        var marieCurie = element(by.css('.side-b'));
+        var watsonLegend =element(by.css('.legendWatson'));
+        var curieLegend=element(by.css('.legendCurie'));
+
+        it('should render the correct image title when clicked', function () {
+            expect(element(by.binding('obj.nameone')).getAttribute('class')).toMatch('legendWatson');
+            expect(watsonLegend.getAttribute('class')).not.toMatch('vishidden-alt');
+            expect(curieLegend.getAttribute('class')).toMatch('vishidden-alt');
+
+            jamesWatson.click();
+
+            expect(element(by.binding('obj.nametwo')).getAttribute('class')).toMatch('legendCurie');
+            expect(curieLegend.getAttribute('class')).not.toMatch('vishidden-alt');
+            expect(watsonLegend.getAttribute('class')).toMatch('vishidden-alt');
+
+            expect(element(by.css('.wrap')).getAttribute('class')).toMatch('wrapFlip');
+
+            marieCurie.click();
+
+            expect(element(by.binding('obj.nameone')).getAttribute('class')).toMatch('legendWatson');
+            expect(watsonLegend.getAttribute('class')).not.toMatch('vishidden-alt');
+            expect(curieLegend.getAttribute('class')).toMatch('vishidden-alt');
+
+        });
+
+        it('should render the correct class when clicked', function () {
+            expect(element(by.css('.wrap')).getAttribute('class')).not.toMatch('wrapFlip');
+
+            jamesWatson.click();
+
+            expect(element(by.css('.wrap')).getAttribute('class')).toMatch('wrapFlip');
+
+            marieCurie.click();
+
+            expect(element(by.css('.wrap')).getAttribute('class')).not.toMatch('wrapFlip');
+
+        });
+    });
+
+
 
 });

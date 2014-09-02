@@ -1,10 +1,28 @@
-@mixin myflex ($webkit-flex: -webkit-flex,
-               $display: flex,
-               $flex-direction: row,
-               $flex-wrap: wrap,
-               $flexdirection: roW,
-               $justify-content: space-between) {
-  display: $webkit-flex;
+//vendor-prefix code modified from:
+//http://www.stefanwienert.de/blog/2012/05/18/easy-css-vendor-prefix-mixin-for-sass/
+@mixin vendor-prefix($prop, $values...) {
+  -webkit-#{$prop}: #{$values};
+  -ms-#{$prop}: #{$values};
+  -moz-#{$prop}: #{$values};
+  -o-#{$prop}: #{$values};
+  #{$prop}: #{$values};
+}
+
+@mixin vendor-prefix-alt($prop, $value) {
+  #{$prop}: -webkit-#{$value};
+  #{$prop}: -ms-#{$value};
+  #{$prop}: -moz-#{$value};
+  #{$prop}: -o-#{$value};
+  #{$prop}: #{$value};
+}
+
+@mixin myflex($webkit-flex: -webkit-flex,
+$display: flex,
+$flex-direction: row,
+$flex-wrap: wrap,
+$flexdirection: roW,
+$justify-content: space-between) {
+  //display: $webkit-flex;
   display: $display;
   -webkit-flex-direction: $flex-direction;
   -webkit-justify-content: $justify-content;
@@ -14,19 +32,24 @@
   flex-wrap: $flex-wrap;
 }
 
-@mixin transition_one () {
+@mixin transition_one() {
 
-  transition: -webkit-transform 1s ease-in;
-  transition: -moz-transform 1s ease-in;
-  transition: transform 1s ease-in;
-  -webkit-transform-style: preserve-3d;
+  /* transition: -webkit-transform 1s ease-in;
+   transition: -moz-transform 1s ease-in;
+   transition: transform 1s ease-in;*/
+
+  /*-webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  transform-style: preserve-3d;*/
+
+  @include vendor-prefix(transition, 1s ease-in);
+  @include vendor-prefix(transform-style, preserve-3d);
+
   -webkit-backface-visibility: hidden;
 
 }
 
-@mixin skeptics_perspective ($value) {
+@mixin skeptics_perspective($value) {
 
   -webkit-perspective: $value;
   -moz-perspective: $value;
@@ -35,10 +58,86 @@
   perspective: $value;
 }
 
-@mixin skeptics_transform_style ($value: preserve-3d)  {
+@mixin skeptics_transform_style($value: preserve-3d) {
   -webkit-transform-style: $value;
   -moz-transform-style: $value;
   -ms-transform-style: $value;
   -o-transform-style: $value;
   transform-style: $value;
+}
+
+@mixin partials($transition, $members...) {
+  @each $member in $members {
+    .#{$member} {
+      border: none;
+      -webkit-flex: 3;
+      flex: 3;
+      visibility: visible;
+      opacity: 1;
+      /*    -webkit-transition: $transition;
+          -moz-transition: $transition;
+          -o-transition: $transition;
+          transition: $transition;*/
+      @include vendor-prefix(transition, $transition);
+      padding-top: 0px;
+      margin-top: 0px;
+    }
+  }
+}
+
+@mixin addVishidden($members...) {
+  @each $member in $members {
+    .#{unquote($member)}.vishidden {
+      visibility: hidden;
+      opacity: 0;;
+    }
+  }
+}
+
+@mixin addHideRemove($time, $members...) {
+  @each $member in $members {
+    .#{unquote($member)}.ng-hide-add.ng-hide-add-active,
+    .#{unquote($member)}.ng-hide-remove.ng-hide-remove-active {
+      -webkit-transition: opacity ease-in-out $time;
+      transition: opacity ease-in-out $time;
+    }
+  }
+}
+
+@mixin addHideRemoveAlt($members...) {
+  @each $member in $members {
+    .#{unquote($member)}.ng-hide-add.ng-hide-add-active,
+    .#{unquote($member)}.ng-hide-remove.ng-hide-remove-active {
+      -webkit-transition: all linear 0.5s;
+      transition: all linear 0.5s;
+    }
+  }
+}
+
+@mixin navGradient($color1, $percent1, $color2, $color3, $percent3, $members...) {
+  @each $member in $members {
+    nav.#{unquote($member)} .#{unquote($member)} {
+
+      background: -webkit-linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
+      background: -moz-linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
+      background: -o-linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
+      background: (left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
+    }
+  }
+}
+
+@mixin addNavFocus($members...) {
+  @each $member in $members {
+    nav.#{unquote($member)} a:focus {
+      color: white;
+    }
+  }
+}
+
+@mixin addNavHover($members...) {
+  @each $member in $members {
+    nav.#{unquote($member)} a:hover {
+      color: $skeptics-orange;
+    }
+  }
 }

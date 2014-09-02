@@ -1,0 +1,77 @@
+//==== Dynamic Searching
+
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  //border:1px solid black;
+}
+
+@include addHideRemoveAlt(animate-show);
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.check-element {
+  margin: 1em 2em;
+  width: 77%;
+  padding: 1em;
+  background: $skeptics-background;
+  border-radius: 5px;
+}
+
+.moreProductInfo {
+  background: none;
+  @include myflex($justify-content: space-around);
+  width: auto;
+  padding: 0px;
+  margin-top: 20px;
+  position: relative;
+  text-align: left;
+  line-height: 1;
+}
+
+.fa.fa-times-circle.producthide {
+  background: $skeptics-background;
+  color: #B9B9B9;
+}
+
+.fa.fa-times-circle.producthide:hover {
+  color: #000;
+}
+
+.tgdflex {
+  background: none;
+  @include vendor-prefix-alt(display, flex);
+  @include vendor-prefix(flex-direction, row);
+  @include vendor-prefix(justify-content, flex-start);
+  @include vendor-prefix(flex-wrap, wrap);
+}
+
+/*.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}*/
+
+/*
+.tgdflex {
+  background: none;
+  @include vendor-prefix-alt (display, flex);
+  @include vendor-prefix (flex-direction, row);
+  @include vendor-prefix (justify-content, flex-start);
+  @include vendor-prefix (flex-wrap, wrap);
+  */
+/*display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -webkit-justify-content: flex-start;
+  -webkit-flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;*//*
+
+}*/

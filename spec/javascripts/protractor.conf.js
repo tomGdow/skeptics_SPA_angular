@@ -5,11 +5,11 @@ exports.config = {
     capabilities: {
         'browserName': 'firefox'
     },
-    specs: ['protractor_specs/e2eTests.js'],
+    specs: ['protractor_specs/st.js'],
     baseUrl: 'http://localhost:4000',
     jasmineNodeOpts: {
         showColors: true,
-        defaultTimeoutInterval: 30000
+        defaultTimeoutInterval: 50000
     }
 };
 

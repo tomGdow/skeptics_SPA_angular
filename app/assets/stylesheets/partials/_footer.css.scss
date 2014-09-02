@@ -1,0 +1,89 @@
+//=====footer====
+
+footer {
+  visibility: visible;
+}
+
+footer li {
+  display: inline-block;
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+.footerDisplay {
+  visibility: visible;
+}
+
+.footerHide {
+  visibility: hidden;
+}
+
+.footerList {
+  @include myflex();
+  margin: 25px auto;
+  padding: 20px;
+  width: 70%;
+  // border: 2px solid red;
+  @include vendor-prefix-alt(background,
+          radial-gradient(bottom left, ellipse, $skeptics-orange 7%, transparent 45%));
+
+}
+
+.footerList li {
+  -webkit-flex-grow: 1;
+}
+
+.footerList li a {
+  color: #000;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.footerList li a span {
+  display: block;
+  opacity: 0;
+  margin-left: -20px;
+  margin-top: 5px;
+  padding: 5px;
+  transition-property: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.footerList li a:hover {
+  color: $skeptics-blue;
+}
+
+.footerList li a:hover > span {
+  background-color: white;
+  border-radius: 5em;
+  opacity: 1;
+}
+
+.fa-times-circle {
+  font-size: 2em;
+}
+
+.fa-times-circle span {
+  font-size: initial;
+  margin-left: initial;
+}
+
+
+/*
+.footerList {
+  @include myflex();
+  margin: 25px auto;
+  padding: 20px;
+  width: 70%;
+  // border: 2px solid red;
+
+  @include vendor-prefix-alt(background,
+          radial-gradient(bottom left, ellipse, $skeptics-orange 7%, transparent 45%));
+  */
+/*  background: -webkit-radial-gradient(bottom left, ellipse, $skeptics-orange 7%, transparent 45%);
+    background: -moz-radial-gradient(bottom left, ellipse, $skeptics-orange 7%, transparent 45%);
+    background: -o-radial-gradient(bottom left, ellipse, $skeptics-orange 7%, transparent 45%);
+    border-radius: 15px;*//*
+
+}*/

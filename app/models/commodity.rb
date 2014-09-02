@@ -17,6 +17,12 @@
 class Commodity < ActiveRecord::Base
   attr_accessible :category, :description, :image_url, :name, :price, :winner, :year
 
+
+  scope :defender, -> {where("category = ?","Defender")}
+  scope :midfielder, -> {where("category = ?","Midfielder")}
+  scope :forward, -> {where("category = ?","Forward")}
+  scope :newest, -> {order("created_at DESC")}
+
   has_many :line_items
 
   validates :name,

@@ -33,12 +33,12 @@
         <p><a href="{{shot.player.url}}" target="_blank">{{shot.player.name}}</a></p>
         <div class="dribbleFlex">
             <span>Created on {{shot.created_at | dabbbleDate}}</span>
-            <span>Views: {{shot.views_count}}</span>
+            <span>{{shot.views_count}}&nbsp; views</span>
         </div>
         <div class="dribbleFlex">
           <span>&nbsp;</span>
-            <span class ="fa  fa-heart-o">&nbsp;Likes: {{shot.likes_count}}</span>
-            <span>Comments: {{shot.comments_count}}</span>
+            <span class ="fa  fa-heart-o">&nbsp;{{shot.likes_count}}&nbsp;likes</span>
+            <span>{{shot.comments_count}}&nbsp; comments</span>
         </div>
       </li>
     </ul>

@@ -1,0 +1,116 @@
+//==== PageLouts ====
+
+//== partial1
+h1 {
+  -webkit-column-span: all;
+  -moz-column-span: all;
+  column-span: all;
+}
+.col-partial1,.col-partial2,.col-partial3,
+.col-partial4,.col-partial8,.col-partial13 {
+  margin: 10px;
+  padding: 25px;
+  border: 2px solid rgba(45, 74, 95, .9);
+  border-radius: inherit;
+  background: rgba(255, 255, 255, .8);
+}//Keep this for debugging
+
+.col-partial8-tab {
+  margin: 10px;
+  padding: 25px;
+}//Keep this for debugging
+
+.main-partial1 {
+  -webkit-columns: 250px 2;
+  -moz-columns: 15em 2;
+  columns: 15em 2;
+  -webkit-column-gap: 2em;
+  -moz-column-gap: 2em;
+  column-gap: 2em;
+}
+
+.col-partial1 {
+  border: none;
+  -webkit-flex: 3;
+  flex: 3;
+}
+
+.col-partial1-b {
+  -webkit-flex: 3;
+  -webkit-order: 1;
+  flex: 3;
+  order: 1;
+}
+
+.col-partial1-c {
+  -webkit-flex: 1;
+  -webkit-order: 1;
+  flex: 1;
+  order: 1;
+}
+
+.loremParagraph {
+  visibility: visible;
+  opacity: 1;
+  @include vendor-prefix(transition, all 2s ease)
+}
+
+.lorem {
+  margin-left: 15px;
+}
+
+//====partial 4
+.main-partial4 {
+  //display: -webkit-flex;
+  //display: flex;
+  @include vendor-prefix(columns, 15em 1);
+  @include vendor-prefix(column-gap, 2em);
+}
+
+.col-partial2,
+.col-partial3,
+.col-partial4,
+.col-partial13 {
+  @include vendor-prefix(flex, 3);
+  @include vendor-prefix(transition, all 2s ease);
+  border: none;
+  visibility: visible;
+  opacity: 1;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+@include partials(all 2s ease, col-partial2,
+        col-partial3, col-partial4,
+        col-partial13);
+
+.col-partial4-b {
+  -webkit-flex: 3;
+  -webkit-order: 1;
+  flex: 3;
+  order: 1;
+}
+
+//partial 8
+.main-partial8 {
+  @include vendor-prefix(columns, 250px 3);
+  @include vendor-prefix(column-gap, 3em);
+
+  //display: -webkit-flex;
+  //display: flex;
+  //-webkit-column-rule: 2px dotted red;
+  // -webkit-column-width: 250px;
+}
+
+.col-partial8 {
+  border: none;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.col-partial8-c {
+  -webkit-flex: 2;
+  -webkit-order: -1;
+  flex: 2;
+  order: -1;
+}
