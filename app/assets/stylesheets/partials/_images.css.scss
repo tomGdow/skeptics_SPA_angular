@@ -4,7 +4,7 @@
   @include myflex($flex-wrap: nowrap);
 }
 
-.small-image-figure, .small-image-figure-alt  {
+.small-image-figure, .small-image-figure-alt {
   position: absolute;
   top: 0px;
   left: 0px;
@@ -22,13 +22,13 @@
   margin: 0;
   margin-right: 1em;
   padding: 0;
-}//keep
+}
 
 .small-image-wrap-alt {
   position: relative;
   width: 4em;
   height: 4em;
-}//keep
+}
 
 #schillachi-italy {
   display: block;
@@ -81,19 +81,18 @@
   -webkit-backface-visibility: hidden;
 }
 
-#gordon-banks:hover,
-#arthur-fields:hover,
+%image-hover-base {
+  @include vendor-prefix(transform, translate3d(10px, 10px, 10px));
+  @include vendor-prefix(backface-visibility, hidden);
+}
+
 #pele-image:hover,
 #arthur-fields-young:hover,
 #arthur-fields-marple:hover,
 #arthur-fields-inaction:hover,
 #arthur-fields-behan:hover,
 #schillachi-italy:hover {
-
-  @include vendor-prefix(transform,translate3d(10px, 10px, 10px));
-  @include vendor-prefix(backface-visibility, hidden);
-  //-webkit-backface-visibility: hidden;
-
+  @extend %image-hover-base;
 }
 
 .small-image-figure:hover > .small-images-caption {
@@ -111,7 +110,6 @@
   max-width: 100%;
 }
 
-
 /*
 #gordon-banks:hover,
 #arthur-fields:hover,
@@ -126,6 +124,21 @@
   -moz-transform: scale(2) translate3d(10px, 10px, 10px);
   transform: scale(2) translate3d(10px, 10px, 10px);*//*
 
+
+  @include vendor-prefix(transform,translate3d(10px, 10px, 10px));
+  @include vendor-prefix(backface-visibility, hidden);
+  //-webkit-backface-visibility: hidden;
+
+}*/
+
+/*#gordon-banks:hover,
+#arthur-fields:hover,
+#pele-image:hover,
+#arthur-fields-young:hover,
+#arthur-fields-marple:hover,
+#arthur-fields-inaction:hover,
+#arthur-fields-behan:hover,
+#schillachi-italy:hover {
 
   @include vendor-prefix(transform,translate3d(10px, 10px, 10px));
   @include vendor-prefix(backface-visibility, hidden);

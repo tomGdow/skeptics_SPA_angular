@@ -14,7 +14,7 @@ body {
   //-webkit-transform-style: preserve-3d;
 }
 
-/*Remove Dotted line from Buttons in Mozilla */
+//==Remove Dotted line from Buttons in Mozilla
 :focus {
   outline: none;
 }
@@ -48,12 +48,12 @@ li {
   list-style-type: none;
 }
 
-/* webkit, opera, IE9 */
+//== webkit, opera, IE9
 ::selection {
   background: lightblue;
 }
 
-/* mozilla firefox */
+//== mozilla firefox
 ::-moz-selection {
   background: lightblue;
 }
@@ -99,7 +99,9 @@ li {
 .curie-flex-render {
   max-width: 50%;
   margin: 2em;
-}//Careful
+}
+
+//Careful
 
 .flexFigCaption {
 

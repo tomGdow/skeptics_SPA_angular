@@ -62,14 +62,19 @@
   @include vendor-prefix(transition, all ease-in-out 2s);
 }
 
-.legendWatson,
-.legendCurie {
+%base-legend {
   display: inline-block;
   visibility: visible;
   opacity: 1;
-  -webkit-transition: all ease-in-out 2s;
-  -moz-transition: all ease-in-out 2s;
-  transition: all ease-in-out 2s;
+  @include vendor-prefix(transition, all ease-in-out 2s);
+}
+
+.legendWatson {
+  @extend %base-legend;
+}
+
+.legendCurie {
+  @extend %base-legend;
 }
 
 .vishidden-alt {
@@ -114,3 +119,14 @@
   transform: rotateY(-180deg); //-deg orig
 }
 */
+
+/*.legendWatson,
+.legendCurie {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all ease-in-out 2s;
+  -moz-transition: all ease-in-out 2s;
+  transition: all ease-in-out 2s;
+}*/
+

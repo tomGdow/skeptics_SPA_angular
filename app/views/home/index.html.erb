@@ -50,15 +50,15 @@
       <div class="small-12 columns dynamic_latlong" id="lat-to-long" ng-show ="longlat">
         <dl class="sub-nav" id="temp-nav">
           <dd></dd>
-          <dd><button ng-click="doSearch()" class="button  tiny">Search</button></dd>
-          <dd> <google-places location=location ng-focus="onFocus()"></google-places></dd>
-          <dd ng-show="toggleLatLongCaption">Latitude:</dd>
-          <dd ng-bind ="mylatitude"></dd>
-          <dd ng-show="toggleLatLongCaption">Longitude:</dd>
-          <dd ng-bind ="mylongitude"></dd>
+          <dd><button ng-click="doSearch()" class="button  tiny" id="lat_long_search_btn">Search</button></dd>
+          <dd> <google-places location=location ng-focus="onFocus()" ></google-places></dd>
+          <dd ng-show="toggleLatLongCaption" id ="my_latit_caption">Latitude:</dd>
+          <dd ng-bind ="mylatitude" id ="my_latitude"></dd>
+          <dd ng-show="toggleLatLongCaption" id ="my_longit_caption">Longitude:</dd>
+          <dd ng-bind ="mylongitude" id ="my_longitude"></dd>
           <dd>
             <button ng-click="toggleView()" ng-show="showToggleButton"
-                    class ="button tiny">
+                    class ="button tiny" id="min_expand_button">
                 <span ng-show="minimizeExpand">Expand</span>
                 <span ng-hide="minimizeExpand">Minimize</span>
             </button>
@@ -70,8 +70,8 @@
       <div class="small-12 columns dynamic_temp" id="celcius-to-fahrenheit" ng-show ="cfConvModel">
         <dl class="sub-nav" id="temp-nav">
           <dd></dd>
-          <dd><input type="number" ng-model="fahrenheit" ng-change="markEdited('F')"/> Fahrenheit</dd>
-          <dd><input type="number" ng-model="celsius" ng-change="markEdited('C')" /> Celsius</dd>
+          <dd><input type="number" ng-model="fahrenheit" ng-change="markEdited('F')" id = "fahrenheit"/> Fahrenheit</dd>
+          <dd><input type="number" ng-model="celsius" ng-change="markEdited('C')" id ="celcius" /> Celsius</dd>
         </dl>
       </div>
     </div>

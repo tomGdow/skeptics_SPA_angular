@@ -8,7 +8,8 @@
           ng-class=" clock_image_model ?  ' fa fa-clock-o dynamic-clock-underline_color ': 'fa fa-clock-o'"
           ng-mouseover="clockMouseOver()"
           ng-mouseleave="clockMouseLeave()"
-          ng-click="clockOnClick()">
+          ng-click="clockOnClick()"
+          id="time_with_icon">
                Time
           </span>
         </a>
@@ -20,7 +21,8 @@
           ng-class=" date_image_model ?  ' fa fa-calendar dynamic-clock-underline_color ': 'fa fa-calendar'"
           ng-click="dateOnClick()"
           ng-mouseover="dateMouseOver()"
-          ng-mouseleave="dateMouseLeave()">
+          ng-mouseleave="dateMouseLeave()"
+          id="date_with_icon">
           Date
         </span>
         </a>
@@ -35,7 +37,8 @@
           <span
           class='fa  fa-sun-o'
           ng-mouseover="gmtMouseOver()"
-          ng-mouseleave="gmtMouseLeave()" >
+          ng-mouseleave="gmtMouseLeave()"
+          id ="GMT_with_icon">
           GMT
         </span>
         </a>
@@ -45,6 +48,7 @@
           <span
           class='fa  fa-umbrella'
           ng-click="toggleCelciusNav()"
+          id="degrees_F_to_C"
           >
          &deg;C/&deg;F</span> <br/>
 
@@ -55,7 +59,8 @@
           <span
            ng-show = "toggleLocation"
           class='fa  fa-bullseye'
-          ng-click="toggleLatLong()" >
+          ng-click="toggleLatLong()"
+          id="lat_to_long_button">
           lat/long
         </span>
         </a>
@@ -66,7 +71,8 @@
               ng-class=" current_time_model ?  setMyClass : 'dynamic-clock-hidden'"
               ng-click="timeViewOnClick()"
               ng-mouseover="timeViewMouseOver()"
-              ng-mouseleave="timeViewMouseLeave()">
+              ng-mouseleave="timeViewMouseLeave()"
+              id="showTheTime">
                 </span>
       </dd>
       <!--nav four show current date-->
@@ -76,15 +82,17 @@
                 ng-class=" current_date_model ?  setMyClass2 : 'dynamic-date-hidden'"
                 ng-click="dateViewOnClick()"
                 ng-mouseover="dateViewMouseOver()"
-                ng-mouseleave="dateViewMouseLeave()">
+                ng-mouseleave="dateViewMouseLeave()"
+                id="showTheDate">
+
                 </span>
         </a>
       </dd>
-      <dd ng-include="'/home/gmtTime.html'"></dd>
+      <dd ng-include="'/home/gmtTime.html'" ></dd>
       <dd class="little_cart">
         <span ng-show="littleCart">
         <a href="#view12" title ="view detailed cart" ng-click ="littleCartFn()">
-          <span class="fa fa-shopping-cart"></span>
+          <span class="fa fa-shopping-cart" id ="fa-shopping-cart"></span>
         </a>
             </span>
       </dd><!--float right-->

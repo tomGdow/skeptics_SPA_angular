@@ -339,3 +339,91 @@ describe('View Eight', function () {
     expect(colorSpan.getCssValue('background-image')).toContain(my_color);
 
 });
+
+
+
+describe('Time Function)', function () {
+
+    it('should display and hide the time', function () {
+
+        browser.get('#view1');
+        var ptor = protractor.getInstance();
+        var show_time=element(by.css('#showTheTime'));
+
+        expect(show_time.getAttribute('class')).toMatch('hidden');
+        expect(show_time.isDisplayed()).toBeFalsy();
+
+
+        ptor.actions().
+            mouseMove(ptor.findElement(protractor.By.css('#time_with_icon'))).
+            perform();
+
+        expect(show_time.getAttribute('class')).not.toMatch('hidden');
+        expect(show_time.getAttribute('class')).toMatch('dynamic-clock_one');
+        expect(show_time.isDisplayed()).toBeTruthy();
+
+        ptor.actions().
+            mouseMove(ptor.findElement(protractor.By.css('#showTheTime'))).
+            perform();
+
+        expect(show_time.getAttribute('class')).toMatch('dynamic-clock-hidden');
+        expect(show_time.getAttribute('class')).not.toMatch('one');
+        expect(show_time.isDisplayed()).toBeFalsy();
+    });
+
+});
+
+
+describe('Date Function)', function () {
+
+    it('should display and hide the date', function () {
+
+        browser.get('#view1');
+        var ptor = protractor.getInstance();
+        var show_date=element(by.css('#showTheDate'));
+
+        expect(show_date.getAttribute('class')).toMatch('hidden');
+        expect(show_date.isDisplayed()).toBeFalsy();
+
+        ptor.actions().
+            mouseMove(ptor.findElement(protractor.By.css('#date_with_icon'))).
+            perform();
+
+        expect(show_date.getAttribute('class')).not.toMatch('hidden');
+        expect(show_date.getAttribute('class')).toMatch('dynamic-date_one');
+        expect(show_date.isDisplayed()).toBeTruthy();
+
+        ptor.actions().
+            mouseMove(ptor.findElement(protractor.By.css('#time_with_icon'))).
+            perform();
+
+        expect(show_date.getAttribute('class')).toMatch('dynamic-date-hidden');
+        expect(show_date.getAttribute('class')).not.toMatch('one');
+        expect(show_date.isDisplayed()).toBeFalsy();
+
+    });
+
+});
+
+describe('GMT Time)', function () {
+
+    it('should display and hide GMT time', function () {
+
+        var ptor = protractor.getInstance();
+
+        browser.get('#view1');
+        var ptor = protractor.getInstance();
+        var gmt=element(by.css('#showTheGMT'));
+
+        expect(gmt.getAttribute('class')).toMatch('ng-hide');
+        expect(gmt.isDisplayed()).toBeFalsy();
+
+        ptor.actions().
+            mouseMove(ptor.findElement(protractor.By.css('#GMT_with_icon'))).
+            perform();
+
+        expect(gmt.getAttribute('class')).not.toMatch('ng-hide');
+        expect(gmt.isDisplayed()).toBeTruthy();
+    });
+
+});

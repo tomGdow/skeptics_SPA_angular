@@ -34,10 +34,20 @@
 }
 
 .chart-dynamic-header {
-  @include myflex();
+   @extend .chart-button-list;
+ }
+
+
+/*
+.chart-dynamic-header {
+
+  @extend chart-button-list;
+  */
+/*@include myflex();
   margin: 25px auto;
   margin-bottom: 0;
   margin-top: 0;
   padding: 10px 20px;
-  width: 100%;
-}
+  width: 100%;*//*
+
+}*/

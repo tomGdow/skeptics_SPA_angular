@@ -1,0 +1,4 @@
+@function my_radial_gradient ($position: top left, $color:$skeptics-orange, $color-value: 7%, $transparent-value: 45%) {
+
+  @return radial-gradient($position, ellipse, $color $color-value, transparent 45%);
+}

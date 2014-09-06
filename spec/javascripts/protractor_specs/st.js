@@ -1,64 +1,99 @@
 'use strict';
 describe('my app', function () {
 
-    //==helper hexToRgb ===
-    //hexToRgb modified from here:http://stackoverflow.com/a/11508164/499167
-    function hexToRgb(hex) {
-        var bigint = parseInt(hex, 16);
-        var r = (bigint >> 16) & 255;
-        var g = (bigint >> 8) & 255;
-        var b = bigint & 255;
-        var str = 'rgb(';
-        str+=[r, g, b].join(', ');
-        str+=')';
-        return str;
-    }
-
     browser.get('#view1');
 
-    it('should automatically redirect to /view1 when location hash/fragment is empty', function () {
-        expect(browser.getLocationAbsUrl()).toMatch('view1');
-    });
 
-    describe('nav bar functionality', function () {
 
-        describe('home', function () {
 
-            beforeEach(function () {
-                browser.get('#view1');
+    describe('Nav-bar with time (under-nav)', function () {
+
+        describe('Latitude and Longitude)', function () {
+
+            var lat_long_panel = element(by.css('#lat-to-long'));
+            var menu_item_lat_long = element(by.css('#lat_to_long_button'));
+            var input_box = element(by.css("#google_places_ac"));
+            var search_button = element(by.css('#lat_long_search_btn'));
+            var longitude_value = element(by.css('#my_longitude'));
+            var latitude_value = element(by.css('#my_latitude'));
+            var latitude_caption = element(by.css('#my_latit_caption'));
+            var longitude_caption = element(by.css('#my_longit_caption'));
+            var minimize_expand_button = element(by.css('#min_expand_button'));
+            var check_my_location = 'Dublin, Ireland';
+
+            it('should toggle visibility', function () {
+
+                expect(lat_long_panel.isDisplayed()).toBeFalsy();
+                expect(input_box.isDisplayed()).toBeFalsy();
+                expect(search_button.isDisplayed()).toBeFalsy();
+
+                menu_item_lat_long.click();
+
+                expect(lat_long_panel.isDisplayed()).toBeTruthy();
+                expect(input_box.isDisplayed()).toBeTruthy();
+                expect(search_button.isDisplayed()).toBeTruthy();
+
+                menu_item_lat_long.click();
+
+                expect(lat_long_panel.isDisplayed()).toBeFalsy();
+                expect(input_box.isDisplayed()).toBeFalsy();
+                expect(search_button.isDisplayed()).toBeFalsy();
+            });
+
+            it('should retrieve the correct latitude and longitude', function () {
+
+
+                menu_item_lat_long.click();
+
+                expect(latitude_caption.isDisplayed()).toBeFalsy();
+                expect(longitude_caption.isDisplayed()).toBeFalsy();
+
+                input_box.sendKeys(check_my_location);
+                input_box.sendKeys(protractor.Key.ARROW_DOWN);
+                input_box.sendKeys(protractor.Key.ARROW_DOWN);
+                input_box.sendKeys(protractor.Key.ARROW_UP);
+                input_box.sendKeys(protractor.Key.ENTER);
+                search_button.click();
+
+                expect(latitude_caption.isDisplayed()).toBeTruthy();
+                expect(longitude_caption.isDisplayed()).toBeTruthy();
+                expect(longitude_value.isDisplayed()).toBe(true);
+                expect(latitude_value.isDisplayed()).toBe(true);
+                expect(latitude_value.getText()).toContain('53');
+                expect(longitude_value.getText()).toContain('6');
 
             });
 
+            it('should not display captions when minimized', function () {
 
-            element(by.css('.home')).click();
-            it('should visit the correct page', function () {
-                var browser_url = browser.getLocationAbsUrl();
-                var my_home = element.all(by.css('.home'));
-                expect(browser_url).toMatch('view1');
-                expect(browser_url).not.toMatch('view2');
+                minimize_expand_button.click();
 
-                it('should have the correct title', function () {
+                expect(latitude_caption.isDisplayed()).toBeFalsy();
+                expect(longitude_caption.isDisplayed()).toBeFalsy();
+                expect(latitude_value.getText()).toContain('53');
+                expect(longitude_value.getText()).toContain('6');
 
-                    expect(my_home.get(1).getText()).
-                        toMatch(/toUpperCase(home)/);
-                    expect(my_home.get(1).getText()).
-                        not.toMatch(/Home/);
-                });
+                minimize_expand_button.click();
 
-                it('should render the correct background color ', function () {
+                expect(latitude_caption.isDisplayed()).toBeTruthy();
+                expect(longitude_caption.isDisplayed()).toBeTruthy();
 
-                    var my_bg_color = element(by.css('nav.vieweight .vieweight'));
-                    var my_color = hexToRgb('0078A0');
-
-                expect(my_bg_color.getCssValue('background-image')).toContain(my_color);
-                });
-
+                menu_item_lat_long.click();
 
             });
-
         });
 
+        describe('Cart Button)', function () {
 
+            browser.get('#view1');
+
+            it('should display the Cart  when clicked', function () {
+
+                var little_cart = element(by.css('#fa-shopping-cart'));
+                little_cart.click();
+
+
+            });
+        });
     });
-
 });

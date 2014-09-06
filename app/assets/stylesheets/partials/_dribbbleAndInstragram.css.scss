@@ -4,12 +4,19 @@
   font-size: 0.8em;
 }
 
-.fa.fa-dribbble.smallIcon:hover,
-.fa.fa-instagram.smallIcon:hover {
-  color: $skeptics-orange
+%base-smallIcon-hover {
+  color: $skeptics-orange;
 }
 
-.dribbleFlex{
+.fa.fa-dribbble2.smallIcon2:hover {
+  @extend %base-smallIcon-hover
+}
+
+.fa.fa-instagram2.smallIcon2:hover {
+  @extend %base-smallIcon-hover
+}
+
+.dribbleFlex {
   @include myflex();
 }
 
@@ -22,7 +29,7 @@
   margin-left: 1em;
 }
 
-.instagramPics > p.igram_info{
+.instagramPics > p.igram_info {
   @include myflex();
   color: gray;
   margin-bottom: 1em;
@@ -35,3 +42,9 @@
   font-weight: bold;
   padding-left: 1em;
 }
+
+
+/*.fa.fa-dribbble.smallIcon:hover,
+.fa.fa-instagram.smallIcon:hover {
+  color: $skeptics-orange;
+}*/

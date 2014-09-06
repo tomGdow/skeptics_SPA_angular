@@ -16,69 +16,40 @@
   #{$prop}: #{$value};
 }
 
-@mixin myflex($webkit-flex: -webkit-flex,
-$display: flex,
-$flex-direction: row,
-$flex-wrap: wrap,
-$flexdirection: roW,
-$justify-content: space-between) {
-  //display: $webkit-flex;
+@mixin myflex($display: flex,
+  $flex-direction: row,
+  $flex-wrap: wrap,
+  $flexdirection: roW,
+  $justify-content: space-between) {
+  @include vendor-prefix(flex-direction, $flex-direction);
+  @include vendor-prefix(justify-content, $justify-content);
+  @include vendor-prefix(flex-wrap, $flex-wrap);
   display: $display;
-  -webkit-flex-direction: $flex-direction;
-  -webkit-justify-content: $justify-content;
-  -webkit-flex-wrap: $flex-wrap;
-  flex-direction: $flex-direction;
-  justify-content: $justify-content;
-  flex-wrap: $flex-wrap;
 }
 
 @mixin transition_one() {
-
-  /* transition: -webkit-transform 1s ease-in;
-   transition: -moz-transform 1s ease-in;
-   transition: transform 1s ease-in;*/
-
-  /*-webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;*/
-
   @include vendor-prefix(transition, 1s ease-in);
   @include vendor-prefix(transform-style, preserve-3d);
-
   -webkit-backface-visibility: hidden;
-
 }
 
 @mixin skeptics_perspective($value) {
-
-  -webkit-perspective: $value;
-  -moz-perspective: $value;
-  -ms-perspective: $value;
-  -o-perspective: $value;
-  perspective: $value;
+  @include vendor-prefix(perspective, $value)
 }
 
 @mixin skeptics_transform_style($value: preserve-3d) {
-  -webkit-transform-style: $value;
-  -moz-transform-style: $value;
-  -ms-transform-style: $value;
-  -o-transform-style: $value;
-  transform-style: $value;
+  @include vendor-prefix(transform-style, $value)
 }
 
 @mixin partials($transition, $members...) {
   @each $member in $members {
     .#{$member} {
+      @include vendor-prefix(transition, $transition);
       border: none;
       -webkit-flex: 3;
       flex: 3;
       visibility: visible;
       opacity: 1;
-      /*    -webkit-transition: $transition;
-          -moz-transition: $transition;
-          -o-transition: $transition;
-          transition: $transition;*/
-      @include vendor-prefix(transition, $transition);
       padding-top: 0px;
       margin-top: 0px;
     }
@@ -98,8 +69,7 @@ $justify-content: space-between) {
   @each $member in $members {
     .#{unquote($member)}.ng-hide-add.ng-hide-add-active,
     .#{unquote($member)}.ng-hide-remove.ng-hide-remove-active {
-      -webkit-transition: opacity ease-in-out $time;
-      transition: opacity ease-in-out $time;
+      @include vendor-prefix(transition, opacity ease-in-out $time)
     }
   }
 }
@@ -108,8 +78,7 @@ $justify-content: space-between) {
   @each $member in $members {
     .#{unquote($member)}.ng-hide-add.ng-hide-add-active,
     .#{unquote($member)}.ng-hide-remove.ng-hide-remove-active {
-      -webkit-transition: all linear 0.5s;
-      transition: all linear 0.5s;
+      @include vendor-prefix(transition, all linear 0.5s)
     }
   }
 }
@@ -117,11 +86,7 @@ $justify-content: space-between) {
 @mixin navGradient($color1, $percent1, $color2, $color3, $percent3, $members...) {
   @each $member in $members {
     nav.#{unquote($member)} .#{unquote($member)} {
-
-      background: -webkit-linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
-      background: -moz-linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
-      background: -o-linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
-      background: (left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
+      @include vendor-prefix-alt(background, linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3)));
     }
   }
 }
@@ -141,3 +106,40 @@ $justify-content: space-between) {
     }
   }
 }
+
+/*@mixin skeptics_perspective($value) {
+
+  //  -webkit-perspective: $value;
+  //  -moz-perspective: $value;
+  //  -ms-perspective: $value;
+  //  -o-perspective: $value;
+  //  perspective: $value;
+
+  @include vendor-prefix(perspective, $value)*/
+//}
+
+/*
+@mixin skeptics_transform_style($value:preserve-3d) {
+  @include vendor-prefix(transform-style,$value)
+  //  -webkit-transform-style: $value;
+  //  -moz-transform-style: $value;
+  //  -ms-transform-style: $value;
+  //  -o-transform-style: $value;
+  //  transform-style: $value;
+}*/
+
+
+//@mixin myflex($webkit-flex: -webkit-flex,
+//$display: flex,
+//$flex-direction: row,
+//$flex-wrap: wrap,
+//$flexdirection: roW,
+//$justify-content: space-between) {
+//  display: $display;
+//  -webkit-flex-direction: $flex-direction;
+//  -webkit-justify-content: $justify-content;
+//  -webkit-flex-wrap: $flex-wrap;
+//  flex-direction: $flex-direction;
+//  justify-content: $justify-content;
+//  flex-wrap: $flex-wrap;
+//}

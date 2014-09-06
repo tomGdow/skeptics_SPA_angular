@@ -20,13 +20,12 @@ footer li {
 
 .footerList {
   @include myflex();
+  @include vendor-prefix-alt(background,
+          my_radial_gradient($position: bottom left));
+
   margin: 25px auto;
   padding: 20px;
   width: 70%;
-  // border: 2px solid red;
-  @include vendor-prefix-alt(background,
-          radial-gradient(bottom left, ellipse, $skeptics-orange 7%, transparent 45%));
-
 }
 
 .footerList li {
@@ -67,6 +66,15 @@ footer li {
 .fa-times-circle span {
   font-size: initial;
   margin-left: initial;
+}
+
+.footerList {
+  @include myflex();
+  margin: 25px auto;
+  padding: 20px;
+  width: 70%;
+  @include vendor-prefix-alt(background,
+          my_radial_gradient($position: bottom left));
 }
 
 
