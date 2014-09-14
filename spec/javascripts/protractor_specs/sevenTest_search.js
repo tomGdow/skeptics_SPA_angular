@@ -1,7 +1,6 @@
 'use strict';
 describe('my app', function () {
 
-
     browser.get('#view1');
 
     describe('Search Functionality', function () {
@@ -232,7 +231,6 @@ describe('my app', function () {
                 expect(element(by.id('Gordon_Banks')).isPresent()).toBe(false);
 
             });
-
         });
     });
 

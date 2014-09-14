@@ -1,7 +1,6 @@
 'use strict';
 describe('my app', function () {
 
-
     browser.get('#view1');
 
     describe('$http and $jsonp requests ', function () {

@@ -51,27 +51,3 @@
   @include vendor-prefix(flex-wrap, wrap);
 }
 
-/*.animate-show.ng-hide-add.ng-hide-add-active,
-.animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
-}*/
-
-/*
-.tgdflex {
-  background: none;
-  @include vendor-prefix-alt (display, flex);
-  @include vendor-prefix (flex-direction, row);
-  @include vendor-prefix (justify-content, flex-start);
-  @include vendor-prefix (flex-wrap, wrap);
-  */
-/*display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -webkit-justify-content: flex-start;
-  -webkit-flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;*//*
-
-}*/

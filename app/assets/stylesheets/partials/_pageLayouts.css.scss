@@ -13,7 +13,9 @@ h1 {
   border: 2px solid rgba(45, 74, 95, .9);
   border-radius: inherit;
   background: rgba(255, 255, 255, .8);
-}//Keep this for debugging
+}
+
+//Keep this for debugging
 
 //.col-partial1, .col-partial2, .col-partial3,
 //.col-partial4, .col-partial8, .col-partial13 {
@@ -121,27 +123,3 @@ h1 {
   flex: 2;
   order: -1;
 }
-
-/*.col-partial1,.col-partial2,.col-partial3,
-.col-partial4,.col-partial8,.col-partial13 {
-  margin: 10px;
-  padding: 25px;
-  border: 2px solid rgba(45, 74, 95, .9);
-  border-radius: inherit;
-  background: rgba(255, 255, 255, .8);
-}//Keep this for debugging*/
-
-
-
-/*.col-partial2,
-.col-partial3,
-.col-partial4,
-.col-partial13 {
-  @include vendor-prefix(flex, 3);
-  @include vendor-prefix(transition, all 2s ease);
-  border: none;
-  visibility: visible;
-  opacity: 1;
-  padding-top: 0px;
-  margin-top: 0px;
-}*/

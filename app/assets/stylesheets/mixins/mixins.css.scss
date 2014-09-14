@@ -17,10 +17,10 @@
 }
 
 @mixin myflex($display: flex,
-  $flex-direction: row,
-  $flex-wrap: wrap,
-  $flexdirection: roW,
-  $justify-content: space-between) {
+$flex-direction: row,
+$flex-wrap: wrap,
+$flexdirection: roW,
+$justify-content: space-between) {
   @include vendor-prefix(flex-direction, $flex-direction);
   @include vendor-prefix(justify-content, $justify-content);
   @include vendor-prefix(flex-wrap, $flex-wrap);
@@ -107,39 +107,3 @@
   }
 }
 
-/*@mixin skeptics_perspective($value) {
-
-  //  -webkit-perspective: $value;
-  //  -moz-perspective: $value;
-  //  -ms-perspective: $value;
-  //  -o-perspective: $value;
-  //  perspective: $value;
-
-  @include vendor-prefix(perspective, $value)*/
-//}
-
-/*
-@mixin skeptics_transform_style($value:preserve-3d) {
-  @include vendor-prefix(transform-style,$value)
-  //  -webkit-transform-style: $value;
-  //  -moz-transform-style: $value;
-  //  -ms-transform-style: $value;
-  //  -o-transform-style: $value;
-  //  transform-style: $value;
-}*/
-
-
-//@mixin myflex($webkit-flex: -webkit-flex,
-//$display: flex,
-//$flex-direction: row,
-//$flex-wrap: wrap,
-//$flexdirection: roW,
-//$justify-content: space-between) {
-//  display: $display;
-//  -webkit-flex-direction: $flex-direction;
-//  -webkit-justify-content: $justify-content;
-//  -webkit-flex-wrap: $flex-wrap;
-//  flex-direction: $flex-direction;
-//  justify-content: $justify-content;
-//  flex-wrap: $flex-wrap;
-//}

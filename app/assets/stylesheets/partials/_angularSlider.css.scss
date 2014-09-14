@@ -38,7 +38,7 @@
 .nav {
   bottom: -4px;
   display: block;
-  height: 48px;
+  height: em(48px);
   left: 0;
   margin: 0 auto;
   padding: 1em 0 0.8em;
@@ -160,53 +160,3 @@
 
 //end Angular Slider
 
-/*.slide.ng-hide-add, .googleSlide.ng-hide-add {
-  opacity: 1;
-
-  @include vendor-prefix(transition, 1s, linear, all);
-  @include vendor-prefix(transform, rotateX(50deg) rotateY(30deg));
-  @include vendor-prefix(transform-origin, right top 0);
-
-  *//*-webkit-transition: 1s linear all;
-  -moz-transition: 1s linear all;
-  -o-transition: 1s linear all;
-  transition: 1s linear all;
-
-  -webkit-transform: rotateX(50deg) rotateY(30deg);
-  -moz-transform: rotateX(50deg) rotateY(30deg);
-  -ms-transform: rotateX(50deg) rotateY(30deg);
-  -o-transform: rotateX(50deg) rotateY(30deg);
-  transform: rotateX(50deg) rotateY(30deg);
-
-  -webkit-transform-origin: right top 0;
-  -moz-transform-origin: right top 0;
-  -ms-transform-origin: right top 0;
-  -o-transform-origin: right top 0;
-  transform-origin: right top 0;*//*
-}*/
-
-/*.arrow.prev.ng-hide-add.ng-hide-add-active,
-.arrow.prev.ng-hide-remove.ng-hide-remove-active,
-.arrow.next.ng-hide-add.ng-hide-add-active,
-.arrow.next.ng-hide-remove.ng-hide-remove-active,
-.dublinCaption.ng-hide-add.ng-hide-add-active,
-.dublinCaption.ng-hide-remove.ng-hide-remove-active,
-.dubfigcaption.ng-hide-add.ng-hide-add-active,
-.dubfigcaption.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: opacity ease-in-out 2s;
-  transition: opacity ease-in-out 2s;
-}*/
-
-/*
-.slide.ng-hide-remove,
-.googleSlide.ng-hide-remove {
-  @include vendor-prefix(transition,1s linear all);
-  */
-/*-webkit-transition: 1s linear all;
-  -moz-transition: 1s linear all;
-  -o-transition: 1s linear all;
-  transition: 1s linear all;*//*
-
-  display: block !important;
-  opacity: 0;
-}*/

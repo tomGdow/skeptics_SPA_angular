@@ -61,18 +61,3 @@
   opacity: 1;
   @include vendor-prefix(transition, all 2s ease)
 }
-
-/*.tabs.vishidden,
-.tabscaption.vishidden,
-.col-partial4.vishidden,
-.col-partial2.vishidden,
-.makeVisible.vishidden,
-.makeVisible.vishidden,
-.sliderBtnsContainer.vishidden,
-.flipLegendWrapper.vishidden,
-.loremParagraph.vishidden,
-.small-images-caption.vishidden,
-.vgControlsTwo.vishidden {
-  visibility: hidden;
-  opacity: 0;
-}*/

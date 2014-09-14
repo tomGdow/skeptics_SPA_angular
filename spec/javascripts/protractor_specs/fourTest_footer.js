@@ -5,30 +5,26 @@ describe('my app', function () {
 
     describe('footer', function () {
 
+        //browser.get('#view1');
+
         it('should be visible', function () {
             var footerDisplay = element(by.css('.footerDisplay '));
             expect(footerDisplay.getCssValue('visibility')).toBe('visible');
-
         });
 
-
         it('should be change visibility', function () {
-
             element(by.css('.fa-times-circle')).click();
             var footerHide = element(by.css('.footerHide '));
             expect(footerHide.getCssValue('visibility')).toBe('hidden');
-
         });
-
 
         it('should have the correct transition time', function () {
 
-            var elem = element(by.css('.footerList li a '));
+            var elem =  element(by.css('.footerList li a '));
             var elem2 = element(by.css('.icon-github '));
             var elem3 = element(by.css('.icon-facebook'));
             var elem4 = element(by.css('.icon-twitter'));
             var elem5 = element(by.css('.icon-googleplus'));
-
 
             expect(elem.getCssValue('transition-duration')).toBe('1s');
             expect(elem2.getCssValue('transition-duration')).toBe('1s');
@@ -41,16 +37,17 @@ describe('my app', function () {
 
         it('should have the correct transition timing function', function () {
 
-            var elem = element(by.css('.footerList li a '));
+            var elem =  element(by.css('.footerList li a '));
             var elem2 = element(by.css('.icon-github '));
             var elem3 = element(by.css('.icon-facebook'));
             var elem4 = element(by.css('.icon-twitter'));
             var elem5 = element(by.css('.icon-googleplus'));
-            var timing_function ='cubic-bezier(0.42, 0, 0.58, 1)';//ease-in-out
+           // var timing_function ='cubic-bezier(0.42, 0, 0.58, 1)';//ease-in-out
+            var timing_function ='ease-in-out';//ease-in-out
 
             expect(elem.getCssValue('transition-timing-function')).toBe(timing_function);
             expect(elem2.getCssValue('transition-timing-function')).toBe(timing_function);
-            expect(elem2.getCssValue('transition-timing-function')).not.toBe('ease-in-out');
+            //expect(elem2.getCssValue('transition-timing-function')).not.toBe('ease-in-out');
             expect(elem3.getCssValue('transition-timing-function')).toBe(timing_function);
             expect(elem4.getCssValue('transition-timing-function')).toBe(timing_function);
             expect(elem5.getCssValue('transition-timing-function')).toBe(timing_function);
@@ -87,34 +84,25 @@ describe('my app', function () {
         it('should display the correct text on mouse-over', function () {
 
             browser.get('#view1');
-
-            var ptor = protractor.getInstance();
             var github = element(by.css('.icon-github'));
             var facebook = element(by.css('.icon-facebook'));
             var twitter = element(by.css('.icon-twitter'));
             var hide_me = element(by.css('.fa-times-circle'));
 
             expect(github.getText()).not.toMatch('Github');
-            ptor.actions().
-                mouseMove(ptor.findElement(protractor.By.css('.icon-github'))).
-                perform();
+            browser.actions().mouseMove($('.icon-github')).perform();
 
             expect(facebook.getText()).not.toMatch('Facebook');
-            ptor.actions().
-                mouseMove(ptor.findElement(protractor.By.css('.icon-facebook'))).
-                perform();
+            browser.actions().mouseMove($('.icon-facebook')).perform();
+
             expect(facebook.getText()).toMatch('Facebook');
 
             expect(twitter.getText()).not.toMatch('Twitter');
-            ptor.actions().
-                mouseMove(ptor.findElement(protractor.By.css('.icon-twitter'))).
-                perform();
+            browser.actions().mouseMove($('.icon-twitter')).perform();
             expect(twitter.getText()).toMatch('Twitter');
 
             expect(hide_me.getText()).not.toMatch('Hide');
-            ptor.actions().
-                mouseMove(ptor.findElement(protractor.By.css('.fa-times-circle'))).
-                perform();
+            browser.actions().mouseMove($('.fa-times-circle')).perform();
             expect(hide_me.getText()).toMatch('Hide');
         });
     });

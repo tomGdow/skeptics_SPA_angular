@@ -172,31 +172,3 @@ h2#dribbbles,
 h3.dynamicProducts {
   display: inline-block
 }
-
-
-/*
-.bar2 {
-  background: red;
-
-  @include vendor-prefix-alt (display, flex);
-  @include vendor-prefix (flex-direction, row);
-  @include vendor-prefix (justify-content, space-between);
-  @include vendor-prefix (flex-wrap, wrap);
-  */
-/*display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  -webkit-justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;*//*
-
-  width: auto; //here
-  padding: 10px;
-  margin: 45px auto 25px;
-  margin-top: 0;
-  position: relative;
-  text-align: left;
-  line-height: 1;
-}*/

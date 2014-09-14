@@ -81,18 +81,23 @@
   -webkit-backface-visibility: hidden;
 }
 
-%image-hover-base {
-  @include vendor-prefix(transform, translate3d(10px, 10px, 10px));
-  @include vendor-prefix(backface-visibility, hidden);
-}
+#gordon-banks,
+#arthur-fields,
+#pele-image,
+#arthur-fields-young,
+#arthur-fields-marple,
+#arthur-fields-inaction,
+#arthur-fields-behan,
+#schillachi-italy {
 
-#pele-image:hover,
-#arthur-fields-young:hover,
-#arthur-fields-marple:hover,
-#arthur-fields-inaction:hover,
-#arthur-fields-behan:hover,
-#schillachi-italy:hover {
-  @extend %image-hover-base;
+  &:hover {
+
+    -webkit-transform: scale(2) translate3d(10px, 10px, 10px);
+    -ms-transform: scale(2) translate3d(10px, 10px, 10px);
+    -moz-transform: scale(2) translate3d(10px, 10px, 10px);
+    -o-transform: scale(2) translate3d(10px, 10px, 10px);
+    transform: scale(2) translate3d(10px, 10px, 10px);
+  }
 }
 
 .small-image-figure:hover > .small-images-caption {
@@ -109,39 +114,3 @@
   margin: 1.5em 0;
   max-width: 100%;
 }
-
-/*
-#gordon-banks:hover,
-#arthur-fields:hover,
-#pele-image:hover,
-#arthur-fields-young:hover,
-#arthur-fields-marple:hover,
-#arthur-fields-inaction:hover,
-#arthur-fields-behan:hover,
-#schillachi-italy:hover {
-  */
-/*-webkit-transform: scale(2) translate3d(10px, 10px, 10px);
-  -moz-transform: scale(2) translate3d(10px, 10px, 10px);
-  transform: scale(2) translate3d(10px, 10px, 10px);*//*
-
-
-  @include vendor-prefix(transform,translate3d(10px, 10px, 10px));
-  @include vendor-prefix(backface-visibility, hidden);
-  //-webkit-backface-visibility: hidden;
-
-}*/
-
-/*#gordon-banks:hover,
-#arthur-fields:hover,
-#pele-image:hover,
-#arthur-fields-young:hover,
-#arthur-fields-marple:hover,
-#arthur-fields-inaction:hover,
-#arthur-fields-behan:hover,
-#schillachi-italy:hover {
-
-  @include vendor-prefix(transform,translate3d(10px, 10px, 10px));
-  @include vendor-prefix(backface-visibility, hidden);
-  //-webkit-backface-visibility: hidden;
-
-}*/

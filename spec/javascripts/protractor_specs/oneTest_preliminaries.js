@@ -16,10 +16,9 @@ describe('my app', function () {
 
         it('should render view1 when user navigates to /#view1'
             , function () {
-                expect(element.all(by.css('[ng-view] h1')).first().getText()).
+                expect($$('[ng-view] h1').first().getText()).
                     toMatch(/Natural Skeptics/);
             });
-
     });
 
     describe('view2', function () {
@@ -33,7 +32,6 @@ describe('my app', function () {
                 expect(element.all(by.css('[ng-view] h2')).first().getText()).
                     toMatch(/Videos with Videogular/);
             });
-
     });
 
     describe('view3', function () {
@@ -50,7 +48,6 @@ describe('my app', function () {
     });
 
     describe('view8', function () {
-
         beforeEach(function () {
             browser.get('#view8');
         });
@@ -60,7 +57,6 @@ describe('my app', function () {
                 expect(element.all(by.css('[ng-view]  h1')).first().getText()).
                     toMatch(/Blog Page/);
             });
-
     });
 
     describe('view5', function () {
@@ -74,7 +70,6 @@ describe('my app', function () {
                 expect(element.all(by.css('[ng-view]  h2')).first().getText()).
                     toMatch(/Dynamic Searching/);
             });
-
     });
 
     describe('view6', function () {
@@ -183,12 +178,9 @@ describe('my app', function () {
             browser.get('#view1');
         });
 
-        it('should have the correct title', function() {
-
+        it('should have the correct title', function () {
             expect(browser.getTitle()).toBe('Skeptics with Angular');
 
         });
     });
-
-
 });
