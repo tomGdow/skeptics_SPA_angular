@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <table>
   <thead>
   <tr>
@@ -10,24 +9,57 @@
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td><%= image_tag(@commodity.image_url,
-                      title: 'Add to Cart') %></td>
-    <td><%= @commodity.description %></td>
-    <td><%= number_to_currency(@commodity.price, :unit => '&euro;') %></td>
-    <td> <%= @commodity.category %></td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Played in the FIFA World Cup in <%= @commodity.year %></td>
-    <td>World Cup Winner? <%= @commodity.winner %></td>
-    <td>Content Goes Here</td>
-  </tr>
-  <tr>
-    <td>Content Goes Here</td>
-    <td>Content Goes Here</td>
-    <td>Content Goes Here</td>
-  </tr>
+      <tr>
+        <td class ="table_flex">
+          <%= link_to image_tag(@commodity.image_url,
+                title: 'Add to Cart',
+                class: 'image_transition'),
+                line_items_path(:commodity_id => @commodity),
+                remote: true,
+                method: :post %>
+        </td>
+        <td colspan="2" class ="description"><%= @commodity.description %></td>
+
+        <td > <%= @commodity.category %></td>
+      </tr>
+      <tr>
+        <td class ="description table_flex">
+          <%= link_to number_to_currency(@commodity.price,
+                            precision: 0,
+                            :unit => '&euro;'),
+                        line_items_path(:commodity_id => @commodity),
+                        title: "Add to Cart",
+                        remote: true,
+                        method: :post %></td>
+        <td class ="description">
+          Played in the FIFA World Cup in <%= @commodity.year %>
+        </td>
+        <td>
+            <%= link_to 'Edit', edit_commodity_path(@commodity),
+                 remote: true,
+                 class:  "button secondary tiny 5 radius"%>
+        </td>
+        <td>
+            <%= link_to 'Destroy',
+                @commodity,
+                method: :delete,
+                remote: true,
+                data: {confirm: 'Are you sure?'},
+                class:  "button secondary tiny 5 radius" %>
+        </td>
+      </tr>
+      <tr>
+        <td class ="table_flex">
+            <%= button_to 'Add to Cart',
+                line_items_path(:commodity_id => @commodity),
+                remote: true,
+                :class => "button success tiny 5 radius " %>
+        </td>
+        <td>
+        </td>
+        <td class ="description price-description"></td>
+        <td></td>
+      </tr>
   </tbody>
 </table>
 

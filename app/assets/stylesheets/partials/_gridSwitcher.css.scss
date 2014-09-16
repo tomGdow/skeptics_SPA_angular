@@ -16,7 +16,7 @@
 
 //==bar2 is dynamic searching
 .bar2 {
-  background: red;
+  background: #fff;
   @include vendor-prefix-alt (display, flex);
   @include vendor-prefix (flex-direction, row);
   @include vendor-prefix (justify-content, space-between);

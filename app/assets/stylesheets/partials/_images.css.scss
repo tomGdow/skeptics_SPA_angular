@@ -114,3 +114,13 @@
   margin: 1.5em 0;
   max-width: 100%;
 }
+
+.image_transition{
+
+  position: relative;
+  @include vendor-prefix(transition, box-shadow 0.5s ease);
+
+  &:hover {text-decoration: none;
+    opacity: 1.0;
+    box-shadow: 10px 10px 5px $box-shadow;}
+}

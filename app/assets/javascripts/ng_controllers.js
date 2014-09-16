@@ -55,13 +55,6 @@ angular.module('myApp.controllers', [
     .controller('MyCtrlIndex', function($scope, $http, theTimeNowService, _) {
         //====INDEX PAGE CONTROLLER====
 
-      /*  $http.get('./skepticsCommodities.json').success(function(data, status) {
-            $scope.productList = data;
-            $scope.CommoditiesStatus = status;
-        });*/
-
-
-
 
         $scope.format_one       =       "h:mm:ss a";
         $scope.format_two       =       "fullDate";
@@ -874,12 +867,6 @@ angular.module('myApp.controllers', [
                 "customColorSet2"
             );
         }])
-    .controller('MyCtrl9',
-    function($scope) {
-        //====CONTROLLER FOR PARTIAL Nine====
-        //Dynamic Searching (duplicate)
-        $scope.viewNineMessage= "Dynamic Searching";
-    })
     .controller('MyCtrl10', ['$scope',
         function($scope) {
         //====CONTROLLER FOR Commodities/Edit ====
@@ -910,9 +897,4 @@ angular.module('myApp.controllers', [
         $scope.list = data.data;
         $scope.dribbbleStatus=data.status;
         });
-    }).controller('MyCtrl14',
-    function($scope) {
-        //====CONTROLLER FOR PARTIAL FOURTEEN====
-        //====
-        $scope.viewMessageFourteen ="Hello from partial 14";
     });

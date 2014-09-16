@@ -18,12 +18,15 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view6',  {templateUrl: 'commodities', controller: 'MyCtrl6'});
   $routeProvider.when('/view7',  {templateUrl: 'commodities/new.html', controller: 'MyCtrl7'});
   $routeProvider.when('/view8',  {templateUrl: 'home/partial8.html', controller: 'MyCtrl8'}); //Blog
-  $routeProvider.when('/view9',  {templateUrl: 'home/partial9.html', controller: 'MyCtrl9'});//dynamic searching
   $routeProvider.when('/view10', {templateUrl: 'commodities/edit/', controller: 'MyCtrl10'});
   $routeProvider.when('/view11', {templateUrl: 'your_cart', controller: 'MyCtrl11'});
   $routeProvider.when('/view12', {templateUrl: 'home/partial12.html', controller: 'MyCtrl12'});//Detailed Cart
   $routeProvider.when('/view13', {templateUrl: 'home/partial13.html', controller: 'MyCtrl13'});//Dribbble
-  $routeProvider.when('/view14', {templateUrl: 'home/partial14.html', controller: 'MyCtrl14'});//Dribbble
 
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
+
+
+
+//$routeProvider.when('/view9',  {templateUrl: 'home/partial9.html', controller: 'MyCtrl9'});//dynamic searching
+//$routeProvider.when('/view14', {templateUrl: 'home/partial14.html', controller: 'MyCtrl14'});//Dribbble

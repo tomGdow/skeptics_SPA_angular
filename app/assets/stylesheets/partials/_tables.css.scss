@@ -1,0 +1,30 @@
+td.description {
+  margin-top: 2rem;
+  padding-top: em(16px);
+  line-spacing: em(12px);
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: normal;
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+  text-rendering: optimizelegibility;
+  &:hover{background: $skeptics-background;
+  }
+}
+
+div.description{
+  @extend td.description;
+  margin: em(10px) 0;
+  padding-top: em(1px);
+  &:hover{
+    background: darken($skeptics-background, 3%);
+  }
+}
+
+span.description {
+  @extend div.description;
+}
+
+.table_flex {
+  @include myflex($justify-content: center);
+}

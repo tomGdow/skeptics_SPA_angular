@@ -87,7 +87,8 @@ h1 {
 .col-partial2,
 .col-partial3,
 .col-partial4,
-.col-partial13 {
+.col-partial13,
+.col-partial10-alt {
   @extend %cols-base;
 }
 
@@ -97,6 +98,35 @@ h1 {
         col-partial4,
         col-partial13);
 
+.col-partial10-alt {
+  margin-left: em(50px);
+  margin-right: em(100px);
+  background: $skeptics-background;
+  width: 90%;
+  h1 {
+    padding-top: em(16px);
+    margin-left: em(16px);}
+  input {
+    margin-left: em(50px);
+    width: 60%;
+  }
+  textarea {
+    margin-bottom: em(16px);
+    margin-left: em(50px);
+    width:60%;
+    line-spacing: em(12px);
+    font-size: 0.9rem;
+    font-weight: normal;
+    line-height: 1.4;
+  }
+
+  label {margin-top: em(8px);
+    margin-left: em(50px);
+  }
+}//edit
+.col-partial7 {
+  @extend .col-partial10-alt;
+}
 .col-partial4-b {
   -webkit-flex: 3;
   -webkit-order: 1;

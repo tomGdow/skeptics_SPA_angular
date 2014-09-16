@@ -30,6 +30,7 @@ SkepticsSpaAngular::Application.routes.draw do
   get "carts/cart"
   get "carts/cartSmall"
   get "layouts/hiddenDivs"
+  #get "commodities/showPartial"
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/your_cart1' => "carts#your_cart", :as => "your_cart1"

@@ -4,8 +4,9 @@ html {
   height: 100%;
   font-size: 100%;
   overflow-y: scroll;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+  @include vendor-prefix(text-size-adjust, 100%)
+  /*-webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;*/
 }
 
 body {
@@ -121,14 +122,14 @@ li {
 
 //==what are these
 
-iframe.noScrolling {
+/*iframe.noScrolling {
   background: red;
   ovrflow: hidden;
 }
 
 dt a {
   display: inline-block;
-}
+}*/
 
 //==== Media ====
 @media screen and (max-width: 999px) {
@@ -228,4 +229,7 @@ dt a {
   width: 70%;
   height: 350px;
 }
+
+
+
 

@@ -17,18 +17,19 @@
 
 .check-element {
   margin: 1em 2em;
-  width: 77%;
+  width: 95%;
   padding: 1em;
   background: $skeptics-background;
   border-radius: 5px;
 }
 
 .moreProductInfo {
-  background: none;
   @include myflex($justify-content: space-around);
+  background: none;
   width: auto;
   padding: 0px;
-  margin-top: 20px;
+  margin-top: em(20px);
+  margin-bottom: em(20px);
   position: relative;
   text-align: left;
   line-height: 1;
@@ -43,11 +44,27 @@
   color: #000;
 }
 
-.tgdflex {
+.flex_alt {
   background: none;
   @include vendor-prefix-alt(display, flex);
   @include vendor-prefix(flex-direction, row);
   @include vendor-prefix(justify-content, flex-start);
   @include vendor-prefix(flex-wrap, wrap);
+}
+
+.flex-span {
+  padding-left: em(100px);
+}
+
+.flex-span-title {
+  @extend .flex-span;
+  padding-top: em(16px);
+  font-family: $font-family-helvetica;
+  font-size: 1.2rem;
+}
+
+.flex-span-checkbox {
+  @extend .flex-span;
+  padding-top: em(16px);
 }
 

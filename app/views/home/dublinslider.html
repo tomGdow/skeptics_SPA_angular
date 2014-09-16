@@ -8,12 +8,9 @@
                 <h5>{{_Index +1}}. &nbsp;<span ng-bind="photo.longdesc"></span></h5>
             </div>
         </div>
-
         <div>&nbsp;</div>
-
         <div class="container slider"
             ng-mouseleave="mouseLeaveDubSlider()">
-
             <!-- enumerate all photos -->
             <ul class = "dubList">
                 <li>
@@ -45,7 +42,6 @@
                      </a>
                 </li>
             </ul>
-
             <!--navigation controls slideshow-->
             <ul class="nav" ng-mouseover="mouseOverSliderNav()">
                 <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}">
