@@ -3,15 +3,7 @@
 /* Services */
 
 angular.module('myApp.services', []).
-    value('version', '0.1').factory('myService', function () {
-
-        return {
-            foo: function () {
-                alert("I'm a foo!");
-            }
-        };
-
-    }).factory('imgService', function () {
+    value('version', '0.1').factory('imgService', function () {
         return {
             imgBanks: {
                 "imageSource": "001_banks.jpg",
@@ -283,5 +275,53 @@ angular.module('myApp.services', []).
             "url": 'http://api.dribbble.com/shots/popular?callback=JSON_CALLBACK'
         }
 
+    }).factory('googleService', function () {
+        return {
+
+                "addressOne": "College Green, Dublin, Ireland"
+/*                    "addressTwo": "Lord Edward Street, Dublin, Ireland",
+                    "addressThree": "Parliament Street, Dublin, Ireland",
+                    "addressFour": "O'Connell Street Lower, Dublin, Ireland",
+                    "addressFive": "Dawson Street, Dublin, Ireland"*/
+
+        };
+
+    }).factory('functionsService', function () {
+        return {
+
+            addClassById: function ($class, $id) {
+
+                if (document.getElementById($id)) {
+                    document.getElementById($id).className = $class;
+
+                }
+            },
+
+            addClassOnMouseOver: function ($class, $id, $id2a,$id2b) {
+
+                if (document.getElementById($id)) {
+                    //document.getElementById($id2).className = $class;
+
+                    document.getElementById($id).onmouseover = function () {
+                        document.getElementById($id2a).className = $class;
+                        document.getElementById($id2b).className = $class;
+                    }
+
+                }
+            },
+            addClassOnMouseOut: function ($class, $id, $id2a, $id2b) {
+
+                if (document.getElementById($id)) {
+                    //document.getElementById($id2).className = $class;
+
+                    document.getElementById($id).onmouseout = function () {
+                        document.getElementById($id2a).className = $class;
+                        document.getElementById($id2b).className = $class;
+                    }
+
+                }
+            }
+
+        };
     });
 

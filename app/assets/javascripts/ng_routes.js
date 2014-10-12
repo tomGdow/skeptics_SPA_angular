@@ -22,11 +22,9 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view11', {templateUrl: 'your_cart', controller: 'MyCtrl11'});
   $routeProvider.when('/view12', {templateUrl: 'home/partial12.html', controller: 'MyCtrl12'});//Detailed Cart
   $routeProvider.when('/view13', {templateUrl: 'home/partial13.html', controller: 'MyCtrl13'});//Dribbble
+ $routeProvider.when('/view14', {templateUrl: 'home/partial14.html', controller: 'MyCtrl14'});//User Data
+
 
   $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
 
-
-
-//$routeProvider.when('/view9',  {templateUrl: 'home/partial9.html', controller: 'MyCtrl9'});//dynamic searching
-//$routeProvider.when('/view14', {templateUrl: 'home/partial14.html', controller: 'MyCtrl14'});//Dribbble

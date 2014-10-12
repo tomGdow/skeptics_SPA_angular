@@ -1,13 +1,22 @@
 $("#notice").hide();
-
-
-
 $('.cart').html("<%=j render @cart %>");
-
-
-
-/*$('#noCart').css('display', 'none');*/
-
 $('#current_item')
-        .css({'background-color': 'aqua'})
+        .css({'background-color': '#ffe4b3'}) //used to be #FFA500
         .animate({'background-color': '#F9F9F9'}, 1000);
+
+$('#fa-shopping-cart')
+        .css({'background-color': '#ffe4b3'}) //used to be #FFA500
+        .animate({'background-color': '#F9F9F9'}, 1000);
+
+$('.cartClass')
+        .css({'background-color': '#ffe4b3'})
+        .animate({'background-color': '#F9F9F9'}, 1000);
+
+
+function changeStyle ()  {
+
+    document.getElementById("cartPartial_title").style.color = "#0078A0";
+    document.getElementById("totalPrice_cartPartial").style.color = "#0078A0";
+}
+
+changeStyle();

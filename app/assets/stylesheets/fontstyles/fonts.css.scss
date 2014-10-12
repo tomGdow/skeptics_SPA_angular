@@ -13,15 +13,13 @@
   font-style: normal;
 }
 
-//icomoon fonts2
-
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts2/icomoon.eot?6a1x8p');
-  src: url('fonts2/icomoon.eot?#iefix6a1x8p') format('embedded-opentype'),
-  url('fonts2/icomoon.woff?6a1x8p') format('woff'),
-  url('fonts2/icomoon.ttf?6a1x8p') format('truetype'),
-  url('fonts2/icomoon.svg?6a1x8p#icomoon') format('svg');
+  src:url('fonts/icomoon.eot?-zbaz39');
+  src:url('fonts/icomoon.eot?#iefix-zbaz39') format('embedded-opentype'),
+  url('fonts/icomoon.woff?-zbaz39') format('woff'),
+  url('fonts/icomoon.ttf?-zbaz39') format('truetype'),
+  url('fonts/icomoon.svg?-zbaz39#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -40,34 +38,38 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cart2:before {
-  content: "\e601";
-}
-
-.icon-credit:before {
-  content: "\e602";
-}
-
-.icon-users:before {
-  content: "\e607";
-}
-
-.icon-googleplus:before {
+.icon-cart:before {
   content: "\e600";
   font-size: 2em;
 }
-
+.icon-users:before {
+  content: "\e605";
+  font-size: 1em;
+}
+.icon-remove:before {
+  content: "\e610";
+  font-size: 1.3em;
+}
+.icon-googleplus:before {
+  content: "\e601";
+  font-size: 2em;
+}
 .icon-facebook:before {
-  content: "\e608";
+  content: "\e602";
   font-size: 2em;
 }
 
 .icon-twitter:before {
-  content: "\e604";
+  content: "\e603";
   font-size: 2em;
 }
 
 .icon-github:before {
-  content: "\e603";
+  content: "\e604";
   font-size: 2em;
 }
+
+
+
+
+

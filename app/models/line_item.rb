@@ -23,7 +23,7 @@ class LineItem < ActiveRecord::Base
   ##Dowstore.priceMarkup functionality comes from priceMarkup gem
 
   def sales_price
-    Dowstore.priceMarkup(commodity.price,0.45,2)
+    Dowstore.priceMarkup(commodity.price,0,2)
   end
 
 end

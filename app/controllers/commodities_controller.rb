@@ -5,16 +5,11 @@ class CommoditiesController < ApplicationController
   require 'writeJSON'
 
   def index
-    #@commodities = Commodity.all
-
-    @commodities = Commodity.paginate(:per_page => 5,
-                                      :page => params[:page],
-                                      :order => "created_at DESC")
-    .search(params[:search_query], params[:search])
-
+    @commodities = Commodity.all
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
       format.json { render json: @commodities }
     end
   end

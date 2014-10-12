@@ -83,10 +83,20 @@ $justify-content: space-between) {
   }
 }
 
+@mixin addHideRemoveAlt2($prop, $members...) {
+  @each $member in $members {
+    .#{unquote($member)}.ng-hide-add.ng-hide-add-active,
+    .#{unquote($member)}.ng-hide-remove.ng-hide-remove-active {
+      @include vendor-prefix(transition, $prop)
+    }
+  }
+}
+
 @mixin navGradient($color1, $percent1, $color2, $color3, $percent3, $members...) {
+  $navGrad: linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3));
   @each $member in $members {
     nav.#{unquote($member)} .#{unquote($member)} {
-      @include vendor-prefix-alt(background, linear-gradient(left, $color1 percentage($percent1), $color2, $color3 percentage($percent3)));
+      @include vendor-prefix-alt(background, $navGrad);
     }
   }
 }

@@ -94,10 +94,17 @@ dd.little_cart {
 }
 
 dd.little_cart .fa-shopping-cart {
-  color: $skeptics-blue;
+  //color: $skeptics-blue;
   size: 3em;
+
+  &:hover {color: $skeptics-orange;}
 }
 
-dd.little_cart .fa-shopping-cart:hover {
-  color: $skeptics-orange;
+dd.little_cart .icon-users{
+ // color: $skeptics-blue;
+}
+
+dd.little_cart .icon-users{
+  color: $skeptics-blue;
+  &:hover {color: $skeptics-orange;}
 }

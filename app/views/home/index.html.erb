@@ -79,9 +79,9 @@
     <div class="row" id="productsnav">
       <div class="small-12 columns">
         <dl class="sub-nav">
-          <dd><a href="#view6">Products</a></dd>
-          <dd><a href="#view7">Add Product</a></dd>
           <dd><a href="#view5">Dynamic Searching</a></dd>
+          <dd><a href="#view7">New Product</a></dd>
+          <dd><a href="#view6">Products Search</a></dd>
         </dl>
       </div>
     </div>
@@ -89,9 +89,12 @@
     <div class="row">
       <div id = "ngView" class="small-12" ng-view></div> <!--ng-view-->
     </div>
+    <div class ="cartPartial" id = "cartP" my-draggable>
+      <div class="cart" id="mycart"></div><!--cart -->
+    </div>
     <div  ng-include="'/home/footer.html'" ng-cloak></div><!--footer-->
-    <div class="cart" ></div><!--cart -->
     <%= javascript_include_tag "application" %>
+
 </body>
 </html>
 

@@ -31,9 +31,7 @@
             Sort By
           </dd>
       </dl>
-      <div class = "cartwrapper"><!--flexitem 3-->
-            <div class="cart"  ></div>
-      </div>
+
   </div><!-- end Flexbox -->
   <div class ="clearfix"><!--grid vs column layout -->
 
@@ -52,7 +50,7 @@
     <!--column-->
         <ul ng-show="layout == 'list2'" class="list2 clearfix" >
               <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
-                <span class="flex_alt">
+                <span id ="bejasus" class="flex_alt">
                      <span class ="flex-span-checkbox">
                        <input  type="checkbox" ng-model="checked" title = "More&hellip;">
                      </span>
@@ -77,12 +75,14 @@
                     </div> <!--end flexbox-more-one-->
 
                     <div class="moreProductInfo"> <!--flexbox-more-two-->
-                        <a class="button success tiny 5 radius "
+                        <a class="icon-cart shopping"
                            rel="nofollow"
+                           title ="Add to Cart"
+                           ng-mouseover="cartMouseOver()"
+                           ng-mouseleave="cartMouseLeave()"
                            data-remote="true"
                            data-method="post"
                            href="/line_items?commodity_id={{product.id}}">
-                          Add to Cart
                         </a><!--flexitem 1-->
                         <a href="/commodities/{{product.id}}"
                            class="button  tiny 5 radius"

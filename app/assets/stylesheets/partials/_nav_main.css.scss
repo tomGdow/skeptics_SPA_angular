@@ -27,7 +27,6 @@ nav.mainNav a {
         green,
         $skeptics-blue, 0.6,
         home, viewtwo, viewthree, viewfour, viewfive, vieweight);
-//break here to check e2e tests
 
 @include addNavHover(home, viewtwo, viewthree, viewfour, viewfive);
 @include addNavFocus(home, viewtwo, viewthree, viewfour, viewfive);

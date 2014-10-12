@@ -9,6 +9,7 @@ angular.module('myApp.directives', []).
         };
     }]).directive('myCurrentTime', ['$interval', 'dateFilter',
         function ($interval, dateFilter) {
+            //see https://docs.angularjs.org/guide/directive#creating-a-directive-that-manipulates-the-dom
 
             function link(scope, element, attrs) {
 
@@ -31,7 +32,7 @@ angular.module('myApp.directives', []).
                     $interval.cancel(timeoutId);
                 });
 
-                //Start the UI update proces; save the timeoutId for cancelling
+                //Start the UI update process; save the timeoutId for cancelling
 
                 timeoutId = $interval(function () {
                     updateTime();//update DOM
@@ -57,6 +58,7 @@ angular.module('myApp.directives', []).
             }
         };
     }).directive('myDraggable', ['$document', function ($document) {
+        //see https://docs.angularjs.org/guide/directive#creating-a-directive-that-adds-event-listeners
 
         return function (scope, element, attr) {
             var startX = 0, startY = 0, x = 0, y = 0;
@@ -97,7 +99,8 @@ angular.module('myApp.directives', []).
             restrict: 'EA',
             scope: { code: '=' },
             replace: true,
-            template: '<div style="height:400px;"><iframe style="overflow:hidden;height:100%;width:50%" width="420" height="315" src="{{url}}" frameborder="0" allowfullscreen></iframe></div>',
+            template: '<div style="height:400px;">' +
+                '<iframe style="overflow:hidden;height:100%;width:50%" width="420" height="315" src="{{url}}" frameborder="0" allowfullscreen></iframe></div>',
             link: function (scope) {
                 console.log('here');
                 scope.$watch('code', function (newVal) {
@@ -120,8 +123,12 @@ angular.module('myApp.directives', []).
                         .data(data).enter()
                         .append("div")
                         .transition().ease("elastic")
-                        .style("width", function(d) { return d + "%"; })
-                        .text(function(d) { return d + "%"; });
+                        .style("width", function (d) {
+                            return d + "%";
+                        })
+                        .text(function (d) {
+                            return d + "%";
+                        });
             }
         };
     }).directive('bars2', function ($parse) {
@@ -137,8 +144,12 @@ angular.module('myApp.directives', []).
                         .data(data2).enter()
                         .append("div")
                         .transition().ease("elastic")
-                        .style("width", function(d) { return d + "%"; })
-                        .text(function(d) { return d + "%"; });
+                        .style("width", function (d) {
+                            return d + "%";
+                        })
+                        .text(function (d) {
+                            return d + "%";
+                        });
             }
         };
     }).directive('bars3', function ($parse) {
@@ -154,57 +165,93 @@ angular.module('myApp.directives', []).
                         .data(data3).enter()
                         .append("div")
                         .transition().ease("elastic")
-                        .style("width", function(d) { return d + "%"; })
-                        .text(function(d) { return d + "%"; });
+                        .style("width", function (d) {
+                            return d + "%";
+                        })
+                        .text(function (d) {
+                            return d + "%";
+                        });
             }
         };
-    }).directive('googlePlaces',function(){
+    }).directive('googlePlaces', function () {
         return {
-            restrict:'E',
-            replace:true,
+            restrict: 'E',
+            replace: true,
             // transclude:true,
-            scope: {location:'='},
+            scope: {location: '='},
             template: '<input id="google_places_ac" name="google_places_ac" type="text" class="input-block-level"/>',
-            link: function($scope, elm, attrs){
+            link: function ($scope, elm, attrs) {
                 var autocomplete = new google.maps.places.Autocomplete($("#google_places_ac")[0], {});
-                google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                google.maps.event.addListener(autocomplete, 'place_changed', function () {
                     var place = autocomplete.getPlace();
                     $scope.location = place.geometry.location.lat() + ',' + place.geometry.location.lng();
                     $scope.$apply();
                 });
             }
         }
-    }).directive('ipsum', function() {
+    }).directive('ipsum', function () {
+
         return {
+            scope: {},
             restrict: 'E',
-            scope: { obj: '=' },
-            template: '<p>' +
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit'+
-            'Praesent id mollis neque. Phasellus rutrum iaculis ante,'+
-            'id tincidunt tellus pulvinar vitae. Maecenas sodales mollis nisi sit amet congue.' +
-            '</p>'
-        };
-    }).directive('ipsumlong', function() {
+            template: '<p title ="Click Me">' +
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit' +
+                'Praesent id mollis neque. Phasellus rutrum iaculis ante,' +
+                'id tincidunt tellus pulvinar vitae. Maecenas sodales mollis nisi sit amet congue.' +
+                '</p>',
+            link: function (scope, element, attrs) {
+                element.bind('click', function (e) {
+                    element.toggleClass('ipsum');
+                });
+            }
+        }
+
+    }).directive('ipsumlong', function () {
+
         return {
+            scope: {},
             restrict: 'E',
-            scope: { obj: '=' },
-            template: '<p>' +
-            'Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,'+
-            'vitae lobortis ipsum nibh sed dolor. Vestibulum'+
-            'sodales pulvinar risus vel fermentum.'+
-            'Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci'+
-            'non ipsum vestibulum non eleifend.'+
-             '</p>'
-        };
-    }).directive('ipsumshort', function() {
+            template: '<p title ="Click Me">' +
+                'Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,' +
+                'vitae lobortis ipsum nibh sed dolor. Vestibulum' +
+                'sodales pulvinar risus vel fermentum.' +
+                'Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci' +
+                'non ipsum vestibulum non eleifend.' +
+                '</p>',
+            link: function (scope, element, attrs) {
+                element.bind('click', function (e) {
+                    element.toggleClass('ipsumLong');
+                });
+            }
+        }
+
+    }).directive('ipsumshort', function () {
+
         return {
+            scope: {},
             restrict: 'E',
-            scope: { obj: '=' },
-            template: '<p>' +
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'+
-            'Lorem ipsum dolor sit amet'+
-             '</p>'
-        };
+            template: '<p title ="Click Me">' +
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' +
+                'Lorem ipsum dolor sit amet' +
+                '</p>',
+            link: function (scope, element, attrs) {
+                element.bind('click', function (e) {
+                    element.toggleClass('ipsumShort');
+                });
+            }
+        }
+
+    }).directive('skTitle', function () {
+
+        return {
+            scope: true,
+            restrict: 'C',
+            link: function (scope, element, attrs) {
+                scope.skepticsTitle = attrs.first
+            },
+            replace: true,
+            template: "<h2>{{skepticsTitle}}</h2>"
+        }
     });
 
 

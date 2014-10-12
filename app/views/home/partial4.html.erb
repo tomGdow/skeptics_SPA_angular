@@ -68,6 +68,9 @@
     reprehenderit tempora veniam.
   </p>
 
+  <!--Tab Views modified from  http://jsfiddle.net/doktormolle/aAeZw/
+See also http://techslides.com/angular-js-demos-examples-and-resources/ -->
+
     <div class="tabs" ng-class="{vishidden :toggleOnTab==false}">
         <div ng-click="selected = 'first'"
             ng-class="{'selected': selected == 'first'}"
@@ -87,8 +90,6 @@
         </div>
     </div>
 
-  <!--Tab Views modified from  http://jsfiddle.net/doktormolle/aAeZw/
-  See also http://techslides.com/angular-js-demos-examples-and-resources/ -->
 
   <div ng-show="selected == 'first'" class="tab_content">
       <p class = "tabscaption" id="tabs_caption_one"
@@ -181,15 +182,18 @@
     </div><!--end tabs-->
 
     <div class=" col-partial4" ng-class="{vishidden :toggleOnTab==false}">
-        <h2>Column C</h2>
+      <h2 class ='skTitle' data-first ="Column C"></h2>
         <ipsumlong></ipsumlong>
         <ipsum></ipsum>
         <ipsumlong></ipsumlong>
-      <div id="chartContainer"></div>
+      <div id="chartContainer"></div>   <!--Live Random Data CanvasJS Chart-->
         <ipsumlong></ipsumlong>
     </div>
 
   <div class ="httpStatus2 {{GoogleMapsStatus}}" ng-show="false" ></div>
+  <div>{{addressAlt}}</div>
+  <div>{{GoogleMapsStatus}}</div>
+
 
 </div>
 <!--Sixties Dublin (partial 4)-->

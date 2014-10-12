@@ -68,12 +68,12 @@ footer li {
   margin-left: initial;
 }
 
-.footerList {
+/*.footerList {
   @include myflex();
   margin: 25px auto;
   padding: 20px;
   width: 70%;
   @include vendor-prefix-alt(background,
           my_radial_gradient($position: bottom left));
-}
+}*/
 

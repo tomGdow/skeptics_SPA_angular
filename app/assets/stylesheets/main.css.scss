@@ -5,8 +5,6 @@ html {
   font-size: 100%;
   overflow-y: scroll;
   @include vendor-prefix(text-size-adjust, 100%)
-  /*-webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;*/
 }
 
 body {
@@ -49,6 +47,10 @@ li {
   list-style-type: none;
 }
 
+.centerText {
+  text-align: center;
+}
+
 //== webkit, opera, IE9
 ::selection {
   background: lightblue;
@@ -81,12 +83,6 @@ li {
         small-images-caption,
         vgControlsTwo);
 
-//==== nav-bar (products)====
-
-#productsnav {
-  display: none;
-}
-
 //==== flexslider ====
 
 #curie-slider {
@@ -101,8 +97,6 @@ li {
   max-width: 50%;
   margin: 2em;
 }
-
-//Careful
 
 .flexFigCaption {
 
@@ -120,16 +114,11 @@ li {
   color: white;
 }
 
-//==what are these
+//==== nav-bar (products)====
 
-/*iframe.noScrolling {
-  background: red;
-  ovrflow: hidden;
-}
-
-dt a {
+#productsnav {
   display: inline-block;
-}*/
+}
 
 //==== Media ====
 @media screen and (max-width: 999px) {
@@ -141,95 +130,35 @@ dt a {
 }
 
 //=== Experimental === ==================================================
-//eg  ...
-/*
-.intro-text{
-  height:auto;
-  -webkit-transition: height 200ms ease-out;
-  -moz-transition: height 200ms ease-out;
-  -o-transition: height 200ms ease-out;
-  transition: height 200ms ease-out;
-}
-.intro-text.hide{
-  height:0;
-}
-*/
-
-/*#tom {
- height: 100px;
- width: 100px;
- background-color: rgba(255, 0, 0, 0.5);
- background-image: url('bg.jpg')
-}*/
-
-#productsnav {
-  display: inline-block;
-}
-
-//What is this?  Careful?
-
-/*
-.controls {
-  margin-top: 16px;
-  border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-#pac-input {
-  background-color: #fff;
-  padding: 0 11px 0 13px;
-  width: 400px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  text-overflow: ellipsis;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-  margin-left: -1px;
-  padding-left: 14px;  */
-/* Regular padding-left + 1. *//*
-
-  width: 401px;
-}
-
-.pac-container {
-  font-family: Roboto;
-}
-
-#type-selector {
-  color: #fff;
-  background-color: #4d90fe;
-  padding: 5px 11px 0px 11px;
-}
-
-#type-selector label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}
-
- #target {
-   width: 345px;
- }
-*/
-
-.fixed {
-  position: fixed !important;
-}
-
-#chartContainer {
-  margin: 2em 3em;
-  width: 70%;
-  height: 350px;
-}
 
 
 
+//.blue {color: blue;}
+//.red {color: red;}
+//.green {color: green;}
+//.yellow {color: yellow;}
+//
+//.underline {text-decoration: underline;}
 
+//.btnNewsletter {display: inline;}
+
+input.ng-invalid.ng-dirty.ng-invalid-email   {border: 2px solid red;
+background: lighten(gray, 40%);}
+
+.newsLetterErr{color: red;}
+/*.newsLetterMessage{font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 22.4px;
+  color:  lighten(gray, 10%);}*/
+
+.vizz {opacity: 0;}
+
+#newsletterMessage  {margin-bottom: em(12px);}
+
+//form {background:green;}
+
+//#frm {display:inline-block;
+//background:red;}
+
+
+#bejasus {background-color:red;}

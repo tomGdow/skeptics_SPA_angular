@@ -13,91 +13,137 @@ angular.module('myApp.controllers', [
     "com.2fdevs.videogular.plugins.overlayplay",
     "com.2fdevs.videogular.plugins.poster"])
 
-    .run(function($rootScope) {
-        $rootScope.toggleShowPara=true;
-        $rootScope.toggleCaption=true;
-        $rootScope.toggleShowPara2=true;
-        $rootScope.toggleCaption2=true;
-        $rootScope.toggleShowPara3=true;
-        $rootScope.toggleCaption3=true;
+    .run(function ($rootScope) {
+        $rootScope.toggleShowPara = true;
+        $rootScope.toggleCaption = true;
+        $rootScope.toggleShowPara2 = true;
+        $rootScope.toggleCaption2 = true;
+        $rootScope.toggleShowPara3 = true;
+        $rootScope.toggleCaption3 = true;
         $rootScope.mouseOverLeave = function (arg1, arg2) {
             //home page: arg2=1
-            if(arg1 == false && arg2 ==1) {
-                $rootScope.toggleShowPara =false;
-                $rootScope.toggleCaption= false;
+            if (arg1 == false && arg2 == 1) {
+                $rootScope.toggleShowPara = false;
+                $rootScope.toggleCaption = false;
             }
-            if(arg1 == true && arg2 ==1) {
-                $rootScope.toggleShowPara =true;
-                $rootScope.toggleCaption =true;
+            if (arg1 == true && arg2 == 1) {
+                $rootScope.toggleShowPara = true;
+                $rootScope.toggleCaption = true;
             }
             //partial8: arg2=2
-            if(arg1 == false && arg2 ==2) {
-                $rootScope.toggleShowPara2 =false;
-                $rootScope.toggleCaption2= false;
+            if (arg1 == false && arg2 == 2) {
+                $rootScope.toggleShowPara2 = false;
+                $rootScope.toggleCaption2 = false;
             }
-            if(arg1 == true && arg2 ==2) {
-                $rootScope.toggleShowPara2 =true;
-                $rootScope.toggleCaption2 =true;
+            if (arg1 == true && arg2 == 2) {
+                $rootScope.toggleShowPara2 = true;
+                $rootScope.toggleCaption2 = true;
             }
             //partial4: arg2=3
-            if(arg1 == false && arg2 ==3) {
-                $rootScope.toggleShowPara3 =false;
-                $rootScope.toggleCaption3= false;
+            if (arg1 == false && arg2 == 3) {
+                $rootScope.toggleShowPara3 = false;
+                $rootScope.toggleCaption3 = false;
             }
-            if(arg1 == true && arg2 ==3) {
-                $rootScope.toggleShowPara3 =true;
-                $rootScope.toggleCaption3 =true;
+            if (arg1 == true && arg2 == 3) {
+                $rootScope.toggleShowPara3 = true;
+                $rootScope.toggleCaption3 = true;
             }
         };
-        //$rootScope.littleCart =true;
+        $rootScope.littleCart = true;  //littleCart is the cart-icon on time nav-bar
 
     })
-    .controller('MyCtrlIndex', function($scope, $http, theTimeNowService, _) {
+    .controller('MyCtrlIndex', function ($scope, $http, theTimeNowService, _, $location, $rootScope) {
         //====INDEX PAGE CONTROLLER====
 
-
-        $scope.format_one       =       "h:mm:ss a";
-        $scope.format_two       =       "fullDate";
-        $scope.setMyClass       =       'dynamic-clock_one';
-        $scope.setMyClass2      =       'dynamic-date_one';
-        $scope.timezones_model  =       false;
-        $scope.footerModel      =       true;
-        $scope.toggleLocation   =       true;
-        $scope.cfConvModel      =       false;
-        $scope.longlat          =       false;
-        $scope.toggleLatLongCaption =   false;
-        $scope.textdate =               theTimeNowService.url;
+        $rootScope.littleCart = true;
+        $scope.format_one = "h:mm:ss a";
+        $scope.format_two = "fullDate";
+        $scope.setMyClass = 'dynamic-clock_one';
+        $scope.setMyClass2 = 'dynamic-date_one';
+        $scope.timezones_model = false;
+        $scope.footerModel = true;
+        $scope.toggleLocation = true;
+        $scope.cfConvModel = false;
+        $scope.longlat = false;
+        $scope.toggleLatLongCaption = false;
+        $scope.textdate = theTimeNowService.url;
 
         //====NavBar
-        $scope.$watch('$viewContentLoaded', function(){
-            $scope.active='home';
-        });
-        $scope.toggleProductsNav=false;
-        $scope.navclick = function(arg) {
-            $scope.littleCart=true;
-            $scope.active = arg;
-            if(arg =='viewfive') {
-                return $scope.toggleProductsNav=true;
+
+        var curremt_location = $location.path();
+
+        var viewOnePattern = new RegExp("view1");
+        var viewEightPattern = new RegExp("view8");
+        var viewTwoPattern = new RegExp("view2");
+        var viewThreePattern = new RegExp("view3");
+        var viewFourPattern = new RegExp("view4");
+        var viewFivePattern = new RegExp("view5");
+
+
+        function activeNav() {
+
+            function activeHelper(arg) {
+               return arg.test(curremt_location);
             }
-            $scope.toggleProductsNav=false;
+
+            switch (true) {
+                case activeHelper(viewOnePattern):
+                    $scope.active = 'home';
+                    break;
+                case activeHelper(viewEightPattern):
+                    $scope.active = 'vieweight';
+                    break;
+                case activeHelper(viewTwoPattern):
+                    $scope.active = 'viewtwo';
+                    break;
+                case activeHelper(viewThreePattern):
+                    $scope.active = 'viewthree';
+                    break;
+                case activeHelper(viewFourPattern):
+                    $scope.active = 'viewfour';
+                    break;
+                case activeHelper(viewFivePattern):
+                    $scope.active = 'viewfive';
+                    break;
+                default:
+                    $scope.active = 'home';
+            }
+        }
+
+        activeNav();
+
+
+        /*$scope.$watch('$viewContentLoaded', function(){
+         $scope.active='home';
+         });*/
+
+        $scope.toggleProductsNav = true;
+        $scope.navclick = function (arg) {
+            $rootScope.littleCart = true;
+            $scope.active = arg;
+            if (arg == 'viewfive') {
+                return $scope.toggleProductsNav = true;
+            }
+
+            $scope.toggleProductsNav = false;
         };
         //====Time and Date
         //clock
         $scope.clockMouseOver = function () {
             this.clock_image_model = true;
             this.format_one = "h:mm:ss a";
-            if(this.setMyClass === 'dynamic-clock_three') {
+            if (this.setMyClass === 'dynamic-clock_three') {
                 this.setMyClass = 'dynamic-clock_four';
             }
             else {
-                this.setMyClass= 'dynamic-clock_one';
-                this.current_time_model=true;
+                this.setMyClass = 'dynamic-clock_one';
+                this.current_time_model = true;
             }
         };
-        $scope.clockMouseLeave = function ()  {
+        $scope.clockMouseLeave = function () {
             this.clock_image_model = false;
-            if(this.setMyClass === 'dynamic-clock_three') {
-                this.current_time_model=true;
+            if (this.setMyClass === 'dynamic-clock_three') {
+                this.current_time_model = true;
                 this.format_one = "h:mm a";
             }
             else if (this.setMyClass === 'dynamic-clock_four') {
@@ -105,38 +151,38 @@ angular.module('myApp.controllers', [
                 this.format_one = "h:mm a";
             }
             else {
-                this.current_time_model=false;
+                this.current_time_model = false;
             }
         };
         $scope.clockOnClick = function () {
-            if(this.setMyClass === 'dynamic-clock_three'|| this.setMyClass === 'dynamic-clock_four') {
-                this.setMyClass= 'dynamic-clock-hidden';
+            if (this.setMyClass === 'dynamic-clock_three' || this.setMyClass === 'dynamic-clock_four') {
+                this.setMyClass = 'dynamic-clock-hidden';
             }
             else {
                 this.format_one = "h:mm a";
                 this.setMyClass = 'dynamic-clock_three';
-                this.current_time_model=true;
+                this.current_time_model = true;
             }
         };
-        $scope.timeViewOnClick = function ()  {
-            this.setMyClass='dynamic-clock-hidden';
+        $scope.timeViewOnClick = function () {
+            this.setMyClass = 'dynamic-clock-hidden';
         };
-        $scope.gmtMouseOver = function (){
-            $scope.showtime =true;
-            $scope.toggleLocation=false;
+        $scope.gmtMouseOver = function () {
+            $scope.showtime = true;
+            $scope.toggleLocation = false;
             this.current_time_model = true;
             this.setMyClass += ' dynamic-clock_four';
             this.format_one = "h:mm:ss a";
 
-            if(this.setMyClass === 'dynamic-clock-hidden dynamic-clock_four') {
+            if (this.setMyClass === 'dynamic-clock-hidden dynamic-clock_four') {
                 this.setMyClass = ' dynamic-clock_three';
                 this.setMyClass += ' dynamic-clock_four'
             }
         };
-        $scope.gmtMouseLeave = function (){
-            $scope.showtime =false;
-            $scope.toggleLocation=true;
-            if(this.setMyClass === 'dynamic-clock_three' || this.setMyClass === 'dynamic-clock_three dynamic-clock_four') {
+        $scope.gmtMouseLeave = function () {
+            $scope.showtime = false;
+            $scope.toggleLocation = true;
+            if (this.setMyClass === 'dynamic-clock_three' || this.setMyClass === 'dynamic-clock_three dynamic-clock_four') {
                 this.setMyClass = 'dynamic-clock_three';
                 this.format_one = "h:mm a";
             }
@@ -144,13 +190,13 @@ angular.module('myApp.controllers', [
                 this.current_time_model = false;
             }
         };
-        $scope.timeViewMouseOver = function ()  {
-            if (this.setMyClass === 'dynamic-clock_four'){
+        $scope.timeViewMouseOver = function () {
+            if (this.setMyClass === 'dynamic-clock_four') {
                 this.setMyClass = 'dynamic-clock-hidden';
             }
             else {
                 this.format_one = "h:mm:ss a";
-                this.setMyClass= 'dynamic-clock_four';
+                this.setMyClass = 'dynamic-clock_four';
                 this.setMyClass += ' dynamic-clock-underline_color'
             }
         };
@@ -163,19 +209,19 @@ angular.module('myApp.controllers', [
         //date
         $scope.dateMouseOver = function () {
             this.date_image_model = true;
-            this.format_two =  'fullDate';
-            if(this.setMyClass2 === 'dynamic-date_three') {
+            this.format_two = 'fullDate';
+            if (this.setMyClass2 === 'dynamic-date_three') {
                 this.setMyClass2 = 'dynamic-date_four';
             }
             else {
-                this.setMyClass2= 'dynamic-date_one';
-                this.current_date_model=true;
+                this.setMyClass2 = 'dynamic-date_one';
+                this.current_date_model = true;
             }
         };
-        $scope.dateMouseLeave = function ()  {
-            this.date_image_model =false;
-            if(this.setMyClass2 === 'dynamic-date_three') {
-                this.current_date_model=true;
+        $scope.dateMouseLeave = function () {
+            this.date_image_model = false;
+            if (this.setMyClass2 === 'dynamic-date_three') {
+                this.current_date_model = true;
                 this.format_two = 'longDate';
             }
             else if (this.setMyClass2 === 'dynamic-date_four') {
@@ -183,29 +229,29 @@ angular.module('myApp.controllers', [
                 this.format_two = 'longDate';
             }
             else {
-                this.current_date_model=false;
+                this.current_date_model = false;
             }
         };
         $scope.dateOnClick = function () {
-            if(this.setMyClass2 === 'dynamic-date_three'|| this.setMyClass2 === 'dynamic-date_four') {
-                this.setMyClass2= 'dynamic-date-hidden';
+            if (this.setMyClass2 === 'dynamic-date_three' || this.setMyClass2 === 'dynamic-date_four') {
+                this.setMyClass2 = 'dynamic-date-hidden';
             }
             else {
                 this.format_two = 'longDate';
-                this.setMyClass2= 'dynamic-date_three';
-                this.current_date_model=true;
+                this.setMyClass2 = 'dynamic-date_three';
+                this.current_date_model = true;
             }
         };
-        $scope.dateViewOnClick = function ()  {
-            this.setMyClass2='dynamic-date-hidden';
+        $scope.dateViewOnClick = function () {
+            this.setMyClass2 = 'dynamic-date-hidden';
         };
-        $scope.dateViewMouseOver = function ()  {
-            if (this.setMyClass2 === 'dynamic-date_four'){
+        $scope.dateViewMouseOver = function () {
+            if (this.setMyClass2 === 'dynamic-date_four') {
                 this.setMyClass2 = 'dynamic-date-hidden';
             }
             else {
                 this.format_two = 'fullDate';
-                this.setMyClass2= 'dynamic-date_four';
+                this.setMyClass2 = 'dynamic-date_four';
                 this.setMyClass2 += ' dynamic-clock-underline_color'
             }
         };
@@ -216,7 +262,7 @@ angular.module('myApp.controllers', [
             }
         };
         //====Footer
-        $scope.toggleClassModel ="toggleOn";
+        $scope.toggleClassModel = "toggleOn";
         $scope.footerMouseOver = function () {
             if (this.toggleClassModel === 'toggleOn') {
                 this.footerModel = true;
@@ -224,12 +270,12 @@ angular.module('myApp.controllers', [
                 return false;
             }
         };
-        $scope.footerOnClick= function () {
+        $scope.footerOnClick = function () {
             if (this.toggleClassModel === 'toggleOff') {
                 this.footerModel = false;
             }
         };
-        $scope.footerMouseAway= function () {
+        $scope.footerMouseAway = function () {
             this.toggleClassModel = 'toggleOn';
         };
         //====Fahrenheit to Celsius
@@ -238,17 +284,16 @@ angular.module('myApp.controllers', [
         // http://plnkr.co/edit/0n0golhEzU7dokMOkHN6?p=preview
         // http://stackoverflow.com/a/17626761
         $scope.edited = null;
-        $scope.markEdited = function(which) {
+        $scope.markEdited = function (which) {
             $scope.edited = which;
         };
-        $scope.$watch('fahrenheit', function(value) {
-            if($scope.edited == 'F') {
-                //console.log(value+'C -> F');
-                $scope.celsius = (value - 32) * 5.0/9.0;
+        $scope.$watch('fahrenheit', function (value) {
+            if ($scope.edited == 'F') {
+                $scope.celsius = (value - 32) * 5.0 / 9.0;
             }
         });
-        $scope.$watch('celsius', function(value) {
-            if($scope.edited == 'C') {
+        $scope.$watch('celsius', function (value) {
+            if ($scope.edited == 'C') {
                 $scope.fahrenheit = value * 9.0 / 5.0 + 32;
             }
         });
@@ -262,19 +307,21 @@ angular.module('myApp.controllers', [
         //==== Latitude and Longitude
         //modified from; http://jsfiddle.net/mrajcok/pEq6X/
         //see also http://techslides.com/angular-js-demos-examples-and-resources/
+        //(Location Search with Angular JS and Google)
+
 
         $scope.location = '';
-        $scope.showToggleButton=false;
-        $scope.doSearch = function(){
-            if($scope.location === ''){
+        $scope.showToggleButton = false;
+        $scope.doSearch = function () {
+            if ($scope.location === '') {
                 alert('Directive did not update the location property in parent controller.');
             } else {
-                var mylocation  = $scope.location;
+                var mylocation = $scope.location;
                 $scope.mylatitude = mylocation.split(',')[0];
                 $scope.mylongitude = mylocation.split(',')[1];
-                $scope.toggleLatLongCaption=true;
-                $scope.showToggleButton=true;
-                $scope.minimizeExpand=false;
+                $scope.toggleLatLongCaption = true;
+                $scope.showToggleButton = true;
+                $scope.minimizeExpand = false;
             }
         };
         $scope.toggleLatLong = function () {
@@ -284,46 +331,52 @@ angular.module('myApp.controllers', [
             return  $scope.longlat = true;
         };
         $scope.toggleView = function () {
-            if($scope.toggleLatLongCaption)  {
-                this.minimizeExpand=true;
-                return this.toggleLatLongCaption=false;
+            if ($scope.toggleLatLongCaption) {
+                this.minimizeExpand = true;
+                return this.toggleLatLongCaption = false;
             }
-            if($scope.toggleLatLongCaption==false)  {
-                this.minimizeExpand=false;
-                return   this.toggleLatLongCaption=true;
+            if ($scope.toggleLatLongCaption == false) {
+                this.minimizeExpand = false;
+                return   this.toggleLatLongCaption = true;
             }
         };
         $scope.onFocus = function () {
-            this.showToggleButton=false;
-            this.toggleLatLongCaption=false;
+            this.showToggleButton = false;
+            this.toggleLatLongCaption = false;
         };
-        $scope.littleCart=true;
-        $scope.littleCartFn = function () {
 
-            $scope.littleCart = false;
-        }
+        /*        $scope.tom = $location.path();
+         var patt = new RegExp("view1");
+
+         $scope.tomg = patt.test($scope.tom);*/
+
+        /*$scope.littleCartFn = function () {
+
+         $rootScope.littleCart = false;
+         };*/
 
     })
-    .controller('MyCtrl1', function($scope, $http,chartsService, imgService, flexsliderService) {
+    .controller('MyCtrl1', function ($scope, $http, chartsService, imgService, flexsliderService, functionsService) {
         //====CONTROLLER FOR PARTIAL ONE ====
+
         $scope.viewOneMessage = "Natural Skeptics";
-        $scope.mydraggable  =   "true";
+        $scope.mydraggable = "true";
         //====Flexslider
         //modified from: https://github.com/thenikso/angular-flexslider
         $scope.slides = flexsliderService.flexdata;
-        $scope.slideShowQ       =   false;
-        $scope.slideShowSpeed   =   5000;
-        $scope.animationSpeed   =   1000;
-        $scope.pauseOnHover     =   "true";
-        $scope.pauseOnAction    =   "true";
-        $scope.pauseText        =   "";
-        $scope.playText         =   "";
-        $scope.controlNav       =   "true";
-        $scope.animationLoop    =   "true";
-        $scope.prevText         =   "";
-        $scope.nextText         =   "";
-        $scope.pausePlay        =   "true";
-        $scope.directionNav     =   "true";
+        $scope.slideShowQ = false;
+        $scope.slideShowSpeed = 5000;
+        $scope.animationSpeed = 1000;
+        $scope.pauseOnHover = "true";
+        $scope.pauseOnAction = "true";
+        $scope.pauseText = "";
+        $scope.playText = "";
+        $scope.controlNav = "true";
+        $scope.animationLoop = "true";
+        $scope.prevText = "";
+        $scope.nextText = "";
+        $scope.pausePlay = "true";
+        $scope.directionNav = "true";
         $scope.before = function () {
             $scope.myVar = "flexBeforeClass";
         };
@@ -333,6 +386,7 @@ angular.module('myApp.controllers', [
         //====Chart (d3js)
         //modified from http://codepen.io/danielemoraschi/pen/qFmol
         //see also http://techslides.com/angular-js-demos-examples-and-resources/
+        //(Bar Chart Example with Angular.js and D3.js)
 
         $scope.renderYear = (chartsService.dataYears)[0];
         $scope.mydata = (chartsService.dataOne).toString();
@@ -343,7 +397,7 @@ angular.module('myApp.controllers', [
             this.data1model = true;
             this.data2model = false;
             this.data3model = false;
-            $scope.renderYear =  (chartsService.dataYears)[0];
+            $scope.renderYear = (chartsService.dataYears)[0];
         };
         $scope.toggleDataTwo = function () {
             this.data2model = true;
@@ -359,21 +413,32 @@ angular.module('myApp.controllers', [
             $scope.renderYear = $scope.renderYear = (chartsService.dataYears)[2];
         };
         //==== Image Transition
-        $scope.imageSource  =   imgService.imgBanks.imageSource;
-        $scope.imageAltDesc =   imgService.imgBanks.imageAltDesc;
-        $scope.captionText  =   imgService.imgBanks.captionText;
-        $scope.imageId      =   imgService.imgBanks.imageId;
+        $scope.imageSource = imgService.imgBanks.imageSource;
+        $scope.imageAltDesc = imgService.imgBanks.imageAltDesc;
+        $scope.captionText = imgService.imgBanks.captionText;
+        $scope.imageId = imgService.imgBanks.imageId;
+
+        //=== Control Display of Cart (_carts partial)
+
+        functionsService.addClassById("displayTrue", 'myPartialCart');
+        functionsService.addClassById("class1", 'totalPrice_cartPartial');
+        functionsService.addClassById("class1", 'detailedCartIcon');
+        functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+        functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+
 
 
     })
-    .controller('MyCtrl2', function($scope, videoService, $sce) {
+    .controller('MyCtrl2', function ($scope, videoService, $sce, functionsService) {
         //====CONTROLLER FOR PARTIAL TWO====
         //==== Videogular ====
+
+        //see  http://videogular.com/
 
         $scope.viewTwoMessage = "Videos with Videogular";
 
         $scope.showLargeSmall = function (arg) {
-            if(arg===1) {
+            if (arg === 1) {
                 if ($scope.vgToggle == true) {
                     $scope.config.width = 720;
                     $scope.config.height = 360;
@@ -390,7 +455,7 @@ angular.module('myApp.controllers', [
                 $scope.setVgClass = true;
                 return   this.vgToggle = true;
             }
-            if(arg===2) {
+            if (arg === 2) {
                 if ($scope.vgToggle2 == true) {
                     $scope.config2.width = 720;
                     $scope.config2.height = 360;
@@ -408,23 +473,23 @@ angular.module('myApp.controllers', [
                 return   this.vgToggle2 = true;
             }
         };
-        $scope.onFullScreen = function (arg){
-            if(arg ==1) {
+        $scope.onFullScreen = function (arg) {
+            if (arg == 1) {
                 $scope.setVgClass = false;
                 $scope.vgFalse = "vg-video-three";
             }
-            if(arg==2) {
+            if (arg == 2) {
                 $scope.setVgClass2 = false;
                 $scope.vgFalse2 = "vg-video-three";
             }
         };
         $scope.style = function (arg) {
-            if(arg ===1) {
+            if (arg === 1) {
                 return {
                     'height': $scope.config.height + 'px'
                 };
             }
-            if(arg ==2)  {
+            if (arg == 2) {
                 return {
                     'height': $scope.config2.height + 'px'
                 };
@@ -436,17 +501,17 @@ angular.module('myApp.controllers', [
             {label: "Fill", value: "fill"}
         ];
         //====Ocean View Video
-        $scope.vgToggle=true;
-        $scope.makeVideoSmall= false;
-        $scope.makeVideoLarge=true;
-        $scope.setVgClass=true;
+        $scope.vgToggle = true;
+        $scope.makeVideoSmall = false;
+        $scope.makeVideoLarge = true;
+        $scope.setVgClass = true;
         $scope.vgFalse = "vg-video-two";
-        $scope.setVgControls2Class= true;
+        $scope.setVgControls2Class = true;
         $scope.vgMouseOver = function () {
-            $scope.setVgControlsTwoClass=false;
+            $scope.setVgControlsTwoClass = false;
         };
         $scope.vgMouseLeave = function () {
-            $scope.setVgControlsTwoClass=true;
+            $scope.setVgControlsTwoClass = true;
         };
         $scope.config = {
             width: 444,
@@ -479,18 +544,18 @@ angular.module('myApp.controllers', [
             }
         };
         $scope.vgMouseOver2 = function () {
-            $scope.setVgControlsTwoClass2=false;
+            $scope.setVgControlsTwoClass2 = false;
         };
         $scope.vgMouseLeave2 = function () {
-            $scope.setVgControlsTwoClass2=true;
+            $scope.setVgControlsTwoClass2 = true;
         };
         //=== EarthAsDot video
-        $scope.vgToggle2=false;
-        $scope.makeVideoSmall2= true;
-        $scope.makeVideoLarge2=false;
-        $scope.setVgClass2=false;
+        $scope.vgToggle2 = false;
+        $scope.makeVideoSmall2 = true;
+        $scope.makeVideoLarge2 = false;
+        $scope.setVgClass2 = false;
         $scope.vgFalse2 = "vg-video-two";
-        $scope.setVgControlsTwoClass2= true;
+        $scope.setVgControlsTwoClass2 = true;
         $scope.config2 = {
             width: 720,
             height: 360,
@@ -521,27 +586,41 @@ angular.module('myApp.controllers', [
                 }
             }
         };//End Videogular
+
+        //=== Control Display of Cart (_carts partial)
+
+        functionsService.addClassById("displayTrue", 'myPartialCart');
+        functionsService.addClassById("class1", 'totalPrice_cartPartial');
+        functionsService.addClassById("class1", 'detailedCartIcon');
+        functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+        functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+
     })
-    .controller('MyCtrl3', function($scope,  $http, instagram) {
+    .controller('MyCtrl3', function ($scope, $http, instagram, functionsService) {
         //====CONTROLLER FOR PARTIAL THREE====
         $scope.viewThreeMessage = "Instagram";
+
         //===Instagram Feeds
         //Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
         //See also http://techslides.com/angular-js-demos-examples-and-resources/
         $scope.layout = 'grid';
         $scope.pics = [];
-        instagram.fetchPopular(function(data){
+        instagram.fetchPopular(function (data) {
             $scope.pics = data;
-            $scope.instagramArrayLength= function () {
+            $scope.instagramArrayLength = function () {
 
-                if (_.size(data)>0){
+                if (_.size(data) > 0) {
                     return true
                 }
                 return false;
             };
         });
+
+        //=== Control Display of Cart (_carts partial)
+
+        functionsService.addClassById("displayNone", 'myPartialCart');
     })
-    .controller('MyCtrl4',  function($scope, $http, imgService, dublinSliderService) {
+    .controller('MyCtrl4', function ($scope, $http, imgService, dublinSliderService, functionsService,googleService) {
         //====CONTROLLER FOR PARTIAL FOUR====
         //(Sixties Dublin)
 
@@ -550,9 +629,9 @@ angular.module('myApp.controllers', [
         // Called here dublinslider
         // Modified from:  http://www.script-tutorials.com/photo-gallery-with-angularjs-and-css3/
         // See also: http://www.script-tutorials.com/demos/366/index.html#
-        $scope.photos= dublinSliderService.dublinSliderData;
-        $scope.showHideCaptions=false;
-        $scope.showHideArrows=false;
+        $scope.photos = dublinSliderService.dublinSliderData;
+        $scope.showHideCaptions = false;
+        $scope.showHideArrows = false;
         $scope._Index = 0;
         $scope.isActive = function (index) {
             return $scope._Index === index;
@@ -570,34 +649,36 @@ angular.module('myApp.controllers', [
             $scope._Index = index;
         };
         $scope.mouseOverDubImg = function () {
-            $scope.showHideCaptions=true;
-            $scope.showHideArrows=true;
-            $scope.togglebuttonlist=true;//show the button
+            $scope.showHideCaptions = true;
+            $scope.showHideArrows = true;
+            $scope.togglebuttonlist = true;//show the button
         };
         $scope.mouseLeaveDubSlider = function () {
-            $scope.showHideCaptions=false;
-            $scope.showHideArrows=false;
+            $scope.showHideCaptions = false;
+            $scope.showHideArrows = false;
         };
-        $scope.mouseOverSliderNav = function(){
-            $scope.showHideArrows=false;
-            $scope.showHideCaptions=true;
-            $scope.togglebuttonlist=true;//show the button
+        $scope.mouseOverSliderNav = function () {
+            $scope.showHideArrows = false;
+            $scope.showHideCaptions = true;
+            $scope.togglebuttonlist = true;//show the button
         };
         //====Google Maps
-        $http.get('googleMaps.json').success(function(data, status) {
+        $http.get('googleMaps.json').success(function (data, status) {
             $scope.googleAddress = data;
             $scope.GoogleMapsStatus = status
         });
 
-        $scope.toggleslideshow=true;
-        $scope.togglegmap=false;
-        $scope.toggleslideshowButton=true;
-        $scope.togglegmapButton=false;
-        $scope.togglebuttonlist=false;
-        var address = "College Green, Dublin, Ireland";
+        $scope.toggleslideshow = true;
+        $scope.togglegmap = false;
+        $scope.toggleslideshowButton = true;
+        $scope.togglegmapButton = false;
+        $scope.togglebuttonlist = false;
+       // var address = "College Green, Dublin, Ireland";
+        var address = googleService.addressOne;
+
         function FindLocation(address) {
             // Modified from original code written by John Fitzpatrick (M.Sc, NCI)
-            var  geocoder = new google.maps.Geocoder();
+            var geocoder = new google.maps.Geocoder();
             InitializeMap();
             geocoder.geocode({ 'address': address }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
@@ -613,78 +694,86 @@ angular.module('myApp.controllers', [
             });
         }
 
-        $scope.updateGoogle = function(id) {
-            switch(id){
-                case 0: address = $scope.googleAddress[0].addressOne;
+        $scope.updateGoogle = function (id) {
+            switch (id) {
+                case 0:
+                    address = $scope.googleAddress[0].addressOne;
                     break;
-                case 1: address = $scope.googleAddress[0].addressTwo;
+                case 1:
+                    address = $scope.googleAddress[0].addressTwo;
                     break;
-                case 2: address = $scope.googleAddress[0].addressThree;
+                case 2:
+                    address = $scope.googleAddress[0].addressThree;
                     break;
-                case 3: address = $scope.googleAddress[0].addressFour;
+                case 3:
+                    address = $scope.googleAddress[0].addressFour;
                     break;
-                case 4: address = $scope.googleAddress[0].addressFive;
+                case 4:
+                    address = $scope.googleAddress[0].addressFive;
                     break;
             }
             FindLocation(address);
         };
         $scope.toggleSliderGmap = function () {
-            $scope.toggleslideshow=false;
-            $scope.togglegmap=true;
-            $scope.toggleslideshowButton=false;
-            $scope.togglegmapButton=true;
+            $scope.toggleslideshow = false;
+            $scope.togglegmap = true;
+            $scope.toggleslideshowButton = false;
+            $scope.togglegmapButton = true;
             $scope.updateGoogle($scope._Index);
         };
 
         $scope.toggleSliderGmap2 = function () {
-            $scope.toggleslideshow=true;
-            $scope.togglegmap=false;
-            $scope.toggleslideshowButton=true;
-            $scope.togglegmapButton=false;
+            $scope.toggleslideshow = true;
+            $scope.togglegmap = false;
+            $scope.toggleslideshowButton = true;
+            $scope.togglegmapButton = false;
             $scope.updateGoogle($scope._index);
         };
-        $scope.mouseOverGoogleMap =function () {
-            $scope.togglebuttonlist=true;//show the button
+        $scope.mouseOverGoogleMap = function () {
+            $scope.togglebuttonlist = true;//show the button
         };
-        $scope.mapAndSlide =function() {
-            $scope.togglebuttonlist=false;
+        $scope.mapAndSlide = function () {
+            $scope.togglebuttonlist = false;
         };
         //====tab view
         //modified from:http://jsfiddle.net/doktormolle/aAeZw/
         //see also: http://techslides.com/angular-js-demos-examples-and-resources/
+        //(Tabs with AngularJS)
         $scope.selected = 'first';
-        $scope.toggleOnTabc =true;
-        $scope.tabbedImgMouseover= function ( ) {
-            $scope.toggleOnTab=false;
+        $scope.toggleOnTabc = true;
+        $scope.tabbedImgMouseover = function () {
+            $scope.toggleOnTab = false;
         };
         $scope.tabbedImgMouseleave = function () {
-            $scope.toggleOnTab=true;
+            $scope.toggleOnTab = true;
         };
         //===Small Images
-        $scope.imageSource3  =   imgService.imgSchillachi.imageSource;
-        $scope.imageAltDesc3 =   imgService.imgSchillachi.imageAltDesc;
-        $scope.captionText3  =   imgService.imgSchillachi.captionText;
-        $scope.imageId3      =   imgService.imgSchillachi.imageId;
+        $scope.imageSource3 = imgService.imgSchillachi.imageSource;
+        $scope.imageAltDesc3 = imgService.imgSchillachi.imageAltDesc;
+        $scope.captionText3 = imgService.imgSchillachi.captionText;
+        $scope.imageId3 = imgService.imgSchillachi.imageId;
 
         //====CanvasJS Live Random Data Chart
         //Modified from: http://canvasjs.com/editor/?id=http://canvasjs.com/example/gallery/dynamic/realtime_line/
         $scope.theme = "theme2";
         var dps = []; // dataPoints
-        var chart = new CanvasJS.Chart("chartContainer",{
+        var chart = new CanvasJS.Chart("chartContainer", {
             theme: $scope.theme,
             backgroundColor: "#eee",
-            title :{
+            title: {
                 text: "Live Random Data",
                 fontColor: "#000",
                 fontSize: 30,
                 fontFamily: 'arial',
                 padding: 0
             },
-            data: [{
-                type: "line",
-                dataPoints: dps,
-                color: "green"
-            }]
+            data: [
+                {
+                    type: "line",
+                    dataPoints: dps,
+                    color: "green"
+                }
+            ]
         });
         var xVal = 0;
         var yVal = 100;
@@ -694,92 +783,127 @@ angular.module('myApp.controllers', [
             count = count || 1;
             // count is number of times loop runs to generate random dataPoints.
             for (var j = 0; j < count; j++) {
-                yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+                yVal = yVal + Math.round(5 + Math.random() * (-5 - 5));
                 dps.push({
                     x: xVal,
                     y: yVal
                 });
                 xVal++;
             }
-            if (dps.length > dataLength)
-            {
+            if (dps.length > dataLength) {
                 dps.shift();
             }
             chart.render();
         };
         updateChart(dataLength);
-        setInterval(function(){updateChart()}, updateInterval);
+        setInterval(function () {
+            updateChart()
+        }, updateInterval);
 
+        //=== Control Display of Cart (_carts partial)
+
+        functionsService.addClassById("displayTrue", 'myPartialCart');
+        functionsService.addClassById("class1", 'totalPrice_cartPartial');
+        functionsService.addClassById("class1", 'detailedCartIcon');
+        functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+        functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
 
     })
-    .controller('MyCtrl5', function($scope, $http) {
+    .controller('MyCtrl5', function ($scope, $http, functionsService) {
         //====CONTROLLER FOR PARTIAL FIVE ====
 
         //Products Display page
         //Dynamic Searching
-        $scope.toggleProductsNav=true;
-        $scope.viewFiveMessage= "Dynamic Searching";
+        $scope.toggleProductsNav = true;
+        $scope.viewFiveMessage = "Dynamic Searching";
 
         $scope.layout = 'grid2';
         $scope.message = "Dynamic Search";
         $http.get('./skepticsCommodities.json').success(
-            function(data, status) {
+            function (data, status) {
                 $scope.productList = data;
                 $scope.CommoditiesStatus = status
             }
         );
         $scope.orderProp = 'name';
-        $scope.alpha="Alphabetical";
-        $scope.lowestPrice="Lowest Price";
-        $scope.highestPrice="Highest Price";
-        $scope.productCategory="Category";
-        $scope.productCreated_at="Created At";
-        $scope.productUpdatedAt="Updated At";
-        $scope.productid="Id";
+        $scope.alpha = "Alphabetical";
+        $scope.lowestPrice = "Lowest Price";
+        $scope.highestPrice = "Highest Price";
+        $scope.productCategory = "Category";
+        $scope.productCreated_at = "Created At";
+        $scope.productUpdatedAt = "Updated At";
+        $scope.productid = "Id";
         //$scope.orderPropAlt = 'email';
-        $scope.myFirstName = function(string) {
+        $scope.myFirstName = function (string) {
             return  string.split(' ')[0]
         };
-        $scope.checked =false;
+        $scope.checked = false;
 
-        $scope.myFirstName = function(string) {
+        $scope.myFirstName = function (string) {
             var mystring = string.split(' ');
-            if(mystring.length > 1) {
+            if (mystring.length > 1) {
                 return  mystring[0]
             }
             return string;
-       };
-        $scope.myLastName = function(string) {
+        };
+        $scope.myLastName = function (string) {
             var mystring = string.split(' ');
             if (mystring.length > 1) {
                 return  mystring[1]
             }
             return string;
         };
-            $scope.moreAboutProductOnClick= function () {
-            this.checked =false;
+        $scope.moreAboutProductOnClick = function () {
+            this.checked = false;
         };
-        /*$http.get('carts/_cart').success(
-            function(data3, status) {
-                $scope.yourCart3 = data3;
-                alert('$scope.statuss');
-                $scope.statuss = status;
 
-            });*/
+
+        //=== Control Display of Cart (_carts partial)
+
+        functionsService.addClassById("displayTrue", 'myPartialCart');
+
     })
-    .controller('MyCtrl6', ['$scope', function($scope) {
+    .controller('MyCtrl6', ['$scope', function ($scope) {
         //====CONTROLLER FOR Commodities ====
-        $scope.viewSixMessage="Listing commodities";
+
+        $scope.orderProp = 'name';
+        $scope.alpha = "Alphabetical";
+        $scope.lowestPrice = "Lowest Price";
+        $scope.highestPrice = "Highest Price";
+        $scope.productCategory = "Category";
+        $scope.productCreated_at = "Created At";
+        $scope.productUpdatedAt = "Updated At";
+        $scope.productid = "Id";
+
+        $scope.viewSixMessage = "Search Commodities";
+         $scope.checktom=false;
+        $scope.tomfn=function ($scope) {
+
+         this.checktom=true;
+        };
+
+        $scope.init = function(commodities) {
+            $scope.commodities = angular.fromJson(commodities)
+        };
+            $scope.addCartClass= false;
+        $scope.cartMouseOver  = function(){
+            this.addCartClass= true;
+        };
+        $scope.cartMouseLeave  = function(){
+            this.addCartClass= false;
+
+        }
+
     }])
-    .controller('MyCtrl7', ['$scope', function($scope) {
+    .controller('MyCtrl7', ['$scope', function ($scope) {
         //====CONTROLLER FOR Commodities/new ====
         $scope.viewSevenMessage = 'New Commodity';
     }])
-    .controller('MyCtrl8', ['$scope', 'myService','imgService','$http','allIrelandDataService',
-        function($scope, myService, imgService,$http,allIrelandDataService) {
+    .controller('MyCtrl8', ['$scope', 'imgService', '$http', 'allIrelandDataService', 'functionsService',
+        function ($scope, imgService, $http, allIrelandDataService, functionsService) {
             //====CONTROLLER FOR PARTIAL EIGHT====
             //(Blog Menu Item)
-            $scope.viewEightMessage="Blog Page";
+            $scope.viewEightMessage = "Blog Page";
 
             //==tab View
             //modified from:http://jsfiddle.net/doktormolle/aAeZw/
@@ -787,30 +911,31 @@ angular.module('myApp.controllers', [
             $scope.selected = 'first';
             //====Flip picture 180 degrees ====
             $scope.pictureFlipper = false;
-            $scope.toggleFlipLegend=true;
-            $scope.toggleFlipLegendWrapper="true";
+            $scope.toggleFlipLegend = true;
+            $scope.toggleFlipLegendWrapper = "true";
             $scope.obj = {
                 "nameone": "James Watson",
+
                 "nametwo": "Marie Curie"};
             $scope.flipPicture = function () {
                 if (this.pictureFlipper) {
-                    this.toggleFlipLegend=true;
+                    this.toggleFlipLegend = true;
                     return  this.pictureFlipper = false;
                 }
-                this.toggleFlipLegend=false;
+                this.toggleFlipLegend = false;
                 return  this.pictureFlipper = true;
             };
             $scope.flipPictMouseover = function () {
-                this.toggleFlipLegendWrapper=false;
+                this.toggleFlipLegendWrapper = false;
             };
             $scope.flipPictMouseleave = function () {
-                this.toggleFlipLegendWrapper=true;
+                this.toggleFlipLegendWrapper = true;
             };
             //====Small Image Transitions ====
-            $scope.imageSource2  =   imgService.imgPele.imageSource;
-            $scope.imageAltDesc2 =   imgService.imgPele.imageAltDesc;
-            $scope.captionText2  =   imgService.imgPele.captionText;
-            $scope.imageId2      =   imgService.imgPele.imageId;
+            $scope.imageSource2 = imgService.imgPele.imageSource;
+            $scope.imageAltDesc2 = imgService.imgPele.imageAltDesc;
+            $scope.captionText2 = imgService.imgPele.captionText;
+            $scope.imageId2 = imgService.imgPele.imageId;
 
             //====CanvasJS Doughnut Chart
             //Modified from: http://canvasjs.com/html5-javascript-doughnut-chart/
@@ -818,23 +943,23 @@ angular.module('myApp.controllers', [
             var gaaColor = allIrelandDataService.countycolours;
             CanvasJS.addColorSet('customColorSet1',
                 [
-                    gaaColor.kerry,gaaColor.dublin,gaaColor.galway,gaaColor.cork,
-                    gaaColor.meath,gaaColor.cavan,gaaColor.wexford,gaaColor.downUlster,
-                    gaaColor.kildare,gaaColor.tipperary,gaaColor.mayo,gaaColor.offaly,
-                    gaaColor.louth,gaaColor.tyrone,gaaColor.others
+                    gaaColor.kerry, gaaColor.dublin, gaaColor.galway, gaaColor.cork,
+                    gaaColor.meath, gaaColor.cavan, gaaColor.wexford, gaaColor.downUlster,
+                    gaaColor.kildare, gaaColor.tipperary, gaaColor.mayo, gaaColor.offaly,
+                    gaaColor.louth, gaaColor.tyrone, gaaColor.others
                 ]);
             CanvasJS.addColorSet('customColorSet2',
                 [
-                    gaaColor.kilkenny,gaaColor.cork,gaaColor.tipperary,
-                    gaaColor.limerick,gaaColor.dublin,gaaColor.wexford,
-                    gaaColor.galway,gaaColor.offaly,gaaColor.clare,
-                    gaaColor.waterford,gaaColor.others
+                    gaaColor.kilkenny, gaaColor.cork, gaaColor.tipperary,
+                    gaaColor.limerick, gaaColor.dublin, gaaColor.wexford,
+                    gaaColor.galway, gaaColor.offaly, gaaColor.clare,
+                    gaaColor.waterford, gaaColor.others
                 ]);
 
             function AllIrelandWinners($id, $data, $text, $customColorSet) {
                 var chart = new CanvasJS.Chart($id, {
                     theme: "theme1",
-                    colorSet:  $customColorSet,
+                    colorSet: $customColorSet,
                     title: {
                         text: $text,
                         fontWeight: "bolder",
@@ -866,35 +991,119 @@ angular.module('myApp.controllers', [
                 "Hurling All Ireland Winners",
                 "customColorSet2"
             );
+
+            //=== Control Display of Cart (_carts partial)
+
+            functionsService.addClassById("displayTrue", 'myPartialCart');
+            functionsService.addClassById("class1", 'totalPrice_cartPartial');
+            functionsService.addClassById("class1", 'detailedCartIcon');
+            functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+            functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+
         }])
     .controller('MyCtrl10', ['$scope',
-        function($scope) {
-        //====CONTROLLER FOR Commodities/Edit ====
-            $scope.viewMessgeTen ="Editing commodity"
+        function ($scope) {
+            //====CONTROLLER FOR Commodities/Edit ====
+            $scope.viewMessgeTen = "Editing commodity"
         }])
     .controller('MyCtrl11', ['$scope',
-        function($scope) {
-         //====CONTROLLER FOR 'your_cart' ===
-         // carts/show
-          $scope.viewMessageEleven ="Description"
+        function ($scope) {
+            //====CONTROLLER FOR 'your_cart' ===
+            // carts/show
+            $scope.viewMessageEleven = "Description"
+
         }])
     .controller('MyCtrl12',
-    function($scope,$http) {
+    function ($scope, $http, $sce, functionsService, $location, $rootScope) {
         //====CONTROLLER FOR PARTIAL TWELVE====
         //====Detailed Cart
-        $scope.viewMessageTwelve ="Detailed Cart";
-        $http.get('your_cart').success(function(data2,status) {
+        //!!empty cart button won't render unless SCE method used
+        $scope.viewMessageTwelve = "Detailed Cart";
+        $rootScope.littleCart = false;
+        $http.get('your_cart').success(function (data2, status) {
             $scope.yourCart = data2;
-            $scope.yourCartStatus =status;
+            $scope.yourCartStatus = status;
+            $scope.trustedHtml = $sce.trustAsHtml($scope.yourCart);
         });
+
+
+        functionsService.addClassById("displayNone", 'myPartialCart');
+
+        /*function toggleLittelCart()
+         {  alert('hello');
+         var current_url =$location.path();
+         var pattern = new RegExp("view1");
+         var check = pattern.test(current_url);
+
+         if (check) {
+
+         alert('twelve');
+
+         return  $rootScope.littleCart = false;
+         }
+
+         $rootScope.littleCart =true;
+         }
+
+         toggleLittelCart();*/
+
+
     }).controller('MyCtrl13',
-    function($scope, $http, dribbleService) {
+    function ($scope, $http, dribbleService, functionsService) {
         //====CONTROLLER FOR PARTIAL THIRTEEN====
         //====Dribble
-        $scope.viewMessageThirteen ="Dribbble";
+        $scope.viewMessageThirteen = "Dribbble";
         $scope.layout = 'grid';
         $http.jsonp(dribbleService.url).then(function (data) {
-        $scope.list = data.data;
-        $scope.dribbbleStatus=data.status;
+            $scope.list = data.data;
+            $scope.dribbbleStatus = data.status;
         });
-    });
+
+        functionsService.addClassById("displayNone", 'myPartialCart');
+    }).controller('MyCtrl14',
+    function($scope, $http) {
+        //====CONTROLLER FOR PARTIAL FOURTEEN====
+        //====User Data
+        $scope.viewMessageFourteen = "Subscribe to Our Newsletter";
+        //JSON data obtained from filltext
+        var config = {
+            params: {
+             'rows': 50,
+             'fname': '{firstName}',
+             'lname': '{lastName}',
+             'tel': '{phone|format}',
+             'id': '{index}',
+             'email': '{email}',
+             'ip': '{ip}',
+             'callback': "JSON_CALLBACK"
+         }
+     };
+     $http.jsonp("http://www.filltext.com", config, {}).success(function (data) {
+         $scope.users = data;
+     });
+
+     $scope.errorMessage=true;
+     $scope.thankYouMessage = false;
+     $scope.userName = "";
+     $scope.email = 'hello';
+     $scope.submit = function() {
+         if ($scope.email) {
+             $scope.userEmail= this.email;
+             $scope.userName= this.email.split('@')[0];
+             $scope.email = '';
+             $scope.thankYouMessage= true;
+         }
+     };
+
+        $scope.onFocus = function () {
+
+            $scope.errorMessage = true;
+            $scope.thankYouMessage =false;
+        };
+
+        $scope.onBlur = function (){
+            $scope.errorMessage = false;
+        };
+
+
+ });

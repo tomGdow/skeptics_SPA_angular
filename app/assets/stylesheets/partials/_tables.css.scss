@@ -28,3 +28,24 @@ span.description {
 .table_flex {
   @include myflex($justify-content: center);
 }
+.tableColOne {width: em(150px);}
+.tableColTwo {width: em(150px);}
+
+.animate-show2 {
+  opacity: 1;
+}
+
+@include addHideRemoveAlt2(opacity linear 1s,animate-show2);
+
+.animate-show2.ng-hide {
+  opacity: 0;
+}
+
+.table_flex_commodities { margin: em(20px) em(100px);
+  @include myflex();}
+
+.searchBox {margin-bottom: em(20px);}
+
+.table_lge_wrapper {
+  @include myflex($justify-content: center);
+}

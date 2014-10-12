@@ -1,13 +1,7 @@
 //==== Dynamic Searching
 
-.animate-show {
-  line-height: 20px;
-  opacity: 1;
-  padding: 10px;
-  //border:1px solid black;
-}
-
-@include addHideRemoveAlt(animate-show);
+//@include addHideRemoveAlt(animate-show);
+@include addHideRemoveAlt2(all linear 0.5s,animate-show);
 
 .animate-show.ng-hide {
   line-height: 0;
@@ -68,3 +62,11 @@
   padding-top: em(16px);
 }
 
+
+
+/*.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  //border:1px solid black;
+}*/

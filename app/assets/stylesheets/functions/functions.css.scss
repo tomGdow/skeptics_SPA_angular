@@ -4,7 +4,8 @@
 }
 
 //em function modified from original code by Dale Sande of teamtreehouse.com
-//see:http://teamtreehouse.com/library/advanced-sass
+  //see:http://teamtreehouse.com/library/advanced-sass
+
 @function em ($target, $context: $font-size) {
   @return ($target/$context)  * 1em;
 

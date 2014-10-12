@@ -91,12 +91,8 @@
 #schillachi-italy {
 
   &:hover {
+    @include vendor-prefix(transform, scale(2) translate3d(10px, 10px, 10px));
 
-    -webkit-transform: scale(2) translate3d(10px, 10px, 10px);
-    -ms-transform: scale(2) translate3d(10px, 10px, 10px);
-    -moz-transform: scale(2) translate3d(10px, 10px, 10px);
-    -o-transform: scale(2) translate3d(10px, 10px, 10px);
-    transform: scale(2) translate3d(10px, 10px, 10px);
   }
 }
 
@@ -124,3 +120,81 @@
     opacity: 1.0;
     box-shadow: 10px 10px 5px $box-shadow;}
 }
+
+//===  Image Flipper====
+//3D-transition CSS modified from Team Treehouse
+//See here;http://teamtreehouse.com/library/css-foundations
+
+.wrap {
+  @include vendor-prefix-alt(transition, transform 1s ease-in);
+  @include skeptics_transform_style();
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 301px;
+  height: 425px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.wrap div {
+  @include vendor-prefix(backface-visibility, hidden);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-size: 301px 425px;
+  background-repeat: no-repeat;
+  text-align: center;
+  text-shadow: 0 1px rgba(0, 0, 0, .3);
+  font: bold 3em sans-serif;
+  line-height: 425px;
+}
+.wrapFlip {
+  @include vendor-prefix(transform, rotateY(-180deg));
+}
+
+.side-a {
+  background: $skeptics-blue url('watson_golden_ratio.jpg');
+  z-index: 100;
+}
+
+.side-b {
+  @include vendor-prefix(transform, rotateY(-180deg));
+  background: $skeptics-orange url('marie_curie.jpg');
+}
+
+.wrapLegend {
+  display: inline-block;
+}
+
+.flipLegendWrapper {
+  background: none;
+  visibility: visible;
+  opacity: 1;
+  @include vendor-prefix(transition, all ease-in-out 2s);
+}
+
+%base-legend {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  @include vendor-prefix(transition, all ease-in-out 2s);
+}
+
+.legendWatson {
+  @extend %base-legend;
+}
+
+.legendCurie {
+  @extend %base-legend;
+}
+
+.vishidden-alt {
+  position: absolute;
+  top: 0;
+  left: -5000px;
+  visibility: visible;
+  opacity: 0;
+}
+

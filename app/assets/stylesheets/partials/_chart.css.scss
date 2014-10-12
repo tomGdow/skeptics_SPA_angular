@@ -36,3 +36,12 @@
 .chart-dynamic-header {
   @extend .chart-button-list;
 }
+
+//== Live random data
+
+#chartContainer {
+  background:red;
+  margin: 2em 3em;
+  width: 70%;
+  height: 350px;
+}
