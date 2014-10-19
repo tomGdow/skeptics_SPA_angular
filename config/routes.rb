@@ -31,6 +31,7 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/schillachiImage"
   get "home/animatedgifs"
   get "home/blackcat"
+  get "home/timer"
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/carts/remove/:id' => 'line_items#destroy'

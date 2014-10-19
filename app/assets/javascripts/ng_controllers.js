@@ -342,6 +342,44 @@ angular.module('myApp.controllers', [
             this.showToggleButton = false;
             this.toggleLatLongCaption = false;
         };
+
+        //timer
+        $scope.timerRunning = false;
+        $scope.toggleimg =false;
+
+        $scope.startTimer = function (){
+            $scope.$broadcast('timer-start');
+            $scope.timerRunning = true;
+            $scope.toggleimg =true;
+        };
+
+        $scope.stopTimer = function (){
+            $scope.$broadcast('timer-stop');
+            $scope.timerRunning = false;
+
+            $scope.toggleimg =false;
+        };
+
+        $scope.clearTimer = function (){
+            $scope.$broadcast('timer-start');
+            $scope.$broadcast('timer-stop');
+            $scope.timerRunning = false;
+        };
+
+        $scope.resumeTimer =function () {
+            $scope.$broadcast('timer-resume');
+            $scope.timerRunning = true;
+            $scope.toggleimg =true;
+        };
+
+        $scope.showtimer = false;
+
+        $scope.toggletimer = function () {
+            if (this.showtimer) {
+                return  $scope.showtimer = false;
+            }
+            return  $scope.showtimer = true;
+        };
     })
     .controller('MyCtrl1', function ($scope, $http, chartsService, imgService, flexsliderService, functionsService) {
         //====CONTROLLER FOR PARTIAL ONE ====
@@ -422,6 +460,10 @@ angular.module('myApp.controllers', [
         functionsService.addClassById("class1", 'detailedCartIcon');
         functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
         functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+
+
+
+
 
     })
     .controller('MyCtrl2', function ($scope, videoService, $sce, functionsService) {
