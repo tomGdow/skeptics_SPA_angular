@@ -194,11 +194,11 @@ angular.module('myApp.directives', []).
         return {
             scope: {},
             restrict: 'E',
-            template: '<p title ="Click Me">' +
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit' +
-                'Praesent id mollis neque. Phasellus rutrum iaculis ante,' +
-                'id tincidunt tellus pulvinar vitae. Maecenas sodales mollis nisi sit amet congue.' +
-                '</p>',
+            template: ['<p title ="Click Me">',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                'Praesent id mollis neque. Phasellus rutrum iaculis ante,',
+                'id tincidunt tellus pulvinar vitae. Maecenas sodales mollis nisi sit amet congue.',
+                '</p>'].join(''),
             link: function (scope, element, attrs) {
                 element.bind('click', function (e) {
                     element.toggleClass('ipsum');
@@ -211,13 +211,13 @@ angular.module('myApp.directives', []).
         return {
             scope: {},
             restrict: 'E',
-            template: '<p title ="Click Me">' +
-                'Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,' +
-                'vitae lobortis ipsum nibh sed dolor. Vestibulum' +
-                'sodales pulvinar risus vel fermentum.' +
-                'Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci' +
-                'non ipsum vestibulum non eleifend.' +
-                '</p>',
+            template: ['<p title ="Click Me">',
+                'Duis pharetra, sem in dictum posuere, justo orci vestibulum arcu,',
+                'vitae lobortis ipsum nibh sed dolor. Vestibulum',
+                'sodales pulvinar risus vel fermentum.',
+                'Nunc sit amet eros eget orci euismod imperdiet. Phasellus scelerisque orci',
+                'non ipsum vestibulum non eleifend.',
+                '</p>'].join(''),
             link: function (scope, element, attrs) {
                 element.bind('click', function (e) {
                     element.toggleClass('ipsumLong');
@@ -230,10 +230,9 @@ angular.module('myApp.directives', []).
         return {
             scope: {},
             restrict: 'E',
-            template: '<p title ="Click Me">' +
-                'Lorem ipsum dolor sit amet, consectetur adipisicing elit.' +
-                'Lorem ipsum dolor sit amet' +
-                '</p>',
+            template: ['<p title ="Click Me">',
+                'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+                '</p>'].join(''),
             link: function (scope, element, attrs) {
                 element.bind('click', function (e) {
                     element.toggleClass('ipsumShort');
@@ -251,6 +250,63 @@ angular.module('myApp.directives', []).
             },
             replace: true,
             template: "<h2>{{skepticsTitle}}</h2>"
+        }
+
+    }).directive('addtocart', function () {
+
+        return {
+            $scope: {commodities: '@'},
+            restrict: 'E',
+            replace: true,
+            template: ['<a class ="cartIconFlex icon-cart shopping"',
+            'rel="nofollow"',
+            'title ="Add to Cart"',
+            'ng-mouseover="cartMouseOver()"',
+            'ng-mouseleave="cartMouseLeave()"',
+            'data-remote="true"',
+            'data-method="post"',
+            '>',
+            '</a>'].join('')
+        }
+
+    })
+
+.directive('pictcart', function () {
+
+    return {
+        $scope: {commodities: '@'},
+        restrict: 'E',
+        replace: true,
+        template: ['<a ',
+            'rel="nofollow"',
+            'title ="Add to Cart"',
+            'ng-mouseover="cartMouseOver()"',
+            'ng-mouseleave="cartMouseLeave()"',
+            'data-remote="true"',
+            'data-method="post"',
+            '>',
+            '<img ng-src="./assets/{{commodity.image_url}}" class="image_transition">',
+            '</a>'].join('')
+    }
+}).directive('animateGif', function () {
+        return {
+            $scope: {toggleGif: '@'},
+            restrict: 'E',
+            replace: true,
+            transclude: true,
+            template: ["<div",
+
+                "</div>"].join(''),
+
+            link: function (scope, element, attrs) {
+                element.bind('mouseover', function (e) {
+                    scope.toggleGif = attrs.class;
+
+                });
+                element.bind('mouseleave', function (e) {
+                    scope.toggleGif=false;
+                });
+            }
         }
     });
 

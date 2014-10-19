@@ -30,6 +30,7 @@ span.description {
 }
 .tableColOne {width: em(150px);}
 .tableColTwo {width: em(150px);}
+.tableColThree {width: em(100px);}
 
 .animate-show2 {
   opacity: 1;
@@ -43,6 +44,7 @@ span.description {
 
 .table_flex_commodities { margin: em(20px) em(100px);
   @include myflex();}
+
 
 .searchBox {margin-bottom: em(20px);}
 

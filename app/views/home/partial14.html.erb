@@ -20,7 +20,7 @@
         </dd>
         <dd>
           <!--<span class ="newsLetterErr" ng-show ="frm.email.$dirty && frm.email.$error.required">Required</span> -->
-          <span ng-class = " errorMessage ?  'vizz': ''" class ="newsLetterErr" ng-show ="frm.email.$dirty && frm.email.$error.email">Not a valid email</span>
+          <span ng-class = " errorMessage ?  'opacityZero': ''" class ="newsLetterErr" ng-show ="frm.email.$dirty && frm.email.$error.email">Not a valid email</span>
         </dd>
         <dd></dd>
         <dd ng-show ="thankYouMessage" >Thank you, &nbsp;{{userName | uppercase}},&nbsp;you have subscribed to our news letter <br/>(email address: {{userEmail}})</dd>

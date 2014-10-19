@@ -198,3 +198,162 @@
   opacity: 0;
 }
 
+//==== Animated Gifs
+
+%gif_static {
+  @include vendor-prefix(transition, opacity ease 0.5s);
+  opacity: 1;
+  position:absolute;
+  z-index:10;
+  top:0;
+  left:0;
+  background-repeat: no-repeat;
+  background-color:white;}
+
+%gif_animation {
+  @include vendor-prefix(transition, opacity ease 0.5s);
+  position:absolute;
+  top:0;
+  z-index: 1;
+  left:0;
+  background-repeat: no-repeat;
+
+}
+
+//  maus-elephant
+%maus_elefant_hw {
+  @include heightWidth(100px, 114px);
+}
+
+.maus_elefant_static {
+  @extend %gif_static;
+  @extend %maus_elefant_hw;
+  background-image: url('maus_elefant_static.gif');
+}
+
+.maus_elefant_animation {
+  @extend %gif_animation;
+  @extend %maus_elefant_hw;
+  background-image: url('maus_elefant.gif');
+}
+
+.maus_elefant_gif_wrapper  {
+  @include heightWidth(100px, 120px);
+  position:relative;
+  display: inline-block;
+}
+
+//horrors (man walking)
+%horrors_hw {
+  @include heightWidth(120px, 100px);
+}
+.horrors_static {
+  @extend %gif_static;
+  @extend %horrors_hw;
+  background-image: url('horror511_static.gif');
+}
+
+.horrors_animation {
+  @extend %gif_animation;
+  @extend %horrors_hw;
+  background-image: url('horror511.gif');
+}
+
+.horrors_gif_wrapper  {
+  @include heightWidth(130px, 110px);
+  position:relative;
+  display: inline-block;
+}
+
+//witch
+
+%witch_hw {
+  @include heightWidth(100px, 143px);
+}
+
+.witch_static {
+  @extend %gif_static;
+  @extend %witch_hw;
+  background-image: url('witch_static.gif');
+}
+
+.witch_animation {
+  @extend %gif_animation;
+  @extend %witch_hw;
+  background-image: url('witch.gif');
+}
+
+.witch_gif_wrapper  {
+  @extend %witch_hw;
+  position:relative;
+  display: inline-block;
+}
+
+// rude_man
+%rude_man_hw {
+  @include heightWidth(128px, 128px);
+}
+
+.rude_man_static {
+  @extend %gif_static;
+  @extend %rude_man_hw;
+  background-image: url('rude_man_static.gif');
+}
+
+.rude_man_animation {
+  @extend %gif_animation;
+  @extend %rude_man_hw;
+  background-image: url('rude_man.gif');
+}
+
+.rude_man_gif_wrapper  {
+  @extend %rude_man_hw;
+  position:relative;
+  display: inline-block;
+}
+
+//blackcat
+
+%blackcat_hw {
+  @include heightWidth(41px, 85px);
+}
+
+.blackcat_static {
+  @extend %gif_static;
+  @extend %blackcat_hw;
+  background-image: url('black_cat_static.gif');
+}
+
+.blackcat_animation {
+  @extend %gif_animation;
+  @extend %blackcat_hw;
+  background-image: url('black_cat_runs.gif');
+}
+
+.blackcat_gif_wrapper  {
+  @extend %blackcat_hw;
+  position:relative;
+  display: inline-block;
+}
+
+//animated gifs general
+.zero_opacity {
+  @include vendor-prefix(transition, opacity ease 0.5s);
+  opacity:0;
+}
+
+.animated-gifs {
+  @include myflex();
+}
+
+.rude_man_flex {
+  @include myflex($justify-content: center);
+}
+
+.blackcat_flex {
+  @include myflex($justify-content: flex-left);
+  margin-left: em(0px);
+  margin-top: em(20px);
+}
+
+.animated-gifs  > div:nth-child(3){ background : white; }

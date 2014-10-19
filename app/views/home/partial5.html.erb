@@ -50,11 +50,13 @@
     <!--column-->
         <ul ng-show="layout == 'list2'" class="list2 clearfix" >
               <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
-                <span id ="bejasus" class="flex_alt">
+                <span class="flex_alt" ng-class=" addCartClass ?  'cartClass' : ''">
+
                      <span class ="flex-span-checkbox">
                        <input  type="checkbox" ng-model="checked" title = "More&hellip;">
                      </span>
-                     <span class ="flex-span">
+                  <span  >
+                     <span class ="flex-span" >
                        <a href="/commodities/{{product.id}}"
                            title ="Show"
                            data-remote="true">
@@ -64,7 +66,8 @@
                      <span class ="flex-span-title" id ={{myFirstName(product.name)}}_{{myLastName(product.name)}}>
                       {{product.name}}
                     </span>
-                </span>
+
+                  </span>  </span>
                 <div class="check-element animate-show" ng-show="checked">
                     <div class="description">{{product.description}}</div>
                     <div class="moreProductInfo"> <!--flexbox-more-one-->
@@ -75,15 +78,8 @@
                     </div> <!--end flexbox-more-one-->
 
                     <div class="moreProductInfo"> <!--flexbox-more-two-->
-                        <a class="icon-cart shopping"
-                           rel="nofollow"
-                           title ="Add to Cart"
-                           ng-mouseover="cartMouseOver()"
-                           ng-mouseleave="cartMouseLeave()"
-                           data-remote="true"
-                           data-method="post"
-                           href="/line_items?commodity_id={{product.id}}">
-                        </a><!--flexitem 1-->
+
+                      <addtocart ng-href="/line_items?commodity_id={{product.id}}"></addtocart><!--flexitem 1-->
                         <a href="/commodities/{{product.id}}"
                            class="button  tiny 5 radius"
                            data-remote="true">

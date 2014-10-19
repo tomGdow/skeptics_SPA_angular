@@ -12,9 +12,15 @@
 .check-element {
   margin: 1em 2em;
   width: 95%;
-  padding: 1em;
+ padding: 1em;
   background: $skeptics-background;
   border-radius: 5px;
+}
+
+.check-element2{
+  @extend .check-element;
+  padding-bottom: 0;
+
 }
 
 .moreProductInfo {
@@ -55,11 +61,13 @@
   padding-top: em(16px);
   font-family: $font-family-helvetica;
   font-size: 1.2rem;
+  margin-right: em(40px);
 }
 
 .flex-span-checkbox {
   @extend .flex-span;
   padding-top: em(16px);
+  padding-right:em(10px);
 }
 
 

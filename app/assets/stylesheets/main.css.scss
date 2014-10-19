@@ -10,7 +10,6 @@ html {
 body {
   font-family: 'Open Sans', sans-serif;
   @include skeptics_perspective(800px);
-  //-webkit-transform-style: preserve-3d;
 }
 
 //==Remove Dotted line from Buttons in Mozilla
@@ -114,6 +113,25 @@ li {
   color: white;
 }
 
+//newsletter
+
+input.ng-invalid.ng-dirty.ng-invalid-email {
+  border: 2px solid red;
+  background: lighten(gray, 40%);
+}
+
+.newsLetterErr {
+  color: red;
+}
+
+.opacityZero {
+  opacity: 0;
+}
+
+#newsletterMessage {
+  margin-bottom: em(12px);
+}
+
 //==== nav-bar (products)====
 
 #productsnav {
@@ -133,32 +151,9 @@ li {
 
 
 
-//.blue {color: blue;}
-//.red {color: red;}
-//.green {color: green;}
-//.yellow {color: yellow;}
-//
-//.underline {text-decoration: underline;}
 
-//.btnNewsletter {display: inline;}
-
-input.ng-invalid.ng-dirty.ng-invalid-email   {border: 2px solid red;
-background: lighten(gray, 40%);}
-
-.newsLetterErr{color: red;}
-/*.newsLetterMessage{font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
-  font-size: 14px;
-  line-height: 22.4px;
-  color:  lighten(gray, 10%);}*/
-
-.vizz {opacity: 0;}
-
-#newsletterMessage  {margin-bottom: em(12px);}
-
-//form {background:green;}
-
-//#frm {display:inline-block;
-//background:red;}
+/*
 
 
-#bejasus {background-color:red;}
+
+*/

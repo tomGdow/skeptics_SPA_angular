@@ -1,4 +1,4 @@
-<!--commodities listing--.
+<!--commodities listing-->
 <!--controller six-->
 <p id="notice"><%= notice %></p>
 <h1>{{viewSixMessage}}</h1>
@@ -38,69 +38,56 @@
           <th class = "tableColTwo">&nbsp;</th>
         </tr>
     </thead>
-    <tbody  ng-repeat="commodity in commodities | filter: search |orderBy:orderProp">
+    <tbody  ng-repeat="commodity in commodities  | filter: search |orderBy:orderProp | limitTo:20">
         <tr ng-class=" addCartClass ?  'cartClass' : ''">
-            <td>
+            <td class = "tableColThree">
                <span>
-                 <a rel="nofollow"
-                   data-remote="true"
-                   data-method="post"
-                   title ="Add to Cart"
-                   ng-mouseover="cartMouseOver()"
-                   ng-mouseleave="cartMouseLeave()"
-                   href="/line_items?commodity_id={{commodity.id}}">
-                  <img ng-src="./assets/{{commodity.image_url}}" class="image_transition">
-                 </a>
+                 <pictcart ng-href="/line_items?commodity_id={{commodity.id}}"></pictcart>
                </span>
             </td>
             <td ><span >{{commodity.name | uppercase}}</span></td>
             <td>{{commodity.price | nfcurrency:"&euro;" }}</td>
             <td><input type="checkbox" ng-model ="checked">&nbsp;&nbsp;More&hellip;</td>
             <td>
-               <a class ="cartIconFlex icon-cart shopping"
-                        rel="nofollow"
-                        title ="Add to Cart"
-                        ng-mouseover="cartMouseOver()"
-                        ng-mouseleave="cartMouseLeave()"
-                        data-remote="true"
-                        data-method="post"
-                        href="/line_items?commodity_id={{commodity.id}}">
-               </a>
+               <addtocart ng-href="/line_items?commodity_id={{commodity.id}}"></addtocart>
             </td>
         </tr>
         <tr>
           <td colspan="5">
-            <div class= "check-element animate-show" ng-show="checked">
-              <div>
-                <div class ="description">
-                 ({{commodity.category}})&nbsp;&nbsp;{{commodity.description}}
-                </div>
+            <div class= "check-element2 animate-show" ng-show="checked">
+              <div class ="description" >
+                  ({{commodity.category}})&nbsp;&nbsp;{{commodity.description}}
               </div>
-                 <div class = "table_flex_commodities">
-                   <span>
-                     <a href="/commodities/{{commodity.id}}"
-                                  class="button  tiny 5 radius"
-                                  data-remote="true">Show
-                     </a>
-                   </span>
-                   <span>
-                      <a href="/commodities//{{commodity.id}}/edit"
-                                   data-remote="true"
-                                   class="button tiny 5 radius">
-                                   Edit
-                      </a>
-                   </span>
-                   <span>
-                     <a href="/commodities/{{commodities.id}}" data-confirm="Are you sure?"
-                                   data-method="delete"
-                                   rel="nofollow" class="button alert tiny">
-                           Destroy
-                     </a>
-                   </span>
-                 </div>
+
+              <div class = "table_flex_commodities">
+                <span>
+                  <a href="/commodities/{{commodity.id}}"
+                   class="button tiny 5 radius"
+                   data-remote="true">Show
+                  </a>
+                </span>
+                <span>
+                  <a href="/commodities//{{commodity.id}}/edit"
+                       data-remote="true"
+                       class="button tiny 5 radius">
+                      Edit
+                  </a>
+                </span>
+                <span>
+                    <a href="/commodities/{{commodities.id}}" data-confirm="Are you sure?"
+                       data-method="delete"
+                       rel="nofollow" class="button secondary tiny">
+                      Destroy
+                    </a>
+                </span>
+              </div>
             </div>
           </td>
         </tr>
     </tbody>
   </table>
 </div>
+
+
+<!--commodities listing-->
+<!--controller six-->

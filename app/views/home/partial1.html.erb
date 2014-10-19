@@ -7,13 +7,13 @@
     <h2  ng-class= "toggleShowPara ? 'loremParagraph ':'loremParagraph vishidden '">Welcome</h2>
     <span ng-include="'/home/banksImage.html'"></span>
 
-    <p ng-class= "toggleShowPara ? 'loremParagraph ':'loremParagraph vishidden '">
+    <p ng-class= "toggleShowPara ? 'loremParagraph ':'loremParagraph vishidden'">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
       Adipisci aliquam assumenda commodi cum, dicta doloremque dolorum esse itaque
       iure laboriosam libero maiores natus nemo non officiis quae quo recusandae voluptate.</p>
-    <div>
-        <ipsum></ipsum>
-    </div>
+
+    <span ng-include="'/home/animatedgifs.html'"></span>
+  <ipsum></ipsum>
   </div>
 
   <!--flexslider-->
@@ -39,6 +39,12 @@
     <p>Faker<%= Faker::Lorem.paragraph %></p>
   </div>
 
+
+  <h3>
+    <timer autostart="false" interval="1000">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds.</timer>
+    <button class="btn" onclick="stopResumeTimer('clock-timer', this)" type="button">Stop</button>
+    <button class="btn" ng-click =tombut() type="button">Stop</button>
+  </h3>
 </div>
 
 

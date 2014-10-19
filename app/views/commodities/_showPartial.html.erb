@@ -9,8 +9,13 @@
   </tr>
   </thead>
   <tbody>
-      <tr>
-        <td class ="table_flex">
+  <% if @line_item == @current_item %>
+      <tr id="current_item2">
+  <% else %>
+      <tr class ="cartItem">
+  <% end %>
+
+        <td class ="table_flex" >
           <%= link_to image_tag(@commodity.image_url,
                 title: 'Add to Cart',
                 class: 'image_transition'),

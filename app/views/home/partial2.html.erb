@@ -218,5 +218,13 @@
     <div><ipsum></ipsum></div>
     <ipsumlong></ipsumlong>
   </div>
+  <div class="rude_man_flex">
+
+      <animate-gif id ="rude" class ="{{animgifs.rude}}_gif_wrapper" ng-transclude >
+        <div ng-class ="{true: '{{animgifs.rude}}_static zero_opacity', false: '{{animgifs.rude}}_static '}[toggleGif=='{{animgifs.rude}}_gif_wrapper']"></div>
+        <div ng-if ="toggleGif" class ='{{animgifs.rude}}_animation'></div>
+      </animate-gif>
+
+  </div>
 </div>
 

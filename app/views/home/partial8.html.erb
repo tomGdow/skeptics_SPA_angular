@@ -18,15 +18,20 @@
     <h2 class ='skTitle' data-first ="Column B"></h2>
     <ipsum></ipsum>
    <ipsumshort></ipsumshort>
+
+    <div class="blackcat_flex">
+      <div ng-include="'/home/blackcat.html'"></div>
+
   </div>
+    </div>
 
   <!--Flip Picture -->
      <div class="wrapLegend">
            <div class="wrap"  title ="Click Me"
                      ng-class=" pictureFlipper ?  'wrap wrapFlip ': 'wrap'"
                      ng-click ="flipPicture()"
-                     ng-mouseover="flipPictMouseover()"
-                     ng-mouseleave="flipPictMouseleave()">
+                     ng-catover="flipPictcatover()"
+                     ng-catleave="flipPictcatleave()">
                 <div class="side-a"></div>
                 <div class="side-b"></div>
            </div>

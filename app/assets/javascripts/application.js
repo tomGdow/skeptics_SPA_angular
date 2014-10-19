@@ -38,6 +38,7 @@
 //= require vendor/placeholder
 //= require videogular
 //= require canvasjs.min
+//= require timer.js
 
 
 
