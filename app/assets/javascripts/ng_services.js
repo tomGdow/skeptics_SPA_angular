@@ -306,7 +306,6 @@ angular.module('myApp.services', []).
                         document.getElementById($id2a).className = $class;
                         document.getElementById($id2b).className = $class;
                     }
-
                 }
             },
             addClassOnMouseOut: function ($class, $id, $id2a, $id2b) {
@@ -318,7 +317,6 @@ angular.module('myApp.services', []).
                         document.getElementById($id2a).className = $class;
                         document.getElementById($id2b).className = $class;
                     }
-
                 }
             }
 

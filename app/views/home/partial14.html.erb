@@ -1,7 +1,9 @@
+<!-- Controller Fourteen-->
+<!-- Newsletter and Users-->
 <div class=" col-partial4">
-  <h4 id ="newsletterMessage">{{viewMessageFourteen}}</h4>
+  <h4 id = "newsletterMessage">{{viewMessageFourteen}}</h4>
   <form ng-submit = submit() name ="frm" >
-  <div class="row" ng-cloak><!--Get Longitude/Latitude -->
+  <div class="row" ng-cloak>
     <div class="small-12 columns">
       <dl class="sub-nav">
         <dd>
@@ -19,7 +21,6 @@
                  ng-blur="onBlur()"/>
         </dd>
         <dd>
-          <!--<span class ="newsLetterErr" ng-show ="frm.email.$dirty && frm.email.$error.required">Required</span> -->
           <span ng-class = " errorMessage ?  'opacityZero': ''" class ="newsLetterErr" ng-show ="frm.email.$dirty && frm.email.$error.email">Not a valid email</span>
         </dd>
         <dd></dd>
@@ -44,6 +45,6 @@
     </table>
   </div>
 </div>
-
-
+<!-- Controller Fourteen-->
+<!-- Newsletter and Users-->
 

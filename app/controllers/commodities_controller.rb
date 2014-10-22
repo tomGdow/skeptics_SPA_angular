@@ -7,6 +7,7 @@ class CommoditiesController < ApplicationController
   def index
     @commodities = Commodity.all
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.js
@@ -18,7 +19,6 @@ class CommoditiesController < ApplicationController
   # GET /commodities/1.json
   def show
     @commodity = Commodity.find(params[:id])
-
 
 
     respond_to do |format|
@@ -52,6 +52,8 @@ class CommoditiesController < ApplicationController
 
   # POST /commodities
   # POST /commodities.json
+
+
   def create
     @commodity = Commodity.new(params[:commodity])
 
@@ -98,4 +100,5 @@ class CommoditiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

@@ -1,14 +1,14 @@
 //====toggle Fahrenheit to Celcius====
 
-.dynamic_temp.ng-hide, .dynamic_latlong.ng-hide {
+.dynamic_temp.ng-hide, .dynamic_latlong.ng-hide .dynamic_timer.ng-hide {
   line-height: 0;
   opacity: 0;
   visibility: hidden;
 }
 
-@include addHideRemove(1s, dynamic_temp, dynamic_latlong);
+@include addHideRemove(1s, dynamic_temp, dynamic_latlong, dynamic_timer);
 
-.dynamic_temp.ng-hide, .dynamic_latlong.ng-hide {
+.dynamic_temp.ng-hide, .dynamic_latlong.ng-hide, .dynamic_timer.ng-hide {
   line-height: 0;
   opacity: 0;
 }

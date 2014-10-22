@@ -1,6 +1,7 @@
 module ApplicationHelper
 
 
+=begin
   def hidden_div_if(condition, attributes = {}, &block)
     if condition
       attributes["style"] = "display: none"
@@ -14,6 +15,7 @@ module ApplicationHelper
     end
     content_tag("div", attributes, &block)
   end
+=end
   # Thanks to Agile Web Development by Sam Ruby
   # 4th Edition (Rails 3.2) (p 145) for the basic hidden_div code
 

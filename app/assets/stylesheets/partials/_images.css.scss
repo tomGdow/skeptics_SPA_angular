@@ -289,27 +289,32 @@
   display: inline-block;
 }
 
-// rude_man
-%rude_man_hw {
+// pickll
+%pickll_hw {
   @include heightWidth(128px, 128px);
 }
 
-.rude_man_static {
+.pickll_static {
   @extend %gif_static;
-  @extend %rude_man_hw;
-  background-image: url('rude_man_static.gif');
+  @extend %pickll_hw;
+  background-image: url('pickll_static.gif');
 }
 
-.rude_man_animation {
+.pickll_animation {
   @extend %gif_animation;
-  @extend %rude_man_hw;
-  background-image: url('rude_man.gif');
+  @extend %pickll_hw;
+  background-image: url('pickll.gif');
 }
 
-.rude_man_gif_wrapper  {
-  @extend %rude_man_hw;
+.pickll_gif_wrapper  {
+  @extend %pickll_hw;
   position:relative;
   display: inline-block;
+
+}
+
+.pickll_flex {
+  @include myflex($justify-content: center);
 }
 
 //blackcat
@@ -336,6 +341,12 @@
   display: inline-block;
 }
 
+.blackcat_flex {
+  @include myflex($justify-content: flex-left);
+  margin-left: em(0px);
+  margin-top: em(20px);
+}
+
 //animated gifs general
 .zero_opacity {
   @include vendor-prefix(transition, opacity ease 0.5s);
@@ -345,15 +356,4 @@
 .animated-gifs {
   @include myflex();
 }
-
-.rude_man_flex {
-  @include myflex($justify-content: center);
-}
-
-.blackcat_flex {
-  @include myflex($justify-content: flex-left);
-  margin-left: em(0px);
-  margin-top: em(20px);
-}
-
 .animated-gifs  > div:nth-child(3){ background : white; }

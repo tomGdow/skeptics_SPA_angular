@@ -258,15 +258,17 @@ angular.module('myApp.directives', []).
             $scope: {commodities: '@'},
             restrict: 'E',
             replace: true,
-            template: ['<a class ="cartIconFlex icon-cart shopping"',
-            'rel="nofollow"',
-            'title ="Add to Cart"',
-            'ng-mouseover="cartMouseOver()"',
-            'ng-mouseleave="cartMouseLeave()"',
-            'data-remote="true"',
-            'data-method="post"',
-            '>',
-            '</a>'].join('')
+            template: [
+                '<a class ="cartIconFlex icon-cart shopping"',
+                'rel="nofollow"',
+                'title ="Add to Cart"',
+                'ng-mouseover="cartMouseOver()"',
+                'ng-mouseleave="cartMouseLeave()"',
+                'data-remote="true"',
+                'data-method="post"',
+                '>',
+                '</a>'
+            ].join('')
         }
 
     })
@@ -277,7 +279,8 @@ angular.module('myApp.directives', []).
         $scope: {commodities: '@'},
         restrict: 'E',
         replace: true,
-        template: ['<a ',
+        template: [
+            '<a ',
             'rel="nofollow"',
             'title ="Add to Cart"',
             'ng-mouseover="cartMouseOver()"',
@@ -286,7 +289,8 @@ angular.module('myApp.directives', []).
             'data-method="post"',
             '>',
             '<img ng-src="./assets/{{commodity.image_url}}" class="image_transition">',
-            '</a>'].join('')
+            '</a>'
+            ].join('')
     }
 }).directive('animateGif', function () {
         return {
@@ -307,6 +311,23 @@ angular.module('myApp.directives', []).
                     scope.toggleGif=false;
                 });
             }
+        }
+    }).directive('dancinpicklls', function () {
+        return {
+            $scope: {},
+            restrict: 'E',
+            replace: true,
+            template: [
+                "<span>",
+                "<animate-gif id =\"pickll\" class =",
+                "\"{{animgifs.pickll}}_gif_wrapper\" ng-transclude >",
+                " <div ng-class =",
+                "\"{true: '{{animgifs.pickll}}_static zero_opacity',false: '{{animgifs.pickll}}_static '}",
+                "[toggleGif=='{{animgifs.pickll}}_gif_wrapper']\"></div>",
+                "<div ng-if =\"toggleGif\" class ='{{animgifs.pickll}}_animation'></div>",
+                "</animate-gif>",
+                "</span>"
+            ].join('')
         }
     });
 

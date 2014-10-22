@@ -5,11 +5,11 @@
         <!-- clock icon-->
         <a>
           <span
-          ng-class=" clock_image_model ?  ' fa fa-clock-o dynamic-clock-underline_color ': 'fa fa-clock-o'"
-          ng-mouseover="clockMouseOver()"
-          ng-mouseleave="clockMouseLeave()"
-          ng-click="clockOnClick()"
-          id="time_with_icon">
+           ng-class=" clock_image_model ?  ' fa fa-clock-o dynamic-clock-underline_color ': 'fa fa-clock-o'"
+           ng-mouseover="clockMouseOver()"
+           ng-mouseleave="clockMouseLeave()"
+           ng-click="clockOnClick()"
+           id="time_with_icon">
                Time
           </span>
         </a>
@@ -18,11 +18,11 @@
         <!--Date icon-->
         <a>
           <span
-          ng-class=" date_image_model ?  ' fa fa-calendar dynamic-clock-underline_color ': 'fa fa-calendar'"
-          ng-click="dateOnClick()"
-          ng-mouseover="dateMouseOver()"
-          ng-mouseleave="dateMouseLeave()"
-          id="date_with_icon">
+           ng-class=" date_image_model ?  ' fa fa-calendar dynamic-clock-underline_color ': 'fa fa-calendar'"
+           ng-click="dateOnClick()"
+           ng-mouseover="dateMouseOver()"
+           ng-mouseleave="dateMouseLeave()"
+           id="date_with_icon">
           Date
         </span>
         </a>
@@ -32,10 +32,10 @@
         <!--GMT icon-->
         <a>
           <span
-          class='fa  fa-sun-o'
-          ng-mouseover="gmtMouseOver()"
-          ng-mouseleave="gmtMouseLeave()"
-          id ="GMT_with_icon">
+           class='fa  fa-sun-o'
+           ng-mouseover="gmtMouseOver()"
+           ng-mouseleave="gmtMouseLeave()"
+           id ="GMT_with_icon">
           GMT
         </span>
         </a>
@@ -43,26 +43,24 @@
          <dd >
            <a title =" Click ">
           <span
-          class='fa  fa-umbrella'
-          ng-click="toggleCelciusNav()"
-          id="degrees_F_to_C"
+           class='fa  fa-umbrella'
+           ng-click="toggleCelciusNav()"
+           id="degrees_F_to_C"
           >
          &deg;C/&deg;F</span> <br/>
-
            </a>
            </dd>
       <dd>
         <a title =" Click ">
           <span
            ng-show = "toggleLocation"
-          class='fa  fa-bullseye'
-          ng-click="toggleLatLong()"
-          id="lat_to_long_button">
-          lat/long
-        </span>
+           class='fa  fa-bullseye'
+           ng-click="toggleLatLong()"
+           id="lat_to_long_button">
+           lat/long
+          </span>
         </a>
       </dd>
-
       <dd>
         <!--show current time-->
         <span my-current-time="format_one"
@@ -71,7 +69,7 @@
               ng-mouseover="timeViewMouseOver()"
               ng-mouseleave="timeViewMouseLeave()"
               id="showTheTime">
-                </span>
+        </span>
       </dd>
       <!--nav four show current date-->
       <dd>
@@ -82,18 +80,17 @@
                 ng-mouseover="dateViewMouseOver()"
                 ng-mouseleave="dateViewMouseLeave()"
                 id="showTheDate">
-
-                </span>
+          </span>
         </a>
       </dd>
       <dd ng-include="'/home/gmtTime.html'" ></dd>
       <dd class="little_cart">
         <span class ="icon-stopwatch" title ="view timer" ng-click="toggletimer()"></span>
         <span ng-show="littleCart">
-        <a href="#view12" title ="view detailed cart">
-          <span class="fa fa-shopping-cart" id ="fa-shopping-cart"></span>
-        </a>
-            </span>
+            <a href="#view12" title ="view detailed cart">
+                <span class="fa fa-shopping-cart" id ="fa-shopping-cart"></span>
+            </a>
+        </span>
        <a href="#view14" title ="view users"> <span class = "icon-users"></span> </a>
       </dd><!--float right-->
     </dl>

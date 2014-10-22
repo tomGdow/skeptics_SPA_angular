@@ -15,12 +15,6 @@ h1 {
   background: rgba(255, 255, 255, .8);
 }
 
-//Keep this for debugging
-
-//.col-partial1, .col-partial2, .col-partial3,
-//.col-partial4, .col-partial8, .col-partial13 {
-//  @extend %cols-debug-base
-//}
 
 .col-partial8-tab {
   margin: 10px;
@@ -32,33 +26,22 @@ h1 {
 .main-partial1 {
   @include vendor-prefix(columns, 15em 2);
   @include vendor-prefix(column-gap, 2em);
-  // -webkit-columns: 250px 2;
 
 }
 
 .col-partial1 {
   @include vendor-prefix(flex, 3);
   border: none;
-  /*  -webkit-flex: 3;
-    flex: 3;*/
 }
 
 .col-partial1-b {
   @include vendor-prefix(flex, 3);
   @include vendor-prefix(order, 1);
-  /*-webkit-flex: 3;
-  -webkit-order: 1;
-  flex: 3;
-  order: 1;*/
 }
 
 .col-partial1-c {
   @include vendor-prefix(flex, 1);
   @include vendor-prefix(order, 1);
-  /* -webkit-flex: 1;
-   -webkit-order: 1;
-   flex: 1;
-   order: 1;*/
 }
 
 .loremParagraph {
@@ -138,17 +121,12 @@ h1 {
 .col-partial4-b {
   @include vendor-prefix(flex, 3);
   @include vendor-prefix(order, 1);
-  /* -webkit-flex: 3;
-   -webkit-order: 1;
-   flex: 3;
-   order: 1;*/
 }
 
 //partial 8
 .main-partial8 {
   @include vendor-prefix(columns, 250px 3);
   @include vendor-prefix(column-gap, 3em);
-
 }
 
 .col-partial8 {

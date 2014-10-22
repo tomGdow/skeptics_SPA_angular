@@ -1,11 +1,13 @@
  //flexslider
-$(window).load(function(){
+
+
+/*$(window).load(function(){
     $('.flexslider').flexslider({
 
         start: function(slider){
             $('body').removeClass('loading');
         }
     });
-});
+});*/
 
 

@@ -59,6 +59,9 @@ angular.module('myApp.controllers', [
             this.addCartClass = false;
         };//fade-in-out bg on add-to-cart
 
+        $rootScope.toggleview6 =false; //Ajax 'bottleneck'
+        $rootScope.toggleview9 =true;  //Ajax 'bottleneck'
+
     })
     .controller('MyCtrlIndex', function ($scope, $http, theTimeNowService, _, $location, $rootScope) {
         //====INDEX PAGE CONTROLLER====
@@ -346,40 +349,40 @@ angular.module('myApp.controllers', [
         //timer
         $scope.timerRunning = false;
         $scope.toggleimg =false;
+        $scope.toggleButtonResume =false;
+        $scope.showtimer = false;
 
         $scope.startTimer = function (){
             $scope.$broadcast('timer-start');
             $scope.timerRunning = true;
-            $scope.toggleimg =true;
+            $scope.toggleimg = true;
+            $scope.toggleButtonResume =false;
         };
-
         $scope.stopTimer = function (){
             $scope.$broadcast('timer-stop');
             $scope.timerRunning = false;
 
             $scope.toggleimg =false;
+            $scope.toggleButtonResume =true;
         };
-
         $scope.clearTimer = function (){
             $scope.$broadcast('timer-start');
             $scope.$broadcast('timer-stop');
             $scope.timerRunning = false;
+            $scope.toggleButtonResume =false;
         };
-
-        $scope.resumeTimer =function () {
+        $scope.resumeTimer = function () {
             $scope.$broadcast('timer-resume');
             $scope.timerRunning = true;
             $scope.toggleimg =true;
         };
-
-        $scope.showtimer = false;
-
         $scope.toggletimer = function () {
             if (this.showtimer) {
                 return  $scope.showtimer = false;
             }
             return  $scope.showtimer = true;
         };
+
     })
     .controller('MyCtrl1', function ($scope, $http, chartsService, imgService, flexsliderService, functionsService) {
         //====CONTROLLER FOR PARTIAL ONE ====
@@ -448,11 +451,10 @@ angular.module('myApp.controllers', [
         //===== animated gifs
         $scope.toggleGif=false;
         $scope.animgifs = {
-            "man": "horrors",
-            "mouse": "maus_elefant",
+            "man"   : "horrors",
+            "mouse" : "maus_elefant",
             "witch" : "witch"
         };
-
 
         //=== Control Display of Cart (_carts partial)
         functionsService.addClassById("displayTrue", 'myPartialCart');
@@ -460,10 +462,6 @@ angular.module('myApp.controllers', [
         functionsService.addClassById("class1", 'detailedCartIcon');
         functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
         functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
-
-
-
-
 
     })
     .controller('MyCtrl2', function ($scope, videoService, $sce, functionsService) {
@@ -626,14 +624,14 @@ angular.module('myApp.controllers', [
         functionsService.addClassById("displayTrue", 'myPartialCart');
         functionsService.addClassById("class1", 'totalPrice_cartPartial');
         functionsService.addClassById("class1", 'detailedCartIcon');
-        functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
-        functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
+        functionsService.addClassOnMouseOver("class2", 'myPartialCart',
+            'totalPrice_cartPartial', 'detailedCartIcon');
+        functionsService.addClassOnMouseOut("class1", 'myPartialCart',
+            'totalPrice_cartPartial', 'detailedCartIcon');
 
         //===== animated gifs
-        $scope.toggleGif=false;
-        $scope.animgifs = {
-            "rude": "rude_man"
-        };
+        $scope.toggleGif = false;
+        $scope.animgifs = {"pickll": "pickll"};
 
     })
     .controller('MyCtrl3', function ($scope, $http, instagram, functionsService) {
@@ -659,7 +657,8 @@ angular.module('myApp.controllers', [
         functionsService.addClassById("displayNone", 'myPartialCart');
 
     })
-    .controller('MyCtrl4', function ($scope, $http, imgService, dublinSliderService, functionsService,googleService) {
+    .controller('MyCtrl4', function ($scope, $http, imgService,
+                                     dublinSliderService, functionsService,googleService) {
         //====CONTROLLER FOR PARTIAL FOUR====
         //(Sixties Dublin)
 
@@ -846,6 +845,9 @@ angular.module('myApp.controllers', [
         functionsService.addClassOnMouseOver("class2", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
         functionsService.addClassOnMouseOut("class1", 'myPartialCart', 'totalPrice_cartPartial', 'detailedCartIcon');
 
+        //=== animated gifs
+        $scope.toggleGif=false;
+        $scope.animgifs = {"pickll": "pickll"};
     })
     .controller('MyCtrl5', function ($scope, $http, functionsService) {
         //====CONTROLLER FOR PARTIAL FIVE ====
@@ -896,12 +898,11 @@ angular.module('myApp.controllers', [
         };
 
         //=== Control Display of Cart (_carts partial)
-
         functionsService.addClassById("displayTrue", 'myPartialCart');
         $scope.addCartClass= false; //for fade-in-out add to cart
 
     })
-    .controller('MyCtrl6', ['$scope', function ($scope) {
+    .controller('MyCtrl6', ['$scope','$rootScope','$location', function ($scope,$rootScope, $location) {
         //====CONTROLLER FOR Commodities ====
 
         $scope.orderProp = 'name';
@@ -918,8 +919,21 @@ angular.module('myApp.controllers', [
             $scope.commodities = angular.fromJson(commodities)
         };
 
+        $rootScope.toggleview6 = false;
+        $rootScope.toggleview9 = true;
 
+        $scope.switchViews = function () {
+           //switch between views 6 and 9 - avoid Ajax 'bottleneck'
+         var viewninepath=  $location.path().indexOf('view9');
 
+         if (viewninepath==1) {
+
+             $rootScope.toggleview6 = true;
+           return  $rootScope.toggleview9 = false;
+         }
+         $rootScope.toggleview6 = false;
+         $rootScope.toggleview9 = true;
+        };
     }])
     .controller('MyCtrl7', ['$scope', function ($scope) {
         //====CONTROLLER FOR Commodities/new ====
@@ -1018,11 +1032,8 @@ angular.module('myApp.controllers', [
             "customColorSet2"
         );
             //===== animated gifs
-            $scope.toggleGif=false;
-            $scope.animgifs = {
-                "cat": "blackcat"
-            };
-
+        $scope.toggleGif=false;
+        $scope.animgifs = {"cat": "blackcat"};
 
             //=== Control Display of Cart (_carts partial)
 
@@ -1060,9 +1071,8 @@ angular.module('myApp.controllers', [
 
         functionsService.addClassById("displayNone", 'myPartialCart');
 
-
-
-    }).controller('MyCtrl13',
+    })
+    .controller('MyCtrl13',
     function ($scope, $http, dribbleService, functionsService) {
         //====CONTROLLER FOR PARTIAL THIRTEEN====
         //====Dribble
@@ -1074,7 +1084,8 @@ angular.module('myApp.controllers', [
         });
 
         functionsService.addClassById("displayNone", 'myPartialCart');
-    }).controller('MyCtrl14',
+    })
+    .controller('MyCtrl14',
     function($scope, $http) {
         //====CONTROLLER FOR PARTIAL FOURTEEN====
         //====User Data
@@ -1113,10 +1124,8 @@ angular.module('myApp.controllers', [
         $scope.errorMessage = true;
         $scope.thankYouMessage =false;
     };
-
     $scope.onBlur = function (){
             $scope.errorMessage = false;
     };
+
  });
-
-

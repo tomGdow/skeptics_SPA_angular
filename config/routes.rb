@@ -17,6 +17,7 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/partial12"
   get "home/partial13"
   get "home/partial14"
+  get "home/partial15"
   get "home/footer"
   get "home/timezones"
   get "home/gmtTime"
@@ -36,6 +37,7 @@ SkepticsSpaAngular::Application.routes.draw do
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/carts/remove/:id' => 'line_items#destroy'
 
+  match '/your_show' => "commodities#your_show", :as => "your_show"
 
 
 
