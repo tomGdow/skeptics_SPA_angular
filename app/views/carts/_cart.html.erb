@@ -6,13 +6,14 @@
                   <th colspan ="4" id ="cartPartial_title">Your Cart Items</th>
                   <th>
                       <span class = "headerFlex">
-                        <span id = "detailedCartIcon">
+                         <span id = "detailedCartIcon">
                             <a  href  = "#view12"
                                 class = "fa fa-shopping-cart"
                                 title = "Detailed cart">
                             </a>
                             <%= link_to '', @cart,
                                  :method => :delete,
+                                 :remote => true,
                                  :confirm => 'Are you sure?',
                                  :title => "Empty Cart",
                                  :class => 'icon-remove' %>
@@ -29,9 +30,9 @@
 
     <div class = cart_partial_controls> <!--flexbox-->
         <span id="totalPrice_cartPartial"> Total Price&nbsp;
-            <%= number_to_currency(cart.total_price,
+           <span><%= number_to_currency(cart.total_price,
                                 unit:   '&euro;',
-                                precision: 0 ) %>
+                                precision: 0 ) %>  </span>
         </span><!--flexitem one-->
     </div>
 </div>

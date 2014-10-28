@@ -329,6 +329,15 @@ angular.module('myApp.directives', []).
                 "</span>"
             ].join('')
         }
+    }).directive('focusOn', function() {
+        //Modified from: http://stackoverflow.com/a/14837021/499167
+        return function(scope, elem, attr) {
+            scope.$on('focusOn', function(e, name) {
+                if(name === attr.focusOn) {
+                    elem[0].focus();
+                }
+            });
+        };
     });
 
 

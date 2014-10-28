@@ -1,5 +1,7 @@
-<!--commodities listing-->
-<!--controller six-->
+<!-- controller 6 -->
+<!-- routes 6 and 9 -->
+<!-- commodities/index.html -->
+
 <p id="notice"><%= notice %></p>
 <h1>{{viewSixMessage}}</h1>
 
@@ -7,7 +9,11 @@
   <div class="row">
     <div class="small-12 columns">
       <dl class="sub-nav">
-        <dd><div class="searchBox"><input ng-model="search"/></div></dd>
+        <dd>
+          <div class="searchBox"><input id ="prodSearchInput" focus-on="focusMe"
+                                          ng-model="search"/>
+            </div>
+        </dd>
         <dd>
           <select ng-model="orderProp" id = "sortBy"
                   class ="dropdown">
@@ -19,8 +25,11 @@
             <option value="-updated_at" ng-bind-html="productUpdatedAt"></option>
             <option value="-id" ng-bind-html="productid"></option>
           </select>
-        </dd><dd>
-        </dd><dd>
+        </dd>
+        <dd>
+          <span ng-show ="search.length>=2">Search Term:
+         <span>{{search}}</span> </span>
+        </dd>
       </dl>
     </div>
   </div>
@@ -63,8 +72,8 @@
                 <span>
                   <a href="/commodities/{{commodity.id}}"
                    class="button tiny 5 radius"
-                   data-remote="true" ng-click ="switchViews()">Show
-
+                   data-remote="true"
+                   ng-click ="switchViews([6,9])">Show
                   </a>
                 </span>
                 <span>
@@ -91,4 +100,5 @@
 
 <!--commodities listing-->
 <!--controller six-->
+<!-- routes 6 and 9 -->
 

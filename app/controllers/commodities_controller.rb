@@ -1,12 +1,9 @@
 class CommoditiesController < ApplicationController
-  # GET /commodities
-  # GET /commodities.json
 
   require 'writeJSON'
 
   def index
     @commodities = Commodity.all
-
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,8 +12,6 @@ class CommoditiesController < ApplicationController
     end
   end
 
-  # GET /commodities/1
-  # GET /commodities/1.json
   def show
     @commodity = Commodity.find(params[:id])
 
@@ -28,8 +23,6 @@ class CommoditiesController < ApplicationController
     end
   end
 
-  # GET /commodities/new
-  # GET /commodities/new.json
   def new
     @commodity = Commodity.new
 
@@ -39,7 +32,6 @@ class CommoditiesController < ApplicationController
     end
   end
 
-  # GET /commodities/1/edit
   def edit
     @commodity = Commodity.find(params[:id])
 
@@ -47,12 +39,7 @@ class CommoditiesController < ApplicationController
       format.js
       format.json { render json: @commodity }
     end
-
   end
-
-  # POST /commodities
-  # POST /commodities.json
-
 
   def create
     @commodity = Commodity.new(params[:commodity])
@@ -69,12 +56,9 @@ class CommoditiesController < ApplicationController
       if @commodity.save
         SKEPTICS.write_commodities_to_json
       end
-
     end
   end
 
-  # PUT /commodities/1
-  # PUT /commodities/1.json
   def update
     @commodity = Commodity.find(params[:id])
 
@@ -89,8 +73,6 @@ class CommoditiesController < ApplicationController
     end
   end
 
-  # DELETE /commodities/1
-  # DELETE /commodities/1.json
   def destroy
     @commodity = Commodity.find(params[:id])
     @commodity.destroy
@@ -100,5 +82,4 @@ class CommoditiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
 end

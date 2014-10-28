@@ -11,7 +11,6 @@ class Cart < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :line_items, :dependent => :destroy
 
-
   def add_commodity(commodity)
     current_item = line_items.where(:commodity_id => commodity.id).first
     if current_item
@@ -25,11 +24,9 @@ class Cart < ActiveRecord::Base
 
   def total_price
     total = 0
-
     line_items.each do |line_item|
       total += line_item.commodity.price * line_item.quantity
     end
     total
   end
-
 end

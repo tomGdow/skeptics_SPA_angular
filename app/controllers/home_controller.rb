@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
     @cart = current_cart
+
   end
 
   def show
@@ -14,6 +15,4 @@ class HomeController < ApplicationController
       format.js
     end
   end
-
-
 end

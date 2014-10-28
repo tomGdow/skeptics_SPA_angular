@@ -50,26 +50,63 @@ angular.module('myApp.services', []).
     }).factory('dublinSliderService', function () {
         return {
             dublinSliderData: [
-                {"src": "dublinzz.jpg ", "desc": "College Green", "longdesc": "College Green Dublin, around 1961 (Charles Cushman Collection)", "copyright": "86157-942. Copyright Indiana University Archive"},
-                {"src": "dublinee.jpg ", "desc": "Lord Edward Street", "longdesc": "Lord Edward Street Dublin, around 1961 (Charles Cushman Collection)", "copyright": "0008615e-942. Copyright Indiana University Archive"},
-                {"src": "dublincc.jpg ", "desc": "Parliment Street", "longdesc": "Parliment Street Dublin, around 1961 (Charles Cushman Collection)", "copyright": "0008615c-942. Copyright Indiana University Archive"},
-                {"src": "dublinaa.jpg ", "desc": "O Connell Bridge", "longdesc": "O Connell Bridge Dublin, around 1961 (Charles Cushman Collection)", "copyright": "0008615a-942. Copyright Indiana University Archive"},
-                {"src": "dublinbb.jpg ", "desc": "Dawson Street", "longdesc": "Dawson Street Dublin, around 1963 (Charles Cushman collection)", "copyright": "0008615b-942. Copyright Indiana University Archive"}
+                {
+                    "src": "dublinzz.jpg ",
+                    "desc": "College Green",
+                    "longdesc": "College Green Dublin, around 1961 (Charles Cushman Collection)",
+                    "copyright": "86157-942. Copyright Indiana University Archive"
+                },
+                {
+                    "src": "dublinee.jpg ",
+                    "desc": "Lord Edward Street",
+                    "longdesc": "Lord Edward Street Dublin, around 1961 (Charles Cushman Collection)",
+                    "copyright": "0008615e-942. Copyright Indiana University Archive"
+                },
+                {
+                    "src": "dublincc.jpg ",
+                    "desc": "Parliment Street",
+                    "longdesc": "Parliment Street Dublin, around 1961 (Charles Cushman Collection)",
+                    "copyright": "0008615c-942. Copyright Indiana University Archive"
+                },
+                {
+                    "src": "dublinaa.jpg ",
+                    "desc": "O Connell Bridge",
+                    "longdesc": "O Connell Bridge Dublin, around 1961 (Charles Cushman Collection)",
+                    "copyright": "0008615a-942. Copyright Indiana University Archive"
+                },
+                {
+                    "src": "dublinbb.jpg ",
+                    "desc": "Dawson Street",
+                    "longdesc": "Dawson Street Dublin, around 1963 (Charles Cushman collection)",
+                    "copyright": "0008615b-942. Copyright Indiana University Archive"
+                }
 
             ]
         };
     }).factory('videoService', function () {
         return {
             oceanVideo: [
-                {"mp4": "http://video-js.zencoder.com/oceans-clip.mp4"},
-                {"webm": "http://video-js.zencoder.com/oceans-clip.webm"},
-                {"ogg": "http://video-js.zencoder.com/oceans-clip.ogv"}
+                {
+                    "mp4": "http://video-js.zencoder.com/oceans-clip.mp4"
+                },
+                {
+                    "webm": "http://video-js.zencoder.com/oceans-clip.webm"
+                },
+                {
+                    "ogg": "http://video-js.zencoder.com/oceans-clip.ogv"
+                }
             ],
 
             earthAsDotVideo: [
-                {"mp4": "http://www.videogular.com/assets/videos/videogular.mp4"},
-                {"webm": "http://www.videogular.com/assets/videos/videogular.webm"},
-                {"ogg": "http://www.videogular.com/assets/videos/videogular.ogg"}
+                {
+                    "mp4": "http://www.videogular.com/assets/videos/videogular.mp4"
+                },
+                {
+                    "webm": "http://www.videogular.com/assets/videos/videogular.webm"
+                },
+                {
+                    "ogg": "http://www.videogular.com/assets/videos/videogular.ogg"
+                }
             ]
         };
     }).factory('instagram', function ($resource) {
@@ -89,7 +126,9 @@ angular.module('myApp.services', []).
                     // an JSONP request to the URL of the resource. JSONP requires that the
                     // callback=JSON_CALLBACK part is added to the URL.
 
-                    fetch: {method: 'JSONP'}
+                    fetch: {
+                        method: 'JSONP'
+                    }
                 });
 
                 api.fetch(function (response) {
@@ -103,7 +142,13 @@ angular.module('myApp.services', []).
 
     }).factory('theTimeNowService', function () {
         return {
-            "url": "https://www.thetimenow.com/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0"
+            "url": [
+                "https://www.thetimenow.com",
+                "/clock/gmt/greenwich_mean_time?t=n&amp;embed=1&amp;text=16&amp;{{textdate}}&amp;",
+                "format=24&amp;digitalclock=20&amp;analogclock=60&amp;letter_spacing=-2&amp;bordersize=0&amp;",
+                "bordercolor=fff&amp;bgcolor=fff&amp;colorloc=fff&amp;colordigital=FFA500&amp;colordate=ffffff&amp;",
+                "styleloc=normal&amp;styledigital=normal&amp;styledate=normal&amp;right=0"
+            ].join()
         }
 
     }).factory('allIrelandDataService', function () {
@@ -188,8 +233,8 @@ angular.module('myApp.services', []).
             ],
 
             "hurlers": [
-
                 {
+
                     "label": "Kilkenny",
                     "y": 34,
                     "name": "Kilkenny"
@@ -278,15 +323,11 @@ angular.module('myApp.services', []).
     }).factory('googleService', function () {
         return {
 
-                "addressOne": "College Green, Dublin, Ireland"
-/*                    "addressTwo": "Lord Edward Street, Dublin, Ireland",
-                    "addressThree": "Parliament Street, Dublin, Ireland",
-                    "addressFour": "O'Connell Street Lower, Dublin, Ireland",
-                    "addressFive": "Dawson Street, Dublin, Ireland"*/
-
+            "addressOne": "College Green, Dublin, Ireland"
         };
 
-    }).factory('functionsService', function () {
+    }).factory('functionsService', function ($location, $rootScope) {
+
         return {
 
             addClassById: function ($class, $id) {
@@ -297,10 +338,10 @@ angular.module('myApp.services', []).
                 }
             },
 
-            addClassOnMouseOver: function ($class, $id, $id2a,$id2b) {
+            addClassOnMouseOver: function ($class, $id, $id2a, $id2b) {
 
                 if (document.getElementById($id)) {
-                    //document.getElementById($id2).className = $class;
+
 
                     document.getElementById($id).onmouseover = function () {
                         document.getElementById($id2a).className = $class;
@@ -311,15 +352,39 @@ angular.module('myApp.services', []).
             addClassOnMouseOut: function ($class, $id, $id2a, $id2b) {
 
                 if (document.getElementById($id)) {
-                    //document.getElementById($id2).className = $class;
-
                     document.getElementById($id).onmouseout = function () {
                         document.getElementById($id2a).className = $class;
                         document.getElementById($id2b).className = $class;
                     }
                 }
+            },
+
+            switchMyViews:  function ($args) {
+
+                var viewpath = $location.path().indexOf('view'+ $args[1]);
+                var viewpath2 = $location.path().indexOf('view'+ $args[0]);
+
+                if (viewpath === 1) {
+                    $rootScope['toggleview' + $args[0]] = true;
+                    $rootScope['toggleview' + $args[1]] = false;
+                }
+
+                else if (viewpath2 === 1) {
+                    $rootScope['toggleview' + $args[1]] = true;
+                    $rootScope['toggleview' + $args[0]] = false;
+                }
+                else {
+                    $rootScope['toggleview' + $args[1]] = true;
+                    $rootScope['toggleview' + $args[0]] = false;
+                }
             }
-
         };
-    });
+    }).factory('focus', function ($rootScope, $timeout) {
+    //Modified from: http://stackoverflow.com/a/14837021/499167
 
+    return function(name) {
+        $timeout(function (){
+            $rootScope.$broadcast('focusOn', name);
+        });
+    }
+});

@@ -39,6 +39,7 @@ class Commodity < ActiveRecord::Base
 
 
 
+=begin
   def self.search(search_query, search)
 
     case search
@@ -62,6 +63,7 @@ class Commodity < ActiveRecord::Base
         find :all
     end
   end
+=end
 
 
 end

@@ -99,10 +99,20 @@ h3.showCartWrapper {
   @include myflex($justify-content: center);
 }
 
-
 .icon-stopwatch {
   @include vendor-prefix(transition, color ease-in-out 0.5s);
   &:hover {
     color: $skeptics-orange;
   }
+}
+
+.emptywrapper{
+  @include myflex($justify-content: center);
+}
+
+#emptycart {
+  height: 266px;
+  width: 400px;
+  background: url('empty-cart.jpg');
+  background-repeat: no-repeat;
 }

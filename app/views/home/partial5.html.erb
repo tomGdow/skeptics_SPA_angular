@@ -1,4 +1,5 @@
-<!-- Controller Five-->
+<!-- Controller 5-->
+<!-- Routes 5 and 15-->
 <!-- Dynamic Search-->
 
 <div class="col-partial4-a col-partial4" >
@@ -13,8 +14,11 @@
            ng-class="{active: layout == 'grid2'}" ng-click="layout = 'grid2'"></a>
       </span>
       <dl class="sub-nav">  <!--flexitem 2-->
+        <dd>
+          <span ng-show="query.length>=2">Search Term: {{query}}</span>
+        </dd>
           <dd>
-            <input ng-model="query"  placeholder="Search" id="ngsearch" type="text">
+            <input ng-model="query"  placeholder="Search" id="ngsearch" type="text" focus-on="focusMe">
             Search
           </dd>
           <dd>
@@ -39,7 +43,9 @@
         <ul ng-show="layout == 'grid2'" class="grid2">
               <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
                     <span class ="myspan2">
-                      <a href="/commodities/{{product.id}}" data-remote ="true">
+                      <a href="/commodities/{{product.id}}"
+                         data-remote ="true"
+                         ng-click ="switchViews([15,5])">
                             <img ng-src="./assets/{{product.image_url}} "
                               title = "{{myFirstName(product.name)}}&nbsp;{{myLastName(product.name)}} (detailed view)"
                               class="image_transition">
@@ -59,6 +65,7 @@
                      <span class ="flex-span" >
                        <a href="/commodities/{{product.id}}"
                            title ="Show"
+                           ng-click ="switchViews([15,5])"
                            data-remote="true">
                           <img ng-src="./assets/{{product.image_url}}" class="image_transition">
                         </a>
@@ -82,6 +89,7 @@
                       <addtocart ng-href="/line_items?commodity_id={{product.id}}"></addtocart><!--flexitem 1-->
                         <a href="/commodities/{{product.id}}"
                            class="button  tiny 5 radius"
+                           ng-click ="switchViews([15,5])"
                            data-remote="true">
                           Show
                         </a><!--flexitem 2-->

@@ -51,6 +51,11 @@ li {
   text-align: center;
 }
 
+
+.flexbox_center{
+  @include myflex($justify-content: center);
+}
+
 //== webkit, opera, IE9
 ::selection {
   background: lightblue;
@@ -133,6 +138,10 @@ input.ng-invalid.ng-dirty.ng-invalid-email {
   margin-bottom: em(12px);
 }
 
+//==search
+#prodSearchInput,
+#userSearchInput {height: em(50px);}
+
 //==== nav-bar (products)====
 
 #productsnav {
@@ -147,4 +156,14 @@ input.ng-invalid.ng-dirty.ng-invalid-email {
     flex-direction: column;
   }
 }
+
+
+
+
+
+
+
+
+
+
 

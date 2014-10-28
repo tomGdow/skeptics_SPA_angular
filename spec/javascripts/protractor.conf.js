@@ -6,7 +6,7 @@ exports.config = {
         'browserName': 'chrome'
     },
     specs: [
-        'protractor_specs/twelveTest_tabsViewAFields.js'
+        'protractor_specs/oneTest_preliminaries.js'
 
 
     ],
