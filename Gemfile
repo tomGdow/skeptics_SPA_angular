@@ -17,6 +17,8 @@ gem "gravatar_image_tag"
 gem "paperclip", "~> 3.0"
 gem 'ngannotate-rails'
 
+gem 'sass', '3.2.13'
+
 #Gems created by tomDowling
 gem "priceMarkup", "~> 0.0.4"
 

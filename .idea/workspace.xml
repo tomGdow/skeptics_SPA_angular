@@ -11,7 +11,6 @@
     <list default="true" id="a14731c6-46b3-4bcb-b5d7-9365f0f22654" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="skeptics_SPA_angular.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,8 +138,8 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22304833" vertical-offset="0" max-vertical-offset="1095">
-              <caret line="8" column="32" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.5297398" vertical-offset="0" max-vertical-offset="1125">
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -1253,8 +1252,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22304833" vertical-offset="0" max-vertical-offset="1095">
-          <caret line="8" column="32" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.5297398" vertical-offset="0" max-vertical-offset="1125">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding />
         </state>
       </provider>
