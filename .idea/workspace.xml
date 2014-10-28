@@ -9,44 +9,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a14731c6-46b3-4bcb-b5d7-9365f0f22654" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/ajax-loader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/images/empty-cart.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/carts/destroy.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/line_items/destroy.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/carts/_cart.html.erb" afterPath="$PROJECT_DIR$/app/views/carts/_cart.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/partials/_images.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/partials/_images.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/line_items/_line_item.html.erb" afterPath="$PROJECT_DIR$/app/views/line_items/_line_item.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/partials/_navWithTime.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/partials/_navWithTime.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/partials/_shoppingCart.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/partials/_shoppingCart.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/commodities/_showPartial.html.erb" afterPath="$PROJECT_DIR$/app/views/commodities/_showPartial.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/partials/_tables.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/partials/_tables.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/cart.rb" afterPath="$PROJECT_DIR$/app/models/cart.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/carts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/carts_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/commodities_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/commodities_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/commodity.rb" afterPath="$PROJECT_DIR$/app/models/commodity.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/line_items/create.js.erb" afterPath="$PROJECT_DIR$/app/views/line_items/create.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/carts/index.html.erb" afterPath="$PROJECT_DIR$/app/views/carts/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/commodities/index.html.erb" afterPath="$PROJECT_DIR$/app/views/commodities/index.html.erb" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-114x114.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-120x120.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-144x144.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-152x152.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-180x180.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-57x57.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-60x60.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-72x72.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-76x76.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon-precomposed.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/apple-touch-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/favicon-160x160.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/favicon-16x16.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/favicon-192x192.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/favicon-32x32.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/images/favicon-96x96.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.erb" afterPath="$PROJECT_DIR$/app/views/home/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/line_items_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/line_items_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/main.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/commodities/new.html.erb" afterPath="$PROJECT_DIR$/app/views/commodities/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/line_items/new.html.erb" afterPath="$PROJECT_DIR$/app/views/line_items/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/ng_directives.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/ng_directives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/ng_routes.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/ng_routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/ng_services.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/ng_services.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial12.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial12.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial13.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial13.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial14.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial14.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial3.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial3.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/partial5.html.erb" afterPath="$PROJECT_DIR$/app/views/home/partial5.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/javascripts/protractor.conf.js" afterPath="$PROJECT_DIR$/spec/javascripts/protractor.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/carts/show.html.erb" afterPath="$PROJECT_DIR$/app/views/carts/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/line_items/show.html.erb" afterPath="$PROJECT_DIR$/app/views/line_items/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/skeptics_SPA_angular.iml" afterPath="$PROJECT_DIR$/.idea/skeptics_SPA_angular.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="skeptics_SPA_angular.iws" />
@@ -74,19 +53,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.913793" vertical-offset="1858" max-vertical-offset="2415">
-              <caret line="139" column="48" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
-              <folding>
-                <marker date="1414506923087" expanded="true" signature="2769:2938" placeholder="..." />
-                <marker date="1414506923087" expanded="true" signature="2870:2906" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="partial1.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/partial1.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -117,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ng_controllers.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ng_controllers.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7797619" vertical-offset="16707" max-vertical-offset="17745">
+            <state vertical-scroll-proportion="-19.5" vertical-offset="16437" max-vertical-offset="17745">
               <caret line="1140" column="54" selection-start-line="1140" selection-start-column="38" selection-end-line="1140" selection-end-column="38" />
               <folding />
             </state>
@@ -182,6 +148,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8113208" vertical-offset="1728" max-vertical-offset="2205">
+              <caret line="141" column="23" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+              <folding>
+                <marker date="1414509415508" expanded="true" signature="1645:1814" placeholder="..." />
+                <marker date="1414509415508" expanded="true" signature="1746:1782" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -233,8 +212,8 @@
         <option value="$PROJECT_DIR$/app/views/home/animatedgifs.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/mainjs.js.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js" />
+        <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
       </list>
     </option>
   </component>
@@ -300,6 +279,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skeptics_SPA_angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skeptics_SPA_angular" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -586,6 +579,10 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -780,7 +777,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="68" y="102" width="1298" height="689" extended-state="1" />
+    <frame x="68" y="102" width="1298" height="689" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1257,22 +1254,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.913793" vertical-offset="1858" max-vertical-offset="2415">
-          <caret line="139" column="48" selection-start-line="139" selection-start-column="47" selection-end-line="139" selection-end-column="47" />
-          <folding>
-            <marker date="1414506923087" expanded="true" signature="2769:2938" placeholder="..." />
-            <marker date="1414506923087" expanded="true" signature="2870:2906" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-19.5" vertical-offset="16437" max-vertical-offset="17745">
+          <caret line="1140" column="54" selection-start-line="1140" selection-start-column="38" selection-end-line="1140" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/ng_controllers.js">
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7797619" vertical-offset="16707" max-vertical-offset="17745">
-          <caret line="1140" column="54" selection-start-line="1140" selection-start-column="38" selection-end-line="1140" selection-end-column="38" />
-          <folding />
+        <state vertical-scroll-proportion="0.8113208" vertical-offset="1728" max-vertical-offset="2205">
+          <caret line="141" column="23" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding>
+            <marker date="1414509415508" expanded="true" signature="1645:1814" placeholder="..." />
+            <marker date="1414509415508" expanded="true" signature="1746:1782" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
