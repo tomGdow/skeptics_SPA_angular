@@ -79,6 +79,7 @@ class CommoditiesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to commodities_url }
+      format.js
       format.json { head :no_content }
     end
   end

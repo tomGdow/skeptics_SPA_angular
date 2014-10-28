@@ -379,6 +379,7 @@ angular.module('myApp.controllers', [
             }
             return $scope.showtimer = true;
         };
+
     })
     .controller('MyCtrl1', function ($scope, $http, chartsService, imgService,
                                      flexsliderService, functionsService) {
