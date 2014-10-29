@@ -948,7 +948,8 @@ angular.module('myApp.controllers', [
             $scope.productCategory = "Category";
             $scope.productCreated_at = "Created At";
             $scope.productUpdatedAt = "Updated At";
-            $scope.productid = "Id";
+            $scope.productid = "Id (low first)";
+            $scope.productid2 = "Id (high first)";
             $scope.viewSixMessage = "Search Commodities";
             $scope.addCartClass = false; //for fade-in-out add to cart
             $scope.init = function(commodities) {

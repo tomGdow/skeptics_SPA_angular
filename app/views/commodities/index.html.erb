@@ -23,7 +23,8 @@
             <option value="category" ng-bind-html="productCategory"></option>
             <option value="-created_at" ng-bind-html="productCreated_at"></option>
             <option value="-updated_at" ng-bind-html="productUpdatedAt"></option>
-            <option value="-id" ng-bind-html="productid"></option>
+            <option value="id" ng-bind-html="productid"></option>
+            <option value="-id" ng-bind-html="productid2"></option>
           </select>
         </dd>
         <dd>
@@ -47,7 +48,7 @@
           <th class = "tableColTwo">&nbsp;</th>
         </tr>
     </thead>
-    <tbody  ng-repeat="commodity in commodities  | filter: search |orderBy:orderProp | limitTo:20">
+    <tbody  ng-repeat="commodity in commodities  | filter: search |orderBy:orderProp | limitTo:25">
         <tr ng-class=" addCartClass ?  'cartClass' : ''">
             <td class = "tableColThree">
                <span>
@@ -65,7 +66,7 @@
           <td colspan="5">
             <div class= "check-element2 animate-show" ng-show="checked">
               <div class ="description" >
-                  ({{commodity.category}})&nbsp;&nbsp;{{commodity.description}}
+                  ({{commodity.category}})&nbsp;&nbsp;{{commodity.description}}({{commodity.id}})
               </div>
 
               <div class = "table_flex_commodities">
