@@ -25,7 +25,6 @@
 }
 
 .zero_opacity_timer {
-
   @include vendor-prefix(transition, opacity ease 0.5s);
   opacity:0;
 }

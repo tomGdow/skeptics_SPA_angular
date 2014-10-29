@@ -380,6 +380,12 @@ angular.module('myApp.controllers', [
             return $scope.showtimer = true;
         };
 
+        $scope.showLittleCart = function () {
+
+            $rootScope.littleCart = true;
+        }
+
+
     })
     .controller('MyCtrl1', function ($scope, $http, chartsService, imgService,
                                      flexsliderService, functionsService) {
@@ -934,7 +940,7 @@ angular.module('myApp.controllers', [
     .controller('MyCtrl6', ['$scope', '$rootScope','functionsService', 'focus', '$location',
         function ($scope, $rootScope, functionsService, focus) {
             //====CONTROLLER FOR Commodities ====
-
+            $rootScope.littleCart = true;
             $scope.orderProp = 'name';
             $scope.alpha = "Alphabetical";
             $scope.lowestPrice = "Lowest Price";

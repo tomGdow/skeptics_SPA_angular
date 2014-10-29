@@ -18,7 +18,7 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
 
   <%= javascript_include_tag "vendor/modernizr.js" %>
-  <script  src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.15/angular-animate.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.2/TweenMax.min.js"></script>
@@ -55,10 +55,13 @@
             <button ng-click="doSearch()" class="button  tiny" id="lat_long_search_btn">Search</button>
           </dd>
           <dd>
-            <google-places location=location ng-focus="onFocus()" focus-on="focusMe" ></google-places>
+            <google-places location=location
+                           ng-focus="onFocus()"
+                           focus-on="focusMe" >
+            </google-places>
           </dd>
           <dd ng-show="toggleLatLongCaption" id ="my_latit_caption">Latitude:</dd>
-          <dd ng-bind ="mylatitude" id ="my_latitude"></dd>
+          <dd ng-bind ="mylatitude" id ="my_latitude" ></dd>
           <dd ng-show="toggleLatLongCaption" id ="my_longit_caption">Longitude:</dd>
           <dd ng-bind ="mylongitude" id ="my_longitude"></dd>
           <dd>
@@ -97,19 +100,19 @@
         <dl class="sub-nav">
           <dd>
             <a href="#view5">
-              <span  ng-show="toggleview5">Dynamic Searching</span>
+              <span  ng-show="toggleview5" ng-click = "showLittleCart()">Dynamic Searching</span>
             </a>
             <a href="#view15">
-              <span ng-show="toggleview15">Dynamic Searching</span>
+              <span ng-show="toggleview15" ng-click = "showLittleCart()">Dynamic Searching</span>
             </a>
           </dd>
-          <dd><a href="#view7">New Product</a></dd>
+          <dd><a href="#view7" ng-click = "showLittleCart()">New Product</a></dd>
           <dd>
             <a href="#view9">
-              <span  ng-show="toggleview9">Products Search</span>
+              <span  ng-show="toggleview9" ng-click = "showLittleCart()">Products Search</span>
             </a>
             <a href="#view6">
-              <span  ng-show="toggleview6">Products Search</span>
+              <span  ng-show="toggleview6" ng-click = "showLittleCart()">Products Search</span>
             </a>
           </dd>
         </dl>

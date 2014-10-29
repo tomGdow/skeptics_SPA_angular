@@ -64,6 +64,7 @@ class CommoditiesController < ApplicationController
 
     respond_to do |format|
       if @commodity.update_attributes(params[:commodity])
+        SKEPTICS.write_commodities_to_json
         format.html { redirect_to @commodity, notice: 'Commodity was successfully updated.' }
         format.json { head :no_content }
       else
@@ -81,6 +82,10 @@ class CommoditiesController < ApplicationController
       format.html { redirect_to commodities_url }
       format.js
       format.json { head :no_content }
+    end
+
+    if @commodity.destroy
+      SKEPTICS.write_commodities_to_json
     end
   end
 end
