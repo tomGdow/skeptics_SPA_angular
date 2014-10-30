@@ -4,11 +4,14 @@
         <span>
           <timer autostart="false" interval="1000">
              <div class = "timerFlex">
-               <h4>{{hours}} hours</h4><h4>{{minutes}} minutes</h4><h4>{{seconds}} seconds</h4>
+               <h4 ng-show="hours != 0" >{{hours}} hour<span ng-show="hours !=1 ">s</span></h4>
+               <h4 ng-show="minutes != 0" >{{minutes}} minute<span ng-show="minutes !=1 ">s</span></h4>
+               <h4 ng-show=" seconds!=0 ">{{seconds}} second<span ng-show="seconds !=1 ">s</span></h4>
+               <h4 ng-show=" seconds === 0 && minutes === 0">Ready</h4>
              </div>
            </timer>
         </span>
-        <div class ="animatedTimerImage">
+        <div class ="animatedTimerImage" ng-click = "hideTheTimer()" title ="Click to Hide Me">
             <div class ="maus_elefant_gif_wrapper" >
                  <div ng-class ="{true: 'maus_elefant_static zero_opacity',
                  false: 'maus_elefant_static '}[toggleimg]"></div>

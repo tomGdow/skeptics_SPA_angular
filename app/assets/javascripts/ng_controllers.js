@@ -382,6 +382,10 @@ angular.module('myApp.controllers', [
         $scope.showLittleCart = function () {
             $rootScope.littleCart = true;
         };
+
+        $scope.hideTheTimer = function () {
+            return $scope.showtimer = false;
+        };
     })
     .controller('MyCtrl1', function ($scope, $http, chartsService, imgService,
                                      flexsliderService, functionsService) {
