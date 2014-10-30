@@ -52,7 +52,7 @@ angular.module('myApp.controllers', [
             }
         };
         $rootScope.littleCart = true; //littleCart is the cart-icon on time nav-bar
-        $rootScope.toggleProductsNav = true;
+        $rootScope.toggleProductsNav = false;
 
         $rootScope.cartMouseOver = function () {
             this.addCartClass = true;
@@ -122,7 +122,6 @@ angular.module('myApp.controllers', [
                 $scope.active = 'home';
             }
         })();
-        //activeNav();
 
         $rootScope.toggleProductsNav = true;
         $scope.navclick = function (arg) {
@@ -381,11 +380,8 @@ angular.module('myApp.controllers', [
         };
 
         $scope.showLittleCart = function () {
-
             $rootScope.littleCart = true;
-        }
-
-
+        };
     })
     .controller('MyCtrl1', function ($scope, $http, chartsService, imgService,
                                      flexsliderService, functionsService) {
@@ -673,7 +669,7 @@ angular.module('myApp.controllers', [
                 }
                 return false;
             };
-            $scope.showAjaxLoader1=false;
+            $scope.showAjaxLoader1 = false;
         });
 
         //=== Control Display of Cart (_carts partial)
@@ -682,6 +678,7 @@ angular.module('myApp.controllers', [
     })
     .controller('MyCtrl4', function ($scope, $http, imgService,
                                     dublinSliderService, functionsService, googleService) {
+
         //====CONTROLLER FOR PARTIAL FOUR====
         //(Sixties Dublin)
 
@@ -857,11 +854,10 @@ angular.module('myApp.controllers', [
         };
         updateChart(dataLength);
         setInterval(function () {
-            updateChart()
+            updateChart();
         }, updateInterval);
 
         //=== Control Display of Cart (_carts partial)
-
         functionsService.addClassById("displayTrue", 'myPartialCart');
         functionsService.addClassById("class1", 'totalPrice_cartPartial');
         functionsService.addClassById("class1", 'detailedCartIcon');
@@ -875,9 +871,10 @@ angular.module('myApp.controllers', [
         $scope.animgifs = {"pickll": "pickll"};
     })
     .controller('MyCtrl5', function ($scope, $http, functionsService, $rootScope, focus) {
-        //====CONTROLLER FOR PARTIAL FIVE ====
 
+        //====CONTROLLER FOR PARTIAL FIVE ====
         //Products Display page
+
         //Dynamic Searching
         $rootScope.toggleProductsNav = true;
         $scope.viewFiveMessage = "Dynamic Searching";
@@ -898,7 +895,6 @@ angular.module('myApp.controllers', [
         $scope.productCreated_at = "Created At";
         $scope.productUpdatedAt = "Updated At";
         $scope.productid = "Id";
-        //$scope.orderPropAlt = 'email';
         $scope.myFirstName = function (string) {
             return string.split(' ')[0];
         };
@@ -937,8 +933,9 @@ angular.module('myApp.controllers', [
         focus('focusMe');
 
     })
-    .controller('MyCtrl6', ['$scope', '$rootScope','functionsService', 'focus', '$location',
+    .controller('MyCtrl6', ['$scope', '$rootScope', 'functionsService', 'focus', '$location',
         function ($scope, $rootScope, functionsService, focus) {
+
             //====CONTROLLER FOR Commodities ====
             $rootScope.littleCart = true;
             $scope.orderProp = 'name';
@@ -952,8 +949,8 @@ angular.module('myApp.controllers', [
             $scope.productid2 = "Id (high first)";
             $scope.viewSixMessage = "Search Commodities";
             $scope.addCartClass = false; //for fade-in-out add to cart
-            $scope.init = function(commodities) {
-                $scope.commodities = angular.fromJson(commodities)
+            $scope.init = function (commodities) {
+                $scope.commodities = angular.fromJson(commodities);
             };
 
             //==Ajax bottleneck
@@ -970,12 +967,14 @@ angular.module('myApp.controllers', [
     ])
     .controller('MyCtrl7', ['$scope',
         function ($scope) {
+
             //====CONTROLLER FOR Commodities/new ====
             $scope.viewSevenMessage = 'New Commodity';
         }
     ])
     .controller('MyCtrl8', ['$scope', 'imgService', '$http', 'allIrelandDataService', 'functionsService',
         function ($scope, imgService, $http, allIrelandDataService, functionsService) {
+
             //====CONTROLLER FOR PARTIAL EIGHT====
             //(Blog Menu Item)
             $scope.viewEightMessage = "Blog Page";
@@ -1050,7 +1049,6 @@ angular.module('myApp.controllers', [
                 });
                 chart.render();
             }
-
             AllIrelandWinners(
                 "chartContainer_1",
                 allIrelandDataService.footballers,
@@ -1099,22 +1097,22 @@ angular.module('myApp.controllers', [
         //!!empty cart button won't render unless SCE method used
         $rootScope.toggleProductsNav = true;
         $scope.viewMessageTwelve = "Detailed Cart";
-        $scope.showAjaxLoader3=true;
+        $scope.showAjaxLoader3 = true;
         $rootScope.littleCart = false;
         $http.get('your_cart').success(function (data2, status) {
             $scope.yourCart = data2;
             $scope.yourCartStatus = status;
             $scope.trustedHtml = $sce.trustAsHtml($scope.yourCart);
-            $scope.myindex= data2.indexOf("&euro;0");
+            $scope.myindex = data2.indexOf("&euro;0");
             $scope.anon = function () {
-                    if($scope.myindex===-1){
-                    $scope.showcart=true;
-                   return $scope.showemptycart=false;
+                    if($scope.myindex === -1) {
+                    $scope.showcart = true;
+                   return $scope.showemptycart = false;
                 }
-                $scope.showcart=false;
-                return $scope.showemptycart=true;
+                $scope.showcart = false;
+                return $scope.showemptycart = true;
             }();
-            $scope.showAjaxLoader3=false;
+            $scope.showAjaxLoader3 = false;
         });
         functionsService.addClassById("displayNone", 'myPartialCart');
 
@@ -1124,24 +1122,25 @@ angular.module('myApp.controllers', [
         //====CONTROLLER FOR PARTIAL THIRTEEN====
         //====Dribble
         $scope.viewMessageThirteen = "Dribbble";
-        $scope.showAjaxLoader2 =true;
+        $scope.showAjaxLoader2 = true;
         $scope.layout = 'grid';
         $http.jsonp(dribbleService.url).then(function (data) {
             $scope.list = data.data;
             $scope.dribbbleStatus = data.status;
-            $scope.showAjaxLoader2 =false;
+            $scope.showAjaxLoader2 = false;
         });
 
         functionsService.addClassById("displayNone", 'myPartialCart');
     })
     .controller('MyCtrl14',
-    function ($scope, $http, focus,$rootScope) {
+    function ($scope, $http, focus, $rootScope) {
+
         //====CONTROLLER FOR PARTIAL FOURTEEN====
         //====User Data
         $rootScope.littleCart = true;
         $rootScope.toggleProductsNav = false;
         $scope.viewMessageFourteen = "Subscribe to Our Newsletter";
-        //JSON data obtained from filltext
+        //JSON data obtained from http://filltext.com/
         var config = {
             params: {
                 'rows': 50,
@@ -1154,12 +1153,11 @@ angular.module('myApp.controllers', [
                 'callback': "JSON_CALLBACK"
             }
         };
-        $scope.showAjaxLoader=true;
+        $scope.showAjaxLoader = true;
         $http.jsonp("http://www.filltext.com", config, {}).success(function (data) {
             $scope.users = data;
-            $scope.showAjaxLoader =false
+            $scope.showAjaxLoader = false;
         });
-
         $scope.errorMessage = true;
         $scope.thankYouMessage = false;
         $scope.userName = "";
@@ -1181,5 +1179,4 @@ angular.module('myApp.controllers', [
         };
 
         focus('focusMe'); //autofocus on searchbox
-
     });

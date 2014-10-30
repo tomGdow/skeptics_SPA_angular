@@ -40,22 +40,18 @@
   <div class="table_lge_wrapper" ng-show="showAjaxLoader">
     <div class ="ajax_loader_gif"></div>
   </div>
-  <div class="table_lge_wrapper">
-
-    <table>
-      <tr ng-repeat="user in users | orderBy: 'lname'| filter: search">
+   <div class="table_lge_wrapper">
+     <table>
+       <tr ng-repeat="user in users | orderBy: 'lname'| filter: search">
         <td>{{user.lname | uppercase}}</td>
         <td>{{user.fname | lowercase}}</td>
         <td>{{user.tel}}</td>
         <td>{{user.id}}</td>
         <td>{{user.ip}}</td>
-      </tr>
-    </table>
+       </tr>
+     </table>
+   </div>
   </div>
-
-  </div>
-
-
 </div>
 <!-- Controller Fourteen-->
 <!-- Newsletter and Users-->

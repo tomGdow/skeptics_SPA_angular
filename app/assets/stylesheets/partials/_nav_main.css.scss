@@ -38,8 +38,6 @@ nav.mainNav a {
   width: 100%;
   @include vendor-prefix-alt(background,
           my_radial_gradient());
-  /*@include vendor-prefix-alt(background,
-          radial-gradient(top left, ellipse, $skeptics-orange 7%, transparent 45%));*/
   border-radius: 15px;
 }
 
