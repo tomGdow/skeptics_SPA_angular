@@ -90,7 +90,6 @@
                          <span class="description"> Played in the FIFA World Cup in {{product.year}}
                          </span> <!--flexitem 3-->
                     </div> <!--end flexbox-more-one-->
-
                     <div class="moreProductInfo"> <!--flexbox-more-two-->
 
                       <addtocart ng-href="/line_items?commodity_id={{product.id}}"></addtocart><!--flexitem 1-->
@@ -98,12 +97,12 @@
                            class="button  tiny 5 radius"
                            ng-click ="switchViews([15,5])"
                            data-remote="true">
-                          Show
+                           Show
                         </a><!--flexitem 2-->
                         <a href="/commodities//{{product.id}}/edit"
                            data-remote="true"
                            class="button tiny 5 radius">
-                          Edit
+                           Edit
                         </a><!--flexitem 3-->
                         <div ng-click="moreAboutProductOnClick()">
                           <a class = "fa  fa-times-circle producthide">

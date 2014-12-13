@@ -330,7 +330,7 @@ angular.module('myApp.directives', []).
         };
     }).directive('spiders', function () {
 	  return {
-		  scope: '=' ,
+		  scope:true ,
 		  restrict: 'AE',
 		  replace: true,
 		  templateUrl: './home/templatespiders.html',
@@ -340,6 +340,7 @@ angular.module('myApp.directives', []).
 
 				  angular.element(element.children()[0]).addClass('opacity_zero');
 				  angular.element(element.children()[1]).removeClass('opacity_zero');
+				  angular.element(element.children()[1]).addClass(attrs.id);
 
 			  });
 

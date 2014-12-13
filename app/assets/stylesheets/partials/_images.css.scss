@@ -366,7 +366,9 @@
 }
 
 .spider-flex_array {
-  @include myflex($justify-content: center);
+   margin-top: em(32px);
+  margin-bottom: em(32px);
+  @include myflex($justify-content: space-around);
 
 }
 
@@ -408,11 +410,6 @@
 .opacity_zero {
   @include vendor-prefix(transition, opacity ease 2.5s);
   opacity:0;
-}
-
-.opacity_tgd {
-  @include vendor-prefix(transition, opacity ease 2.5s);
-  background-color:red;
 }
 
 .spider_inner_wrapper {

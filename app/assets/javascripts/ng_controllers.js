@@ -884,22 +884,6 @@ angular.module('myApp.controllers', [
         $scope.animgifs = {"pickll": "pickll"};
 
 
-	  // cartoon
-
-
-	  $scope.tgdfn = function (arg) {
-
-	  this.imagebehind = 'image_behind_' + arg;
-
-
-	  };
-
-	  $scope.tgdfn2 = function (arg) {
-
-		  this.imagebehind = '';
-
-	  };
-
     }])
     .controller('MyCtrl5', ['$scope', '$http', 'functionsService', '$rootScope', 'focus',
 	                 function ($scope, $http, functionsService, $rootScope, focus) {
@@ -1196,7 +1180,7 @@ angular.module('myApp.controllers', [
             $scope.fillTextLength = data.length;
         });
 	    //====newsletter
-	    $scope.user = User.get();
+
 	    $scope.showsubstring =false;
 	    $scope.echoEmail = true;
         $scope.errorMessage = true;
@@ -1206,6 +1190,8 @@ angular.module('myApp.controllers', [
 
         $scope.submitOne = function () {
 	        $scope.step = 2;
+	        $scope.step = 2;
+	        $scope.user.format="Pdf";   //careful!!
         };
 
 	    $scope.submitTwo = function () {
@@ -1213,7 +1199,8 @@ angular.module('myApp.controllers', [
 		    $scope.thankYouMessage=true;
 		    $scope.echoEmail = false;
 		    $scope.myCssVar ="newsletter-highlight";
-		    $scope.user.format="Pdf";
+
+
 	    };
 
         $scope.onFocus = function () {
@@ -1238,6 +1225,6 @@ angular.module('myApp.controllers', [
 		    }
 		    return  $scope.showsubstring = false;
 	    });
-
+	    $scope.user = User.get();
 	    focus('focusMe'); //autofocus on searchbox
     }]);
