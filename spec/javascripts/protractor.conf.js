@@ -1,49 +1,48 @@
 //Protractor Configuration
 
+var _ = require('underscore');
+
+var array = [
+	'st.js',
+    '1_preliminary_tests.js',
+    '2_main_navbar_tests.js',
+    '3_time_navbar_tests.js',
+    '4_timer_tests.js',
+    '5_footer_tests.js',
+    '6_http_and_JSON_tests.js',
+    '7_repeaters_tests.js',
+    '8_search_dynamic_listView.js',
+    '9_search_dynamic_gridView.js',
+    '10_search_products_table.js',
+	'11_search_users.js',
+	'12_newsletter.js',
+    '13_create_update_destroy.js',
+    '17_flaky_tests.js'
+  ];  //st = 'single test'
+
+var tests = _.map(array, function(arg){ return 'protractor_specs/' + arg});
+
 exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
     capabilities: {
         'browserName': 'chrome'
     },
-    specs: [
-        'protractor_specs/oneTest_preliminaries.js'
+    specs: _.flatten([
 
-
-    ],
+   // tests[0]
+    //  tests.splice(11,13)
+      tests[13]
+    ]),
     baseUrl: 'http://localhost:3000',
     jasmineNodeOpts: {
         showColors: true,
         defaultTimeoutInterval: 50000
+    },
+    onPrepare: function() {
+        browser.driver.manage().window().maximize();
     }
 };
 
 
-/*
-[
- 'protractor_specs/oneTest_preliminaries.js',
- 'protractor_specs/twoTest_mainNavbar.js',
- 'protractor_specs/threeTest_timeNavBar.js',
- 'protractor_specs/fourTest_footer.js',
- 'protractor_specs/fiveTest_httpAndJSON.js',
- 'protractor_specs/sixTest_repeaters.js',
- 'protractor_specs/sevenTest_search.js',
- 'protractor_specs/eightTest_flexslider.js',
- 'protractor_specs/nineTest_charts_d3js.js',
- 'protractor_specs/tenTest_image_mouseOver.js',
- 'protractor_specs/elevenTest_image_flipper.js',
- 'protractor_specs/twelveTest_tabsViewAFields.js',
- 'protractor_specs/thirteenTest_dublinSlider.js',
- 'protractor_specs/fourteen_test_videos.js',
- 'protractor_specs/fifteen_tests_rotatingSnakes.js'
-
-]
-
-
-*/
-
-
-//'protractor_specs/**/*.js'
-//'protractor_specs/e2eTests.js'
-//'protractor_specs/st.js'
 
 

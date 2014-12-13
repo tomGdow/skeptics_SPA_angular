@@ -19,7 +19,7 @@ angular.module('myApp', [
         $routeProvider.when('/view9',  {templateUrl: 'commodities',         controller: 'MyCtrl6'}); //(Commodities/index.html)-2
         $routeProvider.when('/view10', {templateUrl: 'commodities/edit/',   controller: 'MyCtrl10'}); //Commodities/edit
         $routeProvider.when('/view11', {templateUrl: 'your_cart',           controller: 'MyCtrl11'}); //Your Cart
-        $routeProvider.when('/view12', {templateUrl: 'home/partial12.html', controller: 'MyCtrl12'});//Detailed Car-1t
+        $routeProvider.when('/view12', {templateUrl: 'home/partial12.html', controller: 'MyCtrl12'});//Detailed Cart
         $routeProvider.when('/view13', {templateUrl: 'home/partial13.html', controller: 'MyCtrl13'});//Dribbble
         $routeProvider.when('/view14', {templateUrl: 'home/partial14.html', controller: 'MyCtrl14'});//User Data
         $routeProvider.when('/view15', {templateUrl: 'home/partial5.html',  controller: 'MyCtrl5'}); //Dynamic Searching

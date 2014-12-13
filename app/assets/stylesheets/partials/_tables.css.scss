@@ -43,11 +43,16 @@ span.description {
 }
 
 .table_flex_commodities { margin: em(20px) em(100px);
-  @include myflex();}
-
+  @include myflex();
+}
 
 .searchBox {margin-bottom: em(20px);}
 
 .table_lge_wrapper {
   @include myflex($justify-content: center);
+}
+
+.echo_search_term {
+  font-family: 'The Girl Next Door', cursive;
+  font-size: em(30px);
 }

@@ -469,6 +469,7 @@ angular.module('myApp.controllers', [
         functionsService.addClassOnMouseOut("class1", 'myPartialCart',
             'totalPrice_cartPartial', 'detailedCartIcon');
 
+
     })
     .controller('MyCtrl2', function ($scope, videoService, $sce, functionsService) {
         //====CONTROLLER FOR PARTIAL TWO====
@@ -681,7 +682,7 @@ angular.module('myApp.controllers', [
 
     })
     .controller('MyCtrl4', function ($scope, $http, imgService,
-                                    dublinSliderService, functionsService, googleService) {
+                                    dublinSliderService, functionsService, googleService,$timeout) {
 
         //====CONTROLLER FOR PARTIAL FOUR====
         //(Sixties Dublin)
@@ -873,6 +874,24 @@ angular.module('myApp.controllers', [
         //=== animated gifs
         $scope.toggleGif = false;
         $scope.animgifs = {"pickll": "pickll"};
+
+
+	  // cartoon
+
+
+	  $scope.tgdfn = function (arg) {
+
+	  this.imagebehind = 'image_behind_' + arg;
+
+
+	  };
+
+	  $scope.tgdfn2 = function (arg) {
+
+		  this.imagebehind = '';
+
+	  };
+
     })
     .controller('MyCtrl5', function ($scope, $http, functionsService, $rootScope, focus) {
 
@@ -898,25 +917,19 @@ angular.module('myApp.controllers', [
         $scope.productCategory = "Category";
         $scope.productCreated_at = "Created At";
         $scope.productUpdatedAt = "Updated At";
-        $scope.productid = "Id";
+        $scope.productid = "Id (low first)";
+        $scope.productid2 = "Id (high first)";
         $scope.myFirstName = function (string) {
             return string.split(' ')[0];
         };
         $scope.checked = false;
 
         $scope.myFirstName = function (string) {
-            var mystring = string.split(' ');
-            if (mystring.length > 1) {
-                return mystring[0];
-            }
-            return string;
+
+	        return functionsService.makeFirstName(string);
         };
         $scope.myLastName = function (string) {
-            var mystring = string.split(' ');
-            if (mystring.length > 1) {
-                return mystring[1];
-            }
-            return string;
+            return functionsService.makeLastName(string);
         };
         $scope.moreAboutProductOnClick = function () {
             this.checked = false;
@@ -954,7 +967,7 @@ angular.module('myApp.controllers', [
             $scope.viewSixMessage = "Search Commodities";
             $scope.addCartClass = false; //for fade-in-out add to cart
             $scope.init = function (commodities) {
-                $scope.commodities = angular.fromJson(commodities);
+               return $scope.commodities = angular.fromJson(commodities);
             };
 
             //==Ajax bottleneck
@@ -967,6 +980,14 @@ angular.module('myApp.controllers', [
 
             //==Automatic focus on search input box
             focus('focusMe');
+
+	        $scope.myFirstName = function (string) {
+
+		        return functionsService.makeFirstName(string);
+	        };
+	        $scope.myLastName = function (string) {
+		        return functionsService.makeLastName(string);
+	        };
         }
     ])
     .controller('MyCtrl7', ['$scope',
@@ -974,6 +995,8 @@ angular.module('myApp.controllers', [
 
             //====CONTROLLER FOR Commodities/new ====
             $scope.viewSevenMessage = 'New Commodity';
+
+
         }
     ])
     .controller('MyCtrl8', ['$scope', 'imgService', '$http', 'allIrelandDataService', 'functionsService',
@@ -1091,7 +1114,7 @@ angular.module('myApp.controllers', [
         function ($scope) {
             //====CONTROLLER FOR 'your_cart' ===
             // carts/show
-            $scope.viewMessageEleven = "Description";
+            $scope.viewMessageEleven = "yourCart";
         }
     ])
     .controller('MyCtrl12',
@@ -1137,7 +1160,7 @@ angular.module('myApp.controllers', [
         functionsService.addClassById("displayNone", 'myPartialCart');
     })
     .controller('MyCtrl14',
-    function ($scope, $http, focus, $rootScope) {
+    function ($scope, $http, focus, $rootScope, User) {
 
         //====CONTROLLER FOR PARTIAL FOURTEEN====
         //====User Data
@@ -1161,26 +1184,51 @@ angular.module('myApp.controllers', [
         $http.jsonp("http://www.filltext.com", config, {}).success(function (data) {
             $scope.users = data;
             $scope.showAjaxLoader = false;
+            $scope.fillTextLength = data.length;
         });
+	    //====newsletter
+	    $scope.user = User.get();
+	    $scope.showsubstring =false;
+	    $scope.echoEmail = true;
         $scope.errorMessage = true;
         $scope.thankYouMessage = false;
-        $scope.userName = "";
-        $scope.email = 'hello';
-        $scope.submit = function () {
-            if ($scope.email) {
-                $scope.userEmail = this.email;
-                $scope.userName = this.email.split('@')[0];
-                $scope.email = '';
-                $scope.thankYouMessage = true;
-            }
+	    $scope.myCssVar ="newsletter-highlight";
+	    $scope.step = 1;
+
+        $scope.submitOne = function () {
+	        $scope.step = 2;
         };
+
+	    $scope.submitTwo = function () {
+		    $scope.step = 1;
+		    $scope.thankYouMessage=true;
+		    $scope.echoEmail = false;
+		    $scope.myCssVar ="newsletter-highlight";
+		    $scope.user.format="Pdf";
+	    };
+
         $scope.onFocus = function () {
             $scope.errorMessage = true;
             $scope.thankYouMessage = false;
+	        $scope.echoEmail = true;
+	        $scope.user.email="";
         };
+
         $scope.onBlur = function () {
             $scope.errorMessage = false;
         };
 
-        focus('focusMe'); //autofocus on searchbox
+	    $scope.$watch('user.format', function() {
+
+		    if($scope.user.format == "Html") {
+			    $scope.myCssVar = 'newsletter-normal';
+		    }
+		    if($scope.user.format == "Html and Pdf") {
+			    $scope.myCssVar = 'newsletter-normal';
+			   return $scope.showsubstring = true
+		    }
+		    return  $scope.showsubstring = false;
+	    });
+
+	    focus('focusMe'); //autofocus on searchbox
     });

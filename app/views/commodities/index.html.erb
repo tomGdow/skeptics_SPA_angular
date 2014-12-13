@@ -10,35 +10,46 @@
     <div class="small-12 columns">
       <dl class="sub-nav">
         <dd>
-          <div class="searchBox"><input id ="prodSearchInput" focus-on="focusMe"
-                                          ng-model="search"/>
-            </div>
+          <div class="searchBox">
+            <input id ="prodSearchInput"
+                   focus-on="focusMe"
+                   ng-model="search"/>
+          </div>
         </dd>
         <dd>
-          <select ng-model="orderProp" id = "sortBy"
-                  class ="dropdown">
-            <option value="name" ng-bind-html="alpha"></option>
-            <option value="price" ng-bind-html="lowestPrice"></option>
-            <option value="-price" ng-bind-html="highestPrice"></option>
-            <option value="category" ng-bind-html="productCategory"></option>
-            <option value="-created_at" ng-bind-html="productCreated_at"></option>
-            <option value="-updated_at" ng-bind-html="productUpdatedAt"></option>
-            <option value="id" ng-bind-html="productid"></option>
-            <option value="-id" ng-bind-html="productid2"></option>
+          <select
+            ng-model="orderProp"
+            id = "sortBy"
+            class = "dropdown">
+                <option value = "name" ng-bind-html = "alpha"></option>
+                <option value = "price" ng-bind-html = "lowestPrice"></option>
+                <option value = "-price" ng-bind-html = "highestPrice"></option>
+                <option value = "category" ng-bind-html = "productCategory"></option>
+                <option value = "-created_at" ng-bind-html = "productCreated_at"></option>
+                <option value = "-updated_at" ng-bind-html = "productUpdatedAt"></option>
+                <option value = "id" ng-bind-html = "productid"></option>
+                <option value = "-id" ng-bind-html = "productid2"></option>
           </select>
         </dd>
         <dd>
-          <span ng-show ="search.length>=2">Search Term:
-         <span>{{search}}</span> </span>
+          <span ng-show = "search.length>=2"
+                class = "echo_search_term">
+            <span class = "icon-search"></span>
+          <span >{{search}}</span></span>
         </dd>
       </dl>
     </div>
   </div>
 </div>
-
+<div class="zero_search_wrapper">
+  <div class ="zero_search_items"
+     ng-if ="filteredCommodities.length==0">
+  </div>
+</div>
 <div class="table_lge_wrapper">
- <div  ng-init="init(<%= @commodities.to_json %>)"></div>
-  <table>
+
+ <div  ng-init = "init(<%= @commodities %>);"></div>
+  <table ng-show ="filteredCommodities.length>0">
     <thead>
         <tr>
           <th>&nbsp;</th>
@@ -48,15 +59,18 @@
           <th class = "tableColTwo">&nbsp;</th>
         </tr>
     </thead>
-    <tbody  ng-repeat="commodity in commodities  | filter: search |orderBy:orderProp | limitTo:25">
+    <tbody  ng-repeat="commodity in filteredCommodities = (commodities  | filter:search|orderBy:orderProp | limitTo:25)">
+
         <tr ng-class=" addCartClass ?  'cartClass' : ''">
             <td class = "tableColThree">
                <span>
                  <pictcart ng-href="/line_items?commodity_id={{commodity.id}}"></pictcart>
                </span>
             </td>
-            <td ><span >{{commodity.name | uppercase}}</span></td>
-            <td>{{commodity.price | nfcurrency:"&euro;" }}</td>
+            <td id = {{myFirstName(commodity.name)}}_{{myLastName(commodity.name)}}>
+              <span id ="product_{{commodity.id}}">{{commodity.name | uppercase}}</span>
+            </td>
+            <td>{{commodity.price | nfcurrency:"&euro;"}}</td>
             <td><input type="checkbox" ng-model ="checked">&nbsp;&nbsp;More&hellip;</td>
             <td>
                <addtocart ng-href="/line_items?commodity_id={{commodity.id}}"></addtocart>
@@ -68,7 +82,6 @@
               <div class ="description" >
                   ({{commodity.category}})&nbsp;&nbsp;{{commodity.description}}({{commodity.id}})
               </div>
-
               <div class = "table_flex_commodities">
                 <span>
                   <a href="/commodities/{{commodity.id}}"
@@ -85,11 +98,13 @@
                   </a>
                 </span>
                 <span>
-                    <a href="/commodities/{{commodities.id}}" data-confirm="Are you sure?"
-                       data-method="delete"
-                       rel="nofollow" class="button secondary tiny">
-                      Destroy
-                    </a>
+                  <a class="button secondary tiny 5 radius"
+                     rel="nofollow" data-remote="true"
+                     data-method="delete"
+                     data-confirm="Are you sure?"
+                     href="/commodities/{{commodity.id}}">
+                    Destroy
+                  </a>
                 </span>
               </div>
             </div>

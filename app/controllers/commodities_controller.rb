@@ -3,18 +3,17 @@ class CommoditiesController < ApplicationController
   require 'writeJSON'
 
   def index
-    @commodities = Commodity.all
+    @commodities = Commodity.all.to_json
 
     respond_to do |format|
       format.html # index.html.erb
-      format.js
+      #format.js
       format.json { render json: @commodities }
     end
   end
 
   def show
     @commodity = Commodity.find(params[:id])
-
 
     respond_to do |format|
       format.html # show.html.erb
@@ -46,15 +45,13 @@ class CommoditiesController < ApplicationController
 
     respond_to do |format|
       if @commodity.save
+        SKEPTICS.write_commodities_to_json
         format.html { redirect_to @commodity, notice: 'Commodity was successfully created.' }
         format.json { render json: @commodity, status: :created, location: @commodity }
+
       else
         format.html { render action: "new" }
         format.json { render json: @commodity.errors, status: :unprocessable_entity }
-      end
-
-      if @commodity.save
-        SKEPTICS.write_commodities_to_json
       end
     end
   end

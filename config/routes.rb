@@ -33,13 +33,13 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/animatedgifs"
   get "home/blackcat"
   get "home/timer"
+  get "home/templatepickll"
+  get "home/templatespiders"
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/carts/remove/:id' => 'line_items#destroy'
 
   match '/your_show' => "commodities#your_show", :as => "your_show"
-
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

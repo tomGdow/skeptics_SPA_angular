@@ -15,22 +15,26 @@
       </span>
       <dl class="sub-nav">  <!--flexitem 2-->
         <dd>
-          <span ng-show="query.length>=2">Search Term: {{query}}</span>
+          <span ng-show="query.length>=2" class = "echo_search_term"><span class = "icon-search"></span> {{query}}</span>
         </dd>
           <dd>
-            <input ng-model="query"  placeholder="Search" id="ngsearch" type="text" focus-on="focusMe">
-            Search
+            <input ng-model = "query"
+                   placeholder = "Search"
+                   id = "ngsearch"
+                   type = "text"
+                   focus-on = "focusMe">
           </dd>
           <dd>
-                <select ng-model="orderProp" id = "sortBy"
+                <select ng-model = "orderProp" id = "sortBy"
                     class ="dropdown">
-                      <option value="name" ng-bind-html="alpha"></option>
-                      <option value="price" ng-bind-html="lowestPrice"></option>
-                      <option value="-price" ng-bind-html="highestPrice"></option>
-                      <option value="category" ng-bind-html="productCategory"></option>
-                      <option value="-created_at" ng-bind-html="productCreated_at"></option>
-                      <option value="-updated_at" ng-bind-html="productUpdatedAt"></option>
-                      <option value="-id" ng-bind-html="productid"></option>
+                      <option value = "name"     ng-bind-html = "alpha"></option>
+                      <option value = "price"    ng-bind-html = "lowestPrice"></option>
+                      <option value = "-price"   ng-bind-html = "highestPrice"></option>
+                      <option value = "category" ng-bind-html = "productCategory"></option>
+                      <option value = "-created_at" ng-bind-html = "productCreated_at"></option>
+                      <option value = "-updated_at" ng-bind-html = "productUpdatedAt"></option>
+                      <option value = "id"       ng-bind-html = "productid"></option>
+                      <option value = "-id"      ng-bind-html = "productid2"></option>
                 </select>
             Sort By
           </dd>
@@ -41,7 +45,7 @@
 
     <!--grid-->
         <ul ng-show="layout == 'grid2'" class="grid2">
-              <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
+              <li ng-repeat="product in filteredProducts = (productList | filter:query | orderBy:orderProp)">
                     <span class ="myspan2">
                       <a href="/commodities/{{product.id}}"
                          data-remote ="true"
@@ -52,16 +56,20 @@
                       </a>
                     </span>
               </li>
+          <li class ="zero_search_items"  ng-if ="filteredProducts.length==0"></li>
         </ul>
+
+
+
     <!--column-->
         <ul ng-show="layout == 'list2'" class="list2 clearfix" >
-              <li ng-repeat="product in productList | filter:query | orderBy:orderProp">
+              <li ng-repeat="product in filteredProducts = (productList | filter:query | orderBy:orderProp)">
                 <span class="flex_alt" ng-class=" addCartClass ?  'cartClass' : ''">
 
                      <span class ="flex-span-checkbox">
                        <input  type="checkbox" ng-model="checked" title = "More&hellip;">
                      </span>
-                  <span  >
+                  <span>
                      <span class ="flex-span" >
                        <a href="/commodities/{{product.id}}"
                            title ="Show"
@@ -70,10 +78,9 @@
                           <img ng-src="./assets/{{product.image_url}}" class="image_transition">
                         </a>
                      </span>
-                     <span class ="flex-span-title" id ={{myFirstName(product.name)}}_{{myLastName(product.name)}}>
+                     <span class ="flex-span-title" id = {{myFirstName(product.name)}}_{{myLastName(product.name)}} >
                       {{product.name}}
                     </span>
-
                   </span>  </span>
                 <div class="check-element animate-show" ng-show="checked">
                     <div class="description">{{product.description}}</div>
@@ -105,7 +112,15 @@
                     </div> <!--end flexbox-more-two-->
                 </div>
               </li>
+           <li>
+              <div class="zero_search_wrapper">
+                 <div class ="zero_search_items"
+                      ng-if ="filteredProducts.length==0">
+                 </div>
+              </div>
+           </li>
         </ul>
+
   </div>
   <div class ="httpStatus {{CommoditiesStatus}}" ng-show="false" ></div>
   <div class ="httpStatus {{CommoditiesStatus}}" ng-show="false" ></div>

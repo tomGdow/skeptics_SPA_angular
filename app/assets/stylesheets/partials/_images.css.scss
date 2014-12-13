@@ -364,3 +364,72 @@
   background: url('ajax-loader.gif');
   background-repeat: no-repeat;
 }
+
+.spider-flex_array {
+  @include myflex($justify-content: center);
+
+}
+
+.image_ontop{ //spider
+  position:relative;
+  top: 0;
+  left:0;
+  z-index:10;
+  opacity:1;
+  height: 300px;
+  width: 244px;
+  background-image: url('spider_oneMod.jpg');
+  background-repeat: no-repeat;
+  @include vendor-prefix(transition, opacity ease 5.5s);
+
+}
+
+ .image_behind_1,.image_behind_2, .image_behind_3 {
+  position:absolute;
+  top: 0;
+  left:0;
+  z-index:1;
+  opacity:1;
+  height: 300px;
+  width: 244px;
+  background-image: url('spider_web.jpg');
+  background-repeat: no-repeat;
+  @include vendor-prefix(transition, all ease 2.5s);
+}
+
+.image_behind_2 {
+  background-image: url('web_developer_50.jpg');
+}
+
+.image_behind_3{
+  background-image: url('mobile_tail.jpg');
+}
+
+.opacity_zero {
+  @include vendor-prefix(transition, opacity ease 2.5s);
+  opacity:0;
+}
+
+.opacity_tgd {
+  @include vendor-prefix(transition, opacity ease 2.5s);
+  background-color:red;
+}
+
+.spider_inner_wrapper {
+  position:relative;
+  display: inline;
+}
+
+.zero_search_wrapper {
+
+  @include myflex($justify-content: center);
+}
+.zero_search_items {
+
+  background-image: url('cartoon-man.jpg');
+  background-repeat: no-repeat;
+  width: 308px;
+  height: 422px;
+}
+
+

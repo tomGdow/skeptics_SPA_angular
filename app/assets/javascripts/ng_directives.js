@@ -317,17 +317,7 @@ angular.module('myApp.directives', []).
             $scope: {},
             restrict: 'E',
             replace: true,
-            template: [
-                "<span>",
-                "<animate-gif id =\"pickll\" class =",
-                "\"{{animgifs.pickll}}_gif_wrapper\" ng-transclude >",
-                " <div ng-class =",
-                "\"{true: '{{animgifs.pickll}}_static zero_opacity',false: '{{animgifs.pickll}}_static '}",
-                "[toggleGif=='{{animgifs.pickll}}_gif_wrapper']\"></div>",
-                "<div ng-if =\"toggleGif\" class ='{{animgifs.pickll}}_animation'></div>",
-                "</animate-gif>",
-                "</span>"
-            ].join('')
+            templateUrl: './home/templatepickll.html'
         }
     }).directive('focusOn', function() {
         //Modified from: http://stackoverflow.com/a/14837021/499167
@@ -338,6 +328,27 @@ angular.module('myApp.directives', []).
                 }
             });
         };
-    });
+    }).directive('spiders', function () {
+	  return {
+		  scope: '=' ,
+		  restrict: 'AE',
+		  replace: true,
+		  templateUrl: './home/templatespiders.html',
+		  link: function (scope, element, attrs) {
+
+			  element.on('mouseover', function (e) {
+
+				  angular.element(element.children()[0]).addClass('opacity_zero');
+				  angular.element(element.children()[1]).removeClass('opacity_zero');
+
+			  });
+
+			  element.on('mouseleave', function (e) {
+				  angular.element(element.children()[1]).addClass('opacity_zero');
+				  angular.element(element.children()[0]).removeClass('opacity_zero');
 
 
+			  });
+		  }
+	  }
+  });

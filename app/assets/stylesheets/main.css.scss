@@ -51,7 +51,6 @@ li {
   text-align: center;
 }
 
-
 .flexbox_center{
   @include myflex($justify-content: center);
 }
@@ -65,6 +64,10 @@ li {
 ::-moz-selection {
   background: lightblue;
 }
+
+.nav_bar_gray {color: $nav-bar-gray}
+
+.unordered_one {padding-bottom: 10px;}
 
 .visuallyhidden {
   border: 0;
@@ -140,8 +143,10 @@ input.ng-invalid.ng-dirty.ng-invalid-email {
 
 //==search
 #prodSearchInput,
-#userSearchInput {height: em(50px);
-font-size: em(20px)}
+#userSearchInput {
+  color: $nav-bar-gray;
+  height: em(50px);
+  font-size: em(20px)}
 
 
 
@@ -159,6 +164,23 @@ font-size: em(20px)}
     flex-direction: column;
   }
 }
+
+
+.newsletter-highlight {color: $skeptics-orange}
+
+
+.newsletter-normal-add, .newsletter-normal-remove {
+  @include vendor-prefix(transition, all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s);
+
+}
+
+.newsletter-normal,
+.newsletter-normal-add.newsletter-normal-add-active {
+  color: $nav-bar-gray;
+}
+
+
+
 
 
 

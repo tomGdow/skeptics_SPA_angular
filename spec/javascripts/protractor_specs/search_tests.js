@@ -9,7 +9,7 @@ describe('my app', function () {
             browser.get('#view5');
         });
 
-        describe('Dynamic Search', function () {
+        describe('Dynamic Search - Column View', function () {
 
             it('should return the correct sort-by result', function () {
 
@@ -51,8 +51,6 @@ describe('my app', function () {
             });
 
             it('should return the correct dynamic search result', function () {
-
-
                 element(by.css('.list-icon')).click();
 
                 element(by.id("ngsearch")).sendKeys('Charlton');

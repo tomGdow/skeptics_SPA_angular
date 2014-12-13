@@ -377,7 +377,23 @@ angular.module('myApp.services', []).
                     $rootScope['toggleview' + $args[1]] = true;
                     $rootScope['toggleview' + $args[0]] = false;
                 }
-            }
+            },
+
+	        makeLastName: function (string) {
+	            var mystring = string.split(' ');
+	            if (mystring.length > 1) {
+		        return mystring[1];
+	            }
+	        return string;
+            },
+
+	        makeFirstName: function (string) {
+	        var mystring = string.split(' ');
+	        if (mystring.length > 1) {
+		        return mystring[0];
+	        }
+	        return string;
+        }
         };
     }).factory('focus', function ($rootScope, $timeout) {
     //Modified from: http://stackoverflow.com/a/14837021/499167
@@ -387,4 +403,18 @@ angular.module('myApp.services', []).
             $rootScope.$broadcast('focusOn', name);
         });
     }
-});
+}).factory('User', function () {
+	  //newsletter
+	  var user = {
+		  email: "",
+		  format: "Pdf",
+		  realname: function () {
+              return  this.email.split('@')[0];
+		  }
+	  };
+	  return {
+		  get: function () {
+			  return user;
+		  }
+	  }
+  });
