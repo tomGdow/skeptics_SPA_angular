@@ -67,8 +67,9 @@ angular.module('myApp.controllers', [
         $rootScope.toggleview15 = true; //Ajax 'bottleneck'
 
     })
-    .controller('MyCtrlIndex', function ($scope, $http, theTimeNowService, _, focus,
-                                         $location, $sce, $rootScope) {
+    .controller('MyCtrlIndex', ['$scope', '$rootScope', '$http', 'theTimeNowService', '_', 'focus',
+	  '$location', '$sce', function ($scope, $rootScope, $http, theTimeNowService, _, focus,
+                                         $location, $sce) {
         //====INDEX PAGE CONTROLLER====
 
         $rootScope.littleCart = true;
@@ -386,9 +387,12 @@ angular.module('myApp.controllers', [
         $scope.hideTheTimer = function () {
             return $scope.showtimer = false;
         };
-    })
-    .controller('MyCtrl1', function ($scope, $http, chartsService, imgService,
+    }])
+    .controller('MyCtrl1',['$scope','$http', 'chartsService', 'imgService',
+	                       'flexsliderService', 'functionsService',
+	  function ($scope, $http, chartsService, imgService,
                                      flexsliderService, functionsService) {
+
         //====CONTROLLER FOR PARTIAL ONE ====
 
         $scope.viewOneMessage = "Natural Skeptics";
@@ -470,8 +474,9 @@ angular.module('myApp.controllers', [
             'totalPrice_cartPartial', 'detailedCartIcon');
 
 
-    })
-    .controller('MyCtrl2', function ($scope, videoService, $sce, functionsService) {
+    }])
+    .controller('MyCtrl2', ['$scope','videoService', '$sce', 'functionsService',
+	  function ($scope, videoService, $sce, functionsService) {
         //====CONTROLLER FOR PARTIAL TWO====
         //==== Videogular ====
         //see  http://videogular.com/
@@ -655,8 +660,9 @@ angular.module('myApp.controllers', [
         $scope.toggleGif = false;
         $scope.animgifs = { "pickll": "pickll"};
 
-    })
-    .controller('MyCtrl3', function ($scope, $http, instagram, functionsService) {
+    }])
+    .controller('MyCtrl3', ['$scope', '$http', 'instagram', 'functionsService', function ($scope, $http, instagram, functionsService) {
+
         //====CONTROLLER FOR PARTIAL THREE====
         //===Instagram Feeds
         //Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
@@ -680,9 +686,11 @@ angular.module('myApp.controllers', [
         //=== Control Display of Cart (_carts partial)
         functionsService.addClassById("displayNone", 'myPartialCart');
 
-    })
-    .controller('MyCtrl4', function ($scope, $http, imgService,
-                                    dublinSliderService, functionsService, googleService,$timeout) {
+    }])
+    .controller('MyCtrl4', ['$scope', '$http', 'imgService',
+	  'dublinSliderService', 'functionsService', 'googleService', '$timeout',
+	  function ($scope, $http, imgService,
+                                    dublinSliderService, functionsService, googleService, $timeout) {
 
         //====CONTROLLER FOR PARTIAL FOUR====
         //(Sixties Dublin)
@@ -892,8 +900,9 @@ angular.module('myApp.controllers', [
 
 	  };
 
-    })
-    .controller('MyCtrl5', function ($scope, $http, functionsService, $rootScope, focus) {
+    }])
+    .controller('MyCtrl5', ['$scope', '$http', 'functionsService', '$rootScope', 'focus',
+	                 function ($scope, $http, functionsService, $rootScope, focus) {
 
         //====CONTROLLER FOR PARTIAL FIVE ====
         //Products Display page
@@ -949,7 +958,7 @@ angular.module('myApp.controllers', [
         //==Automatic focus on search input box
         focus('focusMe');
 
-    })
+    }])
     .controller('MyCtrl6', ['$scope', '$rootScope', 'functionsService', 'focus', '$location',
         function ($scope, $rootScope, functionsService, focus) {
 
@@ -1117,7 +1126,7 @@ angular.module('myApp.controllers', [
             $scope.viewMessageEleven = "yourCart";
         }
     ])
-    .controller('MyCtrl12',
+    .controller('MyCtrl12',['$scope', '$http', '$sce', 'functionsService', '$location', '$rootScope',
     function ($scope, $http, $sce, functionsService, $location, $rootScope) {
         //====CONTROLLER FOR PARTIAL TWELVE====
         //====Detailed Cart
@@ -1143,8 +1152,8 @@ angular.module('myApp.controllers', [
         });
         functionsService.addClassById("displayNone", 'myPartialCart');
 
-    })
-    .controller('MyCtrl13',
+    }])
+    .controller('MyCtrl13',['$scope', '$http', 'dribbleService', 'functionsService',
     function ($scope, $http, dribbleService, functionsService) {
         //====CONTROLLER FOR PARTIAL THIRTEEN====
         //====Dribble
@@ -1158,8 +1167,8 @@ angular.module('myApp.controllers', [
         });
 
         functionsService.addClassById("displayNone", 'myPartialCart');
-    })
-    .controller('MyCtrl14',
+    }])
+    .controller('MyCtrl14',['$scope', '$http', 'focus', '$rootScope', 'User',
     function ($scope, $http, focus, $rootScope, User) {
 
         //====CONTROLLER FOR PARTIAL FOURTEEN====
@@ -1231,4 +1240,4 @@ angular.module('myApp.controllers', [
 	    });
 
 	    focus('focusMe'); //autofocus on searchbox
-    });
+    }]);
