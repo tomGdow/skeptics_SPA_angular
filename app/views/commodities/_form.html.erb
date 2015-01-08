@@ -29,7 +29,9 @@
   </div>
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.select :category,
+                   Commodity::CATEGORY_TYPES,
+                   prompt: 'Choose ...' %>
   </div>
   <div class="field">
     <%= f.label :year %><br />
