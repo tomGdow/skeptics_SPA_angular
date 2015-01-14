@@ -176,17 +176,26 @@ input.ng-invalid.ng-dirty.ng-invalid-email {
 @media screen and (max-width: 999px) {
   .main {
     -webkit-flex-direction: column;
+
     -moz-flex-direction: column;
     flex-direction: column;
   }
+
 }
 
+#commodity_category, #bibliography_publication {
+  //put in forms?
+  width: 60%;
+  margin-left: 5%;
+  line-height: 20px;
+  font-size: 16px;
+  height: em(40px);
+}
 
-
-
-#commodity_category {width: 60%;
-margin-left: 5%;}
-
+.harvardref {
+  list-style-type: none;
+  background: blue;
+}
 
 
 

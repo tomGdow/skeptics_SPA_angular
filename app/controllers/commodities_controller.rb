@@ -4,10 +4,10 @@ class CommoditiesController < ApplicationController
 
   def index
     @commodities = Commodity.all.to_json
-
     respond_to do |format|
       format.html # index.html.erb
       #format.js
+
       format.json { render json: @commodities }
     end
   end
@@ -27,6 +27,7 @@ class CommoditiesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
       format.json { render json: @commodity }
     end
   end
@@ -45,7 +46,8 @@ class CommoditiesController < ApplicationController
 
     respond_to do |format|
       if @commodity.save
-        SKEPTICS.write_commodities_to_json
+       SKEPTICS.write_commodities_to_json
+        #format.js
         format.html { redirect_to @commodity, notice: 'Commodity was successfully created.' }
         format.json { render json: @commodity, status: :created, location: @commodity }
 

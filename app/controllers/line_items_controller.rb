@@ -68,7 +68,7 @@ class LineItemsController < ApplicationController
     @cart = current_cart
 
     respond_to do |format|
-      format.html { redirect_to '/#view4' }
+      format.html
       format.js
       format.json { head :no_content }
     end

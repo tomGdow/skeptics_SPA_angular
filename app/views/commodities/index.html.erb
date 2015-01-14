@@ -48,7 +48,6 @@
 </div>
 <div class="table_lge_wrapper">
 
- <div  ng-init = "init(<%= @commodities %>);"></div>
   <table ng-show ="filteredCommodities.length>0">
     <thead>
         <tr>
@@ -59,7 +58,7 @@
           <th class = "tableColTwo">&nbsp;</th>
         </tr>
     </thead>
-    <tbody  ng-repeat="commodity in filteredCommodities = (commodities  | filter:search|orderBy:orderProp | limitTo:25)">
+    <tbody  ng-repeat="commodity in filteredCommodities = (commodities  | filter:search|orderBy:orderProp | limitTo:60)">
 
         <tr ng-class=" addCartClass ?  'cartClass' : ''">
             <td class = "tableColThree">

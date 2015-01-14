@@ -1,0 +1,149 @@
+<h4>{{messageOne}}</h4>
+<a href="#view18" class ="button">
+  New Biblio Entry
+</a>
+
+<button type="button" class="button secondary tiny 5 radius" ng-click = "tomgdow()">Show only Selected</button>
+<button type="button" class="button secondary tiny 5 radius" ng-click = "tomgdow2()">Show all Information</button>
+<button type="button" class="button secondary tiny 5 radius" ng-click = "showharvard()">Harvard Format</button>
+<button type="button" class="button secondary tiny 5 radius" ng-click = "showall()">Full Format</button>
+
+<span><button class="button"
+              type="reset"
+              ng-click="reset()">Clear
+</button></span>
+
+<div class=" col-partial4"> <!--search and sortby-->
+  <div class="row">
+    <div class="small-12 columns">
+      <dl class="sub-nav">
+        <dd>
+          <div class="searchBox">
+            <input id ="prodSearchInput"
+                   focus-on="focusMe"
+                   ng-model="search"/>
+          </div>
+        </dd>
+        <dd>
+          <select ng-model="orderProp" id = "sortBy" class = "dropdown">
+            <option value = "authors" ng-bind-html = "author"></option>
+            <option value = "-year" ng-bind-html = "year"></option>
+            <option value = "year" ng-bind-html = "yearalt"></option>
+            <option value = "selected" ng-bind-html = "selected"></option>
+            <option value = "-created_at" ng-bind-html = "productCreated_at"></option>
+            <option value = "-updated_at" ng-bind-html = "productUpdatedAt"></option>
+            <option value = "id" ng-bind-html = "productid"></option>
+            <option value = "-id" ng-bind-html = "productid2"></option>
+            <option value = "publication " ng-bind-html = "publicationtype"></option>
+          </select>
+        </dd>
+        <dd>
+          <span ng-show = "search.length>=2"
+                class = "echo_search_term">
+            <span class = "icon-search"></span>
+          <span >{{search}}</span></span>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<div class="zero_search_wrapper">
+  <div class ="zero_search_items"
+       ng-if ="filteredBibliographies.length==0">
+  </div>
+</div>
+<div class="table_lge_wrapper">
+
+ <span id="exptom"><div ng-init = "init(<%= @bibliographies.to_json %>);"></div>  </span>
+
+  <ul ng-hide="!checked && thomas==true"
+      ng-repeat="bibliography in filteredBibliographies = (bibliographies  | filter:search|orderBy:orderProp | limitTo:56)">
+    <li ng-class= "harvard ? 'fullbiblio ':'harvardref'">
+      <span>{{bibliography.authors}}</span>
+      <span>({{bibliography.year}}) </span>
+      <span>{{bibliography.title}}</span>
+          <span ng-show="bibliography.publication==='Journal' ">
+            {{bibliography.journalname}},
+          </span>
+          <span ng-show="bibliography.publication==='Journal' ">
+            {{bibliography.volume}},
+          </span>
+          <span ng-show="bibliography.publication==='Journal' ">
+            pp {{bibliography.pages}}.
+          </span>
+          <span ng-show="bibliography.publication==='Book' && bibliography.edition != nil">
+            {{bibliography.edition}}
+          </span>
+          <span ng-show="bibliography.publication==='Book' && bibliography.editors != nil">
+            ({{bibliography.editors}}, editors).
+          </span>
+          <span ng-show="bibliography.publication==='Book' && bibliography.publisher != nil">
+            {{bibliography.publisher}},
+          </span>
+          <span ng-show="bibliography.publication==='Book' && bibliography.city != nil">
+            {{bibliography.city}}</span>
+          <span>[{{bibliography.publication}}
+            <span ng-hide= "bibliography.comment== nil">({{bibliography.comment}})</span>]
+          </span>
+          <span ng-hide= "bibliography.url == nil">
+            <br/>Available at:
+            <a href="{{bibliography.url}}" target="_blank" >
+              {{bibliography.url}}
+            </a>
+          </span>
+      <span ng-hide = "bibliography.accessdate == nil"><br/>Accessed: </span>
+      <span>{{bibliography.accessdate}}</span>
+          <span ng-show="harvard">
+            <br/>Id: {{bibliography.id}}
+          </span>
+      <span ng-show="harvard">{{bibliography.publication}}</span>
+      <span ng-show="harvard">{{bibliography.publication}}</span>
+          <span >
+            <input type="checkbox" ng-model ="checked">&nbsp;Select</span>
+      <br/>
+          <span ng-show="harvard">
+                <a  ng-hide= "bibliography.localpdflink== nil"
+                    class="button secondary tiny ng-scope"
+                    href="/assets/{{bibliography.localpdflink}}"
+                    target="_blank">
+                  Local pdf
+                </a>
+          </span>
+      <!-- <span ng-show="harvard">
+             <a href="/bibliographies/{{bibliography.id}}"
+                class="button secondary tiny 5 radius"
+                data-remote="true">Show
+             </a>
+       </span>-->
+        <span ng-show="harvard" >
+                <a href="/bibliographies/{{bibliography.id}}/edit"
+                   data-remote="true"
+                   class="button secondary tiny 5 radius">
+                  Edit
+                </a>
+          </span>
+       <span ng-show="harvard">
+                <a class="button secondary tiny 5 radius"
+                   rel="nofollow"
+                   data-remote="true"
+                   data-method="delete"
+                   data-confirm="Are you sure?"
+                   href="/bibliographies/{{bibliography.id}}">
+                  Destroy
+                </a>
+          </span>
+
+
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+

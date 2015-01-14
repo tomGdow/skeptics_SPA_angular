@@ -897,12 +897,19 @@ angular.module('myApp.controllers', [
 
         $scope.layout = 'grid2';
         $scope.message = "Dynamic Search";
+
         $http.get('./skepticsCommodities.json').success(
             function (data, status) {
                 $scope.productList = data;
                 $scope.CommoditiesStatus = status;
             }
         );
+
+/*		$scope.$watch('productList', function() {
+		alert('hello from commodites productList watch in ctrl5');
+		  }
+		);*/
+
         $scope.orderProp = 'name';
         $scope.alpha = "Alphabetical";
         $scope.lowestPrice = "Lowest Price";
@@ -943,8 +950,8 @@ angular.module('myApp.controllers', [
         focus('focusMe');
 
     }])
-    .controller('MyCtrl6', ['$scope', '$rootScope', 'functionsService', 'focus', '$location',
-        function ($scope, $rootScope, functionsService, focus) {
+    .controller('MyCtrl6', ['$scope', '$rootScope','$http', '$sce','functionsService', 'focus', '$location',
+        function ($scope, $rootScope, $http, $sce, functionsService, focus,  $location) {
 
             //====CONTROLLER FOR Commodities ====
             $rootScope.littleCart = true;
@@ -959,9 +966,7 @@ angular.module('myApp.controllers', [
             $scope.productid2 = "Id (high first)";
             $scope.viewSixMessage = "Search Commodities";
             $scope.addCartClass = false; //for fade-in-out add to cart
-            $scope.init = function (commodities) {
-               return $scope.commodities = angular.fromJson(commodities);
-            };
+	        $scope.trustedHtml = $sce.trustAsHtml($scope.yourCart);
 
             //==Ajax bottleneck
             $rootScope.toggleview6 = false;
@@ -981,6 +986,20 @@ angular.module('myApp.controllers', [
 	        $scope.myLastName = function (string) {
 		        return functionsService.makeLastName(string);
 	        };
+
+	        $http.get('../commodities.json').success(
+	          function (data, status) {
+		          $scope.commodities = data;
+		          $scope.commoditiesStatus = status;
+
+	          }
+	        );
+
+/*	        $scope.initt = function (commodities) {
+
+		        return $scope.commodities = angular.fromJson(commodities);
+	        };*/
+
         }
     ])
     .controller('MyCtrl7', ['$scope',
@@ -1200,7 +1219,6 @@ angular.module('myApp.controllers', [
 		    $scope.echoEmail = false;
 		    $scope.myCssVar ="newsletter-highlight";
 
-
 	    };
 
         $scope.onFocus = function () {
@@ -1227,4 +1245,88 @@ angular.module('myApp.controllers', [
 	    });
 	    $scope.user = User.get();
 	    focus('focusMe'); //autofocus on searchbox
-    }]);
+    }])
+
+  .controller('MyCtrl16',['$scope','$http',
+	  function ($scope, $http) {
+
+		  //====CONTROLLER FOR PARTIAL SIXTEEN ====
+		  //====BiblioManager
+		  $scope.viewMessageSixteen = "Biblio Manager";
+
+		  $scope.thomas = false;
+		  $scope.harvard = true;
+
+		  $scope.tomgdow = function () {
+
+			  return $scope.thomas=true
+		  };
+
+		  $scope.tomgdow2 = function () {
+
+			  return $scope.thomas=false
+		  };
+
+		  $scope.showharvard = function () {
+
+			  return $scope.harvard=false;
+		  };
+
+		  $scope.showall = function () {
+
+			  return $scope.harvard=true;
+		  };
+
+		  $scope.viewOneMessage = "Natural Skeptics";
+
+		  $scope.orderProp = 'authors';
+
+		  $scope.author = "Author - Alphabetical";
+		  $scope.year = "Year (Latest First)";
+		  $scope.yearalt = "Year (Earliest First)";
+		  $scope.selected = "selected";
+		  $scope.productCreated_at = "Created At";
+		  $scope.productUpdatedAt = "Updated At";
+		  $scope.productid = "Id (low first)";
+		  $scope.productid2 = "Id (high first)";
+		  $scope.publicationtype = "Publication Type";
+
+/*
+		  $scope.init = function (arg) {
+			  return $scope.bibliographies = angular.fromJson(arg);
+
+
+		  };
+*/
+
+		  $http.get('../bibliographies.json').success(
+		    function (data, status) {
+			    $scope.bibliographies = data;
+			    $scope.bibliographiesStatus = status;
+
+		    }
+		  );
+
+
+		  //$scope.$watch('bibliographies', function() {
+			    //alert('hello')
+		   // }
+		 // );
+		  $scope.reset = function() {
+			  $scope.checked = {};
+		  }
+
+	  }])
+  .controller('MyCtrl17', ['$scope',
+	  function ($scope) {
+		  //====CONTROLLER FOR Commodities/Edit ====
+		  $scope.viewSeventeenMessage = "Editing Bibliography";
+	  }
+  ])
+  .controller('MyCtrl18', ['$scope',
+	  function ($scope) {
+
+		  //====CONTROLLER FOR Commodities/new ====
+		  $scope.viewEighteenMessage = 'New Bibliography Entry';
+	  }
+  ]);

@@ -23,5 +23,11 @@ angular.module('myApp', [
         $routeProvider.when('/view13', {templateUrl: 'home/partial13.html', controller: 'MyCtrl13'});//Dribbble
         $routeProvider.when('/view14', {templateUrl: 'home/partial14.html', controller: 'MyCtrl14'});//User Data
         $routeProvider.when('/view15', {templateUrl: 'home/partial5.html',  controller: 'MyCtrl5'}); //Dynamic Searching
-        $routeProvider.otherwise({redirectTo: '/view1'});
+	    $routeProvider.when('/view16', {templateUrl: 'bibliographies', controller: 'MyCtrl16'});//Bibliographies - index.html
+	    $routeProvider.when('/view17', {templateUrl: 'bibliographies/edit/',   controller: 'MyCtrl17'}); //Bibliographies/edit
+	    $routeProvider.when('/view18',  {templateUrl: 'bibliographies/new.html', controller: 'MyCtrl18'}); //Bibliographies/new
+
+	  $routeProvider.when('/view19', {templateUrl: 'your_show',           controller: 'MyCtrl6'}); //Your Cart
+
+	  $routeProvider.otherwise({redirectTo: '/view1'});
     }]);

@@ -1,0 +1,106 @@
+<p id="notice"><%= notice %></p>
+<h1>I come from Show partial</h1>
+
+<p>
+  <b>Firstsurname:</b>
+  <%= @bibliography.firstsurname %>
+</p>
+
+<p>
+  <b>Authors:</b>
+  <%= @bibliography.authors %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @bibliography.year %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @bibliography.title %>
+</p>
+
+<p>
+  <b>Journalname:</b>
+  <%= @bibliography.journalname %>
+</p>
+
+<p>
+  <b>Publication:</b>
+  <%= @bibliography.publication %>
+</p>
+
+<p>
+  <b>Volume:</b>
+  <%= @bibliography.volume %>
+</p>
+
+<p>
+  <b>Pages:</b>
+  <%= @bibliography.pages %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @bibliography.url %>
+</p>
+
+<p>
+  <b>Localpdflink:</b>
+  <%= @bibliography.localpdflink %>
+</p>
+
+<p>
+  <b>Accessdate:</b>
+  <%= @bibliography.accessdate %>
+</p>
+
+<p>
+  <b>Websitetitle:</b>
+  <%= @bibliography.websitetitle %>
+</p>
+
+<p>
+  <b>Conferencetitle:</b>
+  <%= @bibliography.conferencetitle %>
+</p>
+
+<p>
+  <b>Publisher:</b>
+  <%= @bibliography.publisher %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @bibliography.city %>
+</p>
+
+<p>
+  <b>Editors:</b>
+  <%= @bibliography.editors %>
+</p>
+
+<p>
+  <b>Edition:</b>
+  <%= @bibliography.edition %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @bibliography.comment %>
+</p>
+
+<p>
+  <b>Isbn:</b>
+  <%= @bibliography.isbn %>
+</p>
+
+<p>
+  <b>Abstract:</b>
+  <%= @bibliography.abstract %>
+</p>
+
+
+<%= link_to 'Edit', edit_bibliography_path(@bibliography) %> |
+<%= link_to 'Back', bibliographies_path %>

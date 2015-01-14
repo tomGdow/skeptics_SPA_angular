@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140811173946) do
+ActiveRecord::Schema.define(:version => 20150111195746) do
+
+  create_table "bibliographies", :force => true do |t|
+    t.string   "firstsurname"
+    t.text     "authors"
+    t.integer  "year"
+    t.text     "title"
+    t.string   "journalname"
+    t.string   "publication"
+    t.string   "volume"
+    t.string   "pages"
+    t.string   "url"
+    t.string   "localpdflink"
+    t.string   "accessdate"
+    t.string   "websitetitle"
+    t.string   "conferencetitle"
+    t.string   "publisher"
+    t.string   "city"
+    t.string   "editors"
+    t.string   "edition"
+    t.text     "comment"
+    t.string   "isbn"
+    t.text     "abstract"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false

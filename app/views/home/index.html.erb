@@ -32,10 +32,6 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
 
 
-
-
-
-
   <%= csrf_meta_tags %>
 </head>
 <body ng-controller="MyCtrlIndex">
@@ -131,13 +127,13 @@
             <a href="#view5">
               <span  ng-show="toggleview5"
                      ng-click = "showLittleCart()">
-                Dynamic Searching 5
+                Dynamic Searching
               </span>
             </a>
             <a href="#view15">
               <span ng-show="toggleview15"
                     ng-click = "showLittleCart()">
-                Dynamic Searching 15
+                Dynamic Searching
               </span>
             </a>
           </dd>
@@ -173,8 +169,6 @@
     <div class ="cartPartial" id = "cartP" my-draggable>
       <div class="cart" id="mycart" ></div><!--cart -->
     </div>
-
-
 
     <div  ng-include="'/home/footer.html'" ng-cloak></div><!--footer-->
     <%= javascript_include_tag "application" %>

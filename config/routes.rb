@@ -1,10 +1,12 @@
 SkepticsSpaAngular::Application.routes.draw do
 
+
   root :to => 'home#index'
 
   resources :line_items
   resources :carts
   resources :commodities
+  resources :bibliographies
 
   get "home/index"
   get "home/partial1"
@@ -39,7 +41,7 @@ SkepticsSpaAngular::Application.routes.draw do
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/carts/remove/:id' => 'line_items#destroy'
 
-  match '/your_show' => "commodities#your_show", :as => "your_show"
+  #match '/your_show' => "commodities#your_show", :as => "your_show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
