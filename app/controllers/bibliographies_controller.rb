@@ -3,6 +3,7 @@ class BibliographiesController < ApplicationController
   # GET /bibliographies.json
   def index
     @bibliographies = Bibliography.all
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @bibliographies }
@@ -21,15 +22,13 @@ class BibliographiesController < ApplicationController
     end
   end
 
-
-
   # GET /bibliographies/new
   # GET /bibliographies/new.json
   def new
     @bibliography = Bibliography.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       #format.js
       format.json { render json: @bibliography }
     end
@@ -38,10 +37,10 @@ class BibliographiesController < ApplicationController
   # GET /bibliographies/1/edit
   def edit
     @bibliography = Bibliography.find(params[:id])
-
     respond_to do |format|
+      format.html
       format.js
-      format.json { render json: @commodity }
+      format.json { render json: @bibliography }
     end
   end
 

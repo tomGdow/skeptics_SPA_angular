@@ -26,10 +26,10 @@ nav.mainNav a {
 @include navGradient($skeptics-blue, 0.4,
         green,
         $skeptics-blue, 0.6,
-        home, viewtwo, viewthree, viewfour, viewfive, vieweight);
+        home, viewtwo, viewthree, viewfour, viewfive, vieweight,viewsixteen);
 
-@include addNavHover(home, viewtwo, viewthree, viewfour, viewfive);
-@include addNavFocus(home, viewtwo, viewthree, viewfour, viewfive);
+@include addNavHover(home, viewtwo, viewthree, viewfour, viewfive,viewsixteen);
+@include addNavFocus(home, viewtwo, viewthree, viewfour, viewfive,viewsixteen);
 
 .navList {
   @include myflex();

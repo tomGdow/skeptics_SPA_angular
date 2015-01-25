@@ -111,14 +111,16 @@
   max-width: 100%;
 }
 
-.image_transition{
+.image_transition {
 
   position: relative;
   @include vendor-prefix(transition, box-shadow 0.5s ease);
 
-  &:hover {text-decoration: none;
+  &:hover {
+    text-decoration: none;
     opacity: 1.0;
-    box-shadow: 10px 10px 5px $box-shadow;}
+    box-shadow: 10px 10px 5px $box-shadow;
+  }
 }
 
 //===  Image Flipper====
@@ -150,6 +152,7 @@
   font: bold 3em sans-serif;
   line-height: 425px;
 }
+
 .wrapFlip {
   @include vendor-prefix(transform, rotateY(-180deg));
 }
@@ -203,19 +206,20 @@
 %gif_static {
   @include vendor-prefix(transition, opacity ease 0.5s);
   opacity: 1;
-  position:absolute;
-  z-index:10;
-  top:0;
-  left:0;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
   background-repeat: no-repeat;
-  background-color:white;}
+  background-color: white;
+}
 
 %gif_animation {
   @include vendor-prefix(transition, opacity ease 0.5s);
-  position:absolute;
-  top:0;
+  position: absolute;
+  top: 0;
   z-index: 1;
-  left:0;
+  left: 0;
   background-repeat: no-repeat;
 
 }
@@ -237,9 +241,9 @@
   background-image: url('maus_elefant.gif');
 }
 
-.maus_elefant_gif_wrapper  {
+.maus_elefant_gif_wrapper {
   @include heightWidth(100px, 120px);
-  position:relative;
+  position: relative;
   display: inline-block;
 }
 
@@ -247,6 +251,7 @@
 %horrors_hw {
   @include heightWidth(120px, 100px);
 }
+
 .horrors_static {
   @extend %gif_static;
   @extend %horrors_hw;
@@ -259,9 +264,9 @@
   background-image: url('horror511.gif');
 }
 
-.horrors_gif_wrapper  {
+.horrors_gif_wrapper {
   @include heightWidth(130px, 110px);
-  position:relative;
+  position: relative;
   display: inline-block;
 }
 
@@ -283,9 +288,9 @@
   background-image: url('witch.gif');
 }
 
-.witch_gif_wrapper  {
+.witch_gif_wrapper {
   @extend %witch_hw;
-  position:relative;
+  position: relative;
   display: inline-block;
 }
 
@@ -306,9 +311,9 @@
   background-image: url('pickll.gif');
 }
 
-.pickll_gif_wrapper  {
+.pickll_gif_wrapper {
   @extend %pickll_hw;
-  position:relative;
+  position: relative;
   display: inline-block;
 
 }
@@ -335,9 +340,9 @@
   background-image: url('black_cat_runs.gif');
 }
 
-.blackcat_gif_wrapper  {
+.blackcat_gif_wrapper {
   @extend %blackcat_hw;
-  position:relative;
+  position: relative;
   display: inline-block;
 }
 
@@ -350,13 +355,16 @@
 //animated gifs general
 .zero_opacity {
   @include vendor-prefix(transition, opacity ease 0.5s);
-  opacity:0;
+  opacity: 0;
 }
 
 .animated-gifs {
   @include myflex();
 }
-.animated-gifs  > div:nth-child(3){ background : white; }
+
+.animated-gifs > div:nth-child(3) {
+  background: white;
+}
 
 .ajax_loader_gif {
   height: 31px;
@@ -366,18 +374,19 @@
 }
 
 .spider-flex_array {
-   margin-top: em(32px);
+  margin-top: em(32px);
   margin-bottom: em(32px);
   @include myflex($justify-content: space-around);
 
 }
 
-.image_ontop{ //spider
-  position:relative;
+.image_ontop {
+  //spider
+  position: relative;
   top: 0;
-  left:0;
-  z-index:10;
-  opacity:1;
+  left: 0;
+  z-index: 10;
+  opacity: 1;
   height: 300px;
   width: 244px;
   background-image: url('spider_oneMod.jpg');
@@ -386,12 +395,12 @@
 
 }
 
- .image_behind_1,.image_behind_2, .image_behind_3 {
-  position:absolute;
+.image_behind_1, .image_behind_2, .image_behind_3 {
+  position: absolute;
   top: 0;
-  left:0;
-  z-index:1;
-  opacity:1;
+  left: 0;
+  z-index: 1;
+  opacity: 1;
   height: 300px;
   width: 244px;
   background-image: url('spider_web.jpg');
@@ -403,17 +412,17 @@
   background-image: url('web_developer_50.jpg');
 }
 
-.image_behind_3{
+.image_behind_3 {
   background-image: url('mobile_tail.jpg');
 }
 
 .opacity_zero {
   @include vendor-prefix(transition, opacity ease 2.5s);
-  opacity:0;
+  opacity: 0;
 }
 
 .spider_inner_wrapper {
-  position:relative;
+  position: relative;
   display: inline;
 }
 
@@ -421,12 +430,53 @@
 
   @include myflex($justify-content: center);
 }
-.zero_search_items {
 
+.zero_search_items {
   background-image: url('cartoon-man.jpg');
   background-repeat: no-repeat;
   width: 308px;
   height: 422px;
+}
+
+//-----------------------
+
+.flex_center {
+  @include myflex($justify-content: center);
+}
+
+.flex_end {
+  @include myflex($justify-content: flex-end);}
+
+.flex_start{
+  @include myflex($justify-content: flex-start);
+}
+
+.flex_column_centered{
+  @include myflex($justify-content: center);
+  flex-direction: column
+}
+
+.biblio_btn_array {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.biblio_status_array {
+
+  margin-top: 0;
+  margin-bottom: em(30px);
+  font-family: $font-family-helvetica;
+  color: #999999;
+  font-size: 0.875rem;
+}
+
+.angry_cat {
+
+  padding-top: em(100px);
+  height: 300px;
+  width: 227px;
+  background-image: url('angry_cat4.jpg');
+  background-repeat: no-repeat;
 }
 
 

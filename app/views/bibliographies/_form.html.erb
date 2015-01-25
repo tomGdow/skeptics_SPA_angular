@@ -21,10 +21,10 @@
                     :placeholder => "Smith, A. D."%>
 
   </div>
-  <div class="field">
+  <div class="field" >
     <%= f.label :year %><br />
     <%= f.number_field :year,
-                       :placeholder => 2014%>
+                       :placeholder => 2014 %>
   </div>
   <div class="field">
     <%= f.label :title %><br />
@@ -63,11 +63,12 @@
     <%= f.text_field :localpdflink,
                      :placeholder => "popek_goldberg_1974.pdf" %>
   </div>
-  <div class="field">
+<div class="field">
     <%= f.label :accessdate, "Date Accessed" %><br />
     <%= f.text_field :accessdate,
-                     :placeholder => "Sept 3rd, 2014"%>
+                     :placeholder => "Sept 3rd, 2014" %>
   </div>
+
   <div class="field">
     <%= f.label :websitetitle, "Website Title" %><br />
     <%= f.text_field :websitetitle,

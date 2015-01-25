@@ -1,106 +1,179 @@
-<p id="notice"><%= notice %></p>
-<h1>I come from Show partial</h1>
+<div class="col-partial7">
+  <h4 id="notice"><%= notice %></h4>
+  <h1>I come from Show partial</h1>
+  <%= link_to("| First ", Bibliography.first, class: "button tiny", remote: true) %>
+  <%= link_to("<< Previous", @bibliography.previous,class: "button tiny", remote: true) %>
+  <%= link_to("Next >>", @bibliography.next, class: "button tiny",remote: true) %>
+  <%= link_to("Last |", Bibliography.last, class: "button tiny",remote: true) %>
 
-<p>
-  <b>Firstsurname:</b>
-  <%= @bibliography.firstsurname %>
-</p>
+          <div>Total Number of Refs: <%= Bibliography.count %></div>
+          <div>Total Number of Refs: <%= Bibliography.count %></div>
+  <table>
+    <thead>
+    <tr>
+      <th width="200">Table Header</th>
+      <th>Table Header</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Id</td>
+      <td><%= @bibliography.id %></td>
+    </tr>
+    <% unless @bibliography.firstsurname.nil? || @bibliography.firstsurname == "" %>
+        <tr>
+          <td>Surname (First Author)</td>
+          <td><%= @bibliography.firstsurname %></td>
+        </tr>
+    <% end %>
+    <% unless @bibliography.authors.nil? || @bibliography.authors == "" %>
+        <tr>
+          <td>Authors</td>
+          <td><%= @bibliography.authors %></td>
+        </tr>
+    <% end %>
+    <% unless @bibliography.year.nil? || @bibliography.year == "" %>
+        <tr>
+          <td>Year</td>
+          <td><%= @bibliography.year %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Authors:</b>
-  <%= @bibliography.authors %>
-</p>
+    <% unless @bibliography.title.nil? || @bibliography.title == "" %>
+        <tr>
+          <td>Title</td>
+          <td><%= @bibliography.title %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Year:</b>
-  <%= @bibliography.year %>
-</p>
+    <% unless @bibliography.journalname.nil? || @bibliography.journalname == "" %>
+        <tr>
+          <td>Journal Name</td>
+          <td><%= @bibliography.journalname %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Title:</b>
-  <%= @bibliography.title %>
-</p>
+    <% unless @bibliography.publication.nil? || @bibliography.publication == "" %>
+        <tr>
+          <td>Publication Type</td>
+          <td><%= @bibliography.publication %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Journalname:</b>
-  <%= @bibliography.journalname %>
-</p>
+    <% unless @bibliography.volume.nil? || @bibliography.volume == "" %>
+        <tr>
+          <td>Volume</td>
+          <td><%= @bibliography.volume %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Publication:</b>
-  <%= @bibliography.publication %>
-</p>
+    <% unless @bibliography.pages.nil? || @bibliography.pages == "" %>
+        <tr>
+          <td>Pages</td>
+          <td><%= @bibliography.pages %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Volume:</b>
-  <%= @bibliography.volume %>
-</p>
+    <% unless @bibliography.url.nil? || @bibliography.url == "" %>
+        <tr>
+          <td>Url</td>
+          <td><%= link_to @bibliography.url, @bibliography.url, target: '_blank' %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Pages:</b>
-  <%= @bibliography.pages %>
-</p>
+    <% unless @bibliography.localpdflink.nil? || @bibliography.localpdflink == "" %>
+        <tr>
+          <td>Pdf link (Local)</td>
+          <td><%= link_to @bibliography.localpdflink, @bibliography.localpdflink, target: '_blank' %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Url:</b>
-  <%= @bibliography.url %>
-</p>
+    <% unless @bibliography.accessdate.nil? || @bibliography.accessdate == "" %>
+        <tr>
+          <td>Access Date</td>
+          <td><%= @bibliography.accessdate %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Localpdflink:</b>
-  <%= @bibliography.localpdflink %>
-</p>
+    <% unless @bibliography.websitetitle.nil? || @bibliography.websitetitle == "" %>
+        <tr>
+          <td>Website Title</td>
+          <td><%= @bibliography.websitetitle %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Accessdate:</b>
-  <%= @bibliography.accessdate %>
-</p>
+    <% unless @bibliography.conferencetitle.nil? || @bibliography.conferencetitle == "" %>
+        <tr>
+          <td>Conference Title</td>
+          <td><%= @bibliography.conferencetitle %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Websitetitle:</b>
-  <%= @bibliography.websitetitle %>
-</p>
+    <% unless @bibliography.publisher.nil? || @bibliography.publisher == "" %>
+        <tr>
+          <td>Publisher</td>
+          <td><%= @bibliography.publisher %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Conferencetitle:</b>
-  <%= @bibliography.conferencetitle %>
-</p>
+    <% unless @bibliography.city.nil? || @bibliography.city == "" %>
+        <tr>
+          <td>City of Publication</td>
+          <td><%= @bibliography.city %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Publisher:</b>
-  <%= @bibliography.publisher %>
-</p>
+    <% unless @bibliography.editors.nil? || @bibliography.editors == "" %>
+    <tr>
+      <td>Editors</td>
+      <td><%= @bibliography.editors %></td>
+    </tr>
+    <% end %>
 
-<p>
-  <b>City:</b>
-  <%= @bibliography.city %>
-</p>
+    <% unless @bibliography.edition.nil? || @bibliography.edition == "" %>
+        <tr>
+          <td>Edition</td>
+          <td><%= @bibliography.edition %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Editors:</b>
-  <%= @bibliography.editors %>
-</p>
+    <% unless @bibliography.comment.nil? || @bibliography.comment == "" %>
+        <tr>
+          <td>Comment</td>
+          <td><%= @bibliography.comment %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Edition:</b>
-  <%= @bibliography.edition %>
-</p>
+    <% unless @bibliography.isbn.nil? || @bibliography.isbn == "" %>
+        <tr>
+          <td>ISBN</td>
+          <td><%= @bibliography.isbn %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Comment:</b>
-  <%= @bibliography.comment %>
-</p>
+    <% unless @bibliography.abstract.nil? || @bibliography.abstract == "" %>
+        <tr>
+          <td>Abstract</td>
+          <td><%= @bibliography.abstract %></td>
+        </tr>
+    <% end %>
 
-<p>
-  <b>Isbn:</b>
-  <%= @bibliography.isbn %>
-</p>
+    <tr>
+      <td>Created At</td>
+      <td><%= @bibliography.created_at.strftime("%d %b. %Y") %></td>
+    </tr>
 
-<p>
-  <b>Abstract:</b>
-  <%= @bibliography.abstract %>
-</p>
+    <tr>
+      <td>Updated At</td>
+      <td><%= @bibliography.updated_at.strftime("%d %b. %Y") %></td>
+    </tr>
+
+    </tbody>
+  </table>
 
 
-<%= link_to 'Edit', edit_bibliography_path(@bibliography) %> |
-<%= link_to 'Back', bibliographies_path %>
+  <%= link_to 'Edit', edit_bibliography_path(@bibliography) %> |
+  <%= link_to 'Back', bibliographies_path %>
+
+
+</div>

@@ -372,6 +372,7 @@ Bibliography.create(
     authors: %{Dixon, M. & Webb, E.C.},
     year: 1979,
     publication: 'Book',
+    isbn: '9780582462175',
     title: 'Enzymes',
     editors: 'Tipton, K.F. & Thorne, C.J.',
     edition: '3rd Edn.',
@@ -388,6 +389,7 @@ Bibliography.create(
     publication: 'Book',
     title: 'Modern JavaScript. Develop and Design',
     edition: '2nd Edn.',
+    isbn: '978-0321812520',
     publisher: 'PeachPit Press'
 
 )
@@ -532,7 +534,7 @@ Bibliography.create(
     authors: %{BBC News World },
     year: 2014,
     publication: 'Internet',
-    title: 'Visual Phenomena & Optical Illusions. “Rotating Snakes” Illusion',
+    title: 'World Cup: Pick your greatest XI',
     accessdate: 'Sept 3rd, 2014',
     comment: 'homepage',
     url: 'http://www.bbc.com/news/world-27699398'
@@ -887,6 +889,7 @@ Bibliography.create(
     publication: 'Book',
     title: 'Agile Web Development with Rails',
     edition: '4th Edn.',
+    isbn: '978-1-934356-54-8',
     publisher: 'The Pragmatic Bookshelf'
 
 )
@@ -1054,6 +1057,7 @@ Bibliography.create(
     title: 'JavaScript: The Good Parts',
     edition: '1st Edn.',
     publisher: 'O’Reilly Media',
+    isbn: '978-0-596-51774-8',
     city: 'Sebastopol'
 
 )
@@ -1062,7 +1066,6 @@ Bibliography.create(
 
 
 Bibliography.create(
-
     firstsurname: 'Popek',
     authors: %{Popek, G. J. and Goldberg, R. P.},
     year: 1974,
@@ -1078,7 +1081,6 @@ Bibliography.create(
 
 #55...
 Bibliography.create(
-
     firstsurname: 'Mell',
     authors: %{Mell, P. &  Grance, T},
     year: 2011,
@@ -1094,7 +1096,6 @@ Bibliography.create(
 
 #56...
 Bibliography.create(
-
     firstsurname: 'Krasner',
     authors: %{Krasner, G. E. and Pope, S.T.},
     year: 1988,
@@ -1129,6 +1130,7 @@ Bibliography.create(
     publication: 'Book',
     title: 'Internet & World Wide Web. How to Program',
     edition: '4th Edn.',
+    isbn: '978-0-13-215100-9',
     publisher: 'Pearson. Prentice-Hall'
 
 )
@@ -1140,13 +1142,13 @@ Bibliography.create(
     year: 2003,
     publication: 'Book',
     title: 'Patterns of Enterprise Application Architecture',
+    isbn: '978-0321127426',
     publisher: 'Addison-Wesley'
 )
 
 
 # 54. . .
 Bibliography.create(
-
     firstsurname: 'Jacob',
     authors: %{Jacob, F.},
     year: 1977,
@@ -1168,6 +1170,7 @@ Bibliography.create(
     publication: 'Book',
     title: 'The Structure of Scientific Revolutions',
     edition: '3rd Edn.',
+    isbn: '978-0226458083',
     publisher: 'University of Chicago Press'
 
 )
@@ -1180,6 +1183,7 @@ Bibliography.create(
     publication: 'Book',
     title: 'Learning Web Design. A Beginner’s Guide to HTML, CSS, Javascript, and Web Graphics',
     edition: '4th Edn.',
+    isbn: '978-1-44931-927-4',
     publisher: 'O’Reilly'
 
 )
@@ -1213,7 +1217,6 @@ Bibliography.create(
 
 #58...
 Bibliography.create(
-
     firstsurname: 'Licklider',
     authors: %{Licklider, J.C.R.},
     year: 1960,
@@ -1228,7 +1231,6 @@ Bibliography.create(
 
 #59...
 Bibliography.create(
-
     firstsurname: 'Gude',
     authors: %{Gude, S. and Hafiz, M. and Wirfs-Brock, A.},
     year: 2014,
@@ -1241,8 +1243,56 @@ Bibliography.create(
 
 )
 
+#60 ...
+Bibliography.create(
+    firstsurname: "Lovrenčić",
+    authors: "Lovrenčić, A., Konecki, M. & Orehovački,T ",
+    year:2009,
+    volume:"33",
+    publication:"Journal",
+    comment:"pdf",
+    journalname: "JIOS",
+    localpdflink:"Lovrencic_50yr_program_lang.pdf",
+    pages: '79-150',
+    title:"1957-2007: 50 Years of Higher Order Programming Languages",
+    url:"https://bib.irb.hr/datoteka/377471.Lovrencic_Konecki_Orehovacki.pdf"
 
+)
+#61 ...
+Bibliography.create(
+    firstsurname:"Time",
+    authors:"Time(Anonymous)",
+    year:2014,
+    journalname:"Time",
+    volume:"April 29, 2014",
+    publication:"Journal",
+    title:"Fifty Years of BASIC, the Programming Language That Made Computers Personal",
+    url:"http://time.com/69316/basic/"
 
+)
 
+#62 ...
+Bibliography.create(
+    firstsurname: 'UI.Utils',
+    authors: %{UI.Utils},
+    year: 2014,
+    publication: 'Internet',
+    title: 'UI.Utils.  Swiss-Army-Knife of AngularJS tools (with no external dependencies)',
+    accessdate: 'January 17th, 2015',
+    comment: 'homepage',
+    url: 'http://angular-ui.github.io/ui-utils/'
 
+)
 
+#63..
+Bibliography.create(
+    firstsurname: 'Flaticon',
+    authors: %{Flaticon},
+    year: 2014,
+    publication: 'Internet',
+    title: 'Flaticon. The largest database of free vector icons',
+    accessdate: 'Jan. 18th 2015',
+    comment: 'homepage',
+    url: 'http://www.flaticon.com/'
+
+)

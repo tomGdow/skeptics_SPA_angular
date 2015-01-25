@@ -21,11 +21,11 @@
 
 @font-face {
   font-family: 'icomoon';
-  src:url('fonts/icomoon.eot?n2fquq');
-  src:url('fonts/icomoon.eot?#iefixn2fquq') format('embedded-opentype'),
-  url('fonts/icomoon.woff?n2fquq') format('woff'),
-  url('fonts/icomoon.ttf?n2fquq') format('truetype'),
-  url('fonts/icomoon.svg?n2fquq#icomoon') format('svg');
+  src:url('fonts/icomoon.eot?i9tobp');
+  src:url('fonts/icomoon.eot?#iefixi9tobp') format('embedded-opentype'),
+  url('fonts/icomoon.woff?i9tobp') format('woff'),
+  url('fonts/icomoon.ttf?i9tobp') format('truetype'),
+  url('fonts/icomoon.svg?i9tobp#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -63,6 +63,23 @@
 .icon-search:before {
   content: "\e609";
   font-size: 0.8em;
+}
+
+.icon-expand:before {
+  content: "\e60a";
+}
+
+.icon-expand:hover {
+  color: $skeptics-blue;
+}
+
+.icon-contract:before {
+  content: "\e60b";
+  font-size: 1.2em;
+}
+
+.icon-contract:hover {
+  color: $skeptics-blue;
 }
 
 .icon-remove:before {

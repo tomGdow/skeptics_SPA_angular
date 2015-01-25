@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   protect_from_forgery
 
   before_filter :set_cache_buster
@@ -8,7 +9,6 @@ class ApplicationController < ActionController::Base
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
-
 
   private
   def current_cart

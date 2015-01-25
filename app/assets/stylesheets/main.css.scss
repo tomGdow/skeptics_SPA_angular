@@ -9,7 +9,7 @@ html {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  @include skeptics_perspective(800px);
+ // @include skeptics_perspective(800px);
 }
 
 //==Remove Dotted line from Buttons in Mozilla
@@ -192,13 +192,56 @@ input.ng-invalid.ng-dirty.ng-invalid-email {
   height: em(40px);
 }
 
-.harvardref {
-  list-style-type: none;
-  background: blue;
+.view_format {
+  line-height: em(24px);
 }
 
+.full_biblio_format {
+  line-height: em(24px);
+  list-style: square outside none;}
 
+ .indent {margin-left: em(20px)}
 
+.indent_small {margin-left: em(10px) }
+
+.reference_button {margin-top: em(10px);}
+
+.yourclass {
+  padding: em(20px);
+  padding-top: em(10px);
+  position:absolute;
+  top:em(180px);
+  right: em(50px);
+  font-family: $font-family-helvetica;
+  color: #999999;
+  font-size: 0.875rem;
+  margin-bottom: em(18px);
+  line-height:  em(24px);
+}
+
+.yourclass.yourclass_alt {
+  background-color:white;
+}
+.yourclass>.biblio_panel_inner{visibility: hidden;}
+
+.ui-scrollfix{
+
+  background: $skeptics-background;
+  position: fixed;
+  top:100px;
+  right:10%;
+  z-index: 1000;}
+
+.yourclass.ui-scrollfix > .biblio_panel_inner {
+  visibility: visible;
+}
+
+.odd {
+  background-color: $skeptics-background;
+}
+.even {
+  background-color: white;
+}
 
 
 

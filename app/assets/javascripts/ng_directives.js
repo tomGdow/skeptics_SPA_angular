@@ -47,6 +47,8 @@ angular.module('myApp.directives', []).
         return {
             restrict: 'A',
             require: 'ngModel',
+	        replace:true,
+	        scope: true,
             link: function (scope, element, attrs, ngModelCtrl) {
                 $(element).datepicker({
                     dateFormat: 'DD, d  MM, yy',

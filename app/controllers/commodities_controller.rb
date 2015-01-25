@@ -46,7 +46,7 @@ class CommoditiesController < ApplicationController
 
     respond_to do |format|
       if @commodity.save
-       SKEPTICS.write_commodities_to_json
+        SKEPTICS.write_commodities_to_json
         #format.js
         format.html { redirect_to @commodity, notice: 'Commodity was successfully created.' }
         format.json { render json: @commodity, status: :created, location: @commodity }

@@ -1,1 +1,9 @@
+window.location.replace('#/view17');
 $('#ngView').html('<%=j render partial: 'bibliographies/editPartial' %>');
+
+$( "#bibliography_accessdate" ).mouseover(function() {
+    $('#bibliography_accessdate').datepicker({
+        dateFormat: 'DD, d  MM, yy'
+    });
+});
+
