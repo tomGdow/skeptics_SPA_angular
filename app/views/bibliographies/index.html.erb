@@ -1,47 +1,89 @@
 <h4>{{messageOne}}</h4>
-<!-- Scrollfix -->
-<div ui-scrollfix="+100"
-     class="yourclass flex_column_centered"
-     ng-class= "toggleBiblioPanel ? 'yourclass_alt ': '' " >
 
-      <div class="biblio_panel_inner ">
-        <div ng-class = " toggleBiblioPanel ? 'flex_end icon-expand' : 'flex-end icon-contract flex_end'"
-             ng-click = "toggleBiblioPanel =!toggleBiblioPanel">
-        </div>
-        <div ng-hide ="toggleBiblioPanel">
-            <div class ="indent">Total selected: {{selectedItems}}</div>
-            <div class ="indent">Selected Current Search: {{selectedCurentSearchItems}}</div>
-            <div  class ="indent" ng-show="toggleHarvardFormat==true">View: Harvard Format</div>
-            <div class ="indent"  ng-show="toggleViewFormat==false && toggleHarvardFormat==false">View: View Format</div>
-            <div class ="indent"  ng-show="toggleViewFormat==true && toggleHarvardFormat==false">View: Full Format</div>
-            <div class ="indent"  ng-show="toggleSelected==true">Showing: Selected</div>
-            <div class ="indent"  ng-show="toggleSelected==false">Showing: All</div>
-            <div class ="indent"><a href="" ng-show="toggleSelected==false" ng-click="showSelectedRefs()">Show Selected</a></div>
-            <div class ="indent"><a href="" ng-show="toggleSelected==true" ng-click="showAllRefs()">Show All</a></div>
-            <div class ="indent"><a href="" ng-show="toggleViewFormat==true  || toggleHarvardFormat==true" ng-click="showViewformat()">View Format</a></div>
-            <div class ="indent"><a href="" ng-show="toggleViewFormat==false" ng-click="showAllformat()">Full Format</a></div>
-            <div class ="indent"><a href="" ng-show="toggleHarvardFormat==false" ng-click="showHarvardformat()">Harvard Format</a></div>
-        </div>
-         </div>
+    <!-- Scrollfix -->
+    <div ui-scrollfix="+100"
+         class="yourclass flex_column_centered"
+         ng-class= "toggleBiblioPanel ? 'yourclass_alt ': '' " >
+
+          <div class="biblio_panel_inner ">
+              <div ng-class = " toggleBiblioPanel ? 'flex_end icon-expand' : 'flex-end icon-contract flex_end'"
+                    ng-click = "toggleBiblioPanel = !toggleBiblioPanel">
+              </div>
+              <div ng-hide ="toggleBiblioPanel">
+                  <div class ="indent">Total selected: {{selectedItems}}</div>
+                  <div class ="indent">Selected Current Search: {{selectedCurentSearchItems}}</div>
+                  <div class ="indent"
+                       ng-show="toggleHarvardFormat==true">View: Harvard Format
+                  </div>
+                  <div class ="indent"
+                       ng-show="toggleViewFormat==false && toggleHarvardFormat==false">View: View Format
+                  </div>
+                  <div class ="indent"
+                       ng-show="toggleViewFormat==true && toggleHarvardFormat==false">View: Full Format
+                  </div>
+                  <div class ="indent"
+                       ng-show = "toggleSelected==true">Showing: Selected
+                  </div>
+                  <div class ="indent"
+                       ng-show = "toggleSelected==false">Showing: All
+                  </div>
+                  <div class ="indent">
+                      <a href="" ng-show = "toggleSelected == false"
+                               ng-click="showSelectedRefs()">Show Selected</a>
+                  </div>
+                  <div class ="indent">
+                      <a href= "" ng-show = "toggleSelected == true"
+                         ng-click="showAllRefs()">Show All</a>
+                  </div>
+                  <div class ="indent">
+                    <a href=""
+                       ng-show="toggleViewFormat==true  || toggleHarvardFormat==true"
+                       ng-click="showViewformat()">View Format</a>
+                  </div>
+                  <div class ="indent">
+                    <a href="" ng-show="toggleViewFormat==false"
+                       ng-click="showAllformat()">Full Format</a>
+                  </div>
+                  <div class ="indent">
+                    <a href="" ng-show="toggleHarvardFormat==false"
+                       ng-click="showHarvardformat()">Harvard Format</a>
+                  </div>
+              </div>
+          </div>
+    </div>
+
+  <!-- Buttons/navBar-->
+<div class ="flex_center" >
+
+    <button class="button skeptics-btn-two tiny"
+            ng-click="showSelectedRefs()">Show Selected
+    </button>
+    <button class="button skeptics-btn-two tiny"
+            ng-click="showAllRefs()">Show All
+    </button>
+    <button class="button skeptics-btn-two tiny"
+            type="reset"
+            ng-click="reset()">Clear Selected
+    </button>
+    <button class="button skeptics-btn-two tiny"
+            ng-click="showViewformat()">View Format
+    </button>
+    <button class="button skeptics-btn-two tiny"
+            ng-click="showAllformat()">Full Format
+    </button>
+    <button class="button skeptics-btn-two tiny"
+            ng-click="showHarvardformat()">Harvard Format
+    </button>
+    <a href="#view18" class="button skeptics-btn-two tiny 2 radius">New Biblio Entry</a>
+
 </div>
 
-<div class ="flex_center biblio_btn_array" >
+<div class ="flex_center biblio_status_array">
   <div>
-<button type="button" class="button secondary tiny 5 radius" ng-click="showSelectedRefs()">Show Selected</button>
-<button type="button" class="button secondary tiny 5 radius" ng-click="showAllRefs()">Show All</button>
-<button class="button secondary tiny 5 radius"type="reset" ng-click="reset()">Clear Selected</button>
-<button type="button" class="button success tiny 5 radius" ng-click="showViewformat()">View Format</button>
-<button type="button" class="button success tiny 5 radius" ng-click="showAllformat()">Full Format</button>
-<button type="button" class="button success tiny 5 radius" ng-click="showHarvardformat()">Harvard Format</button>
-<a href="#view18" class="button tiny 5 radius">New Biblio Entry</a>
-  </div>
-</div>
-<div class ="flex_center biblio_status_array" >
-  <div>
-    <span>Total selected: {{selectedItems}}</span>
+    <span>Total selected:{{selectedItems}}</span>
     <span class ="indent">Selected Current Search: {{selectedCurentSearchItems}}</span>
 
-    <span  class ="indent" ng-show="toggleHarvardFormat==true">View: Harvard Format</span>
+    <span class ="indent" ng-show="toggleHarvardFormat==true">View: Harvard Format</span>
     <span class ="indent" ng-show="toggleViewFormat==false && toggleHarvardFormat==false">View: View Format</span>
     <span class ="indent" ng-show="toggleViewFormat==true && toggleHarvardFormat==false">View: Full Format</span>
 
@@ -92,7 +134,7 @@
 
   <ul class="searchlist" ng-hide=" !bibliography.checked && toggleSelected===true"
       ng-repeat="bibliography in filteredBibliographies = (bibliographies  | filter:search|orderBy:orderProp | limitTo:72)">
-    <li ng-class-odd="'odd'" ng-class-even="'even'" ng-class="toggleViewFormat ? 'full_biblio_format ':'view_format'">
+    <li  ng-class="toggleViewFormat ? 'full_biblio_format ':'view_format'">
 
       <!-- All refs -->
       <span>{{bibliography.authors}}</span>
@@ -156,33 +198,37 @@
         <span class="indent">Updated At: {{bibliography.updated_at | dabbbleDate}}</span>
         <span ng-hide="bibliography.isbn == nil" class="indent">ISBN: {{bibliography.isbn}}</span>
 
-        <div class="reference_button">
+        <div class="flex_center">
+          <!--/#view19 ng-click = "tomfn(bibliography.id)"-->
 
-          <span class="indent">
-                  <a href="/bibliographies/{{bibliography.id}}"
-                     class="button tiny 5 radius"
-                     data-remote="true">Show
-                  </a>
-                </span>
+          <span>
+              <a href="bibliographies/{{bibliography.id}}"
+                 class="button tiny skeptics-btn-three"
+                 data-remote="true" >Show
+              </a>
+          </span>
 
-      <span class="indent">
+      <span>
         <a href="/bibliographies/{{bibliography.id}}/edit"
+           data-tom ="{{bibliography.id}}"
            data-remote="true"
-           class="button secondary tiny 5 radius">
-          Edit
+
+           ng-click = "tomfn(bibliography.id)"
+           class="button secondary tiny skeptics-btn-three">
+         <span>Edit</span>
         </a>
       </span>
 
-      <span class="indent">
+      <span>
         <a ng-hide="bibliography.localpdflink== nil"
-           class="button secondary tiny ng-scope"
+           class="button skeptics-btn-three tiny ng-scope"
            href="/assets/{{bibliography.localpdflink}}"
            target="_blank">
           Local pdf
         </a>
       </span>
-      <span class="indent">
-        <a class="button secondary tiny 5 radius"
+      <span>
+        <a class="button skeptics-btn-three tiny 5 radius"
            rel="nofollow"
            data-remote="true"
            data-method="delete"

@@ -36,12 +36,16 @@ SkepticsSpaAngular::Application.routes.draw do
   get "home/timer"
   get "home/templatepickll"
   get "home/templatespiders"
-  get "bibliographies/partial17"
+
+  get "home/partialx"
+  get "home/partialy"
+
+
 
   match '/your_cart' => "carts#your_cart", :as => "your_cart"
   match '/carts/remove/:id' => 'line_items#destroy'
 
-  #match 'your_biblio'  => 'bibliographies#edit', :as => 'your_biblio'
+  #match 'your_biblio'  => 'bibliographies#your_biblio', :as => 'your_biblio'
   #match '/your_show' => "commodities#your_show", :as => "your_show"
 
   # The priority is based upon order of creation:

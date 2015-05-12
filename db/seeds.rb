@@ -8,7 +8,7 @@ Commodity.create(name: 'Pele',
                  description:
                      %{Famous Brazilian footballer, considered by many to be the greatest of all time.
                   },
-                 image_url:   '103_pele.jpg',
+                 image_url: '103_pele.jpg',
                  category: 'Midfielder',
                  price: 5000.0,
                  winner: true,
@@ -19,7 +19,7 @@ Commodity.create(name: 'Gordon Banks',
                  description:
                      %{Famous English goalkeeper, best known for his save from Pele in the 1970 World Cup in Mexico.
                   },
-                 image_url:   '001_banks.jpg',
+                 image_url: '001_banks.jpg',
                  category: 'Goalkeeper',
                  price: 3000.0,
                  winner: true,
@@ -31,7 +31,7 @@ Commodity.create(name: 'Salvatore Schillaci',
                  description:
                      %{Scored six goals during the 1990 World Cup finals, including the one that put Ireland out of the competition
                   },
-                 image_url:   '109_schillaci.jpg',
+                 image_url: '109_schillaci.jpg',
                  category: 'Midfielder',
                  price: 2000.0,
                  winner: false,
@@ -44,7 +44,7 @@ Commodity.create(name: 'Geoff Hurst',
                  description:
                      %{Famous English footballer who scored a hat-trick in the 1966 World Cup final
                   },
-                 image_url:   '095_hurst.jpg',
+                 image_url: '095_hurst.jpg',
                  category: 'Forward',
                  price: 1980.0,
                  winner: true,
@@ -57,7 +57,7 @@ Commodity.create(name: 'Gianluigi Buffon',
                  description:
                      %{Italian goalkeeper. World Cup winner 2006.  Rated by Pele as one of the top 100 players of all time.
                   },
-                 image_url:   '002_buffon.jpg',
+                 image_url: '002_buffon.jpg',
                  category: 'Midfielder',
                  price: 3000.0,
                  winner: true,
@@ -70,7 +70,7 @@ Commodity.create(name: 'Oliver Kahn',
                  description:
                      %{German goalkeeper on the team that won the European Championship in 1996 and that was runner-up in the 2002 World Cup.
                   },
-                 image_url:   '005_kahn.jpg',
+                 image_url: '005_kahn.jpg',
                  category: 'Goalkeeper',
                  price: 2000,
                  winner: false,
@@ -83,7 +83,7 @@ Commodity.create(name: 'Dino Zoff',
                  description:
                      %{Italian goalkeeper who is the oldest ever winner of the World Cup, having captained Italy to victory in Spain in 1982
                   },
-                 image_url:   '010_zoff.jpg',
+                 image_url: '010_zoff.jpg',
                  category: 'Goalkeeper',
                  price: 2000.0,
                  winner: true,
@@ -97,7 +97,7 @@ Commodity.create(name: 'Roger Milla',
                  description:
                      %{Roger Milla played in three World Cups for the Cameroon national team, achieving international fame at the age of 38 mainly for his performances  at the 1990 FIFA World Cup where he scored four goals.
                   },
-                 image_url:   '101_milla.jpg',
+                 image_url: '101_milla.jpg',
                  category: 'Forward',
                  price: 200.0,
                  winner: false,
@@ -110,7 +110,7 @@ Commodity.create(name: 'Miroslav Klose',
                  description:
                      %{German striker who is top scorer ever in the FIFA World Cup, having scored 16 goals in total. World Cup Winner 2014.  Golden Boot 2006.
                   },
-                 image_url:   '098_klose.jpg',
+                 image_url: '098_klose.jpg',
                  category: 'Forward',
                  price: 30000.0,
                  winner: true,
@@ -123,7 +123,7 @@ Commodity.create(name: 'Gerhard Muller',
                  description:
                      %{Prolific German striker who scored many memorable FIFA World Cup goals, including the one that knocked England out of the 1970 World Cup in Mexico.  World Cup winner 1974.
                   },
-                 image_url:   '102_muller.jpg',
+                 image_url: '102_muller.jpg',
                  category: 'Forward',
                  price: 200000.0,
                  winner: true,
@@ -136,7 +136,7 @@ Commodity.create(name: 'Franco Baresi',
                  description:
                      %{Italian defender.  FIFA World Cup winner in 1982.  Considered to be one of the game's greatest defenders.
                   },
-                 image_url:   '015_baresi.jpg',
+                 image_url: '015_baresi.jpg',
                  category: 'Defender',
                  price: 9000.0,
                  winner: true,
@@ -149,7 +149,7 @@ Commodity.create(name: 'Bobby Moore',
                  description:
                      %{Captain of the England FIFA World Cup winning side of 1966.  Outstanding defender both for England and for West Ham, his club.
                   },
-                 image_url:   '035_moore.jpg',
+                 image_url: '035_moore.jpg',
                  category: 'Defender',
                  price: 1066,
                  winner: true,
@@ -163,7 +163,7 @@ Commodity.create(name: 'Ossie Ardiles',
                      %{Ossie Ardiles won the FIFA World cup with Argentina in 1978, playing in midfield.  He also managed Tottenham Hotspur in the 1990s, where he was estremely popular with fans due to his attacking football philosophy.  He worked for RTE during the recent World Cup in Brazil.
 
                   },
-                 image_url:   '051_ardiles.jpg',
+                 image_url: '051_ardiles.jpg',
                  category: 'Midfielder',
                  price: 5000.0,
                  winner: true,
@@ -176,7 +176,7 @@ Commodity.create(name: 'Bobby Charlton ',
                  description:
                      %{England midfielder who won the FIFA World Cup in 1966.  Considered by many to be the greatest English footballer of all time.
                   },
-                 image_url:   '055_charlton.jpg',
+                 image_url: '055_charlton.jpg',
                  category: 'Midfielder',
                  price: 6234.0,
                  winner: true,
@@ -189,7 +189,7 @@ Commodity.create(name: 'Paul Breitner',
                  description:
                      %{Paul Breitner won the FIFA World Cup with Germany in 1974 where he scored in the final.  He is considered one of the greatest German players of all time.
                   },
-                 image_url:   '020_breitner.jpg',
+                 image_url: '020_breitner.jpg',
                  category: 'Defender',
                  price: 3454.0,
                  winner: true,
@@ -202,7 +202,7 @@ Commodity.create(name: 'Franz Beckenbauer',
                  description:
                      %{Franz Beckenbauer is a German football coach, manager, and former player, nicknamed Der Kaiser.  He is regarded as the greatest German footballer of all time.  He is one of only two men, along with Brazil's Mario Zagallo, to have won the World Cup both as a player and as a coach, having won the World Cup as a player in 1974 and as a coach in 1990.
                   },
-                 image_url:   '016_beckenbauer.jpg',
+                 image_url: '016_beckenbauer.jpg',
                  category: 'Defender',
                  price: 34590.0,
                  winner: true,
@@ -215,7 +215,7 @@ Commodity.create(name: 'Michel Platini',
                  description:
                      %{Michel Francois Platini  is a  French footballer  and manager, and the president of the Union of European Football Associations (UEFA) since 2007.  He won the Ballon d'Or three times, in 1983, 1984 and 1985.
                   },
-                 image_url:   '076_platini.jpg',
+                 image_url: '076_platini.jpg',
                  category: 'Midfielder',
                  price: 40999.0,
                  winner: true,
@@ -228,7 +228,7 @@ Commodity.create(name: 'Paolo Maldini',
                  description:
                      %{Paolo Maldini is a retired Italian footballer who spend all his career (25 seasons) at a single club, AC Milan.  Played for Italy in the 1990 World Cup.
                   },
-                 image_url:   '034_maldini.jpg',
+                 image_url: '034_maldini.jpg',
                  category: 'Defender',
                  price: 88890.0,
                  winner: false,
@@ -240,7 +240,7 @@ Commodity.create(name: 'Carles Puyol ',
                  description:
                      %{Carles Puyol is a  Spanish footballer who was a member of the Spanish team that were European Champions in 2008 and World Champions in 2010.
                   },
-                 image_url:   '040_puyol.jpg',
+                 image_url: '040_puyol.jpg',
                  category: 'Defender',
                  price: 324567.0,
                  winner: true,
@@ -253,7 +253,7 @@ Commodity.create(name: 'George Cohen',
                  description:
                      %{George Cohen was right full-back on the England team that won the FIFA World Cup in 1966.  His entire career was spent at a single club, Fulham.
                   },
-                 image_url:   '026_cohen.jpg',
+                 image_url: '026_cohen.jpg',
                  category: 'Defender',
                  price: 334433.0,
                  winner: true,
@@ -266,7 +266,7 @@ Commodity.create(name: 'Romario',
                  description:
                      %{Romario is a former Brazilian footballer  renowned for his clinical finishing.  He won the World Cup with Brazil in 1994, receiving the Golden Ball as player of the tournament.
                   },
-                 image_url:   '105_romario.jpg',
+                 image_url: '105_romario.jpg',
                  category: 'Forward',
                  price: 234554.0,
                  winner: true,
@@ -279,7 +279,7 @@ Commodity.create(name: 'Andrea Pirlo',
                  description:
                      %{Pirlo is the fourth-most capped player in the history of the Italian national team, along with Dino Zoff, with 112 caps.  Won the FIFA World Cup with Italy in 2006, where his creative midfield play was a critical factor in Italian success.
                   },
-                 image_url:   '075_pirlo.jpg',
+                 image_url: '075_pirlo.jpg',
                  category: 'Midfielder',
                  price: 44444.0,
                  winner: true,
@@ -292,7 +292,7 @@ Commodity.create(name: 'Johan Neeskens',
                  description:
                      %{Johan Neeskens is a Dutch football player who was a member of the Dutch national team that finished as runners-up in the 1974 and 1978 FIFA World Cups.  He is widely regarded as one of the most creative midfielders of all time.
                   },
-                 image_url:   '073_neeskens.jpg',
+                 image_url: '073_neeskens.jpg',
                  category: 'Midfielder',
                  price: 3344477.0,
                  winner: false,
@@ -305,7 +305,7 @@ Commodity.create(name: 'Gheorghe Hagi',
                  description:
                      %{Gheorghe Hagi  is is considered the greatest Romanian footballer of all time, known in Romania as  'Regele' (The King).  Failed to score against Ireland in Italia 1990.
                   },
-                 image_url:   '067_hagi.jpg',
+                 image_url: '067_hagi.jpg',
                  category: 'Midfielder',
                  price: 333333.0,
                  winner: false,
@@ -318,7 +318,7 @@ Commodity.create(name: 'Andres Iniesta',
                  description:
                      %{ Andres Iniesta is a Spanish professional footballer who plays for Barcelona and the Spain national team as a central midfielder.  Iniesta was a member of the Spanish teams that won the European championship in 2006 and the  FIFA World Cup in 2010.
                   },
-                 image_url:   '068_iniesta.jpg',
+                 image_url: '068_iniesta.jpg',
                  category: 'Midfielder',
                  price: 89099.0,
                  winner: true,
@@ -407,7 +407,15 @@ Bibliography.create(
     volume: 39,
 
     pages: '98-101',
-    url: 'http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=1631955&queryText%3DSimplifying+Ajax-Style+Web+Development'
+    url: 'http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=1631955&queryText%3DSimplifying+Ajax-Style+Web+Development',
+    abstract: 'Conventional browser-based Web applications require the user to submit a request to the server,'+
+        ' wait for the server to process the request and generate a response, and then wait for the browser to update the interface with the results.'+
+        ' This request-wait-response-wait pattern is extremely disruptive and lowers productivity. High network latency and interface complexity and '+
+        'slow server responsiveness can further impair the user experience, resulting in decreased customer satisfaction, shorter and less frequent Web site visits,'+
+        ' and, ultimately, reduced revenue to e-businesses. In this article the author describes **asynchronous JavaScript and XML**,'+
+        ' a standards-based programming technique designed to make Web-based applications more responsive, interactive, and customizable '+
+        ' - in short, to recreate the seamless user experience of most other desktop applications.'+
+        'see [here](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=1631955&queryText%3DSimplifying+Ajax-Style+Web+Development)'
 
 )
 
@@ -802,7 +810,6 @@ Bibliography.create(
 )
 
 
-
 #35...
 Bibliography.create(
     firstsurname: 'Protractor',
@@ -1113,7 +1120,7 @@ Bibliography.create(
 Bibliography.create(
     firstsurname: 'Garrett',
     authors: %{Garrett, J.J.},
-    year:  2005,
+    year: 2005,
     publication: 'Internet',
     title: 'Ajax: A New Approach to Web Applications',
     accessdate: 'Sept 3rd, 2014',
@@ -1238,7 +1245,7 @@ Bibliography.create(
     journalname: ' Computer Software and Applications Conference (COMPSAC), 2014 IEEE 38th Annual',
     title: 'JavaScript: The Used Parts',
     pages: '466-475',
-    localpdflink:'gude_Hafiz_2014_js_used_parts.pdf',
+    localpdflink: 'gude_Hafiz_2014_js_used_parts.pdf',
     url: 'http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=1631955&queryText%3DSimplifying+Ajax-Style+Web+Development'
 
 )
@@ -1247,27 +1254,27 @@ Bibliography.create(
 Bibliography.create(
     firstsurname: "Lovrenčić",
     authors: "Lovrenčić, A., Konecki, M. & Orehovački,T ",
-    year:2009,
-    volume:"33",
-    publication:"Journal",
-    comment:"pdf",
+    year: 2009,
+    volume: "33",
+    publication: "Journal",
+    comment: "pdf",
     journalname: "JIOS",
-    localpdflink:"Lovrencic_50yr_program_lang.pdf",
+    localpdflink: "Lovrencic_50yr_program_lang.pdf",
     pages: '79-150',
-    title:"1957-2007: 50 Years of Higher Order Programming Languages",
-    url:"https://bib.irb.hr/datoteka/377471.Lovrencic_Konecki_Orehovacki.pdf"
+    title: "1957-2007: 50 Years of Higher Order Programming Languages",
+    url: "https://bib.irb.hr/datoteka/377471.Lovrencic_Konecki_Orehovacki.pdf"
 
 )
 #61 ...
 Bibliography.create(
-    firstsurname:"Time",
-    authors:"Time(Anonymous)",
-    year:2014,
-    journalname:"Time",
-    volume:"April 29, 2014",
-    publication:"Journal",
-    title:"Fifty Years of BASIC, the Programming Language That Made Computers Personal",
-    url:"http://time.com/69316/basic/"
+    firstsurname: "Time",
+    authors: "Time(Anonymous)",
+    year: 2014,
+    journalname: "Time",
+    volume: "April 29, 2014",
+    publication: "Journal",
+    title: "Fifty Years of BASIC, the Programming Language That Made Computers Personal",
+    url: "http://time.com/69316/basic/"
 
 )
 
@@ -1296,3 +1303,193 @@ Bibliography.create(
     url: 'http://www.flaticon.com/'
 
 )
+
+Bibliography.create(
+    firstsurname: 'johnson',
+    authors: %{Johnson, C [Stackoverflow]},
+    year: 2012,
+    publication: 'Internet',
+    title: 'What are the differences between Mustache.js and Handlebars.js?',
+    accessdate: 'Jan 23rd, 2015',
+    comment: 'question',
+    url: 'http://stackoverflow.com/q/10555820/499167',
+    abstract: '*Handlebars adds #if, #unless, #with, and #each'+
+        '*Handlebars is 2 to 7 times faster'+
+        '*Mustache is missing helpers and the more advanced blocks because it strives to be logicless'+
+        '*Handlebars\' custom helpers can be very useful, but often end up introducing logic into your templates'+
+        '*!! Mustache has interpreters in many languages, while Handlebars is Javascript only.'+
+        'see also [here](http://stackoverflow.com/q/10555820/499167)'
+
+)
+
+    Bibliography.create(
+        firstsurname: 'jaeyong',
+        authors: %{jaeyong [Stackoverflow]},
+        year: 2012,
+        publication: 'Internet',
+        title: 'Google MAP API Uncaught TypeError: Cannot read property \'offsetWidth\' of nulls?',
+        accessdate: 'Jan 26rd, 2015',
+        comment: 'question',
+        url: 'http://stackoverflow.com/q/11740663/499167'
+
+    )
+
+Bibliography.create(
+    firstsurname: 'dowling',
+    authors: %{Dowling, T [Stackoverflow]},
+    year: 2012,
+    publication: 'Internet',
+    title: 'Do fish break a water molecule to absorb oxygen?',
+    accessdate: 'Jan 26rd, 2015',
+    comment: 'answer',
+    url: 'http://biology.stackexchange.com/a/3520/1136'
+
+)
+
+Bibliography.create(
+    firstsurname: 'dowling',
+    authors: %{Dowling, T [Stackoverflow]},
+    year: 2012,
+    publication: 'Internet',
+    title: 'Is there any use of CO₂ in human body?',
+    accessdate: 'Jan 26rd, 2015',
+    comment: 'answer',
+    url: 'http://biology.stackexchange.com/a/10001/1136'
+
+)
+
+Bibliography.create(
+    firstsurname: 'dowling',
+    authors: %{Dowling, T [StackExchange]},
+    year: 2012,
+    publication: 'Internet',
+    title: 'Elegant way to map a function to only the last element of each sublist [duplicate]?',
+    accessdate: 'Jan 26rd, 2015',
+    comment: 'answer',
+    url: 'http://mathematica.stackexchange.com/a/8052/106'
+
+)
+
+Bibliography.create(
+    firstsurname: 'dowling',
+    authors: %{Dowling, T [StackExchange]},
+    year: 2012,
+    publication: 'Internet',
+    title: 'How to apply or map a list of functions to a list of data?',
+    accessdate: 'Jan 26rd, 2015',
+    comment: 'answer',
+    url: 'http://mathematica.stackexchange.com/a/3862/106'
+
+)
+
+Bibliography.create(
+    firstsurname: 'dowling',
+    authors: %{Dowling, T [StackExchange]},
+    year: 2012,
+    publication: 'Internet',
+    title: 'How do we solve N-Rooks variation using primes?',
+    accessdate: 'Jan 26rd, 2015',
+    comment: 'answer',
+    url: 'http://mathematica.stackexchange.com/a/13863/106'
+
+)
+
+Bibliography.create(
+    firstsurname: 'Sankar',
+    authors: %{Sankar, S [StackOverflow]},
+    year: 2011,
+    publication: 'Internet',
+    title: 'Adding parameter to ng-click function inside ng-repeat, seems not to work',
+    accessdate: 'Feb 1st, 2015',
+    comment: 'answer',
+    url: 'http://stackoverflow.com/a/17039960/499167'
+
+)
+
+Bibliography.create(
+    firstsurname: 'DeWitt',
+    authors: %{DeWitt, T [StackOverflow]},
+    year: 2011,
+    publication: 'Internet',
+    title: 'What does the j function in Rails do?',
+    accessdate: 'Feb 1st, 2015',
+    comment: 'answer',
+    url: 'http://stackoverflow.com/q/12518526/499167'
+
+)
+
+Bibliography.create(
+    firstsurname: 'kikito',
+    authors: %{kikito [StackOverflow]},
+    year: 2009,
+    publication: 'Internet',
+    title: 'Why escape_javascript before rendering a partial?',
+    accessdate: 'Feb 1st, 2015',
+    comment: 'answer',
+    url: 'http://stackoverflow.com/a/1623813/499167'
+
+)
+
+
+Bibliography.create(
+    firstsurname: 'Heilmann',
+    authors: %{Heilmann, C.},
+    year: 2011,
+    publication: 'Internet',
+    title: 'On single page apps',
+    accessdate: 'Feb 1st, 2015',
+    comment: 'blog',
+    url: 'http://christianheilmann.com/2011/12/28/on-single-page-apps/'
+
+)
+
+
+Bibliography.create(
+    firstsurname: 'Gruber',
+    authors: %{Gruber, J.},
+    year: 2015,
+    publication: 'Internet',
+    title: 'Markdown (Daring Fireball Website)',
+    accessdate: 'Feb 1st, 2015',
+    comment: 'homepage',
+    url: 'http://daringfireball.net/projects/markdown/'
+
+)
+
+Bibliography.create(
+    firstsurname: 'Terratakashi',
+    authors: %{Terratakashi's Blog},
+    year: 2014,
+    publication: 'Internet',
+    title: 'Use different rvm gemset for rails app on apache server(passenger module)',
+    accessdate: 'Feb 22nd, 2015',
+    comment: 'homepage',
+    url: 'http://terratakashi.logdown.com/posts/190823-use-different-rvm-gemset-for-rails-app-on-apache-server'
+
+)
+
+
+Bibliography.create(
+    firstsurname: 'Ellingwood',
+    authors: %{Ellingwood,J},
+    year: 2014,
+    publication: 'Internet',
+    title: 'How To Set Up Apache Virtual Hosts on Ubuntu 14.04 LTS',
+    accessdate: 'Feb 22nd, 2015',
+    comment: 'homepage',
+    url: 'https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts'
+
+)
+
+Bibliography.create(
+    firstsurname: 'henry',
+    authors: %{henry [StackOverflow]},
+    year: 2014,
+    publication: 'Internet',
+    title: 'Can\'t Connect localhost:3000 Ruby on Rails in Vagrant',
+    accessdate: 'Feb 22nd, 2015',
+    comment: 'homepage',
+    url: 'http://stackoverflow.com/q/27627286/499167'
+
+)
+

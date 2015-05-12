@@ -1,4 +1,8 @@
 class BibliographiesController < ApplicationController
+
+
+
+
   # GET /bibliographies
   # GET /bibliographies.json
   def index
@@ -37,11 +41,18 @@ class BibliographiesController < ApplicationController
   # GET /bibliographies/1/edit
   def edit
     @bibliography = Bibliography.find(params[:id])
+
     respond_to do |format|
       format.html
       format.js
       format.json { render json: @bibliography }
     end
+  end
+
+  def your_biblio
+
+    redirect_to '/#/view17'
+
   end
 
   # POST /bibliographies
@@ -80,8 +91,9 @@ class BibliographiesController < ApplicationController
   # DELETE /bibliographies/1
   # DELETE /bibliographies/1.json
   def destroy
-    @bibliography = Bibliography.find(params[:id])
-    @bibliography.destroy
+
+    Bibliography.find(params[:id]).destroy
+
 
     respond_to do |format|
       format.html { redirect_to '/#view16' }

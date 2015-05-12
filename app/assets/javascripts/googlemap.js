@@ -7,7 +7,7 @@ function InitializeMap() {
         zoom: 15,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        disableDefaultUI: true
+        disableDefaultUI: false
     };
     map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
 }

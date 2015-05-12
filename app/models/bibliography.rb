@@ -29,15 +29,22 @@
 
 class Bibliography < ActiveRecord::Base
 
-  attr_accessible :abstract, :accessdate, :authors, :city, :comment, :conferencetitle, :edition, :editors, :firstsurname, :isbn, :journalname, :localpdflink, :pages, :publication, :publisher, :title, :url, :volume, :websitetitle, :year
+  attr_accessible :abstract, :accessdate, :authors, :city, :comment,
+                  :conferencetitle, :edition, :editors, :firstsurname,
+                  :isbn, :journalname, :localpdflink, :pages, :publication,
+                  :publisher, :title, :url, :volume, :websitetitle, :year
 
-  PUBLICATION_TYPES = ['Journal', 'Book', 'Internet']
+  PUBLICATION_TYPES = ['Journal', 'Book', 'Internet', 'Thesis']
 
   scope :journal, -> {where("publication = ?","Journal")}
   scope :internet, -> {where("publication = ?","Internet")}
   scope :book, -> {where("publication = ?","Book")}
-  scope :localstore, -> {where("localpdflink = ?","*.pdf")}
+  scope :thesis, -> {where("publication = ?","Thesis")}
 
+  validates :authors,
+            :title,
+            :firstsurname,
+            :presence => true
 
   def previous
     Bibliography.where(["id < ?", id]).last

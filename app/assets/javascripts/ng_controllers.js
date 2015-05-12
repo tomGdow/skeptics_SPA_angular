@@ -12,7 +12,9 @@ angular.module('myApp.controllers', [
     "com.2fdevs.videogular.plugins.controls",
     "com.2fdevs.videogular.plugins.buffering",
     "com.2fdevs.videogular.plugins.overlayplay",
-    "com.2fdevs.videogular.plugins.poster",'ui.utils'
+    "com.2fdevs.videogular.plugins.poster",
+	'ui.utils',
+	'youtube-embed'
 ])
 
     .run(function ($rootScope) {
@@ -67,9 +69,11 @@ angular.module('myApp.controllers', [
         $rootScope.toggleview15 = true; //Ajax 'bottleneck'
 
     })
-    .controller('MyCtrlIndex', ['$scope', '$rootScope', '$http', 'theTimeNowService', '_', 'focus',
-	  '$location', '$sce', function ($scope, $rootScope, $http, theTimeNowService, _, focus,
-                                         $location, $sce) {
+    .controller('MyCtrlIndex', ['$scope', '$rootScope', '$http',
+	            'theTimeNowService', '_', 'focus', '$location', '$sce',
+	  function ($scope, $rootScope, $http, theTimeNowService, _, focus,
+                $location, $sce) {
+
         //====INDEX PAGE CONTROLLER====
 
         $rootScope.littleCart = true;
@@ -338,6 +342,8 @@ angular.module('myApp.controllers', [
                 return this.toggleLatLongCaption = true;
             }
         };
+
+		//==== On focus
         $scope.onFocus = function () {
             this.showToggleButton = false;
             this.toggleLatLongCaption = false;
@@ -387,11 +393,13 @@ angular.module('myApp.controllers', [
         $scope.hideTheTimer = function () {
             return $scope.showtimer = false;
         };
+
+
     }])
     .controller('MyCtrl1',['$scope','$http', 'chartsService', 'imgService',
 	                       'flexsliderService', 'functionsService',
 	  function ($scope, $http, chartsService, imgService,
-                                     flexsliderService, functionsService) {
+                flexsliderService, functionsService) {
 
         //====CONTROLLER FOR PARTIAL ONE ====
 
@@ -473,11 +481,12 @@ angular.module('myApp.controllers', [
         functionsService.addClassOnMouseOut("class1", 'myPartialCart',
             'totalPrice_cartPartial', 'detailedCartIcon');
 
-
-    }])
+	  }])
     .controller('MyCtrl2', ['$scope','videoService', '$sce', 'functionsService',
 	  function ($scope, videoService, $sce, functionsService) {
+
         //====CONTROLLER FOR PARTIAL TWO====
+
         //==== Videogular ====
         //see  http://videogular.com/
 
@@ -529,7 +538,7 @@ angular.module('myApp.controllers', [
             }
         };
         $scope.style = function (arg) {
-            if (arg === 1) {
+            if (arg === 1) {                              rfv
                 return {
                     'height': $scope.config.height + 'px'
                 };
@@ -661,9 +670,11 @@ angular.module('myApp.controllers', [
         $scope.animgifs = { "pickll": "pickll"};
 
     }])
-    .controller('MyCtrl3', ['$scope', '$http', 'instagram', 'functionsService', function ($scope, $http, instagram, functionsService) {
+    .controller('MyCtrl3', ['$scope', '$http', 'instagram', 'functionsService',
+	  function ($scope, $http, instagram, functionsService) {
 
         //====CONTROLLER FOR PARTIAL THREE====
+
         //===Instagram Feeds
         //Modified from http://tutorialzine.com/2013/08/learn-angularjs-5-examples/
         //See also http://techslides.com/angular-js-demos-examples-and-resources/
@@ -689,8 +700,7 @@ angular.module('myApp.controllers', [
     }])
     .controller('MyCtrl4', ['$scope', '$http', 'imgService',
 	  'dublinSliderService', 'functionsService', 'googleService', '$timeout',
-	  function ($scope, $http, imgService,
-                                    dublinSliderService, functionsService, googleService, $timeout) {
+	  function ($scope, $http, imgService, dublinSliderService, functionsService, googleService, $timeout) {
 
         //====CONTROLLER FOR PARTIAL FOUR====
         //(Sixties Dublin)
@@ -914,9 +924,9 @@ angular.module('myApp.controllers', [
         $scope.productUpdatedAt = "Updated At";
         $scope.productid = "Id (low first)";
         $scope.productid2 = "Id (high first)";
-        $scope.myFirstName = function (string) {
+       /* $scope.myFirstName = function (string) {
             return string.split(' ')[0];
-        };
+        };*/
         $scope.checked = false;
 
         $scope.myFirstName = function (string) {
@@ -974,6 +984,7 @@ angular.module('myApp.controllers', [
             //==Automatic focus on search input box
             focus('focusMe');
 
+
 	        $scope.myFirstName = function (string) {
 
 		        return functionsService.makeFirstName(string);
@@ -1000,10 +1011,12 @@ angular.module('myApp.controllers', [
         }
     ])
     .controller('MyCtrl8', ['$scope', 'imgService', '$http', 'allIrelandDataService', 'functionsService',
-        function ($scope, imgService, $http, allIrelandDataService, functionsService) {
+	                        'mychartsService', function ($scope, imgService, $http, allIrelandDataService,
+	                                                     functionsService, mychartsService) {
 
             //====CONTROLLER FOR PARTIAL EIGHT====
             //(Blog Menu Item)
+
             $scope.viewEightMessage = "Blog Page";
 
             //==tab View
@@ -1056,33 +1069,13 @@ angular.module('myApp.controllers', [
                 gaaColor.waterford, gaaColor.others
             ]);
 
-            function AllIrelandWinners($id, $data, $text, $customColorSet) {
-                var chart = new CanvasJS.Chart($id, {
-                    theme: "theme1",
-                    colorSet: $customColorSet,
-                    title: {
-                        text: $text,
-                        fontWeight: "bolder",
-                        fontColor: "#0D8AAA",
-                        fontSize: 20,
-                        padding: 0
-                    },
-                    data: [{
-                        type: "doughnut",
-                        indexLabelPlacement: "outside",
-                        showInLegend: false,
-                        dataPoints: $data
-                    }]
-                });
-                chart.render();
-            }
-            AllIrelandWinners(
+	        mychartsService.doughnutChart(
                 "chartContainer_1",
                 allIrelandDataService.footballers,
                 "Football All Ireland Winners",
                 "customColorSet1"
             );
-            AllIrelandWinners(
+	        mychartsService.doughnutChart(
                 "chartContainer_2",
                 allIrelandDataService.hurlers,
                 "Hurling All Ireland Winners",
@@ -1106,6 +1099,7 @@ angular.module('myApp.controllers', [
     ])
     .controller('MyCtrl10', ['$scope',
         function ($scope) {
+
             //====CONTROLLER FOR Commodities/Edit ====
             $scope.viewMessgeTen = "Editing commodity";
         }
@@ -1117,8 +1111,10 @@ angular.module('myApp.controllers', [
             $scope.viewMessageEleven = "yourCart";
         }
     ])
-    .controller('MyCtrl12',['$scope', '$http', '$sce', 'functionsService', '$location', '$rootScope',
+    .controller('MyCtrl12',['$scope', '$http', '$sce',
+	                        'functionsService', '$location', '$rootScope',
     function ($scope, $http, $sce, functionsService, $location, $rootScope) {
+
         //====CONTROLLER FOR PARTIAL TWELVE====
         //====Detailed Cart
         //!!empty cart button won't render unless SCE method used
@@ -1146,7 +1142,9 @@ angular.module('myApp.controllers', [
     }])
     .controller('MyCtrl13',['$scope', '$http', 'dribbleService', 'functionsService',
     function ($scope, $http, dribbleService, functionsService) {
+
         //====CONTROLLER FOR PARTIAL THIRTEEN====
+
         //====Dribble
         $scope.viewMessageThirteen = "Dribbble";
         $scope.showAjaxLoader2 = true;
@@ -1163,6 +1161,7 @@ angular.module('myApp.controllers', [
     function ($scope, $http, focus, $rootScope, User) {
 
         //====CONTROLLER FOR PARTIAL FOURTEEN====
+
         //====User Data
         $rootScope.littleCart = true;
         $rootScope.toggleProductsNav = false;
@@ -1291,6 +1290,7 @@ angular.module('myApp.controllers', [
 		  $scope.productid2 = "Id (high first)";
 		  $scope.publicationtype = "Publication Type";
 		  $scope.toggleBiblioPanel=false;
+
 		  $http.get('../bibliographies.json').success(
 		    function (data, status) {
 			    $scope.bibliographies = data;
@@ -1330,29 +1330,85 @@ angular.module('myApp.controllers', [
 		  };
 
 
+	/*	  $scope.$watch('anattempt', function(){
+			  alert('I have changed begod')
+
+		  }, true);*/
+
+		 $scope.tomfn = function (arg) {
+
+			 $rootScope.workie = arg
+		 };
+
+
 	  }])
   .controller('MyCtrl17', ['$scope','$rootScope', '$http', '$sce',
 	  function ($scope, $rootScope, $http,$sce) {
 
-		  //====CONTROLLER FOR Commodities/Edit ====
+		  //====CONTROLLER FOR Bibliographies/Edit ====
 		  $scope.viewSeventeenMessage = "Editing Bibliography";
 		  $rootScope.toggleProductsNav = false;
 
+		  var tryme ='bibliographies/' +  $rootScope.workie.toString() + '/edit';
+
+		  $http.get(tryme).success(
+		    function (data, status) {
+			    $scope.ediit = data;
+
+			    $scope.trustedHtml = $sce.trustAsHtml($scope.ediit);
+
+		    }
+		  );
+
+
+		  $scope.convertMarkdownToHtml = function () {
+
+			  var text = angular.element('#bibliography_abstract').val();
+			  var converter = new Showdown.converter();
+			  var html = converter.makeHtml(text);
+
+			  angular.element('#abstract_markdown').html(html);
+		  };
+
+		  $scope.$watch('myabstract', function(){
+			  $scope.convertMarkdownToHtml();
+
+		  }, true);
 	  }
 
   ])
   .controller('MyCtrl18', ['$scope', '$rootScope',
 	  function ($scope, $rootScope) {
 
-		  //====CONTROLLER FOR Commodities/new ====
+		  //====CONTROLLER FOR Bibliographies/new ====
 		  $rootScope.toggleProductsNav = false;
-		  $scope.viewEighteenMessage = 'New Bibliography Entryyy';
+		  $scope.viewEighteenMessage = 'New Bibliography Entry';
 
 		  angular.element("#bibliography_accessdate").mouseover(function() {
 			  angular.element('#bibliography_accessdate').datepicker({
 				  dateFormat: 'DD, d  MM, yy'
 			  });
 		  });
+		 /* $rootScope.thomas ="hello";*/
+
+		   $scope.convertMarkdownToHtml = function () {
+
+			  var text = angular.element('#bibliography_abstract').val();
+			  var converter = new Showdown.converter();
+			  var html = converter.makeHtml(text);
+
+			  angular.element('#abstract_markdown').html(html);
+		  };
+
+		  $scope.$watch('myabstract', function(){
+			  $scope.convertMarkdownToHtml();
+
+		  }, true);
+
+		  /*$scope.$watch('anattempt', function(){
+			alert('I have changed begod')
+
+		  }, true);*/
 	  }
   ]);
 
@@ -1376,3 +1432,31 @@ angular.module('myApp.controllers', [
 
  return $scope.commodities = angular.fromJson(commodities);
  };*/
+
+
+/*
+.controller('MyCtrl19', ['$scope','$rootScope', '$http', '$sce',
+	function ($scope, $rootScope, $http, $sce) {
+
+		//====CONTROLLER FOR Bibliographies/Show ====
+		$scope.viewNinteenMessage = "Show Biblio Ctrl19 message";
+		$rootScope.toggleProductsNav = false;
+
+		var showme ='bibliographies/' +  $rootScope.workie.toString();
+		$scope.tomfn = function (arg) {
+
+			$rootScope.workie = arg
+		};
+		$http.get(showme).success(
+		  function (data, status) {
+			  $scope.myshow = data;
+
+			  $scope.trustedHtml = $sce.trustAsHtml($scope.myshow);
+
+		  }
+		);
+
+
+	}
+
+]);*/

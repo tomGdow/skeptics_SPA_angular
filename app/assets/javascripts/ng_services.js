@@ -417,4 +417,44 @@ angular.module('myApp.services', []).
 			  return user;
 		  }
 	  }
+  }).factory('mychartsService',function (){
+
+	  return {
+		  doughnutChart: function ($id, $data, $text, $customColorSet) {
+		  var chart = new CanvasJS.Chart($id, {
+			  theme: "theme1",
+			  colorSet: $customColorSet,
+			  title: {
+				  text: $text,
+				  fontWeight: "bolder",
+				  fontColor: "#0D8AAA",
+				  fontSize: 20,
+				  padding: 0
+			  },
+			  data: [{
+				  type: "doughnut",
+				  indexLabelPlacement: "outside",
+				  showInLegend: false,
+				  dataPoints: $data
+			  }]
+		  });
+		  chart.render();
+	  }
+	}
   });
+
+
+/*
+.factory('mySharedService', function ($rootScope) {
+
+	var sharedService = {};
+	sharedService.message ='';
+
+	sharedService.prepForBroadcast = function (msg) {
+		this.message = msg;
+		$rootScope.$broadcast('handleBroadcast')
+	};
+
+	return sharedService;
+
+})*/

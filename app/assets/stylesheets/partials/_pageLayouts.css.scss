@@ -118,6 +118,12 @@ h1 {
   @extend .col-partial10-alt;
 }
 
+.rails_show {
+  @extend .col-partial10-alt;
+  background: white;
+}
+
+
 .col-partial4-b {
   @include vendor-prefix(flex, 3);
   @include vendor-prefix(order, 1);

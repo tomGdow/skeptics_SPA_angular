@@ -1,9 +1,12 @@
-window.location.replace('#/view17');
-$('#ngView').html('<%=j render partial: 'bibliographies/editPartial' %>');
+window.location.assign('#/view17');
+$('#ngVliew').html('<%=j render 'editPartial' %>');
 
-$( "#bibliography_accessdate" ).mouseover(function() {
+$("#bibliography_accessdate" ).mouseover(function() {
     $('#bibliography_accessdate').datepicker({
         dateFormat: 'DD, d  MM, yy'
     });
 });
+
+
+
 

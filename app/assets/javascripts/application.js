@@ -39,8 +39,11 @@
 //= require videogular
 //= require canvasjs.min
 //= require timer.js
-//=require ui-utils.js
-//=require ui-utils-ieshiv.js
+//= require ui-utils.js
+//= require ui-utils-ieshiv.js
+//= require bibliographies
+//= require angular-youtube-embed.js
+
 
 
 

@@ -1,25 +1,36 @@
-<div class="col-partial7">
-  <h4 id="notice"><%= notice %></h4>
-  <h1>I come from Show partial</h1>
-  <%= link_to("| First ", Bibliography.first, class: "button tiny", remote: true) %>
-  <%= link_to("<< Previous", @bibliography.previous,class: "button tiny", remote: true) %>
-  <%= link_to("Next >>", @bibliography.next, class: "button tiny",remote: true) %>
-  <%= link_to("Last |", Bibliography.last, class: "button tiny",remote: true) %>
+<div class="rails_show ">
 
-          <div>Total Number of Refs: <%= Bibliography.count %></div>
-          <div>Total Number of Refs: <%= Bibliography.count %></div>
-  <table>
+  <h4 id="notice"><%= notice %></h4>
+
+  <div class ="flex_center biblio_status_array" >
+    <div>
+      <span class ="indent">Total Number of Refs:</span><span class ="indent"> <%= Bibliography.count %></span>
+      <span class ="indent">(Journals:</span><span class ="indent"><%= Bibliography.journal.count %></span>
+      <span class ="indent">Books:</span> <span class ="indent"><%= Bibliography.book.count %></span>
+      <span class ="indent">Internet: </span><span class="indent"><%= Bibliography.internet.count %>)</span>
+    </div>
+  </div>
+
+  <div class="flex_center button_bar_array ">
+    <%= link_to("| First ", Bibliography.first, class: "button tiny 2 radius skeptics-btn-one", remote: true) %>
+    <%= link_to("<< Previous", @bibliography.previous,class: "button tiny skeptics-btn-one", remote: true) %>
+    <%= link_to("Next >>", @bibliography.next, class: "button tiny skeptics-btn-one",remote: true) %>
+    <%= link_to("Last |", Bibliography.last, class: "button tiny 2 radius skeptics-btn-one",remote: true) %>
+  </div>
+
+   <div class="flex_center">
+  <table width ="80%">
     <thead>
-    <tr>
-      <th width="200">Table Header</th>
-      <th>Table Header</th>
+    <tr >
+      <th width="40%">Property</th>
+      <th width="60%">Value</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>Id</td>
-      <td><%= @bibliography.id %></td>
-    </tr>
+        <tr>
+          <td>Id</td>
+          <td><%= @bibliography.id %></td>
+        </tr>
     <% unless @bibliography.firstsurname.nil? || @bibliography.firstsurname == "" %>
         <tr>
           <td>Surname (First Author)</td>
@@ -38,7 +49,6 @@
           <td><%= @bibliography.year %></td>
         </tr>
     <% end %>
-
     <% unless @bibliography.title.nil? || @bibliography.title == "" %>
         <tr>
           <td>Title</td>
@@ -52,7 +62,6 @@
           <td><%= @bibliography.journalname %></td>
         </tr>
     <% end %>
-
     <% unless @bibliography.publication.nil? || @bibliography.publication == "" %>
         <tr>
           <td>Publication Type</td>
@@ -154,7 +163,7 @@
     <% unless @bibliography.abstract.nil? || @bibliography.abstract == "" %>
         <tr>
           <td>Abstract</td>
-          <td><%= @bibliography.abstract %></td>
+          <td id ="showAsMarkDown"><%= @bibliography.abstract %></td>
         </tr>
     <% end %>
 
@@ -167,13 +176,15 @@
       <td>Updated At</td>
       <td><%= @bibliography.updated_at.strftime("%d %b. %Y") %></td>
     </tr>
-
     </tbody>
   </table>
+   </div>
+    <div class="flex_center">
+      <%= link_to 'Edit', edit_bibliography_path(@bibliography),
+              remote: true,
+              class: "button tiny 5 radius skeptics-btn-one" %>
 
-
-  <%= link_to 'Edit', edit_bibliography_path(@bibliography) %> |
-  <%= link_to 'Back', bibliographies_path %>
-
-
+      <a href="#/view16" class ="button tiny 5 radius skeptics-btn-one">Back</a>
+    </div>
 </div>
+
