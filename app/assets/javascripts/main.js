@@ -1,14 +1,14 @@
- //flexslider
+//flexslider
 
 
 /*$(window).load(function(){
-    $('.flexslider').flexslider({
+	$('.flexslider').flexslider({
 
-        start: function(slider){
-            $('body').removeClass('loading');
-        }
-    });
-});*/
+	start: function(slider){
+	$('body').removeClass('loading');
+	}
+	});
+	});*/
 
 
 
